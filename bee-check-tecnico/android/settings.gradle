@@ -1,0 +1,3 @@
+rootProject.name = 'beecheck_tecnico'
+
+include ':app'

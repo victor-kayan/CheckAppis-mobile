@@ -1,0 +1,3 @@
+export const FECTHALL_BY_USER = 'FECTHALL';
+export const LOADING_APIARIO = 'LOADING_APIARIO';
+
