@@ -23,7 +23,6 @@ import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 import {
   RemoveDialog,
   HeaderCustom,
-  HeaderCard,
   SpinnerCustom
 } from "../../../componentes";
 import {
@@ -96,7 +95,6 @@ class Colmeia extends Component {
         <SpinnerCustom visible={loading} />
         <Content padder scrollEnabled={true}>
           <Card>
-            <HeaderCard style={styles.header} icon="list" title="Listagem" />
             <CardItem>
               <Image
                 source={require("../../../../images/apiario.png")}
@@ -137,96 +135,89 @@ class Colmeia extends Component {
               </Picker>
             </CardItem>
           </Card>
-          <Card>
-            <CardItem header>
-              <Text>Listagem de Colmeias</Text>
+          {colmeias && colmeias.length > 0 ? (
+            colmeias.map(colmeia => {
+              return (
+                <SwipeRow
+                  key={colmeia.id}
+                  leftOpenValue={55}
+                  rightOpenValue={-55}
+                  left={
+                    <Button
+                      style={{ backgroundColor: colors.theme_second }}
+                      onPress={() =>
+                        this.props.navigation.navigate("EditColmeia", {
+                          colmeia
+                        })
+                      }
+                    >
+                      <Icon
+                        active
+                        style={{ color: colors.theme_primary }}
+                        type="FontAwesome"
+                        name="edit"
+                      />
+                    </Button>
+                  }
+                  body={
+                    <CardItem>
+                      <Thumbnail
+                        square
+                        size={20}
+                        style={styles.imageColmeia}
+                        source={{
+                          uri: colmeia.foto
+                        }}
+                      />
+                      <View style={{ marginHorizontal: "10%" }}>
+                        <Row>
+                          <Text>{colmeia.nome}</Text>
+                        </Row>
+                        <Row>
+                          <Text numberOfLines={1} note>
+                            {colmeia.descricao}
+                          </Text>
+                        </Row>
+                      </View>
+                    </CardItem>
+                  }
+                  right={
+                    <Button
+                      danger
+                      onPress={() =>
+                        this.setState({ dialogVisible: true, colmeia })
+                      }
+                    >
+                      <Icon active name="trash" />
+                    </Button>
+                  }
+                />
+              );
+            })
+          ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
+            <Text style={{ margin: 20, color: "#444444" }}>
+              Primeiro selecione um apiario
+            </Text>
+          ) : (
+            <CardItem>
+              <Left>
+                <Text>Nenhuma colmeia cadastrada</Text>
+              </Left>
+              <Right>
+                <Icon
+                  onPress={() => this.props.navigation.navigate("NewColmeia")}
+                  style={{ color: colors.btn_success }}
+                  active
+                  type="FontAwesome"
+                  name="plus"
+                />
+              </Right>
             </CardItem>
-            {colmeias && colmeias.length > 0 ? (
-              colmeias.map(colmeia => {
-                return (
-                  <SwipeRow
-                    key={colmeia.id}
-                    leftOpenValue={55}
-                    rightOpenValue={-55}
-                    left={
-                      <Button
-                        style={{ backgroundColor: colors.theme_second }}
-                        onPress={() =>
-                          this.props.navigation.navigate("EditColmeia", {
-                            colmeia
-                          })
-                        }
-                      >
-                        <Icon
-                          active
-                          style={{ color: colors.theme_primary }}
-                          type="FontAwesome"
-                          name="edit"
-                        />
-                      </Button>
-                    }
-                    body={
-                      <CardItem>
-                        <Thumbnail
-                          square
-                          size={20}
-                          style={styles.imageColmeia}
-                          source={{
-                            uri: colmeia.foto
-                          }}
-                        />
-                        <View style={{ marginHorizontal: "10%" }}>
-                          <Row>
-                            <Text>{colmeia.nome}</Text>
-                          </Row>
-                          <Row>
-                            <Text numberOfLines={1} note>
-                              {colmeia.descricao}
-                            </Text>
-                          </Row>
-                        </View>
-                      </CardItem>
-                    }
-                    right={
-                      <Button
-                        danger
-                        onPress={() =>
-                          this.setState({ dialogVisible: true, colmeia })
-                        }
-                      >
-                        <Icon active name="trash" />
-                      </Button>
-                    }
-                  />
-                );
-              })
-            ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
-              <CardItem>
-                <Text style={{ marginStart: 10 }}>
-                  Primeiro selecione um apiario
-                </Text>
-              </CardItem>
-            ) : (
-              <CardItem>
-                <Left>
-                  <Text>Nenhuma colmeia cadastrada</Text>
-                </Left>
-                <Right>
-                  <Icon
-                    onPress={() => this.props.navigation.navigate("NewColmeia")}
-                    style={{ color: colors.theme_default }}
-                    active
-                    type="FontAwesome"
-                    name="plus"
-                  />
-                </Right>
-              </CardItem>
-            )}
-          </Card>
+          )}
         </Content>
-        <ActionButton buttonColor={colors.theme_primary}>
+        <ActionButton buttonColor={"#444444"}>
           <ActionButton.Item
-            buttonColor="green"
+            buttonColor={"#ffc60b"}
             title="Nova colmeia"
             onPress={() => this.props.navigation.navigate("NewColmeia")}
           >

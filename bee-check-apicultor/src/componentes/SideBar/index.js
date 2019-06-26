@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    marginLeft: 20
+    marginLeft: 20,
   },
   textDivider: {
     fontWeight: Platform.OS === "ios" ? "500" : "400",

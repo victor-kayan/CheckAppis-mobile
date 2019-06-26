@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ActionButton from "react-native-action-button";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
-import { fecthVisitaApiarioByApiario, deleteVisitaApiario } from "../../../redux/actions/visitaApiarioActions";
-import { fecthVisitasColmeiaByVisitaApiario } from '../../../redux/actions/visitaColmeiaActions';
+import {
+  fecthVisitaApiarioByApiario,
+  deleteVisitaApiario
+} from "../../../redux/actions/visitaApiarioActions";
+import { fecthVisitasColmeiaByVisitaApiario } from "../../../redux/actions/visitaColmeiaActions";
 
 import {
   Text,
@@ -25,7 +28,12 @@ import {
 import { Image, TouchableOpacity } from "react-native";
 import { colors } from "../../../../assets";
 import styles from "./styles";
-import { HeaderCustom, HeaderCard, SpinnerCustom, RemoveDialog } from "../../../componentes";
+import {
+  HeaderCustom,
+  HeaderCard,
+  SpinnerCustom,
+  RemoveDialog
+} from "../../../componentes";
 import moment from "moment";
 import "moment/locale/pt-br";
 
@@ -59,17 +67,22 @@ class Visita extends Component {
   };
 
   handleDelete = () => {
-    this.setState({dialogVisible: false});
-    this.props.deleteVisitaApiario({visita_id: this.state.visita.id, apiario_id: this.state.selectedPickerApiario.id});
-  }
+    this.setState({ dialogVisible: false });
+    this.props.deleteVisitaApiario({
+      visita_id: this.state.visita.id,
+      apiario_id: this.state.selectedPickerApiario.id
+    });
+  };
 
-  handleDetalhar = (visita) => {
-    this.props.fecthVisitasColmeiaByVisitaApiario({visita_apiario_id: visita.id});
+  handleDetalhar = visita => {
+    this.props.fecthVisitasColmeiaByVisitaApiario({
+      visita_apiario_id: visita.id
+    });
     this.props.navigation.navigate("DetalhesVisita");
-  }
+  };
 
   render() {
-    const { selectedPickerApiario, dialogVisible} = this.state;
+    const { selectedPickerApiario, dialogVisible } = this.state;
     const { apiarios, loading } = this.props;
     const { visitasApiario } = selectedPickerApiario == null ? [] : this.props;
 
@@ -79,7 +92,7 @@ class Visita extends Component {
           iconLeft="menu"
           typeIconLeft="MaterialCommunityIcons"
           handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Visita"
+          title="Visitas"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
@@ -87,7 +100,6 @@ class Visita extends Component {
         <SpinnerCustom visible={loading} />
         <Content padder scrollEnabled={true}>
           <Card>
-            <HeaderCard style={styles.header} icon="list" title="Listagem" />
             <CardItem>
               <Image
                 source={require("../../../../images/apiario.png")}
@@ -127,102 +139,94 @@ class Visita extends Component {
               </Picker>
             </CardItem>
           </Card>
-          <Card>
-            <CardItem header>
-              <Text>Listagem de visitas</Text>
-            </CardItem>
-            {visitasApiario && visitasApiario.length > 0 ? (
-              visitasApiario.map(visita => {
-                return (
-                  <SwipeRow
-                    key={visita.id}
-                    rightOpenValue={-55}
-                    body={
-                      <CardItem>
-                        <TouchableOpacity
-                          onPress={() =>
-                            this.handleDetalhar(visita)
-                          }
-                        >
-                          <View style={{ marginHorizontal: "10%" }}>
-                            <Row>
-                              <Text>
-                                {moment(visita.data_visita).format(
-                                  "DD MMMM  YYYY, h:mm:ss"
-                                )}
-                              </Text>
-                            </Row>
-                            <Row style={{ marginTop: 5 }}>
-                              <Left>
-                                <Text note>colmeias visitadas</Text>
-                              </Left>
-                              <Badge
-                                style={{ backgroundColor: colors.theme_second ,marginEnd: 5 }}
-                              >
-                                <Text note>
-                                  {visita.qtd_colmeias_visitadas}
-                                </Text>
-                              </Badge>
-                            </Row>
-                          </View>
-                        </TouchableOpacity>
-                        <Right>
-                          <Button
-                            transparent
-                            onPress={() =>
-                              this.handleDetalhar(visita)
-                            }
-                          >
-                            <Icon
-                              active
-                              style={{ color: colors.theme_primary }}
-                              name="magnifying-glass"
-                              type="Entypo"
-                            />
-                          </Button>
-                        </Right>
-                      </CardItem>
-                    }
-                    right={
-                      <Button
-                        danger
-                        onPress={() =>
-                          this.setState({ dialogVisible: true, visita })
-                        }
+          {visitasApiario && visitasApiario.length > 0 ? (
+            visitasApiario.map(visita => {
+              return (
+                <SwipeRow
+                  key={visita.id}
+                  rightOpenValue={-55}
+                  body={
+                    <CardItem>
+                      <TouchableOpacity
+                        onPress={() => this.handleDetalhar(visita)}
                       >
-                        <Icon active name="trash" />
-                      </Button>
-                    }
-                  />
-                );
-              })
-            ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
-              <CardItem>
-                <Text style={{ marginStart: 10 }}>
-                  Primeiro selecione um apiario
-                </Text>
-              </CardItem>
-            ) : (
-              <CardItem>
-                {/* <Left> */}
-                <Text>Nenhuma vista realizada neste apiario</Text>
-                {/* </Left> */}
-                <Right>
-                  <Icon
-                    onPress={() => alert("vou visitar")}
-                    style={{ color: colors.theme_default }}
-                    active
-                    type="FontAwesome"
-                    name="plus"
-                  />
-                </Right>
-              </CardItem>
-            )}
-          </Card>
+                        <View style={{ marginHorizontal: "10%" }}>
+                          <Row>
+                            <Text>
+                              {`Data: ${moment(visita.data_visita).format(
+                                "DD MMMM  YYYY"
+                              )}`}
+                            </Text>
+                          </Row>
+                          <Row style={{ marginTop: 5 }}>
+                            <Left>
+                              <Text note>colmeias visitadas</Text>
+                            </Left>
+                            <Badge
+                              style={{
+                                backgroundColor: colors.theme_second,
+                                marginEnd: 5
+                              }}
+                            >
+                              <Text note>{visita.qtd_colmeias_visitadas}</Text>
+                            </Badge>
+                          </Row>
+                        </View>
+                      </TouchableOpacity>
+                      <Right>
+                        <Button
+                          transparent
+                          onPress={() => this.handleDetalhar(visita)}
+                        >
+                          <Icon
+                            active
+                            style={{ color: colors.theme_primary }}
+                            name="magnifying-glass"
+                            type="Entypo"
+                          />
+                        </Button>
+                      </Right>
+                    </CardItem>
+                  }
+                  right={
+                    <Button
+                      danger
+                      onPress={() =>
+                        this.setState({ dialogVisible: true, visita })
+                      }
+                    >
+                      <Icon active name="trash" />
+                    </Button>
+                  }
+                />
+              );
+            })
+          ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
+            <CardItem>
+              <Text style={{ marginStart: 10 }}>
+                Primeiro selecione um apiario
+              </Text>
+            </CardItem>
+          ) : (
+            <CardItem>
+              {/* <Left> */}
+              <Text>Nenhuma vista realizada neste apiario</Text>
+              {/* </Left> */}
+              <Right>
+                <Icon
+                  onPress={() => this.props.navigation.navigate("NewVisitaApiario")}
+                  style={{ color: colors.btn_success }}
+                  active
+                  type="FontAwesome"
+                  name="plus"
+                />
+              </Right>
+            </CardItem>
+          )}
         </Content>
         <ActionButton buttonColor={colors.theme_primary}>
           <ActionButton.Item
-            buttonColor="green"
+            buttonColor={colors.btn_success}
             title="Nova Visita"
             onPress={() => this.props.navigation.navigate("NewVisitaApiario")}
           >
@@ -252,7 +256,12 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchApiariosByUser, fecthVisitaApiarioByApiario, deleteVisitaApiario, fecthVisitasColmeiaByVisitaApiario },
+    {
+      fetchApiariosByUser,
+      fecthVisitaApiarioByApiario,
+      deleteVisitaApiario,
+      fecthVisitasColmeiaByVisitaApiario
+    },
     dispatch
   );
 }

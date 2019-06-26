@@ -22,7 +22,6 @@ import {
   InputSwitch,
   HeaderCustom,
   ButtonCustom,
-  HeaderCard,
   SpinnerCustom
 } from "../../../componentes";
 
@@ -91,12 +90,6 @@ class NewVisitaApiario extends Component {
         <Content padder>
           <SpinnerCustom visible={loading} />
           <Card>
-            <HeaderCard
-              style={styles.header}
-              icon="edit"
-              typeIcon="FontAwesome"
-              title="Visitar Apiario"
-            />
             <CardItem>
               <Image
                 source={require("../../../../images/apiario.png")}
@@ -135,82 +128,78 @@ class NewVisitaApiario extends Component {
                 )}
               </Picker>
             </CardItem>
+          </Card>
+          <CardItem>
+            <Text style={styles.textSubTitle}>
+              Responda as questões abaixo sobre o apiario{" "}
+              {selectedPickerApiario && selectedPickerApiario.nome}
+            </Text>
+          </CardItem>
+          {selectedPickerApiario ? (
+            <View>
+              <CardItem>
+                <Left>
+                  <Text>Há Água?</Text>
+                </Left>
+                <Body />
+                <Right>
+                  <InputSwitch
+                    value={tem_agua}
+                    onValueChange={tem_agua => this.setState({ tem_agua })} // this is necessary for this component
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Está sombreado?</Text>
+                </Left>
+                <Body />
+                <Right>
+                  <InputSwitch
+                    value={tem_sombra}
+                    onValueChange={tem_sombra => this.setState({ tem_sombra })} // this is necessary for this component
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Há Comida?</Text>
+                </Left>
+                <Body />
+                <Right>
+                  <InputSwitch
+                    value={tem_comida}
+                    onValueChange={tem_comida => this.setState({ tem_comida })} // this is necessary for this component
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Textarea
+                  rowSpan={4}
+                  value={observacao}
+                  onChangeText={observacao => this.setState({ observacao })}
+                  style={{ width: "100%", borderRadius: 5 }}
+                  bordered
+                  placeholder="Observações"
+                />
+              </CardItem>
+              <CardItem style={{ alignSelf: "flex-end" }}>
+                <ButtonCustom
+                  style={styles.buttonSalveVisita}
+                  onPress={() => this.onSaveVisita()}
+                  title="Visitar Colmeias"
+                  iconLeft="arrowright"
+                  typeIconLeft="AntDesign"
+                />
+              </CardItem>
+            </View>
+          ) : (
             <CardItem>
-              <Text style={styles.textSubTitle}>
-                Responda as questões abaixo sobre o apiario{" "}
-                {selectedPickerApiario && selectedPickerApiario.nome}
+              <Text style={{ marginStart: 10 }}>
+                Primeiro selecione um apiario
               </Text>
             </CardItem>
-            {selectedPickerApiario ? (
-              <View>
-                <CardItem>
-                  <Left>
-                    <Text>Há Água?</Text>
-                  </Left>
-                  <Body />
-                  <Right>
-                    <InputSwitch
-                      value={tem_agua}
-                      onValueChange={tem_agua => this.setState({ tem_agua })} // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Está sombreado?</Text>
-                  </Left>
-                  <Body />
-                  <Right>
-                    <InputSwitch
-                      value={tem_sombra}
-                      onValueChange={tem_sombra =>
-                        this.setState({ tem_sombra })
-                      } // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há Comida?</Text>
-                  </Left>
-                  <Body />
-                  <Right>
-                    <InputSwitch
-                      value={tem_comida}
-                      onValueChange={tem_comida =>
-                        this.setState({ tem_comida })
-                      } // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Textarea
-                    rowSpan={4}
-                    value={observacao}
-                    onChangeText={observacao => this.setState({ observacao })}
-                    style={{ width: "100%", borderRadius: 5 }}
-                    bordered
-                    placeholder="Observações"
-                  />
-                </CardItem>
-                <CardItem style={{ alignSelf: "flex-end" }}>
-                  <ButtonCustom
-                    style={styles.buttonSalveVisita}
-                    onPress={() => this.onSaveVisita()}
-                    title="Visitar Colmeias"
-                    iconLeft="arrowright"
-                    typeIconLeft="AntDesign"
-                  />
-                </CardItem>
-              </View>
-            ) : (
-              <CardItem>
-                <Text style={{ marginStart: 10 }}>
-                  Primeiro selecione um apiario
-                </Text>
-              </CardItem>
-            )}
-          </Card>
+          )}
         </Content>
       </Container>
     );

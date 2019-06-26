@@ -2,23 +2,16 @@ import React, { Component } from "react";
 import {
   Container,
   Content,
-  Card,
-  Header,
-  Left,
   Icon,
   Body,
-  Title,
-  Right,
   CardItem,
   Item,
   Input,
   Button,
-  Text,
-  Label
+  Text
 } from "native-base";
 import { Image, Alert } from "react-native";
 import ImagePicker from "react-native-image-picker";
-import Spinner from "react-native-loading-spinner-overlay";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { editColmeia } from "../../../redux/actions/colmeiaActions";
@@ -27,7 +20,6 @@ import styles from "./styles";
 import {
   HeaderCustom,
   ButtonCustom,
-  HeaderCard,
   SpinnerCustom
 } from "../../../componentes";
 
@@ -80,80 +72,72 @@ class EditColmeia extends Component {
     // console.log(colmeia);
     return (
       <Container>
-        <HeaderCustom title="Colmeias"/>
+        <HeaderCustom title="Edição" />
         <Content padder>
           <SpinnerCustom visible={loading} />
-          <Card>
-            <HeaderCard
-              style={styles.header}
-              icon="edit"
-              typeIcon="FontAwesome"
-              title="Edição"
-            />
-            <CardItem>
-              <Body>
-                <Item >
-                  <Icon active type="AntDesign" name="idcard" />
-                  {/* <Label>Nome(Indentificador) da colmeia</Label> */}
-                  <Input
-                    value={colmeia.nome}
-                    placeholder="Nome(Indentificador) da colmeia"
-                    onChangeText={nome =>
-                      this.setState({
-                        colmeia: { ...colmeia, nome }
-                      })
-                    }
-                  />
-                </Item>
-                <Item>
-                  <Icon active type="FontAwesome" name="pencil" />
-                  {/* <Label>Descrição da colmeia</Label> */}
-                  <Input
-                    placeholder="Descrição da colmeia"
-                    value={colmeia.descricao}
-                    onChangeText={descricao =>
-                      this.setState({
-                        colmeia: { ...colmeia, descricao }
-                      })
-                    }
-                  />
-                </Item>
-                <Button
-                  iconRight
-                  full
-                  rounded
-                  onPress={this.slectPhoto.bind(this)}
-                  style={styles.buttonSelectFoto}
-                >
-                  <Text style={{ color: colors.black }}>Editar Foto</Text>
-                  <Icon
-                    type="EvilIcons"
-                    name="camera"
-                    style={styles.iconButtonSelectFoto}
-                  />
-                </Button>
-                <Item style={styles.itemFotoColmeia}>
-                  {foto_uri ? (
-                    <Image style={styles.imageFormColmeia} source={foto_uri} />
-                  ) : (
-                    <Image
-                      style={styles.imageFormColmeia}
-                      source={{
-                        uri: colmeia.foto
-                      }}
-                    />
-                  )}
-                </Item>
-                <ButtonCustom
-                  style={styles.buttonSalveEditcao}
-                  title="Salvar Edição"
-                  iconLeft="save"
-                  typeIconLeft="FontAwesome"
-                  onPress={() => this.onEditColmeia()}
+          <CardItem>
+            <Body>
+              <Item>
+                <Icon active type="AntDesign" name="idcard" />
+                {/* <Label>Nome(Indentificador) da colmeia</Label> */}
+                <Input
+                  value={colmeia.nome}
+                  placeholder="Nome(Indentificador) da colmeia"
+                  onChangeText={nome =>
+                    this.setState({
+                      colmeia: { ...colmeia, nome }
+                    })
+                  }
                 />
-              </Body>
-            </CardItem>
-          </Card>
+              </Item>
+              <Item>
+                <Icon active type="FontAwesome" name="pencil" />
+                {/* <Label>Descrição da colmeia</Label> */}
+                <Input
+                  placeholder="Descrição da colmeia"
+                  value={colmeia.descricao}
+                  onChangeText={descricao =>
+                    this.setState({
+                      colmeia: { ...colmeia, descricao }
+                    })
+                  }
+                />
+              </Item>
+              <Button
+                iconRight
+                full
+                rounded
+                onPress={this.slectPhoto.bind(this)}
+                style={styles.buttonSelectFoto}
+              >
+                <Text style={{ color: colors.black }}>Editar Foto</Text>
+                <Icon
+                  type="EvilIcons"
+                  name="camera"
+                  style={styles.iconButtonSelectFoto}
+                />
+              </Button>
+              <Item style={styles.itemFotoColmeia}>
+                {foto_uri ? (
+                  <Image style={styles.imageFormColmeia} source={foto_uri} />
+                ) : (
+                  <Image
+                    style={styles.imageFormColmeia}
+                    source={{
+                      uri: colmeia.foto
+                    }}
+                  />
+                )}
+              </Item>
+              <ButtonCustom
+                style={styles.buttonSalveEditcao}
+                title="Salvar Edição"
+                iconLeft="save"
+                typeIconLeft="FontAwesome"
+                onPress={() => this.onEditColmeia()}
+              />
+            </Body>
+          </CardItem>
         </Content>
       </Container>
     );

@@ -1,21 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, Image } from "react-native";
-import {
-  Container,
-  Content,
-  Card,
-  Header,
-  CardItem,
-  Thumbnail,
-  Text,
-  Button,
-  Icon,
-  Left,
-  Right,
-  Body,
-  Title
-} from "native-base";
-import { colors } from "../../../../assets";
+import { Image, ImageBackground, Dimensions } from "react-native";
+import { Container, Content, Card, CardItem, Text, Body } from "native-base";
 import styles from "./styles";
 import { HeaderCustom, ButtonCustom, HeaderCard } from "../../../componentes";
 
@@ -29,8 +14,8 @@ export default class Home extends Component {
           handleIconLeft={() => this.props.navigation.openDrawer()}
           title="Home"
         />
-        <Content padder>
-          <Card style={{ flex: 0 }}>
+        <Content>
+          <Card style={{ flex: 0, elevation: 10 }}>
             <HeaderCard
               style={styles.header}
               source={require("../../../../images/colonia.png")}

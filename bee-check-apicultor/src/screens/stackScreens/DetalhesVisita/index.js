@@ -1,5 +1,4 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fecthVisitasColmeiaByVisitaApiario } from "../../../redux/actions/visitaColmeiaActions";
@@ -9,12 +8,10 @@ import "moment/locale/pt-br";
 import {
   Container,
   Content,
-  View,
   Text,
   Card,
   CardItem,
   Body,
-  Icon,
   Right,
   Badge,
   Left,
@@ -38,7 +35,6 @@ class DetalhesVisita extends React.Component {
 
   render() {
     const { visitasColmeia, loading } = this.props;
-    const { data } = this.state;
 
     return (
       <Container>

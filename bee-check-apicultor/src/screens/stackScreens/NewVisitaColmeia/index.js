@@ -77,7 +77,6 @@ class NewVisitaColmeia extends Component {
     });
 
     this.clearState();
-
   };
 
   clearState = () => {
@@ -124,12 +123,6 @@ class NewVisitaColmeia extends Component {
         <Content padder>
           <SpinnerCustom visible={loading} />
           <Card>
-            <HeaderCard
-              style={styles.header}
-              icon="edit"
-              typeIcon="FontAwesome"
-              title="Visitar Colmeia"
-            />
             <CardItem>
               <Icon type="FontAwesome" name="archive" />
               <Picker
@@ -161,156 +154,156 @@ class NewVisitaColmeia extends Component {
                 )}
               </Picker>
             </CardItem>
-            {colmeia ? (
-              <View>
-                <CardItem>
-                  <Text style={styles.textSubTitle}>
-                    Responda as questões abaixo sobre a colmeia{" "}
-                    {this.state.colmeia && this.state.colmeia.nome}
-                  </Text>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há quantos quadros de Mel?</Text>
-                  </Left>
-                  <Right>
-                    <InputNumeric
-                      value={qtd_quadros_mel}
-                      onChangePlus={() =>
-                        this.setState({ qtd_quadros_mel: qtd_quadros_mel + 1 })
-                      } // this is necessary for this component
-                      onChangeMinus={() =>
-                        this.setState({
-                          qtd_quadros_mel:
-                            qtd_quadros_mel <= 0
-                              ? qtd_quadros_mel
-                              : qtd_quadros_mel - 1
-                        })
-                      }
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há quantos quadros de Pólen?</Text>
-                  </Left>
-                  <Right>
-                    <InputNumeric
-                      value={qtd_quadros_polen}
-                      onChangePlus={() =>
-                        this.setState({
-                          qtd_quadros_polen: qtd_quadros_polen + 1
-                        })
-                      } // this is necessary for this component
-                      onChangeMinus={() =>
-                        this.setState({
-                          qtd_quadros_polen:
-                            qtd_quadros_polen <= 0
-                              ? qtd_quadros_polen
-                              : qtd_quadros_polen - 1
-                        })
-                      }
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há quantos quadros de cria Aberta?</Text>
-                  </Left>
-                  <Right>
-                    <InputNumeric
-                      value={qtd_cria_aberta}
-                      onChangePlus={() =>
-                        this.setState({ qtd_cria_aberta: qtd_cria_aberta + 1 })
-                      } // this is necessary for this component
-                      onChangeMinus={() =>
-                        this.setState({
-                          qtd_cria_aberta:
-                            qtd_cria_aberta <= 0
-                              ? qtd_cria_aberta
-                              : qtd_cria_aberta - 1
-                        })
-                      }
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há quantos quadros de cria Fechada?</Text>
-                  </Left>
-                  <Right>
-                    <InputNumeric
-                      value={qtd_cria_fechada}
-                      onChangePlus={() =>
-                        this.setState({
-                          qtd_cria_fechada: qtd_cria_fechada + 1
-                        })
-                      } // this is necessary for this component
-                      onChangeMinus={() =>
-                        this.setState({
-                          qtd_cria_fechada:
-                            qtd_cria_fechada <= 0
-                              ? qtd_cria_fechada
-                              : qtd_cria_fechada - 1
-                        })
-                      }
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há abelhas mortas no Alavo?</Text>
-                  </Left>
-                  <Right>
-                    <InputSwitch
-                      value={tem_abelhas_mortas}
-                      onValueChange={tem_abelhas_mortas =>
-                        this.setState({ tem_abelhas_mortas })
-                      } // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há presença de Postura?</Text>
-                  </Left>
-                  <Right>
-                    <InputSwitch
-                      value={tem_postura}
-                      onValueChange={tem_postura =>
-                        this.setState({ tem_postura })
-                      } // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Textarea
-                    rowSpan={4}
-                    value={observacao}
-                    onChangeText={observacao => this.setState({ observacao })}
-                    style={{ width: "100%", borderRadius: 5 }}
-                    bordered
-                    placeholder="Observações"
-                  />
-                </CardItem>
-                <CardItem style={{ alignSelf: "flex-end" }}>
-                  <ButtonCustom
-                    style={styles.buttonSalveVisita}
-                    onPress={() => this.onSaveVisita()}
-                    title="Resgistrar visita"
-                    iconLeft="save"
-                    typeIconLeft="FontAwesome"
-                  />
-                </CardItem>
-              </View>
-            ) : (
+          </Card>
+          {colmeia ? (
+            <View>
               <CardItem>
                 <Text style={styles.textSubTitle}>
-                  Primeiro selecione uma colemia
+                  Responda as questões abaixo sobre a colmeia{" "}
+                  {this.state.colmeia && this.state.colmeia.nome}
                 </Text>
               </CardItem>
-            )}
-          </Card>
+              <CardItem>
+                <Left>
+                  <Text>Há quantos quadros de Mel?</Text>
+                </Left>
+                <Right>
+                  <InputNumeric
+                    value={qtd_quadros_mel}
+                    onChangePlus={() =>
+                      this.setState({ qtd_quadros_mel: qtd_quadros_mel + 1 })
+                    } // this is necessary for this component
+                    onChangeMinus={() =>
+                      this.setState({
+                        qtd_quadros_mel:
+                          qtd_quadros_mel <= 0
+                            ? qtd_quadros_mel
+                            : qtd_quadros_mel - 1
+                      })
+                    }
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Há quantos quadros de Pólen?</Text>
+                </Left>
+                <Right>
+                  <InputNumeric
+                    value={qtd_quadros_polen}
+                    onChangePlus={() =>
+                      this.setState({
+                        qtd_quadros_polen: qtd_quadros_polen + 1
+                      })
+                    } // this is necessary for this component
+                    onChangeMinus={() =>
+                      this.setState({
+                        qtd_quadros_polen:
+                          qtd_quadros_polen <= 0
+                            ? qtd_quadros_polen
+                            : qtd_quadros_polen - 1
+                      })
+                    }
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Há quantos quadros de cria Aberta?</Text>
+                </Left>
+                <Right>
+                  <InputNumeric
+                    value={qtd_cria_aberta}
+                    onChangePlus={() =>
+                      this.setState({ qtd_cria_aberta: qtd_cria_aberta + 1 })
+                    } // this is necessary for this component
+                    onChangeMinus={() =>
+                      this.setState({
+                        qtd_cria_aberta:
+                          qtd_cria_aberta <= 0
+                            ? qtd_cria_aberta
+                            : qtd_cria_aberta - 1
+                      })
+                    }
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Há quantos quadros de cria Fechada?</Text>
+                </Left>
+                <Right>
+                  <InputNumeric
+                    value={qtd_cria_fechada}
+                    onChangePlus={() =>
+                      this.setState({
+                        qtd_cria_fechada: qtd_cria_fechada + 1
+                      })
+                    } // this is necessary for this component
+                    onChangeMinus={() =>
+                      this.setState({
+                        qtd_cria_fechada:
+                          qtd_cria_fechada <= 0
+                            ? qtd_cria_fechada
+                            : qtd_cria_fechada - 1
+                      })
+                    }
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Há abelhas mortas no Alavo?</Text>
+                </Left>
+                <Right>
+                  <InputSwitch
+                    value={tem_abelhas_mortas}
+                    onValueChange={tem_abelhas_mortas =>
+                      this.setState({ tem_abelhas_mortas })
+                    } // this is necessary for this component
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Há presença de Postura?</Text>
+                </Left>
+                <Right>
+                  <InputSwitch
+                    value={tem_postura}
+                    onValueChange={tem_postura =>
+                      this.setState({ tem_postura })
+                    } // this is necessary for this component
+                  />
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Textarea
+                  rowSpan={4}
+                  value={observacao}
+                  onChangeText={observacao => this.setState({ observacao })}
+                  style={{ width: "100%", borderRadius: 5 }}
+                  bordered
+                  placeholder="Observações"
+                />
+              </CardItem>
+              <CardItem style={{ alignSelf: "flex-end" }}>
+                <ButtonCustom
+                  style={styles.buttonSalveVisita}
+                  onPress={() => this.onSaveVisita()}
+                  title="Resgistrar visita"
+                  iconLeft="save"
+                  typeIconLeft="FontAwesome"
+                />
+              </CardItem>
+            </View>
+          ) : (
+            <CardItem>
+              <Text style={styles.textSubTitle}>
+                Primeiro selecione uma colemia
+              </Text>
+            </CardItem>
+          )}
         </Content>
       </Container>
     );
