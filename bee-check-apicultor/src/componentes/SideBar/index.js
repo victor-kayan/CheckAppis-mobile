@@ -3,7 +3,7 @@ import { Image, Platform, Dimensions, StyleSheet } from "react-native";
 import {
   Content,
   Text,
-  ListItem,
+  CardItem,
   Icon,
   Container,
   Left,
@@ -63,7 +63,7 @@ class SideBar extends Component {
           <View>
             {datas && Object.keys(datas).length
               ? datas.map(data => (
-                  <ListItem
+                  <CardItem
                     key={data.name}
                     button
                     noBorder
@@ -78,10 +78,10 @@ class SideBar extends Component {
                       />
                       <Text style={styles.text}>{data.name}</Text>
                     </Left>
-                  </ListItem>
+                  </CardItem>
                 ))
               : null}
-            <ListItem
+            <CardItem
               button
               noBorder
               onPress={() => this.props.navigation.navigate("Intervencao")}
@@ -94,11 +94,11 @@ class SideBar extends Component {
                 />
                 <Text style={styles.text}>Intervenções</Text>
               </Left>
-            </ListItem>
+            </CardItem>
             <Separator bordered>
               <Text style={styles.textDivider}>configurações</Text>
             </Separator>
-            <ListItem button noBorder onPress={() => this.logout()}>
+            <CardItem button noBorder onPress={() => this.logout()}>
               <Left>
                 <Icon
                   active
@@ -108,7 +108,7 @@ class SideBar extends Component {
                 />
                 <Text style={styles.text}>Sair</Text>
               </Left>
-            </ListItem>
+            </CardItem>
           </View>
         </Content>
       </Container>
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    marginLeft: 20,
+    marginLeft: 20
   },
   textDivider: {
     fontWeight: Platform.OS === "ios" ? "500" : "400",

@@ -224,9 +224,9 @@ class Visita extends Component {
             </CardItem>
           )}
         </Content>
-        <ActionButton buttonColor={colors.theme_primary}>
+        <ActionButton buttonColor={colors.btn_success}>
           <ActionButton.Item
-            buttonColor={colors.btn_success}
+            buttonColor={colors.theme_primary}
             title="Nova Visita"
             onPress={() => this.props.navigation.navigate("NewVisitaApiario")}
           >

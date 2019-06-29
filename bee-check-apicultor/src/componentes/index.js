@@ -1,21 +1,21 @@
-import Alert from './Alert';
-import SideBar from './SideBar';
-import RemoveDialog from './RemoveDialog';
-import InputSwitch from './InputSwitch';
-import HeaderCustom from './HeaderCustom';
-import ButtonCustom from './ButtonCustom';
-import HeaderCard from './HeaderCard';
-import SpinnerCustom from './SpinnerCustom';
-import InputNumeric from './InputNumeric';
+import Alert from "./Alert";
+import SideBar from "./SideBar";
+import HeaderCard from "./HeaderCard";
+import InputSwitch from "./InputSwitch";
+import RemoveDialog from "./RemoveDialog";
+import HeaderCustom from "./HeaderCustom";
+import ButtonCustom from "./ButtonCustom";
+import InputNumeric from "./InputNumeric";
+import SpinnerCustom from "./SpinnerCustom";
 
 export {
-    Alert,
-    SideBar,
-    RemoveDialog,
-    InputSwitch,
-    HeaderCustom,
-    HeaderCard,
-    ButtonCustom,
-    SpinnerCustom,
-    InputNumeric
-}
+  Alert,
+  SideBar,
+  HeaderCard,
+  InputSwitch,
+  RemoveDialog,
+  ButtonCustom,
+  HeaderCustom,
+  InputNumeric,
+  SpinnerCustom
+};

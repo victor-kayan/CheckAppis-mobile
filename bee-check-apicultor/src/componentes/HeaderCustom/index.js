@@ -42,7 +42,7 @@ const HeaderCustom = ({
         </Button>
       </Right>
     ) : (
-      <Left />
+      <Right />
     )}
   </Header>
 );

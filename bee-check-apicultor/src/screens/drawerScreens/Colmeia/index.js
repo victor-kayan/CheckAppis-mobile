@@ -32,6 +32,9 @@ import {
 import { colors } from "../../../../assets";
 import styles from "./styles";
 
+const imageApiario128 = require("../../../../images/apiario128.png");
+const imageColmeia128 = require("../../../../images/colmeia128.png");
+
 class Colmeia extends Component {
   constructor(props) {
     super(props);
@@ -109,7 +112,6 @@ class Colmeia extends Component {
                 }
               >
                 <Picker.Item
-                  style={{ backgroundColor: "red" }}
                   enabled={false}
                   key={null}
                   label={"Selecione um Apiario"}
@@ -195,35 +197,60 @@ class Colmeia extends Component {
               );
             })
           ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
-            <Text style={{ margin: 20, color: "#444444" }}>
-              Primeiro selecione um apiario
-            </Text>
+            <View
+              style={{
+                marginTop: 50,
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <Image source={imageApiario128} />
+              <Text style={{ margin: 20, color: "#444444" }}>
+                Primeiro selecione um apiario
+              </Text>
+            </View>
           ) : (
-            <CardItem>
-              <Left>
+            <>
+              <CardItem
+                style={{
+                  marginTop: 20,
+                  flexDirection: "column",
+                  alignItems: "center"
+                }}
+              >
                 <Text>Nenhuma colmeia cadastrada</Text>
-              </Left>
-              <Right>
+              </CardItem>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
                 <Icon
-                  onPress={() => this.props.navigation.navigate("NewColmeia")}
-                  style={{ color: colors.btn_success }}
+                  onPress={() => this.props.navigation.navigate("NewColmeia", { apiario_id : selectedPickerApiario.id})}
+                  style={{ color: colors.btn_success, marginLeft: 130 }}
                   active
-                  type="FontAwesome"
-                  name="plus"
+                  type="AntDesign"
+                  name="pluscircle"
                 />
-              </Right>
-            </CardItem>
+                <Image source={imageColmeia128} />
+              </View>
+            </>
           )}
         </Content>
-        <ActionButton buttonColor={"#444444"}>
-          <ActionButton.Item
-            buttonColor={"#ffc60b"}
-            title="Nova colmeia"
-            onPress={() => this.props.navigation.navigate("NewColmeia")}
-          >
-            <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-        </ActionButton>
+        {selectedPickerApiario && (
+          <ActionButton buttonColor={colors.btn_success}>
+            <ActionButton.Item
+              buttonColor={"#ffc60b"}
+              title="Nova colmeia"
+              onPress={() => this.props.navigation.navigate("NewColmeia", { apiario_id : selectedPickerApiario.id})}
+            >
+              <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
+            </ActionButton.Item>
+          </ActionButton>
+        )}
         <RemoveDialog
           visible={dialogVisible}
           onCancel={() =>

@@ -10,7 +10,7 @@ const SpinnerCustom = ({ title, visible, ...rest }) => (
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "rgba(23,24,26,0.2)"
+        backgroundColor: "rgba(255,255,255,0.2)"
       }}
     >
       <View style={{ borderRadius: 10, padding: 25 }}>

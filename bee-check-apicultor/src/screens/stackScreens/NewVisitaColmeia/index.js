@@ -13,18 +13,20 @@ import {
   Picker,
   Text,
   View,
-  Textarea
+  Textarea,
+  Header,
+  Button,
+  Body
 } from "native-base";
 import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
 import { createVisitaColmeia } from "../../../redux/actions/visitaColmeiaActions";
 import {
-  HeaderCustom,
-  HeaderCard,
   SpinnerCustom,
   InputNumeric,
   InputSwitch,
   ButtonCustom
 } from "../../../componentes";
+import { colors } from "../../../../assets";
 
 class NewVisitaColmeia extends Component {
   constructor(props) {
@@ -38,7 +40,9 @@ class NewVisitaColmeia extends Component {
       qtd_cria_fechada: 0,
       tem_postura: 1,
       visita_apiario_id: 0,
-      observacao: ""
+      observacao: "",
+      colmeiaState: [],
+      done: false,
     };
   }
 
@@ -46,10 +50,17 @@ class NewVisitaColmeia extends Component {
     this.handleRefresh();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.colmeias && this.state.done){
+      this.setState({colmeiaState: nextProps.colmeias});
+    }
+  }
+
   handleRefresh = () => {
     this.props.getColemiasByApiario({
       id: this.props.navigation.getParam("apiario_id", "")
     });
+    this.setState({ colmeia: null, done: true });
   };
 
   onSaveVisita = () => {
@@ -64,17 +75,17 @@ class NewVisitaColmeia extends Component {
       colmeia,
       observacao
     } = this.state;
-    this.props.createVisitaColmeia({
-      qtd_quadros_mel,
-      qtd_quadros_polen,
-      tem_abelhas_mortas,
-      qtd_cria_aberta,
-      qtd_cria_fechada,
-      tem_postura,
-      visita_apiario_id: this.props.visitaApiario.id,
-      colmeia_id: colmeia.id,
-      observacao
-    });
+    // this.props.createVisitaColmeia({
+    //   qtd_quadros_mel,
+    //   qtd_quadros_polen,
+    //   tem_abelhas_mortas,
+    //   qtd_cria_aberta,
+    //   qtd_cria_fechada,
+    //   tem_postura,
+    //   visita_apiario_id: this.props.visitaApiario.id,
+    //   colmeia_id: colmeia.id,
+    //   observacao
+    // });
 
     this.clearState();
   };
@@ -98,7 +109,7 @@ class NewVisitaColmeia extends Component {
   };
 
   render() {
-    const { colmeias, loading } = this.props;
+    const { loading } = this.props;
     const {
       colmeia,
       qtd_quadros_mel,
@@ -107,19 +118,24 @@ class NewVisitaColmeia extends Component {
       qtd_cria_aberta,
       qtd_cria_fechada,
       tem_postura,
-      observacao
+      observacao,
+      colmeiaState
     } = this.state;
-
-    // console.log(qtd_quadros_mel);
 
     return (
       <Container>
-        <HeaderCustom
-          title="Visita"
-          iconRight="sync"
-          handleIconRight={() => this.handleRefresh()}
-          typeIconRight="AntDesign"
-        />
+        <Header
+          style={{ backgroundColor: colors.theme_default }}
+          androidStatusBarColor={colors.colorAndroidBarraStatus}
+        >
+          <Body />
+          <Right>
+            <Button rounded style={{backgroundColor: colors.btn_success}} iconRight small>
+              <Text>Concluir visita</Text>
+              <Icon type="FontAwesome" name="save" />
+            </Button>
+          </Right>
+        </Header>
         <Content padder>
           <SpinnerCustom visible={loading} />
           <Card>
@@ -127,8 +143,10 @@ class NewVisitaColmeia extends Component {
               <Icon type="FontAwesome" name="archive" />
               <Picker
                 mode="dropdown"
+                placeholder="Selecione uma colmeia"
+                placeholderStyle={{ color: "#bfc6ea" }}
+                placeholderIconColor="#007aff"
                 selectedValue={colmeia}
-                style={styles.pikerLisitColmeia}
                 onValueChange={colmeia =>
                   this.onValueChangeselectedPickerColmeia(colmeia)
                 }
@@ -139,10 +157,10 @@ class NewVisitaColmeia extends Component {
                   label={"Selecione uma Colmeia"}
                   value={null}
                 />
-                {!colmeias ? (
-                  <Picker.Item note label={"Nenhuma Colmeia encontrada"} />
+                {!colmeiaState ? (
+                  <Picker.Item note label={"Nenhuma Colmeia a ser visitada"} />
                 ) : (
-                  colmeias.map(colmeia => {
+                  colmeiaState.map(colmeia => {
                     return (
                       <Picker.Item
                         key={colmeia.id}
@@ -291,9 +309,9 @@ class NewVisitaColmeia extends Component {
                 <ButtonCustom
                   style={styles.buttonSalveVisita}
                   onPress={() => this.onSaveVisita()}
-                  title="Resgistrar visita"
-                  iconLeft="save"
-                  typeIconLeft="FontAwesome"
+                  title="Proxima Colmeia"
+                  iconRight="arrowright"
+                  typeIconRight="AntDesign"
                 />
               </CardItem>
             </View>
@@ -311,7 +329,7 @@ class NewVisitaColmeia extends Component {
 }
 
 // export default Visita;
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     loading: state.colmeiaState.loading || state.visitaColmeiaState.loading,
     colmeias: state.colmeiaState.colmeias,

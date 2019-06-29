@@ -46,13 +46,13 @@ class NewVisitaApiario extends Component {
     let tem_agua = this.state.tem_agua == 1 ? 0 : 1;
     let tem_sombra = this.state.tem_sombra == 1 ? 0 : 1;
     let tem_comida = this.state.tem_comida == 1 ? 0 : 1;
-    this.props.createVisitaApiario({
-      tem_agua,
-      tem_sombra,
-      tem_comida,
-      observacao: this.state.observacao,
-      apiario_id: this.state.selectedPickerApiario.id
-    });
+    // this.props.createVisitaApiario({
+    //   tem_agua,
+    //   tem_sombra,
+    //   tem_comida,
+    //   observacao: this.state.observacao,
+    //   apiario_id: this.state.selectedPickerApiario.id
+    // });
     // alert("clicou");
     this.props.navigation.navigate("NewVisitaColmeia", {
       apiario_id: this.state.selectedPickerApiario.id
@@ -188,8 +188,8 @@ class NewVisitaApiario extends Component {
                   style={styles.buttonSalveVisita}
                   onPress={() => this.onSaveVisita()}
                   title="Visitar Colmeias"
-                  iconLeft="arrowright"
-                  typeIconLeft="AntDesign"
+                  iconRight="arrowright"
+                  typeIconRight="AntDesign"
                 />
               </CardItem>
             </View>
