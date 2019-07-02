@@ -23,7 +23,6 @@ export default {
   },
   iconButtonSelectFoto: {
     color: colors.theme_default,
-    fontSize: 24,
     marginLeft: 15
   },
   itemFotoColmeia: {
@@ -34,6 +33,6 @@ export default {
   buttonSalveEditcao: {
     alignSelf: "flex-end",
     marginEnd: 10,
-    marginTop: 20,
-  },
+    marginTop: 20
+  }
 };

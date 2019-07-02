@@ -4,6 +4,10 @@ export default {
   header: {
     marginBottom: 15
   },
+  iconImagemSelectPicker: {
+    width: 27,
+    height: 27
+  },
   pikerLisitColmeia: {
     height: 40,
     width: "90%"

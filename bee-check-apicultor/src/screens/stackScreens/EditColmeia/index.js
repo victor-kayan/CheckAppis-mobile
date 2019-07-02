@@ -78,7 +78,14 @@ class EditColmeia extends Component {
           <CardItem>
             <Body>
               <Item>
-                <Icon active type="AntDesign" name="idcard" />
+                <Icon
+                  style={{
+                    color: colors.theme_default
+                  }}
+                  active
+                  type="AntDesign"
+                  name="idcard"
+                />
                 {/* <Label>Nome(Indentificador) da colmeia</Label> */}
                 <Input
                   value={colmeia.nome}
@@ -91,7 +98,14 @@ class EditColmeia extends Component {
                 />
               </Item>
               <Item>
-                <Icon active type="FontAwesome" name="pencil" />
+                <Icon
+                  active
+                  style={{
+                    color: colors.theme_default
+                  }}
+                  type="FontAwesome"
+                  name="pencil"
+                />
                 {/* <Label>Descrição da colmeia</Label> */}
                 <Input
                   placeholder="Descrição da colmeia"

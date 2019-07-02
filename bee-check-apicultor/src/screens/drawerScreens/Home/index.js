@@ -18,14 +18,14 @@ export default class Home extends Component {
           <Card style={{ flex: 0, elevation: 10 }}>
             <HeaderCard
               style={styles.header}
-              source={require("../../../../images/colonia.png")}
+              source={require("../../../../images/home/colmeiaIcon.png")}
               title="Colmeias"
               note="Jan 10, 2019"
             />
             <CardItem>
               <Body>
                 <Image
-                  source={require("../../../../images/colmeiasHome1.jpg")}
+                  source={require("../../../../images/home/colmeiasImage.jpg")}
                   style={styles.image}
                 />
                 <Text note style={{ padding: 5 }}>
@@ -47,14 +47,14 @@ export default class Home extends Component {
           <Card style={{ flex: 0 }}>
             <HeaderCard
               style={styles.header}
-              source={require("../../../../images/visitaHomeIcon.png")}
+              source={require("../../../../images/home/visitaIcon.png")}
               title="Visita"
               note="Jan 10, 2019"
             />
             <CardItem>
               <Body>
                 <Image
-                  source={require("../../../../images/visitaHome.jpg")}
+                  source={require("../../../../images/home/visitaImage.jpg")}
                   style={styles.image}
                 />
                 <Text note style={{ padding: 5 }}>
@@ -77,14 +77,14 @@ export default class Home extends Component {
           <Card style={{ flex: 0 }}>
             <HeaderCard
               style={styles.header}
-              source={require("../../../../images/intervencaoHomeIcon.png")}
+              source={require("../../../../images/home/intervencaoIcon.png")}
               title="Intervenções"
               note="Jan 10, 2019"
             />
             <CardItem>
               <Body>
                 <Image
-                  source={require("../../../../images/intervencaoHome.jpg")}
+                  source={require("../../../../images/home/intervencaoImage.jpg")}
                   style={styles.image}
                 />
                 <Text note style={{ padding: 5 }}>

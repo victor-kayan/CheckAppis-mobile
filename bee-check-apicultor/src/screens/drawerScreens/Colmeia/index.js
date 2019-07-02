@@ -32,8 +32,8 @@ import {
 import { colors } from "../../../../assets";
 import styles from "./styles";
 
-const imageApiario128 = require("../../../../images/apiario128.png");
-const imageColmeia128 = require("../../../../images/colmeia128.png");
+const imageApiario128 = require("../../../../images/icons/apiario128.png");
+const imageColmeia128 = require("../../../../images/icons/colmeia128.png");
 
 class Colmeia extends Component {
   constructor(props) {
@@ -100,7 +100,7 @@ class Colmeia extends Component {
           <Card>
             <CardItem>
               <Image
-                source={require("../../../../images/apiario.png")}
+                source={require("../../../../images/icons/apiario128.png")}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker
@@ -137,7 +137,7 @@ class Colmeia extends Component {
               </Picker>
             </CardItem>
           </Card>
-          {colmeias && colmeias.length > 0 ? (
+          {!loading && colmeias && colmeias.length > 0 ? (
             colmeias.map(colmeia => {
               return (
                 <SwipeRow
@@ -196,7 +196,7 @@ class Colmeia extends Component {
                 />
               );
             })
-          ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
+          ) : !loading && !selectedPickerApiario && !selectedPickerApiario > 0 ? (
             <View
               style={{
                 marginTop: 50,
@@ -210,7 +210,7 @@ class Colmeia extends Component {
                 Primeiro selecione um apiario
               </Text>
             </View>
-          ) : (
+          ) : ( !loading && (
             <>
               <CardItem
                 style={{
@@ -238,7 +238,7 @@ class Colmeia extends Component {
                 <Image source={imageColmeia128} />
               </View>
             </>
-          )}
+          ))}
         </Content>
         {selectedPickerApiario && (
           <ActionButton buttonColor={colors.btn_success}>

@@ -54,7 +54,6 @@ class NewColmeia extends Component {
         type: "danger"
       });
     } else {
-
       createColemia({
         descricao: colmeia.descricao,
         nome: colmeia.nome,
@@ -98,7 +97,14 @@ class NewColmeia extends Component {
             <CardItem>
               <Body>
                 <Item style={{ marginTop: 20 }}>
-                  <Icon active type="AntDesign" name="idcard" />
+                  <Icon
+                    style={{
+                      color: colors.theme_default
+                    }}
+                    active
+                    type="AntDesign"
+                    name="idcard"
+                  />
                   <Input
                     value={colmeia.nome}
                     placeholder="Nome(Indentificador) da colmeia"
@@ -110,7 +116,14 @@ class NewColmeia extends Component {
                   />
                 </Item>
                 <Item style={{ marginTop: 20 }}>
-                  <Icon active type="FontAwesome" name="pencil" />
+                  <Icon
+                    active
+                    style={{
+                      color: colors.theme_default
+                    }}
+                    type="FontAwesome"
+                    name="pencil"
+                  />
                   <Input
                     value={colmeia.descricao}
                     placeholder="descrição da colmeia"
@@ -136,9 +149,9 @@ class NewColmeia extends Component {
                   <Icon
                     type="EvilIcons"
                     name="camera"
+                    active
                     style={{
                       color: colors.theme_default,
-                      fontSize: 24,
                       marginLeft: 15
                     }}
                   />

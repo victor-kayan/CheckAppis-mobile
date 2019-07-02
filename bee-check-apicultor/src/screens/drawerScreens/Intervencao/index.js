@@ -84,7 +84,7 @@ class Intervencao extends Component {
             <HeaderCard style={styles.header} icon="list" title="Listagem" />
             <CardItem>
               <Image
-                source={require("../../../../images/apiario.png")}
+                source={require("../../../../images/icons/apiario128.png")}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker

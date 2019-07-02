@@ -25,6 +25,8 @@ import {
   SpinnerCustom
 } from "../../../componentes";
 
+const imageApiario128 = require("../../../../images/icons/apiario128.png");
+
 class NewVisitaApiario extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +94,7 @@ class NewVisitaApiario extends Component {
           <Card>
             <CardItem>
               <Image
-                source={require("../../../../images/apiario.png")}
+                source={require("../../../../images/icons/apiario128.png")}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker
@@ -129,76 +131,92 @@ class NewVisitaApiario extends Component {
               </Picker>
             </CardItem>
           </Card>
-          <CardItem>
-            <Text style={styles.textSubTitle}>
-              Responda as questões abaixo sobre o apiario{" "}
-              {selectedPickerApiario && selectedPickerApiario.nome}
-            </Text>
-          </CardItem>
-          {selectedPickerApiario ? (
+          {!loading && selectedPickerApiario ? (
             <View>
               <CardItem>
-                <Left>
-                  <Text>Há Água?</Text>
-                </Left>
-                <Body />
-                <Right>
-                  <InputSwitch
-                    value={tem_agua}
-                    onValueChange={tem_agua => this.setState({ tem_agua })} // this is necessary for this component
+                <Text style={styles.textSubTitle}>
+                  Responda as questões abaixo sobre o apiario{" "}
+                  {selectedPickerApiario && selectedPickerApiario.nome}
+                </Text>
+              </CardItem>
+              <View>
+                <CardItem>
+                  <Left>
+                    <Text>Há Água?</Text>
+                  </Left>
+                  <Body />
+                  <Right>
+                    <InputSwitch
+                      value={tem_agua}
+                      onValueChange={tem_agua => this.setState({ tem_agua })} // this is necessary for this component
+                    />
+                  </Right>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                    <Text>Está sombreado?</Text>
+                  </Left>
+                  <Body />
+                  <Right>
+                    <InputSwitch
+                      value={tem_sombra}
+                      onValueChange={tem_sombra =>
+                        this.setState({ tem_sombra })
+                      } // this is necessary for this component
+                    />
+                  </Right>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                    <Text>Há Comida?</Text>
+                  </Left>
+                  <Body />
+                  <Right>
+                    <InputSwitch
+                      value={tem_comida}
+                      onValueChange={tem_comida =>
+                        this.setState({ tem_comida })
+                      } // this is necessary for this component
+                    />
+                  </Right>
+                </CardItem>
+                <CardItem>
+                  <Textarea
+                    rowSpan={4}
+                    value={observacao}
+                    onChangeText={observacao => this.setState({ observacao })}
+                    style={{ width: "100%", borderRadius: 5 }}
+                    bordered
+                    placeholder="Observações"
                   />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Está sombreado?</Text>
-                </Left>
-                <Body />
-                <Right>
-                  <InputSwitch
-                    value={tem_sombra}
-                    onValueChange={tem_sombra => this.setState({ tem_sombra })} // this is necessary for this component
+                </CardItem>
+                <CardItem style={{ alignSelf: "flex-end" }}>
+                  <ButtonCustom
+                    style={styles.buttonSalveVisita}
+                    onPress={() => this.onSaveVisita()}
+                    title="Visitar Colmeias"
+                    iconRight="arrowright"
+                    typeIconRight="AntDesign"
                   />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Há Comida?</Text>
-                </Left>
-                <Body />
-                <Right>
-                  <InputSwitch
-                    value={tem_comida}
-                    onValueChange={tem_comida => this.setState({ tem_comida })} // this is necessary for this component
-                  />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Textarea
-                  rowSpan={4}
-                  value={observacao}
-                  onChangeText={observacao => this.setState({ observacao })}
-                  style={{ width: "100%", borderRadius: 5 }}
-                  bordered
-                  placeholder="Observações"
-                />
-              </CardItem>
-              <CardItem style={{ alignSelf: "flex-end" }}>
-                <ButtonCustom
-                  style={styles.buttonSalveVisita}
-                  onPress={() => this.onSaveVisita()}
-                  title="Visitar Colmeias"
-                  iconRight="arrowright"
-                  typeIconRight="AntDesign"
-                />
-              </CardItem>
+                </CardItem>
+              </View>
             </View>
           ) : (
-            <CardItem>
-              <Text style={{ marginStart: 10 }}>
-                Primeiro selecione um apiario
-              </Text>
-            </CardItem>
+            !loading && (
+              <View
+                style={{
+                  marginTop: 50,
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                <Image source={imageApiario128} />
+                <Text style={{ margin: 20, color: "#444444" }}>
+                  Primeiro selecione um apiario
+                </Text>
+              </View>
+            )
           )}
         </Content>
       </Container>

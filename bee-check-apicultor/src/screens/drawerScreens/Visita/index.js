@@ -9,6 +9,9 @@ import {
 } from "../../../redux/actions/visitaApiarioActions";
 import { fecthVisitasColmeiaByVisitaApiario } from "../../../redux/actions/visitaColmeiaActions";
 
+const imageApiario128 = require("../../../../images/icons/apiario128.png");
+const imageVisita128 = require("../../../../images/icons/visita128.png");
+
 import {
   Text,
   Left,
@@ -102,7 +105,7 @@ class Visita extends Component {
           <Card>
             <CardItem>
               <Image
-                source={require("../../../../images/apiario.png")}
+                source={require("../../../../images/icons/apiario128.png")}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker
@@ -139,7 +142,7 @@ class Visita extends Component {
               </Picker>
             </CardItem>
           </Card>
-          {visitasApiario && visitasApiario.length > 0 ? (
+          {!loading && visitasApiario && visitasApiario.length > 0 ? (
             visitasApiario.map(visita => {
               return (
                 <SwipeRow
@@ -201,27 +204,56 @@ class Visita extends Component {
                 />
               );
             })
-          ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
-            <CardItem>
-              <Text style={{ marginStart: 10 }}>
+          ) : !loading &&
+            !selectedPickerApiario &&
+            !selectedPickerApiario > 0 ? (
+            <View
+              style={{
+                marginTop: 50,
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <Image source={imageApiario128} />
+              <Text style={{ margin: 20, color: "#444444" }}>
                 Primeiro selecione um apiario
               </Text>
-            </CardItem>
+            </View>
           ) : (
-            <CardItem>
-              {/* <Left> */}
-              <Text>Nenhuma vista realizada neste apiario</Text>
-              {/* </Left> */}
-              <Right>
-                <Icon
-                  onPress={() => this.props.navigation.navigate("NewVisitaApiario")}
-                  style={{ color: colors.btn_success }}
-                  active
-                  type="FontAwesome"
-                  name="plus"
-                />
-              </Right>
-            </CardItem>
+            !loading && (
+              <>
+                <CardItem
+                  style={{
+                    marginTop: 20,
+                    flexDirection: "column",
+                    alignItems: "center"
+                  }}
+                >
+                  <Text>Nenhuma visita cadastrada</Text>
+                </CardItem>
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                >
+                  <Icon
+                    onPress={() =>
+                      this.props.navigation.navigate("NewVisitaApiario", {
+                        apiario_id: selectedPickerApiario.id
+                      })
+                    }
+                    style={{ color: colors.btn_success, marginLeft: 130 }}
+                    active
+                    type="AntDesign"
+                    name="pluscircle"
+                  />
+                  <Image source={imageVisita128} />
+                </View>
+              </>
+            )
           )}
         </Content>
         <ActionButton buttonColor={colors.btn_success}>

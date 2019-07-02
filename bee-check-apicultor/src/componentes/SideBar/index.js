@@ -4,7 +4,6 @@ import {
   Content,
   Text,
   CardItem,
-  Icon,
   Container,
   Left,
   View,
@@ -15,25 +14,28 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { logout } from "../../redux/actions/userActions";
 
-const drawerCover = require("../../../images/drawer-cover.png");
+const drawerCover = require("../../../images/sider/drawer-cover.png");
+
 const datas = [
   {
     name: "Home",
     route: "Home",
-    icon: "home",
-    type: "FontAwesome"
+    icon: require("../../../images/sider/home.png")
   },
   {
     name: "Colmeias",
     route: "Colmeia",
-    icon: "archive",
-    type: "FontAwesome"
+    icon: require("../../../images/sider/colmeia.png")
   },
   {
     name: "Visitas",
     route: "Visita",
-    icon: "calendar-check-o",
-    type: "FontAwesome"
+    icon: require("../../../images/sider/visita.png")
+  },
+  {
+    name: "Intervenções",
+    route: "Intervencao",
+    icon: require("../../../images/sider/intervencao.png")
   }
 ];
 
@@ -70,41 +72,35 @@ class SideBar extends Component {
                     onPress={() => this.props.navigation.navigate(data.route)}
                   >
                     <Left>
-                      <Icon
-                        active
-                        name={data.icon}
-                        type={data.type}
-                        style={{ color: "#777", fontSize: 26, width: 30 }}
+                      <Thumbnail
+                        square
+                        source={data.icon}
+                        style={{ height: 30, width: 30 }}
                       />
                       <Text style={styles.text}>{data.name}</Text>
                     </Left>
                   </CardItem>
                 ))
               : null}
-            <CardItem
-              button
-              noBorder
-              onPress={() => this.props.navigation.navigate("Intervencao")}
-            >
-              <Left>
-                <Thumbnail
-                  square
-                  source={require("../../../images/intervencaoHomeIcon.png")}
-                  style={{ height: 30, width: 30 }}
-                />
-                <Text style={styles.text}>Intervenções</Text>
-              </Left>
-            </CardItem>
             <Separator bordered>
               <Text style={styles.textDivider}>configurações</Text>
             </Separator>
+            <CardItem button noBorder>
+              <Left>
+                <Thumbnail
+                  square
+                  source={require("../../../images/sider/profile.png")}
+                  style={{ height: 30, width: 30 }}
+                />
+                <Text style={styles.text}>Perfil</Text>
+              </Left>
+            </CardItem>
             <CardItem button noBorder onPress={() => this.logout()}>
               <Left>
-                <Icon
-                  active
-                  name="sign-out"
-                  type="FontAwesome"
-                  style={{ color: "#777", fontSize: 26, width: 30 }}
+                <Thumbnail
+                  square
+                  source={require("../../../images/sider/logout.png")}
+                  style={{ height: 30, width: 30 }}
                 />
                 <Text style={styles.text}>Sair</Text>
               </Left>
