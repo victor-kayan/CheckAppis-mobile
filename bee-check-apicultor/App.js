@@ -19,16 +19,19 @@ import {
   NewVisitaApiario,
   NewVisitaColmeia,
   DetalhesVisita,
-  IntervencaoColmeia,
+  IntervencaoColmeia
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
+import { Root } from "native-base";
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={Store}>
-        <SwitchNavigator />
+        <Root>
+          <SwitchNavigator />
+        </Root>
       </Provider>
     );
   }

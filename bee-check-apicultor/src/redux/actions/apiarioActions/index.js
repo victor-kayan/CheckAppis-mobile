@@ -1,7 +1,8 @@
 import { FECTHALL_BY_USER, LOADING_APIARIO } from "./actionsType";
-import { Alert } from 'react-native';
+import { Alert } from "react-native";
 import { Api } from "../../../../services";
 import { uris } from "../../../../assets";
+import { Toast } from "native-base";
 
 export const fetchApiariosByUser = () => {
   console.log("GET ALL APIARIOS");
@@ -13,7 +14,8 @@ export const fetchApiariosByUser = () => {
         loading: true
       }
     });
-    Api.instance.get(uris.GET_APIARIO_BY_USER)
+    Api.instance
+      .get(uris.GET_APIARIO_BY_USER)
       .then(response => {
         console.log(response);
         dispatch({
@@ -27,9 +29,13 @@ export const fetchApiariosByUser = () => {
       .catch(error => {
         console.log(error);
         if (error.response) {
-        //   console.log(error.response.data);
-        //   console.log(error.response.status);
-          Alert.alert(error.response.status + " "+ error.response.data.message);
+          //   console.log(error.response.data);
+          //   console.log(error.response.status);
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "success"
+          });
           // if(error.response.status === 401)
           // this.props.navigation.navigate('Login');
         }

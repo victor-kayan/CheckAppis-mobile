@@ -207,19 +207,26 @@ class Visita extends Component {
           ) : !loading &&
             !selectedPickerApiario &&
             !selectedPickerApiario > 0 ? (
-            <View
-              style={{
-                marginTop: 50,
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <Image source={imageApiario128} />
-              <Text style={{ margin: 20, color: "#444444" }}>
-                Primeiro selecione um apiario
-              </Text>
-            </View>
+            <>
+              <CardItem
+                style={{
+                  marginTop: 20,
+                  flexDirection: "column",
+                  alignItems: "center"
+                }}
+              >
+                <Text>Primeiro selecione um apiario</Text>
+              </CardItem>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                <Image source={imageApiario128} />
+              </View>
+            </>
           ) : (
             !loading && (
               <>

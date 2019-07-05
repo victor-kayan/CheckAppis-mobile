@@ -5,11 +5,11 @@ import {
   CREATE_COLMEIA,
   LOADING_COLMEIA,
   GET_COLMEIA_BY_APIARIO,
-  EDIT_COLMEIA,
+  EDIT_COLMEIA
 } from "./actionsType";
-import { Alert } from "react-native";
+import { Toast } from "native-base";
 
-export const createColemia = ({ descricao, nome, foto, apiario_id}) => {
+export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
   console.log("COLMEIA CREATE");
   return dispatch => {
     dispatch({
@@ -19,16 +19,21 @@ export const createColemia = ({ descricao, nome, foto, apiario_id}) => {
       }
     });
 
-    Api.instance.post(uris.POST_COLMEIA, {
-      nome,
-      descricao,
-      apiario_id,
-      foto
-    })
+    Api.instance
+      .post(uris.POST_COLMEIA, {
+        nome,
+        descricao,
+        apiario_id,
+        foto
+      })
       .then(response => {
-       // console.log(response);
-        Alert.alert("Colmeia criada com sucesso.");
-        dispatch(getColemiasByApiario({id: apiario_id}));
+        console.log(response);
+        Toast.show({
+          text: "Colmeia criada com sucesso.",
+          buttonText: "",
+          type: "success"
+        });
+        dispatch(getColemiasByApiario({ id: apiario_id }));
         dispatch({
           type: CREATE_COLMEIA,
           payload: {
@@ -39,11 +44,12 @@ export const createColemia = ({ descricao, nome, foto, apiario_id}) => {
       .catch(error => {
         // console.log(error);
         if (error.response) {
-          // console.log(error.response.data);
-          // console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          console.log(error);
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: LOADING_COLMEIA,
@@ -56,7 +62,7 @@ export const createColemia = ({ descricao, nome, foto, apiario_id}) => {
   };
 };
 
-export const editColmeia = ({ id, descricao, nome, foto, apiario_id}) => {
+export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
   console.log("COLMEIA EDIT");
   return dispatch => {
     dispatch({
@@ -66,16 +72,21 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id}) => {
       }
     });
 
-    Api.instance.put(uris.PUT_COLMEIA+id, {
-      nome,
-      descricao,
-      apiario_id,
-      foto
-    })
+    Api.instance
+      .put(uris.PUT_COLMEIA + id, {
+        nome,
+        descricao,
+        apiario_id,
+        foto
+      })
       .then(response => {
         console.log(response);
-        Alert.alert("Edição realizada com sucesso.");
-        dispatch(getColemiasByApiario({id: apiario_id}));
+        Toast.show({
+          text: "Edição realizada com sucesso.",
+          buttonText: "",
+          type: "success"
+        });
+        dispatch(getColemiasByApiario({ id: apiario_id }));
         dispatch({
           type: EDIT_COLMEIA,
           payload: {
@@ -88,9 +99,11 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id}) => {
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: LOADING_COLMEIA,
@@ -113,7 +126,8 @@ export const getColemiasByApiario = ({ id }) => {
       }
     });
 
-    Api.instance.get(uris.GET_COLMEIAS_BY_APIARIO + id)
+    Api.instance
+      .get(uris.GET_COLMEIAS_BY_APIARIO + id)
       .then(response => {
         console.log(response);
         dispatch({
@@ -129,9 +143,11 @@ export const getColemiasByApiario = ({ id }) => {
         if (error) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: LOADING_COLMEIA,
@@ -154,27 +170,33 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
         loading: true
       }
     });
-    Api.instance.delete(uris.DELETE_COLMEIA_BY_ID + id)
+    Api.instance
+      .delete(uris.DELETE_COLMEIA_BY_ID + id)
       .then(response => {
-        // console.log(response);
-        Alert.alert("", "Colmeia deletada com sucesso");
+        console.log(response);
+        Toast.show({
+          text: "Colmeia deletada com sucesso",
+          buttonText: "",
+          type: "success"
+        });
         dispatch({
           type: DELETE_COLMEIA,
           payload: {
             loading: false
           }
         });
-        dispatch(getColemiasByApiario({id: apiario_id}));
+        dispatch(getColemiasByApiario({ id: apiario_id }));
       })
       .catch(error => {
-        // console.log(error);
+        console.log(error);
         if (error.response) {
           //   console.log(error.response.data);
           //   console.log(error.response.status);
-          Alert.alert(
-            "Error na solicitação ",
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: LOADING_COLMEIA,

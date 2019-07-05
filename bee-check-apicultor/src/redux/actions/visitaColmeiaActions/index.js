@@ -3,10 +3,10 @@ import {
   VISITA_COLMEIA_GET_ALL_BY_VISITA_APIARIO,
   VISITA_COLMEIA_CREATE
 } from "./actionsTypes";
-import { Alert } from "react-native";
 import { uris } from "../../../../assets";
 import { Api } from "../../../../services";
 import moment from "moment";
+import { Toast } from "native-base";
 
 export const fecthVisitasColmeiaByVisitaApiario = ({ visita_apiario_id }) => {
   console.log("GET VISITAS DA COLMEIA  BY VISITA_APIARIO" + visita_apiario_id);
@@ -17,7 +17,8 @@ export const fecthVisitasColmeiaByVisitaApiario = ({ visita_apiario_id }) => {
         loading: true
       }
     });
-    Api.instance.get(uris.GET_VISITAS_COLMEIA_BY_VISITA_APIARIO + visita_apiario_id)
+    Api.instance
+      .get(uris.GET_VISITAS_COLMEIA_BY_VISITA_APIARIO + visita_apiario_id)
       .then(response => {
         console.log(response);
         dispatch({
@@ -32,9 +33,11 @@ export const fecthVisitasColmeiaByVisitaApiario = ({ visita_apiario_id }) => {
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: VISITA_COLMEIA_LOADING,
@@ -68,18 +71,19 @@ export const createVisitaColmeia = ({
         loading: true
       }
     });
-    Api.instance.post(uris.POST_VISITA_COLMEIA, {
-      qtd_quadros_mel,
-      qtd_quadros_polen,
-      tem_abelhas_mortas,
-      qtd_cria_aberta,
-      qtd_cria_fechada,
-      tem_postura,
-      visita_apiario_id,
-      colmeia_id,
-      observacao,
-      data_visita
-    })
+    Api.instance
+      .post(uris.POST_VISITA_COLMEIA, {
+        qtd_quadros_mel,
+        qtd_quadros_polen,
+        tem_abelhas_mortas,
+        qtd_cria_aberta,
+        qtd_cria_fechada,
+        tem_postura,
+        visita_apiario_id,
+        colmeia_id,
+        observacao,
+        data_visita
+      })
       .then(response => {
         console.log(response);
         dispatch({
@@ -88,16 +92,22 @@ export const createVisitaColmeia = ({
             loading: false
           }
         });
-        Alert.alert("","Visita Registrada");
+        Toast.show({
+          text: "Visita Registrada",
+          buttonText: "",
+          type: "success"
+        });
       })
       .catch(error => {
         console.log(error);
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: VISITA_COLMEIA_LOADING,

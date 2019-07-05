@@ -4,7 +4,7 @@ import {
   INTERVENCAO_CONCLUIR
 } from "./actionsType";
 import { uris } from "../../../../assets";
-import { Alert } from "native-base";
+import { Toast } from "native-base";
 import { Api } from "../../../../services";
 
 export const fecthIntervencoesByApiario = ({ apiario_id }) => {
@@ -16,7 +16,8 @@ export const fecthIntervencoesByApiario = ({ apiario_id }) => {
         loading: true
       }
     });
-    Api.instance.get(uris.GET_INTERVENCOES_BY_APIARIO + apiario_id)
+    Api.instance
+      .get(uris.GET_INTERVENCOES_BY_APIARIO + apiario_id)
       .then(response => {
         console.log(response);
         dispatch({
@@ -31,9 +32,11 @@ export const fecthIntervencoesByApiario = ({ apiario_id }) => {
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: INTERVENCAO_LOADING,
@@ -55,11 +58,16 @@ export const concluirIntervencao = ({ intervencao_id }) => {
         loading: true
       }
     });
-    Api.instance.get(uris.GET_INTERVENCAO_APIARIO_CONCLUIR + intervencao_id)
+    Api.instance
+      .get(uris.GET_INTERVENCAO_APIARIO_CONCLUIR + intervencao_id)
       .then(response => {
         console.log(response);
         if (response.data.status != 200) {
-          alert(response.data.message);
+          Toast.show({
+            text: response.data.message,
+            buttonText: "",
+            type: "success"
+          });
           dispatch({
             type: INTERVENCAO_LOADING,
             payload: {
@@ -67,7 +75,11 @@ export const concluirIntervencao = ({ intervencao_id }) => {
             }
           });
         } else {
-          alert("Intervenção concluida");
+          Toast.show({
+            text: "Intervenção concluida",
+            buttonText: "",
+            type: "success"
+          });
           dispatch({
             type: INTERVENCAO_CONCLUIR,
             payload: {
@@ -81,7 +93,11 @@ export const concluirIntervencao = ({ intervencao_id }) => {
         if (error) {
           console.log(error.response.data);
           console.log(error.response.status);
-          alert(error.response.status + " " + error.response.data.message);
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: INTERVENCAO_LOADING,

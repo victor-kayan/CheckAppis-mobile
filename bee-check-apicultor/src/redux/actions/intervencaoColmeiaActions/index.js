@@ -4,7 +4,6 @@ import {
   INTERVENCAO_COLMEIA_CONCLUIR
 } from "./actionsType";
 import { uris } from "../../../../assets";
-import { Alert } from "native-base";
 import { Api } from "../../../../services";
 
 export const fecthIntervencoesColmeiasByIntervencao = ({ intervencao_id }) => {
@@ -16,7 +15,8 @@ export const fecthIntervencoesColmeiasByIntervencao = ({ intervencao_id }) => {
         loading: true
       }
     });
-    Api.instance.get(uris.GET_INTERVENCAO_COLMEIA_BY_INTERVENCAO_APIARIO + intervencao_id)
+    Api.instance
+      .get(uris.GET_INTERVENCAO_COLMEIA_BY_INTERVENCAO_APIARIO + intervencao_id)
       .then(response => {
         console.log(response);
         dispatch({
@@ -31,9 +31,11 @@ export const fecthIntervencoesColmeiasByIntervencao = ({ intervencao_id }) => {
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: INTERVENCAO_COLMEIA_LOADING,
@@ -46,7 +48,10 @@ export const fecthIntervencoesColmeiasByIntervencao = ({ intervencao_id }) => {
   };
 };
 
-export const concluirIntervencaoColmeia = ({ intervencao_colmeia_id, intervencao_id }) => {
+export const concluirIntervencaoColmeia = ({
+  intervencao_colmeia_id,
+  intervencao_id
+}) => {
   console.log("CONCLUIR INERVENCAO DA COLMEIA " + intervencao_colmeia_id);
   return dispatch => {
     dispatch({
@@ -55,10 +60,15 @@ export const concluirIntervencaoColmeia = ({ intervencao_colmeia_id, intervencao
         loading: true
       }
     });
-    Api.instance.get(uris.GET_INTERVENCAO_COLMEIA_CONCLUIR + intervencao_colmeia_id)
+    Api.instance
+      .get(uris.GET_INTERVENCAO_COLMEIA_CONCLUIR + intervencao_colmeia_id)
       .then(response => {
         console.log(response);
-        alert("Intervenção concluida");
+        Toast.show({
+          text: "Intervenção concluida",
+          buttonText: "",
+          type: "success"
+        });
         dispatch(fecthIntervencoesColmeiasByIntervencao({ intervencao_id }));
         dispatch({
           type: INTERVENCAO_COLMEIA_CONCLUIR,
@@ -71,9 +81,11 @@ export const concluirIntervencaoColmeia = ({ intervencao_colmeia_id, intervencao
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: INTERVENCAO_COLMEIA_LOADING,

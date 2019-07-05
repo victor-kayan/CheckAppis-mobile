@@ -4,11 +4,10 @@ import {
   VISITA_APIARIO_CREATE,
   VISITA_APIARIO_DELETE
 } from "./actionsTypes";
-import { Alert } from "react-native";
 import { uris } from "../../../../assets";
 import { Api } from "../../../../services";
 import moment from "moment";
-import axios from "axios";
+import { Toast } from "native-base";
 
 export const fecthVisitaApiarioByApiario = ({ apiario_id }) => {
   console.log("GET VISITAS DO APIARIO " + apiario_id);
@@ -37,9 +36,11 @@ export const fecthVisitaApiarioByApiario = ({ apiario_id }) => {
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: VISITA_APIARIO_LOADING,
@@ -80,7 +81,7 @@ export const createVisitaApiario = ({
       })
       .then(response => {
         console.log(response);
-        dispatch(fecthVisitaApiarioByApiario({apiario_id}));
+        dispatch(fecthVisitaApiarioByApiario({ apiario_id }));
         dispatch({
           type: VISITA_APIARIO_CREATE,
           payload: {
@@ -93,9 +94,11 @@ export const createVisitaApiario = ({
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: VISITA_APIARIO_LOADING,
@@ -109,7 +112,7 @@ export const createVisitaApiario = ({
   };
 };
 
-export const deleteVisitaApiario = ({ visita_id, apiario_id}) => {
+export const deleteVisitaApiario = ({ visita_id, apiario_id }) => {
   console.log("DELETE VISITA APIARIO " + visita_id);
 
   return dispatch => {
@@ -123,8 +126,12 @@ export const deleteVisitaApiario = ({ visita_id, apiario_id}) => {
       .delete(uris.DELETE_VISITA_APIARIO + visita_id)
       .then(response => {
         console.log(response);
-        dispatch(fecthVisitaApiarioByApiario({apiario_id}));
-        Alert.alert("Visita deletada com sucesso");
+        dispatch(fecthVisitaApiarioByApiario({ apiario_id }));
+        Toast.show({
+          text: "Visita deletada com sucesso",
+          buttonText: "",
+          type: "success"
+        });
         dispatch({
           type: VISITA_APIARIO_DELETE,
           payload: {
@@ -137,9 +144,11 @@ export const deleteVisitaApiario = ({ visita_id, apiario_id}) => {
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
-          Alert.alert(
-            error.response.status + " " + error.response.data.message
-          );
+          Toast.show({
+            text: error.response.data.message,
+            buttonText: "",
+            type: "danger"
+          });
         }
         dispatch({
           type: VISITA_APIARIO_LOADING,

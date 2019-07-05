@@ -196,21 +196,9 @@ class Colmeia extends Component {
                 />
               );
             })
-          ) : !loading && !selectedPickerApiario && !selectedPickerApiario > 0 ? (
-            <View
-              style={{
-                marginTop: 50,
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <Image source={imageApiario128} />
-              <Text style={{ margin: 20, color: "#444444" }}>
-                Primeiro selecione um apiario
-              </Text>
-            </View>
-          ) : ( !loading && (
+          ) : !loading &&
+            !selectedPickerApiario &&
+            !selectedPickerApiario > 0 ? (
             <>
               <CardItem
                 style={{
@@ -219,7 +207,7 @@ class Colmeia extends Component {
                   alignItems: "center"
                 }}
               >
-                <Text>Nenhuma colmeia cadastrada</Text>
+                <Text>Primeiro selecione um apiario</Text>
               </CardItem>
               <View
                 style={{
@@ -228,24 +216,55 @@ class Colmeia extends Component {
                   alignItems: "center"
                 }}
               >
-                <Icon
-                  onPress={() => this.props.navigation.navigate("NewColmeia", { apiario_id : selectedPickerApiario.id})}
-                  style={{ color: colors.btn_success, marginLeft: 130 }}
-                  active
-                  type="AntDesign"
-                  name="pluscircle"
-                />
-                <Image source={imageColmeia128} />
+                <Image source={imageApiario128} />
               </View>
             </>
-          ))}
+          ) : (
+            !loading && (
+              <>
+                <CardItem
+                  style={{
+                    marginTop: 20,
+                    flexDirection: "column",
+                    alignItems: "center"
+                  }}
+                >
+                  <Text>Nenhuma colmeia cadastrada</Text>
+                </CardItem>
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                >
+                  <Icon
+                    onPress={() =>
+                      this.props.navigation.navigate("NewColmeia", {
+                        apiario_id: selectedPickerApiario.id
+                      })
+                    }
+                    style={{ color: colors.btn_success, marginLeft: 130 }}
+                    active
+                    type="AntDesign"
+                    name="pluscircle"
+                  />
+                  <Image source={imageColmeia128} />
+                </View>
+              </>
+            )
+          )}
         </Content>
         {selectedPickerApiario && (
           <ActionButton buttonColor={colors.btn_success}>
             <ActionButton.Item
               buttonColor={"#ffc60b"}
               title="Nova colmeia"
-              onPress={() => this.props.navigation.navigate("NewColmeia", { apiario_id : selectedPickerApiario.id})}
+              onPress={() =>
+                this.props.navigation.navigate("NewColmeia", {
+                  apiario_id: selectedPickerApiario.id
+                })
+              }
             >
               <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
             </ActionButton.Item>

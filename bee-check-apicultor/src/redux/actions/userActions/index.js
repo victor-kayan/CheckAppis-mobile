@@ -15,7 +15,7 @@ export const login = ({ email, password }) => {
     Api.instance.post(uris.LOGIN, { email, password })
       .then(response => {
         if (response) {
-          console.log(response.status);
+          console.log(response);
         }
         Api.instance.defaults.headers.Authorization = `Bearer ${
           response.data.token
@@ -30,9 +30,12 @@ export const login = ({ email, password }) => {
         });
       })
       .catch(error => {
+        console.log(error);
+        
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
+
+          // console.log(error.response.data);
+          // console.log(error.response.status);
         }
         dispatch({
           type: LOADING_LOGIN,
@@ -59,9 +62,9 @@ export const logout = () => {
 
     Api.instance.post(uris.LOGOUT)
       .then(response => {
-        if (response) {
-          console.log(response.status);
-        }
+        // if (response) {
+          console.log(response);
+        // }
         AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
         dispatch({
           type: LOGOUT,

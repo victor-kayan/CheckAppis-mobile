@@ -1,6 +1,6 @@
 import React from "react";
-import { View, AsyncStorage, StyleSheet, Image } from "react-native";
-import { Spinner, Text, Alert } from "native-base";
+import { View, AsyncStorage, StyleSheet, Image, Alert } from "react-native";
+import { Spinner, Text } from "native-base";
 import { colors, constants } from "../../../assets";
 import { Api } from "../../../services";
 const logo = require("../../../images/logo.png");
@@ -18,14 +18,23 @@ class LoadingLogin extends React.Component {
           return response;
         },
         function(error) {
-          if (error.response.status === 401) {
+          if (error.response && error.response.status === 401) {
             AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
             // this.props.navigation.navigate("Login");
-            alert("Erro na autenticação. Por favor,efetue login novamente");
-          }else if (error.response.status === 500) {
-            alert("Servico temporariamente indisponivel");
-          }else if (error.response.status === 404) {
-            alert("Servidor temporariamente indisponivel");
+            Alert.alert(
+              "Erro na autenticação",
+              "Por favor,efetue login novamente"
+            );
+          } else if (error.response.status === 500) {
+            Alert.alert(
+              "Erro durante o processamento",
+              "Servico temporariamente indisponivel"
+            );
+          } else if (error.response.status === 404) {
+            Alert.alert(
+              "Serviço não encontrado",
+              "Servidor temporariamente indisponivel"
+            );
           }
           // Do something with response error
           return Promise.reject(error);

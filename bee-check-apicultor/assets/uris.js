@@ -1,6 +1,6 @@
 const uris = {
-  BASE_URL: "https://bee-check-api.herokuapp.com/api/",
-  // BASE_URL: "http://192.168.200.251/api/",
+  // BASE_URL: "https://bee-check-api.herokuapp.com/api/",
+  BASE_URL: "http://192.168.200.232:8080/api/",
 
   LOGIN: "auth/login/apicultor",
   LOGOUT: "auth/logout",
