@@ -1,23 +1,34 @@
-import React from "react";
+import React, { Component } from "react";
 import { Image, Modal, View } from "react-native";
+import styles from "./styles";
+import { Text } from "native-base";
 
 const imageLoading = require("../../../images/loading.gif");
 
-const SpinnerCustom = ({ title, visible, ...rest }) => (
-  <Modal visible={visible} onRequestClose={()  => null} transparent={true}>
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(255,255,255,0.2)"
-      }}
-    >
-      <View style={{ borderRadius: 10, padding: 25 }}>
-        <Image source={imageLoading} />
+class SpinnerCustom extends Component {
+  render() {
+    return (
+      <View style={{ flex: 0 }}>
+        <Modal
+          animationType="none"
+          transparent={true}
+          visible={this.props.visible}
+          onRequestClose={() => null}
+        >
+          <View style={styles.container}>
+            <View style={{ marginHorizontal: 20 }}>
+              <View style={styles.alertContainer}>
+                <View style={{ borderRadius: 10, padding: 10, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                  <Image source={imageLoading} />
+                  <Text style={{ marginHorizontal: 20, fontSize: 20, fontFamily: 'regular', fontWeight: 'bold'}}>Carregando...</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </View>
-    </View>
-  </Modal>
-);
+    );
+  }
+}
 
 export default SpinnerCustom;
