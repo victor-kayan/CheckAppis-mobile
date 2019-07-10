@@ -1,5 +1,4 @@
-import { FECTHALL_BY_USER, LOADING_APIARIO } from "./actionsType";
-import { Alert } from "react-native";
+import { GET_ALL_APIARIOS_BY_USER, LOADING_APIARIO } from "./actionsType";
 import { Api } from "../../../../services";
 import { uris } from "../../../../assets";
 import { Toast } from "native-base";
@@ -19,7 +18,7 @@ export const fetchApiariosByUser = () => {
       .then(response => {
         console.log(response);
         dispatch({
-          type: FECTHALL_BY_USER,
+          type: GET_ALL_APIARIOS_BY_USER,
           payload: {
             apiarios: response.data.apiarios,
             loading: false
@@ -34,7 +33,7 @@ export const fetchApiariosByUser = () => {
           Toast.show({
             text: error.response.data.message,
             buttonText: "",
-            type: "success"
+            type: "warning"
           });
           // if(error.response.status === 401)
           // this.props.navigation.navigate('Login');
@@ -49,3 +48,7 @@ export const fetchApiariosByUser = () => {
       });
   };
 };
+
+export const createVisita = data => {
+
+}

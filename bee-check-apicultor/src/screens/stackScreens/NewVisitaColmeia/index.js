@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Dimensions } from "react-native";
+import { Image } from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -8,31 +8,21 @@ import {
   Container,
   Content,
   Card,
-  Left,
   Icon,
-  Right,
   CardItem,
-  Picker,
   Text,
   View,
-  Textarea,
-  Header,
   Button,
-  Body,
-  Root,
   H3,
-  Title,
-  Thumbnail
+  Toast
 } from "native-base";
 import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
-import { createVisitaColmeia } from "../../../redux/actions/visitaColmeiaActions";
-import {
-  SpinnerCustom,
-  InputNumeric,
-  InputSwitch,
-  ButtonCustom
-} from "../../../componentes";
+import { createVisita } from "../../../redux/actions/visitaActions";
+import { SpinnerCustom } from "../../../componentes";
 import { colors } from "../../../../assets";
+import ColmeiaItem from "./ColmeiaItem";
+import FormVisita from "./FormVisita";
+import HeaderVisita from "./HeaderVisita";
 
 const imageColmeia128 = require("../../../../images/icons/colmeia128.png");
 
@@ -41,165 +31,141 @@ class NewVisitaColmeia extends Component {
     super(props);
     this.state = {
       colmeia: null,
-      qtd_quadros_mel: 0,
-      qtd_quadros_polen: 0,
-      tem_abelhas_mortas: 1,
-      qtd_cria_aberta: 0,
-      qtd_cria_fechada: 0,
-      tem_postura: 1,
-      visita_apiario_id: 0,
-      observacao: "",
-      colmeiasState: [],
+      colmeiasNaoVisitadas: [],
       colmeiasVisitadas: [],
-      done: false
+      done: false,
+      doneColmeias: false
     };
   }
 
-  componentDidMount() {
-    this.handleRefresh();
-  }
-
-  renderItemColmeia = colmeias => {
-    let colmeiasAux = ["cancelar"];
-    colmeias.forEach((colmeia, index) => {
-      colmeiasAux.push(
-        <View
-          style={{
-            width: "100%",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexDirection: "row",
-            paddingHorizontal: 20,
-            paddingVertical: 30
-          }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-            <Thumbnail square small source={{ uri: colmeia.foto }} />
-            <Text style={{ paddingHorizontal: 15 }}>
-              {colmeia.nome ? colmeia.nome : `Colmeia ${index}`}
-            </Text>
-          </View>
-          <Icon
-            style={{
-              color: this.state.colmeiasVisitadas.includes(colmeia.id)
-                ? colors.btn_success
-                : // : "#FAFAFA"
-                  colors.btn_success
-            }}
-            name="check-square-o"
-            type="FontAwesome"
-          />
-        </View>
-      );
-    });
-    this.setState({ colmeiasState: colmeiasAux });
-  };
-
   componentWillReceiveProps(nextProps) {
-    if (nextProps.colmeias && this.state.done) {
-      this.renderItemColmeia(nextProps.colmeias);
+    const { done, doneColmeias } = this.state;
+    if (doneColmeias && nextProps.colmeias) {
+      this.renderItemColmeia(nextProps.colmeias, []);
+      this.setState({ doneColmeias: false });
+    }
+    if (done) {
+      console.log("nextProps", nextProps);
+
+      this.setState({ done: false });
+      if (nextProps.storeError) {
+        return Toast.show({
+          text: nextProps.storeMessages && nextProps.storeMessages,
+          buttonText: "",
+          type: "danger"
+        });
+      } else {
+        Toast.show({
+          text: nextProps.storeMessages && nextProps.storeMessages,
+          buttonText: "",
+          type: "success"
+        });
+
+        this.props.navigation.navigate("Visita");
+      }
     }
   }
 
-  handleRefresh = () => {
+  componentDidMount() {
+    this.getColmeiasByApiario();
+  }
+
+  renderItemColmeia = (colmeias, colmeiasVisitadas) => {
+    let colmeiasAux = [];
+    let color = "#FAFAFA";
+    if (colmeias && colmeias.length) {
+      colmeiasAux.push("Cancelar Seleção");
+    } else {
+      colmeiasAux.push("Apiarios sem colmeias");
+    }
+    colmeias.forEach(colmeia => {
+      color =
+        colmeiasVisitadas &&
+        colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id) >= 0
+          ? colors.btn_success
+          : "#FAFAFA";
+
+      colmeia &&
+        colmeiasAux.push(<ColmeiaItem colorIcon={color} colmeia={colmeia} />);
+    });
+    // console.log("colmeiasVisitadas", colmeiasVisitadas);
+
+    this.setState({ colmeiasNaoVisitadas: colmeiasAux });
+  };
+
+  getColmeiasByApiario = () => {
     this.props.getColemiasByApiario({
       id: this.props.navigation.getParam("apiario_id", "")
     });
-    this.setState({ colmeia: null, done: true });
+    this.setState({ colmeia: null, doneColmeias: true });
   };
 
-  onSaveVisita = () => {
-    let tem_abelhas_mortas = this.state.tem_abelhas_mortas == 1 ? 0 : 1;
-    let tem_postura = this.state.tem_postura == 1 ? 0 : 1;
+  onAddVisitaColmeia = values => {
+    const { colmeia, colmeiasVisitadas } = this.state;
+    let index = -1;
+    let visita = {
+      ...values,
+      colmeia_id: colmeia.id
+    };
+    index =
+      colmeiasVisitadas &&
+      colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
 
-    const {
-      qtd_quadros_mel,
-      qtd_quadros_polen,
-      qtd_cria_aberta,
-      qtd_cria_fechada,
-      colmeia,
-      observacao
-    } = this.state;
-    // this.props.createVisitaColmeia({
-    //   qtd_quadros_mel,
-    //   qtd_quadros_polen,
-    //   tem_abelhas_mortas,
-    //   qtd_cria_aberta,
-    //   qtd_cria_fechada,
-    //   tem_postura,
-    //   visita_apiario_id: this.props.visitaApiario.id,
-    //   colmeia_id: colmeia.id,
-    //   observacao
-    // });
-
-    this.clearState();
-  };
-
-  clearState = () => {
-    this.setState({
-      colmeia: null,
-      qtd_quadros_mel: 0,
-      qtd_quadros_polen: 0,
-      tem_abelhas_mortas: 1,
-      qtd_cria_aberta: 0,
-      qtd_cria_fechada: 0,
-      tem_postura: 1,
-      visita_apiario_id: 0,
-      observacao: ""
+    if (index >= 0) {
+      this.setState(prevState => ({
+        colmeiasVisitadas: {
+          ...prevState.colmeiasVisitadas,
+          [prevState.colmeiasVisitadas[index]]: visita
+        },
+        colmeia: null
+      }));
+    } else {
+      this.setState({
+        colmeiasVisitadas: [...colmeiasVisitadas, visita],
+        colmeia: null
+      });
+    }
+    Toast.show({
+      text: "Visita adicionada",
+      buttonText: "",
+      type: "success"
     });
+    this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
   };
 
-  onValueChangeselectedPickerColmeia = colmeia => {
-    this.setState({ colmeia });
+  onConcluirVisita = () => {
+    const { colmeiasVisitadas } = this.state;
+    this.setState({ done: true });
+    data = {
+      visitas_colmeias: colmeiasVisitadas,
+      visita_apiario: this.props.navigation.getParam("visita_apiario", ""),
+      apiario_id: this.props.navigation.getParam("apiario_id", "")
+    };
+    this.props.createVisita(data);
+  };
+
+  onChangeSelectColmeia = index => {
+    const { colmeias } = this.props;
+
+    if (index !== 0 && colmeias[index - 1]) {
+      this.setState({ colmeia: colmeias[index - 1] });
+    }
   };
 
   showActionSheet = () => {
-    const { colmeiasState } = this.state;
+    const { colmeiasNaoVisitadas } = this.state;
 
-    colmeiasState && colmeiasState.length > 0 && this.ActionSheet.show();
+    colmeiasNaoVisitadas &&
+      colmeiasNaoVisitadas.length > 0 &&
+      this.ActionSheet.show();
   };
 
   render() {
-    const { loading } = this.props;
-    const {
-      colmeia,
-      qtd_quadros_mel,
-      qtd_quadros_polen,
-      tem_abelhas_mortas,
-      qtd_cria_aberta,
-      qtd_cria_fechada,
-      tem_postura,
-      observacao,
-      colmeiasState
-    } = this.state;
+    const { loading, colmeias } = this.props;
+    const { colmeia, colmeiasNaoVisitadas } = this.state;
     return (
       <Container>
-        <Header
-          style={{ backgroundColor: colors.theme_default }}
-          androidStatusBarColor={colors.colorAndroidBarraStatus}
-        >
-          <Left />
-          <Body>
-            <Title style={{ color: colors.black }}>Colmeias</Title>
-          </Body>
-          <Right>
-            <Button
-              rounded
-              style={{ backgroundColor: colors.btn_success }}
-              iconRight
-              small
-            >
-              <Text>Concluir visita</Text>
-              <Icon type="FontAwesome" name="save" />
-            </Button>
-          </Right>
-        </Header>
+        <HeaderVisita handleConcluirVisita={this.onConcluirVisita} />
         <Content padder>
           {/* <Root> */}
           <SpinnerCustom visible={loading} />
@@ -212,7 +178,7 @@ class NewVisitaColmeia extends Component {
                 onPress={this.showActionSheet}
               >
                 <Image
-                  source={require("../../../../images/icons/colmeia128.png")}
+                  source={imageColmeia128}
                   style={styles.iconImagemSelectPicker}
                 />
                 <H3
@@ -235,11 +201,11 @@ class NewVisitaColmeia extends Component {
               <ActionSheet
                 ref={o => (this.ActionSheet = o)}
                 title={"Selecione uma colmeia!"}
-                options={colmeiasState}
+                options={colmeiasNaoVisitadas}
                 cancelButtonIndex={0}
                 // destructiveButtonIndex={1}
                 onPress={index => {
-                  alert(index);
+                  this.onChangeSelectColmeia(index);
                 }}
               />
             </CardItem>
@@ -252,141 +218,9 @@ class NewVisitaColmeia extends Component {
                   {this.state.colmeia && this.state.colmeia.nome}
                 </Text>
               </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Há quantos quadros de Mel?</Text>
-                </Left>
-                <Right>
-                  <InputNumeric
-                    value={qtd_quadros_mel}
-                    onChangePlus={() =>
-                      this.setState({ qtd_quadros_mel: qtd_quadros_mel + 1 })
-                    } // this is necessary for this component
-                    onChangeMinus={() =>
-                      this.setState({
-                        qtd_quadros_mel:
-                          qtd_quadros_mel <= 0
-                            ? qtd_quadros_mel
-                            : qtd_quadros_mel - 1
-                      })
-                    }
-                  />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Há quantos quadros de Pólen?</Text>
-                </Left>
-                <Right>
-                  <InputNumeric
-                    value={qtd_quadros_polen}
-                    onChangePlus={() =>
-                      this.setState({
-                        qtd_quadros_polen: qtd_quadros_polen + 1
-                      })
-                    } // this is necessary for this component
-                    onChangeMinus={() =>
-                      this.setState({
-                        qtd_quadros_polen:
-                          qtd_quadros_polen <= 0
-                            ? qtd_quadros_polen
-                            : qtd_quadros_polen - 1
-                      })
-                    }
-                  />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Há quantos quadros de cria Aberta?</Text>
-                </Left>
-                <Right>
-                  <InputNumeric
-                    value={qtd_cria_aberta}
-                    onChangePlus={() =>
-                      this.setState({ qtd_cria_aberta: qtd_cria_aberta + 1 })
-                    } // this is necessary for this component
-                    onChangeMinus={() =>
-                      this.setState({
-                        qtd_cria_aberta:
-                          qtd_cria_aberta <= 0
-                            ? qtd_cria_aberta
-                            : qtd_cria_aberta - 1
-                      })
-                    }
-                  />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Há quantos quadros de cria Fechada?</Text>
-                </Left>
-                <Right>
-                  <InputNumeric
-                    value={qtd_cria_fechada}
-                    onChangePlus={() =>
-                      this.setState({
-                        qtd_cria_fechada: qtd_cria_fechada + 1
-                      })
-                    } // this is necessary for this component
-                    onChangeMinus={() =>
-                      this.setState({
-                        qtd_cria_fechada:
-                          qtd_cria_fechada <= 0
-                            ? qtd_cria_fechada
-                            : qtd_cria_fechada - 1
-                      })
-                    }
-                  />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Há abelhas mortas no Alavo?</Text>
-                </Left>
-                <Right>
-                  <InputSwitch
-                    value={tem_abelhas_mortas}
-                    onValueChange={tem_abelhas_mortas =>
-                      this.setState({ tem_abelhas_mortas })
-                    } // this is necessary for this component
-                  />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text>Há presença de Postura?</Text>
-                </Left>
-                <Right>
-                  <InputSwitch
-                    value={tem_postura}
-                    onValueChange={tem_postura =>
-                      this.setState({ tem_postura })
-                    } // this is necessary for this component
-                  />
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Textarea
-                  rowSpan={4}
-                  value={observacao}
-                  onChangeText={observacao => this.setState({ observacao })}
-                  style={{ width: "100%", borderRadius: 5 }}
-                  bordered
-                  placeholder="Observações"
-                />
-              </CardItem>
-              <CardItem style={{ alignSelf: "flex-end" }}>
-                <ButtonCustom
-                  style={styles.buttonSalveVisita}
-                  onPress={() => this.onSaveVisita()}
-                  title="Proxima Colmeia"
-                  iconRight="arrowright"
-                  typeIconRight="AntDesign"
-                />
-              </CardItem>
+              <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} />
             </View>
-          ) : !loading && colmeiasState.length ? (
+          ) : !loading && !colmeia ? (
             <>
               <CardItem
                 style={{
@@ -408,7 +242,8 @@ class NewVisitaColmeia extends Component {
               </View>
             </>
           ) : (
-            !loading && (
+            !loading &&
+            !colmeias.length && (
               <>
                 <CardItem
                   style={{
@@ -455,17 +290,17 @@ class NewVisitaColmeia extends Component {
 // export default Visita;
 function mapStateToProps(state) {
   return {
-    loading: state.colmeiaState.loading || state.visitaColmeiaState.loading,
+    loading: state.colmeiaState.loading || state.visitaState.visitaIsLoading,
     colmeias: state.colmeiaState.colmeias,
-    visitaApiario: state.visitaApiarioState.visitaApiario
+    visita: state.visitaState.visita,
+
+    storeMessages: state.visitaState.storeMessages,
+    storeError: state.visitaState.storeError
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { getColemiasByApiario, createVisitaColmeia },
-    dispatch
-  );
+  return bindActionCreators({ getColemiasByApiario, createVisita }, dispatch);
 }
 
 export default connect(

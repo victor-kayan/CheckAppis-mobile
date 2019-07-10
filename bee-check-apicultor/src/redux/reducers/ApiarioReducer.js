@@ -1,5 +1,5 @@
 import {
-  FECTHALL_BY_USER, LOADING_APIARIO
+  GET_ALL_APIARIOS_BY_USER, LOADING_APIARIO
 } from "../actions/apiarioActions/actionsType";
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 };
 export const ApiarioReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FECTHALL_BY_USER:
+    case GET_ALL_APIARIOS_BY_USER:
       return {
         ...state,
         apiarios: action.payload.apiarios,

@@ -2,28 +2,20 @@ import React, { Component } from "react";
 import styles from "./styles";
 import {
   Container,
-  Left,
-  Body,
-  Right,
   Content,
   Card,
   Picker,
   Text,
   CardItem,
-  View,
-  Textarea
+  View
 } from "native-base";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
-import { createVisitaApiario } from "../../../redux/actions/visitaApiarioActions";
+import { createVisita } from "../../../redux/actions/visitaActions";
 import { Image } from "react-native";
-import {
-  InputSwitch,
-  HeaderCustom,
-  ButtonCustom,
-  SpinnerCustom
-} from "../../../componentes";
+import { HeaderCustom, SpinnerCustom } from "../../../componentes";
+import FormVisita from "./FormVisita";
 
 const imageApiario128 = require("../../../../images/icons/apiario128.png");
 
@@ -31,11 +23,7 @@ class NewVisitaApiario extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedPickerApiario: null,
-      tem_agua: 1,
-      tem_sombra: 1,
-      tem_comida: 1,
-      observacao: ""
+      selectedPickerApiario: null
     };
   }
 
@@ -44,47 +32,27 @@ class NewVisitaApiario extends Component {
     this.setState({ selectedPickerApiario: null });
   };
 
-  onSaveVisita = () => {
-    let tem_agua = this.state.tem_agua == 1 ? 0 : 1;
-    let tem_sombra = this.state.tem_sombra == 1 ? 0 : 1;
-    let tem_comida = this.state.tem_comida == 1 ? 0 : 1;
-    // this.props.createVisitaApiario({
-    //   tem_agua,
-    //   tem_sombra,
-    //   tem_comida,
-    //   observacao: this.state.observacao,
-    //   apiario_id: this.state.selectedPickerApiario.id
-    // });
-    // alert("clicou");
+  onAddVisitaApiario = values => {
     this.props.navigation.navigate("NewVisitaColmeia", {
-      apiario_id: this.state.selectedPickerApiario.id
+      apiario_id: this.state.selectedPickerApiario.id,
+      visita_apiario: values
     });
   };
 
   onValueChangePickerApiario = apiario => {
     this.setState({
-      selectedPickerApiario: apiario,
-      tem_agua: 1,
-      tem_sombra: 1,
-      tem_comida: 1,
-      observacao: ""
+      selectedPickerApiario: apiario
     });
   };
 
   render() {
     const { apiarios, loading } = this.props;
-    const {
-      selectedPickerApiario,
-      tem_agua,
-      tem_sombra,
-      tem_comida,
-      observacao
-    } = this.state;
+    const { selectedPickerApiario } = this.state;
 
     return (
       <Container>
         <HeaderCustom
-          title="Apiarios"
+          title="Visita"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
@@ -135,71 +103,13 @@ class NewVisitaApiario extends Component {
             <View>
               <CardItem>
                 <Text style={styles.textSubTitle}>
-                  Responda as questões abaixo sobre o apiario{" "}
-                  {selectedPickerApiario && selectedPickerApiario.nome}
+                  {selectedPickerApiario &&
+                    `Responda as questões abaixo sobre o apiario ${
+                      selectedPickerApiario.nome
+                    }`}
                 </Text>
               </CardItem>
-              <View>
-                <CardItem>
-                  <Left>
-                    <Text>Há Água?</Text>
-                  </Left>
-                  <Body />
-                  <Right>
-                    <InputSwitch
-                      value={tem_agua}
-                      onValueChange={tem_agua => this.setState({ tem_agua })} // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Está sombreado?</Text>
-                  </Left>
-                  <Body />
-                  <Right>
-                    <InputSwitch
-                      value={tem_sombra}
-                      onValueChange={tem_sombra =>
-                        this.setState({ tem_sombra })
-                      } // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Left>
-                    <Text>Há Comida?</Text>
-                  </Left>
-                  <Body />
-                  <Right>
-                    <InputSwitch
-                      value={tem_comida}
-                      onValueChange={tem_comida =>
-                        this.setState({ tem_comida })
-                      } // this is necessary for this component
-                    />
-                  </Right>
-                </CardItem>
-                <CardItem>
-                  <Textarea
-                    rowSpan={4}
-                    value={observacao}
-                    onChangeText={observacao => this.setState({ observacao })}
-                    style={{ width: "100%", borderRadius: 5 }}
-                    bordered
-                    placeholder="Observações"
-                  />
-                </CardItem>
-                <CardItem style={{ alignSelf: "flex-end" }}>
-                  <ButtonCustom
-                    style={styles.buttonSalveVisita}
-                    onPress={() => this.onSaveVisita()}
-                    title="Visitar Colmeias"
-                    iconRight="arrowright"
-                    typeIconRight="AntDesign"
-                  />
-                </CardItem>
-              </View>
+              <FormVisita handleAddVisitaApiario={this.onAddVisitaApiario} />
             </View>
           ) : (
             !loading && (
@@ -235,13 +145,13 @@ class NewVisitaApiario extends Component {
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
-    loading: state.apiarioState.loading || state.visitaApiarioState.loading
+    loading: state.apiarioState.loading || state.visitaState.visitaIsLoading
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchApiariosByUser, createVisitaApiario },
+    { fetchApiariosByUser, createVisita },
     dispatch
   );
 }

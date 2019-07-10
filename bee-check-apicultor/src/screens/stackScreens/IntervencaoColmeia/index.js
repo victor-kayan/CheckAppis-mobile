@@ -13,8 +13,7 @@ import {
   Right
 } from "native-base";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { fecthIntervencoesColmeiasByIntervencao, concluirIntervencaoColmeia } from '../../../redux/actions/intervencaoColmeiaActions';
+// import { bindActionCreators } from "redux";
 import {
   HeaderCustom,
   SpinnerCustom,
@@ -135,14 +134,14 @@ function mapStateToProps(state, props) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { fecthIntervencoesColmeiasByIntervencao, concluirIntervencaoColmeia },
-    dispatch
-  );
-}
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators(
+//     { fecthIntervencoesColmeiasByIntervencao, concluirIntervencaoColmeia },
+//     dispatch
+//   );
+// }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(IntervencaoColmeia);

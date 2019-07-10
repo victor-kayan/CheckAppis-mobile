@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fecthVisitasColmeiaByVisitaApiario } from "../../../redux/actions/visitaColmeiaActions";
 import moment from "moment";
 import "moment/locale/pt-br";
 
@@ -155,11 +154,11 @@ function mapStateToProps(state, props) {
 // // Doing this merges our actions into the component’s props,
 // // while wrapping them in dispatch() so that they immediately dispatch an Action.
 // // Just by doing this, we will have access to the actions defined in out actions file (action/home.js)
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fecthVisitasColmeiaByVisitaApiario }, dispatch);
-}
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({ fecthVisitasColmeiaByVisita }, dispatch);
+// }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(DetalhesVisita);

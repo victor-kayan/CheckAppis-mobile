@@ -1,4 +1,4 @@
-#Wed Apr 03 21:32:45 BRT 2019
-base.0=/home/evocorp/TCC/bee-check/beecheck-mobile/android/app/build/intermediates/transforms/dexMerger/release/0
+#Wed Jul 10 01:14:52 BRT 2019
+base.0=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/dexMerger/release/0
 path.0=classes.dex
 renamed.0=classes.dex

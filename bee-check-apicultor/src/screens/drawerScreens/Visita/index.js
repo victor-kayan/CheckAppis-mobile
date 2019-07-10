@@ -4,10 +4,9 @@ import { bindActionCreators } from "redux";
 import ActionButton from "react-native-action-button";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 import {
-  fecthVisitaApiarioByApiario,
-  deleteVisitaApiario
-} from "../../../redux/actions/visitaApiarioActions";
-import { fecthVisitasColmeiaByVisitaApiario } from "../../../redux/actions/visitaColmeiaActions";
+  getVisitasByApiario,
+  deleteVisita
+} from "../../../redux/actions/visitaActions";
 
 const imageApiario128 = require("../../../../images/icons/apiario128.png");
 const imageVisita128 = require("../../../../images/icons/visita128.png");
@@ -33,7 +32,6 @@ import { colors } from "../../../../assets";
 import styles from "./styles";
 import {
   HeaderCustom,
-  HeaderCard,
   SpinnerCustom,
   RemoveDialog
 } from "../../../componentes";
@@ -61,33 +59,33 @@ class Visita extends Component {
   onValueChangePickerApiario = apiario => {
     this.setState({ selectedPickerApiario: apiario });
     if (apiario) {
-      this.fecthVisitaApiario(apiario.id);
+      this.fecthVisita(apiario.id);
     }
   };
 
-  fecthVisitaApiario = id => {
-    this.props.fecthVisitaApiarioByApiario({ apiario_id: id });
+  fecthVisita = id => {
+    this.props.getVisitasByApiario({ apiario_id: id });
   };
 
   handleDelete = () => {
     this.setState({ dialogVisible: false });
-    this.props.deleteVisitaApiario({
+    this.props.deleteVisita({
       visita_id: this.state.visita.id,
       apiario_id: this.state.selectedPickerApiario.id
     });
   };
 
-  handleDetalhar = visita => {
-    this.props.fecthVisitasColmeiaByVisitaApiario({
-      visita_apiario_id: visita.id
-    });
-    this.props.navigation.navigate("DetalhesVisita");
-  };
+  // handleDetalhar = visita => {
+  //   this.props.fecthVisitasColmeiaByVisita({
+  //     visita_apiario_id: visita.id
+  //   });
+  //   this.props.navigation.navigate("DetalhesVisita");
+  // };
 
   render() {
     const { selectedPickerApiario, dialogVisible } = this.state;
     const { apiarios, loading } = this.props;
-    const { visitasApiario } = selectedPickerApiario == null ? [] : this.props;
+    const { visitas } = selectedPickerApiario == null ? [] : this.props;
 
     return (
       <Container>
@@ -142,8 +140,8 @@ class Visita extends Component {
               </Picker>
             </CardItem>
           </Card>
-          {!loading && visitasApiario && visitasApiario.length > 0 ? (
-            visitasApiario.map(visita => {
+          {!loading && visitas && visitas.length > 0 ? (
+            visitas.map(visita => {
               return (
                 <SwipeRow
                   key={visita.id}
@@ -288,8 +286,8 @@ class Visita extends Component {
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
-    visitasApiario: state.visitaApiarioState.visitasApiario,
-    loading: state.apiarioState.loading || state.visitaApiarioState.loading
+    visitas: state.visitaState.visitas,
+    loading: state.apiarioState.loading || state.visitaState.visitaIsLoading
   };
 }
 
@@ -297,9 +295,9 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchApiariosByUser,
-      fecthVisitaApiarioByApiario,
-      deleteVisitaApiario,
-      fecthVisitasColmeiaByVisitaApiario
+      getVisitasByApiario,
+      deleteVisita,
+      // fecthVisitasColmeiaByVisita
     },
     dispatch
   );
