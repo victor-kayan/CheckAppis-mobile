@@ -61,7 +61,7 @@ class NewColmeia extends Component {
         apiario_id: this.props.navigation.getParam("apiario_id", "")
       });
       this.clearInputs();
-      // this.props.navigation.navigate("Colmeia");
+      // this.props.navigation.navigate(routes.ColmeiaHome);
     }
   };
 

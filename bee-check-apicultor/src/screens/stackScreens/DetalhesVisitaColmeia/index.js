@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import moment from "moment";
 import "moment/locale/pt-br";
 
@@ -16,30 +14,22 @@ import {
   Left,
   Thumbnail
 } from "native-base";
-import { HeaderCustom, SpinnerCustom } from "../../../componentes";
+import { HeaderCustom } from "../../../componentes";
 import styles from "./styles";
 import { colors } from "../../../../assets";
 
 class DetalhesVisita extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  componentDidMount() {}
-
-  getVisitas = visita_apiario_id => {
-    console.log(visita_apiario_id);
-  };
-
   render() {
-    const { visitasColmeia, loading } = this.props;
+    const visitasColmeia = this.props.navigation.getParam("visitasColmeia", "");
+
+    console.log(visitasColmeia);
+    
 
     return (
       <Container>
         <HeaderCustom title="Detalhes" />
         <Content padder>
-          {visitasColmeia ? (
+          {visitasColmeia &&
             visitasColmeia.map(visita => {
               return (
                 <Card key={visita.id}>
@@ -131,34 +121,11 @@ class DetalhesVisita extends React.Component {
                   </CardItem>
                 </Card>
               );
-            })
-          ) : (
-            <SpinnerCustom visible={loading} />
-          )}
+            })}
         </Content>
       </Container>
     );
   }
 }
 
-// The function takes data from the app current state,
-// and insert/links it into the props of our component.
-// This function makes Redux know that this component needs to be passed a piece of the state
-function mapStateToProps(state, props) {
-  return {
-    loading: state.visitaColmeiaState.loading,
-    visitasColmeia: state.visitaColmeiaState.visitasColmeia
-  };
-}
-
-// // Doing this merges our actions into the component’s props,
-// // while wrapping them in dispatch() so that they immediately dispatch an Action.
-// // Just by doing this, we will have access to the actions defined in out actions file (action/home.js)
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({ fecthVisitasColmeiaByVisita }, dispatch);
-// }
-
-export default connect(
-  mapStateToProps,
-  null
-)(DetalhesVisita);
+export default DetalhesVisita;

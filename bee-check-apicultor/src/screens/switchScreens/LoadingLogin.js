@@ -1,7 +1,7 @@
 import React from "react";
 import { View, AsyncStorage, StyleSheet, Image, Alert } from "react-native";
 import { Spinner, Text } from "native-base";
-import { colors, constants } from "../../../assets";
+import { colors, constants, routes } from "../../../assets";
 import { Api } from "../../../services";
 const logo = require("../../../images/logo.png");
 
@@ -20,7 +20,6 @@ class LoadingLogin extends React.Component {
         function(error) {
           if (error.response && error.response.status === 401) {
             AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
-            // this.props.navigation.navigate("Login");
             Alert.alert(
               "Erro na autenticação",
               "Por favor,efetue login novamente"
@@ -40,9 +39,9 @@ class LoadingLogin extends React.Component {
           return Promise.reject(error);
         }
       );
-      this.props.navigation.navigate("Home");
+      this.props.navigation.navigate(routes.Home);
     } else {
-      this.props.navigation.navigate("Login");
+      this.props.navigation.navigate(routes.Login);
     }
   }
 

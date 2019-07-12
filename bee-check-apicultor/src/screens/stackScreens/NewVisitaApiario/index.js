@@ -16,6 +16,7 @@ import { createVisita } from "../../../redux/actions/visitaActions";
 import { Image } from "react-native";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
 import FormVisita from "./FormVisita";
+import { routes } from "../../../../assets";
 
 const imageApiario128 = require("../../../../images/icons/apiario128.png");
 
@@ -33,7 +34,7 @@ class NewVisitaApiario extends Component {
   };
 
   onAddVisitaApiario = values => {
-    this.props.navigation.navigate("NewVisitaColmeia", {
+    this.props.navigation.navigate(routes.NewVisitaColmeia, {
       apiario_id: this.state.selectedPickerApiario.id,
       visita_apiario: values
     });

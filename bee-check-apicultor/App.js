@@ -18,7 +18,7 @@ import {
   EditColmeia,
   NewVisitaApiario,
   NewVisitaColmeia,
-  DetalhesVisita,
+  DetalhesVisitaColmeia,
   IntervencaoColmeia
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
@@ -60,7 +60,7 @@ const StackNavigator = createStackNavigator(
     EditColmeia,
     NewVisitaApiario,
     NewVisitaColmeia,
-    DetalhesVisita,
+    DetalhesVisitaColmeia,
     IntervencaoColmeia
   },
   {

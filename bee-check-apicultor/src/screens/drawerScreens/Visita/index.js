@@ -28,7 +28,7 @@ import {
   Badge
 } from "native-base";
 import { Image, TouchableOpacity } from "react-native";
-import { colors } from "../../../../assets";
+import { colors, routes } from "../../../../assets";
 import styles from "./styles";
 import {
   HeaderCustom,
@@ -75,12 +75,13 @@ class Visita extends Component {
     });
   };
 
-  // handleDetalhar = visita => {
-  //   this.props.fecthVisitasColmeiaByVisita({
-  //     visita_apiario_id: visita.id
-  //   });
-  //   this.props.navigation.navigate("DetalhesVisita");
-  // };
+  handleDetalhar = visita => {
+    console.log("visita", visita);
+    
+    this.props.navigation.navigate(routes.DetalhesVisita, {
+      visitasColmeia: visita.visita_colmeias
+    });
+  };
 
   render() {
     const { selectedPickerApiario, dialogVisible } = this.state;
@@ -154,7 +155,7 @@ class Visita extends Component {
                         <View style={{ marginHorizontal: "10%" }}>
                           <Row>
                             <Text>
-                              {`Data: ${moment(visita.data_visita).format(
+                              {`Data: ${moment(visita.created_at).format(
                                 "DD MMMM  YYYY"
                               )}`}
                             </Text>
@@ -246,7 +247,7 @@ class Visita extends Component {
                 >
                   <Icon
                     onPress={() =>
-                      this.props.navigation.navigate("NewVisitaApiario", {
+                      this.props.navigation.navigate(routes.NewVisitaApiario, {
                         apiario_id: selectedPickerApiario.id
                       })
                     }
@@ -265,7 +266,7 @@ class Visita extends Component {
           <ActionButton.Item
             buttonColor={colors.theme_primary}
             title="Nova Visita"
-            onPress={() => this.props.navigation.navigate("NewVisitaApiario")}
+            onPress={() => this.props.navigation.navigate(routes.NewVisitaApiario)}
           >
             <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
           </ActionButton.Item>
@@ -296,7 +297,7 @@ function mapDispatchToProps(dispatch) {
     {
       fetchApiariosByUser,
       getVisitasByApiario,
-      deleteVisita,
+      deleteVisita
       // fecthVisitasColmeiaByVisita
     },
     dispatch

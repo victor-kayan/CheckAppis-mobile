@@ -13,28 +13,29 @@ import {
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { logout } from "../../redux/actions/userActions";
+import { routes } from "../../../assets";
 
 const drawerCover = require("../../../images/sider/drawer-cover.png");
 
 const datas = [
   {
     name: "Home",
-    route: "Home",
+    route: routes.Home,
     icon: require("../../../images/sider/home.png")
   },
   {
     name: "Colmeias",
-    route: "Colmeia",
+    route: routes.ColmeiaHome,
     icon: require("../../../images/sider/colmeia.png")
   },
   {
     name: "Visitas",
-    route: "Visita",
+    route: routes.VisitasHome,
     icon: require("../../../images/sider/visita.png")
   },
   {
     name: "Intervenções",
-    route: "Intervencao",
+    route: routes.IntervencaoHome,
     icon: require("../../../images/sider/intervencao.png")
   }
 ];
@@ -50,7 +51,7 @@ class SideBar extends Component {
 
   logout = () => {
     this.props.logout();
-    this.props.navigation.navigate("Login");
+    this.props.navigation.navigate(routes.Login);
   };
 
   render() {

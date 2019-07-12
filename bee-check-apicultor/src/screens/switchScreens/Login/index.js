@@ -6,7 +6,7 @@ import {
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { login } from "../../../redux/actions/userActions";
-import { constants } from "../../../../assets";
+import { constants, routes } from "../../../../assets";
 import ViewLogin from "./ViewLogin";
 
 class Login extends React.Component {
@@ -69,7 +69,7 @@ class Login extends React.Component {
         console.log(error);
         throw error;
       }
-      this.props.navigation.navigate("Home");
+      this.props.navigation.navigate(routes.Home);
     } else if (
       nextProps.logged == false &&
       nextProps.loading == false &&

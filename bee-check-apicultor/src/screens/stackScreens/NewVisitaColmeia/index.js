@@ -19,7 +19,7 @@ import {
 import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
 import { createVisita } from "../../../redux/actions/visitaActions";
 import { SpinnerCustom } from "../../../componentes";
-import { colors } from "../../../../assets";
+import { colors, routes } from "../../../../assets";
 import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
 import HeaderVisita from "./HeaderVisita";
@@ -61,7 +61,7 @@ class NewVisitaColmeia extends Component {
           type: "success"
         });
 
-        this.props.navigation.navigate("Visita");
+        this.props.navigation.navigate(routes.VisitasHome);
       }
     }
   }
@@ -263,7 +263,7 @@ class NewVisitaColmeia extends Component {
                 >
                   <Icon
                     onPress={() =>
-                      this.props.navigation.navigate("NewColmeia", {
+                      this.props.navigation.navigate(routes.NewColmeia, {
                         apiario_id: this.props.navigation.getParam(
                           "apiario_id",
                           ""

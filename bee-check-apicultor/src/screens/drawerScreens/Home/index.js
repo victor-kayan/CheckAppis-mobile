@@ -1,110 +1,101 @@
 import React, { Component } from "react";
-import { Image, ImageBackground, Dimensions } from "react-native";
-import { Container, Content, Card, CardItem, Text, Body } from "native-base";
+import LinearGradient from "react-native-linear-gradient";
+import { Text, View, Icon } from "native-base";
+import { StatusBar, TouchableOpacity, Image } from "react-native";
+import { colors } from "../../../../assets";
 import styles from "./styles";
-import { HeaderCustom, ButtonCustom, HeaderCard } from "../../../componentes";
 
-export default class Home extends Component {
+class Home extends Component {
   render() {
     return (
-      <Container>
-        <HeaderCustom
-          iconLeft="menu"
-          typeIconLeft="MaterialCommunityIcons"
-          handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Home"
-        />
-        <Content>
-          <Card style={{ flex: 0, elevation: 10 }}>
-            <HeaderCard
-              style={styles.header}
-              source={require("../../../../images/home/colmeiaIcon.png")}
-              title="Colmeias"
-              note="Jan 10, 2019"
-            />
-            <CardItem>
-              <Body>
-                <Image
-                  source={require("../../../../images/home/colmeiasImage.jpg")}
-                  style={styles.image}
-                />
-                <Text note style={{ padding: 5 }}>
-                  Aqui você pode gerenciar todas as suas colmeias, podendo
-                  tambem adicionar mais quando necessario.
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem>
-              <ButtonCustom
-                style={styles.button}
-                onPress={() => this.props.navigation.navigate("Colmeia")}
-                title="Ir para Colmeias"
-                typeIconRight="MaterialCommunityIcons"
-                iconRight="arrow-right"
+      <>
+        <StatusBar backgroundColor={colors.theme_default} />
+        <LinearGradient
+          colors={[colors.theme_default, "#F4CC26", "#FFDD50", "#FFE579"]}
+          style={{ height: "50%" }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "flex-start",
+              marginHorizontal: 20,
+              marginTop: 20
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => this.props.navigation.openDrawer()}
+            >
+              <Icon type="AntDesign" name="menuunfold" active />
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginHorizontal: "5%",
+              marginTop: "5%",
+              alignItems: "center"
+            }}
+          >
+            <View style={{ alignItems: "center", width: "33%" }}>
+              <Image
+                source={require("../../../../images/home/colmeiaIcon1.png")}
               />
-            </CardItem>
-          </Card>
-          <Card style={{ flex: 0 }}>
-            <HeaderCard
-              style={styles.header}
-              source={require("../../../../images/home/visitaIcon.png")}
-              title="Visita"
-              note="Jan 10, 2019"
-            />
-            <CardItem>
-              <Body>
-                <Image
-                  source={require("../../../../images/home/visitaImage.jpg")}
-                  style={styles.image}
-                />
-                <Text note style={{ padding: 5 }}>
-                  Aqui você faz o monitoramento de seu apiario, respondendo um
-                  pequeno questionario que irá lhe servir de base de dados para
-                  acompanhamento e intervenções caso necessite.
+              <View style={{ marginTop: "20%", alignItems: "center" }}>
+                <Text
+                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
+                >
+                  100
                 </Text>
-              </Body>
-            </CardItem>
-            <CardItem>
-              <ButtonCustom
-                style={styles.button}
-                onPress={() => this.props.navigation.navigate("Visita")}
-                title="Realizar Visita"
-                typeIconRight="MaterialCommunityIcons"
-                iconRight="arrow-right"
-              />
-            </CardItem>
-          </Card>
-          <Card style={{ flex: 0 }}>
-            <HeaderCard
-              style={styles.header}
-              source={require("../../../../images/home/intervencaoIcon.png")}
-              title="Intervenções"
-              note="Jan 10, 2019"
-            />
-            <CardItem>
-              <Body>
-                <Image
-                  source={require("../../../../images/home/intervencaoImage.jpg")}
-                  style={styles.image}
-                />
-                <Text note style={{ padding: 5 }}>
-                  Aqui você visualiza todas as recomendações passadas pelo
-                  técnico responsavel pelo seu apiario.
+                <Text
+                  style={{ marginTop: "10%", color: "#ff8416", fontWeight: "bold", fontSize: 17 }}
+                >
+                  Colmeias
                 </Text>
-              </Body>
-            </CardItem>
-            <CardItem>
-              <ButtonCustom
-                style={styles.button}
-                onPress={() => this.props.navigation.navigate("Intervencao")}
-                title="Realizar Intervenções"
-                typeIconRight="MaterialCommunityIcons"
-                iconRight="arrow-right"
+              </View>
+            </View>
+            <View style={{ alignItems: "center", width: "33%" }}>
+              <Image
+                source={require("../../../../images/home/visitaIcon1.png")}
+                style={styles.image}
               />
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
+              <View style={{ marginTop: "20%", alignItems: "center" }}>
+                <Text
+                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
+                >
+                  100
+                </Text>
+                <Text
+                  style={{ marginTop: "10%", color: "#ff8416", fontWeight: "bold", fontSize: 17 }}
+                >
+                  Visitas
+                </Text>
+              </View>
+            </View>
+            <View style={{ alignItems: "center", width: "33%" }}>
+              <Image
+                source={require("../../../../images/home/intervencaoIcon1.png")}
+                style={styles.image}
+              />
+              <View style={{ marginTop: "20%", alignItems: "center" }}>
+                <Text
+                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
+                >
+                  100
+                </Text>
+                <Text
+                  style={{ marginTop: "10%", color: "#ff8416", fontWeight: "bold", fontSize: 17 }}
+                >
+                  Intervenções
+                </Text>
+              </View>
+            </View>
+          </View>
+        </LinearGradient>
+      </>
     );
   }
 }
+
+export default Home;

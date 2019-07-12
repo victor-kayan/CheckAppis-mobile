@@ -27,7 +27,7 @@ import {
 import moment from "moment";
 import "moment/locale/pt-br";
 import styles from "./styles";
-import { colors } from "../../../../assets";
+import { colors, routes } from "../../../../assets";
 
 class Intervencao extends Component {
   constructor(props) {
@@ -188,7 +188,7 @@ class Intervencao extends Component {
                           typeIconRight="Entypo"
                           onPress={() =>
                             this.props.navigation.navigate(
-                              "IntervencaoColmeia",
+                              routes.IntervencaoColmeia,
                               {
                                 intervencao_id: intervencao.id
                               }

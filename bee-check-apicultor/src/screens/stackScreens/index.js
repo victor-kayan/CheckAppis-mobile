@@ -2,7 +2,7 @@ import NewColmeia from './NewColmeia';
 import EditColmeia from './EditColmeia';
 import NewVisitaApiario from './NewVisitaApiario';
 import NewVisitaColmeia from './NewVisitaColmeia';
-import DetalhesVisita from './DetalhesVisita';
+import DetalhesVisitaColmeia from './DetalhesVisitaColmeia';
 import IntervencaoColmeia from './IntervencaoColmeia';
 
 export{
@@ -10,6 +10,6 @@ export{
     EditColmeia,
     NewVisitaApiario,
     NewVisitaColmeia,
-    DetalhesVisita,
+    DetalhesVisitaColmeia,
     IntervencaoColmeia
 }

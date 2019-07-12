@@ -29,7 +29,7 @@ import {
   deleteColmeiaById,
   getColemiasByApiario
 } from "../../../redux/actions/colmeiaActions";
-import { colors } from "../../../../assets";
+import { colors, routes } from "../../../../assets";
 import styles from "./styles";
 
 const imageApiario128 = require("../../../../images/icons/apiario128.png");
@@ -148,7 +148,7 @@ class Colmeia extends Component {
                     <Button
                       style={{ backgroundColor: colors.theme_second }}
                       onPress={() =>
-                        this.props.navigation.navigate("EditColmeia", {
+                        this.props.navigation.navigate(routes.EditColmeia, {
                           colmeia
                         })
                       }
@@ -240,7 +240,7 @@ class Colmeia extends Component {
                 >
                   <Icon
                     onPress={() =>
-                      this.props.navigation.navigate("NewColmeia", {
+                      this.props.navigation.navigate(routes.NewColmeia, {
                         apiario_id: selectedPickerApiario.id
                       })
                     }
@@ -261,7 +261,7 @@ class Colmeia extends Component {
               buttonColor={"#ffc60b"}
               title="Nova colmeia"
               onPress={() =>
-                this.props.navigation.navigate("NewColmeia", {
+                this.props.navigation.navigate(routes.NewColmeia, {
                   apiario_id: selectedPickerApiario.id
                 })
               }
