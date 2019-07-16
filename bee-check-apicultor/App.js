@@ -2,24 +2,25 @@ import React from "react";
 import { Provider } from "react-redux";
 import { Store } from "./src/redux/store";
 import {
-  createDrawerNavigator,
   createStackNavigator,
+  createDrawerNavigator,
   createSwitchNavigator
 } from "react-navigation";
 import {
   Home,
-  Colmeia,
   Visita,
+  Colmeia,
   Intervencao
 } from "./src/screens/drawerScreens";
 import { Login, LoadingLogin } from "./src/screens/switchScreens";
 import {
   NewColmeia,
   EditColmeia,
+  DetalhesVisita,
   NewVisitaApiario,
   NewVisitaColmeia,
+  IntervencaoColmeia,
   DetalhesVisitaColmeia,
-  IntervencaoColmeia
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
@@ -45,7 +46,7 @@ const DrawerNavigator = createDrawerNavigator(
     Intervencao
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Visita",
     contentComponent: props => <SideBar {...props} />,
     navigationOptions: {
       headerTransparent: true
@@ -61,6 +62,7 @@ const StackNavigator = createStackNavigator(
     NewVisitaApiario,
     NewVisitaColmeia,
     DetalhesVisitaColmeia,
+    DetalhesVisita,
     IntervencaoColmeia
   },
   {

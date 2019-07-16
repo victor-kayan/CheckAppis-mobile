@@ -22,7 +22,7 @@ export default {
     marginTop: 20
   },
   iconButtonSelectFoto: {
-    color: colors.theme_default,
+    color: colors.colorIcons,
     marginLeft: 15
   },
   itemFotoColmeia: {

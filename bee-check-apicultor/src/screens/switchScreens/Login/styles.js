@@ -32,7 +32,7 @@ export default {
     fontWeight: "bold"
   },
   icon: {
-    color: colors.theme_primary
+    color: colors.colorIcons
   },
   input: {
     color: colors.white, 

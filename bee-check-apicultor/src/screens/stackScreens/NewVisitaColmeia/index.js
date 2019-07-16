@@ -19,12 +19,10 @@ import {
 import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
 import { createVisita } from "../../../redux/actions/visitaActions";
 import { SpinnerCustom } from "../../../componentes";
-import { colors, routes } from "../../../../assets";
+import { colors, routes, images } from "../../../../assets";
 import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
 import HeaderVisita from "./HeaderVisita";
-
-const imageColmeia128 = require("../../../../images/icons/colmeia128.png");
 
 class NewVisitaColmeia extends Component {
   constructor(props) {
@@ -178,7 +176,7 @@ class NewVisitaColmeia extends Component {
                 onPress={this.showActionSheet}
               >
                 <Image
-                  source={imageColmeia128}
+                  source={images.icons.colmeia}
                   style={styles.iconImagemSelectPicker}
                 />
                 <H3
@@ -238,7 +236,7 @@ class NewVisitaColmeia extends Component {
                   alignItems: "center"
                 }}
               >
-                <Image source={imageColmeia128} />
+                <Image style={{marginTop: '15%'}} source={images.home.colmeia} />
               </View>
             </>
           ) : (
@@ -275,7 +273,7 @@ class NewVisitaColmeia extends Component {
                     type="AntDesign"
                     name="pluscircle"
                   />
-                  <Image source={imageColmeia128} />
+                  <Image source={images.home.colmeia} />
                 </View>
               </>
             )

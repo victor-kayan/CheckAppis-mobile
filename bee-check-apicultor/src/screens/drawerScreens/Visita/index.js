@@ -8,9 +8,6 @@ import {
   deleteVisita
 } from "../../../redux/actions/visitaActions";
 
-const imageApiario128 = require("../../../../images/icons/apiario128.png");
-const imageVisita128 = require("../../../../images/icons/visita128.png");
-
 import {
   Text,
   Left,
@@ -28,7 +25,7 @@ import {
   Badge
 } from "native-base";
 import { Image, TouchableOpacity } from "react-native";
-import { colors, routes } from "../../../../assets";
+import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
 import {
   HeaderCustom,
@@ -79,7 +76,7 @@ class Visita extends Component {
     console.log("visita", visita);
     
     this.props.navigation.navigate(routes.DetalhesVisita, {
-      visitasColmeia: visita.visita_colmeias
+      visita, apiario: this.state.selectedPickerApiario
     });
   };
 
@@ -91,8 +88,8 @@ class Visita extends Component {
     return (
       <Container>
         <HeaderCustom
-          iconLeft="menu"
-          typeIconLeft="MaterialCommunityIcons"
+          iconLeft="menuunfold"
+          typeIconLeft="AntDesign"
           handleIconLeft={() => this.props.navigation.openDrawer()}
           title="Visitas"
           iconRight="sync"
@@ -104,7 +101,7 @@ class Visita extends Component {
           <Card>
             <CardItem>
               <Image
-                source={require("../../../../images/icons/apiario128.png")}
+                source={images.icons.apiario}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker
@@ -170,7 +167,7 @@ class Visita extends Component {
                                 marginEnd: 5
                               }}
                             >
-                              <Text note>{visita.qtd_colmeias_visitadas}</Text>
+                              <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
                             </Badge>
                           </Row>
                         </View>
@@ -182,7 +179,7 @@ class Visita extends Component {
                         >
                           <Icon
                             active
-                            style={{ color: colors.theme_primary }}
+                            style={{ color: colors.colorIcons }}
                             name="magnifying-glass"
                             type="Entypo"
                           />
@@ -223,7 +220,7 @@ class Visita extends Component {
                   alignItems: "center"
                 }}
               >
-                <Image source={imageApiario128} />
+                <Image style={{marginTop: '15%'}} source={images.home.apiario} />
               </View>
             </>
           ) : (
@@ -251,12 +248,12 @@ class Visita extends Component {
                         apiario_id: selectedPickerApiario.id
                       })
                     }
-                    style={{ color: colors.btn_success, marginLeft: 130 }}
+                    style={{ color: colors.btn_success, marginLeft: '30%', marginTop: '15%' }}
                     active
                     type="AntDesign"
                     name="pluscircle"
                   />
-                  <Image source={imageVisita128} />
+                  <Image source={images.home.visita} />
                 </View>
               </>
             )

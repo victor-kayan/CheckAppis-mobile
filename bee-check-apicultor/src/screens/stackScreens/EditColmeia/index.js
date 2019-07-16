@@ -80,7 +80,7 @@ class EditColmeia extends Component {
               <Item>
                 <Icon
                   style={{
-                    color: colors.theme_default
+                    color: colors.colorIcons
                   }}
                   active
                   type="AntDesign"
@@ -101,7 +101,7 @@ class EditColmeia extends Component {
                 <Icon
                   active
                   style={{
-                    color: colors.theme_default
+                    color: colors.colorIcons
                   }}
                   type="FontAwesome"
                   name="pencil"

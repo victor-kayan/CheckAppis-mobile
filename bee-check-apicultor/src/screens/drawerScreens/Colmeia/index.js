@@ -29,11 +29,8 @@ import {
   deleteColmeiaById,
   getColemiasByApiario
 } from "../../../redux/actions/colmeiaActions";
-import { colors, routes } from "../../../../assets";
+import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
-
-const imageApiario128 = require("../../../../images/icons/apiario128.png");
-const imageColmeia128 = require("../../../../images/icons/colmeia128.png");
 
 class Colmeia extends Component {
   constructor(props) {
@@ -87,8 +84,8 @@ class Colmeia extends Component {
     return (
       <Container>
         <HeaderCustom
-          iconLeft="menu"
-          typeIconLeft="MaterialCommunityIcons"
+          iconLeft="menuunfold"
+          typeIconLeft="AntDesign"
           handleIconLeft={() => this.props.navigation.openDrawer()}
           title="Colmeias"
           iconRight="sync"
@@ -100,7 +97,7 @@ class Colmeia extends Component {
           <Card>
             <CardItem>
               <Image
-                source={require("../../../../images/icons/apiario128.png")}
+                source={images.icons.apiario}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker
@@ -155,7 +152,7 @@ class Colmeia extends Component {
                     >
                       <Icon
                         active
-                        style={{ color: colors.theme_primary }}
+                        style={{ color: colors.colorIcons }}
                         type="FontAwesome"
                         name="edit"
                       />
@@ -216,7 +213,7 @@ class Colmeia extends Component {
                   alignItems: "center"
                 }}
               >
-                <Image source={imageApiario128} />
+                <Image style={{marginTop: '15%'}} source={images.home.apiario} />
               </View>
             </>
           ) : (
@@ -233,9 +230,8 @@ class Colmeia extends Component {
                 </CardItem>
                 <View
                   style={{
-                    flex: 1,
                     justifyContent: "center",
-                    alignItems: "center"
+                    alignItems: "center",
                   }}
                 >
                   <Icon
@@ -244,12 +240,12 @@ class Colmeia extends Component {
                         apiario_id: selectedPickerApiario.id
                       })
                     }
-                    style={{ color: colors.btn_success, marginLeft: 130 }}
+                    style={{ color: colors.btn_success, marginLeft: '30%',marginTop: '15%' }}
                     active
                     type="AntDesign"
                     name="pluscircle"
                   />
-                  <Image source={imageColmeia128} />
+                  <Image source={images.home.colmeia} />
                 </View>
               </>
             )

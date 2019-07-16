@@ -10,8 +10,8 @@ export default class Home extends Component {
     return (
       <Container>
         <HeaderCustom
-          iconLeft="menu"
-          typeIconLeft="MaterialCommunityIcons"
+          iconLeft="menuunfold"
+          typeIconLeft="AntDesign"
           handleIconLeft={() => this.props.navigation.openDrawer()}
           title="Home"
         />

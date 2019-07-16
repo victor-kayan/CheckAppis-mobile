@@ -17,7 +17,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { createColemia } from "../../../redux/actions/colmeiaActions";
 import ImagePicker from "react-native-image-picker";
-import { colors } from "../../../../assets";
+import { colors, images } from "../../../../assets";
 import styles from "./styles";
 import {
   HeaderCustom,
@@ -99,7 +99,7 @@ class NewColmeia extends Component {
                 <Item style={{ marginTop: 20 }}>
                   <Icon
                     style={{
-                      color: colors.theme_default
+                      color: colors.colorIcons
                     }}
                     active
                     type="AntDesign"
@@ -119,7 +119,7 @@ class NewColmeia extends Component {
                   <Icon
                     active
                     style={{
-                      color: colors.theme_default
+                      color: colors.colorIcons
                     }}
                     type="FontAwesome"
                     name="pencil"
@@ -151,7 +151,7 @@ class NewColmeia extends Component {
                     name="camera"
                     active
                     style={{
-                      color: colors.theme_default,
+                      color: colors.colorIcons,
                       marginLeft: 15
                     }}
                   />
@@ -165,11 +165,7 @@ class NewColmeia extends Component {
                 >
                   <Image
                     style={styles.imageFormColmeia}
-                    source={
-                      foto_uri != null
-                        ? foto_uri
-                        : require("../../../../images/sem-foto.jpg")
-                    }
+                    source={foto_uri != null ? foto_uri : images.fotoDefault}
                   />
                 </Item>
                 <ButtonCustom

@@ -13,30 +13,28 @@ import {
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { logout } from "../../redux/actions/userActions";
-import { routes } from "../../../assets";
-
-const drawerCover = require("../../../images/sider/drawer-cover.png");
+import { routes, images } from "../../../assets";
 
 const datas = [
   {
     name: "Home",
     route: routes.Home,
-    icon: require("../../../images/sider/home.png")
+    icon: images.sider.home
   },
   {
     name: "Colmeias",
     route: routes.ColmeiaHome,
-    icon: require("../../../images/sider/colmeia.png")
+    icon: images.sider.colmeia
   },
   {
     name: "Visitas",
     route: routes.VisitasHome,
-    icon: require("../../../images/sider/visita.png")
+    icon: images.sider.visita
   },
   {
     name: "Intervenções",
     route: routes.IntervencaoHome,
-    icon: require("../../../images/sider/intervencao.png")
+    icon: images.sider.intervencao
   }
 ];
 
@@ -61,7 +59,7 @@ class SideBar extends Component {
           bounces={false}
           style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
         >
-          <Image source={drawerCover} style={styles.drawerCover} />
+          <Image source={images.sider.drawerCover} style={styles.drawerCover} />
 
           <View>
             {datas && Object.keys(datas).length
@@ -90,7 +88,7 @@ class SideBar extends Component {
               <Left>
                 <Thumbnail
                   square
-                  source={require("../../../images/sider/profile.png")}
+                  source={images.sider.profile}
                   style={{ height: 30, width: 30 }}
                 />
                 <Text style={styles.text}>Perfil</Text>
@@ -100,7 +98,7 @@ class SideBar extends Component {
               <Left>
                 <Thumbnail
                   square
-                  source={require("../../../images/sider/logout.png")}
+                  source={images.sider.logout}
                   style={{ height: 30, width: 30 }}
                 />
                 <Text style={styles.text}>Sair</Text>

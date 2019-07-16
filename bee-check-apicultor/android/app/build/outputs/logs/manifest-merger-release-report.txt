@@ -4,6 +4,7 @@ ADDED from /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/sr
 INJECTED from /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-28:12
 INJECTED from /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-28:12
 INJECTED from /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-28:12
+MERGED from [:react-native-linear-gradient] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-image-picker] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/release/AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-vector-icons] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/release/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.57.4] /home/evocorp/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/91f9b54e92bee75a95461b8974a1fe98/AndroidManifest.xml:2:1-15:12
@@ -120,6 +121,8 @@ uses-sdk
 INJECTED from /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-linear-gradient] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/release/AndroidManifest.xml:7:5-9:41

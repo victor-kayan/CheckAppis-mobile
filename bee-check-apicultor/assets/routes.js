@@ -12,6 +12,7 @@ const routes = {
 
   VisitasHome: "Visita",
   NewVisita: "Visita",
+  DetalhesVisitaColmeia: "DetalhesVisitaColmeia",
   DetalhesVisita: "DetalhesVisita",
   NewVisitaApiario: "NewVisitaApiario",
   NewVisitaColmeia: "NewVisitaColmeia"

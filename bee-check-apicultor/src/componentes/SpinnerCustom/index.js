@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Image, Modal, View } from "react-native";
 import styles from "./styles";
 import { Text } from "native-base";
-
-const imageLoading = require("../../../images/loading.gif");
+import { images } from "../../../assets";
 
 class SpinnerCustom extends Component {
   render() {
@@ -19,7 +18,7 @@ class SpinnerCustom extends Component {
             <View style={{ marginHorizontal: 20 }}>
               <View style={styles.alertContainer}>
                 <View style={{ borderRadius: 10, padding: 10, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-                  <Image source={imageLoading} />
+                  <Image source={images.gif.loading} />
                   <Text style={{ marginHorizontal: 20, fontSize: 20, fontFamily: 'regular', fontWeight: 'bold'}}>Carregando...</Text>
                 </View>
               </View>

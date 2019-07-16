@@ -18,19 +18,19 @@ import { HeaderCustom } from "../../../componentes";
 import styles from "./styles";
 import { colors } from "../../../../assets";
 
-class DetalhesVisita extends React.Component {
+class DetalhesVisitaColmeia extends React.Component {
   render() {
-    const visitasColmeia = this.props.navigation.getParam("visitasColmeia", "");
+    const visita_colmeias = this.props.navigation.getParam("visita_colmeias", "");
 
-    console.log(visitasColmeia);
+    console.log(visita_colmeias);
     
 
     return (
       <Container>
         <HeaderCustom title="Detalhes" />
         <Content padder>
-          {visitasColmeia &&
-            visitasColmeia.map(visita => {
+          {visita_colmeias &&
+            visita_colmeias.map(visita => {
               return (
                 <Card key={visita.id}>
                   <CardItem
@@ -128,4 +128,4 @@ class DetalhesVisita extends React.Component {
   }
 }
 
-export default DetalhesVisita;
+export default DetalhesVisitaColmeia;

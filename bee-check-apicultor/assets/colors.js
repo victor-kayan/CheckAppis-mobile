@@ -8,10 +8,11 @@ const colors = {
     btn_success: "#2b580c",
     erorr: '#FB0505',
     textButton: '#fff',
-    colorAndroidBarraStatus: 'rgba(156, 91, 0, 1)',
+    colorAndroidBarraStatus: '#f4a026',
     white: '#fff',
     black: '#000',
     gray: '#424242',
+    colorIcons: '#ff8416',
     
 } 
 

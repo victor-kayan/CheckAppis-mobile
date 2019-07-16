@@ -27,7 +27,7 @@ import {
 import moment from "moment";
 import "moment/locale/pt-br";
 import styles from "./styles";
-import { colors, routes } from "../../../../assets";
+import { colors, routes, images } from "../../../../assets";
 
 class Intervencao extends Component {
   constructor(props) {
@@ -70,8 +70,8 @@ class Intervencao extends Component {
     return (
       <Container>
         <HeaderCustom
-          iconLeft="menu"
-          typeIconLeft="MaterialCommunityIcons"
+          iconLeft="menuunfold"
+          typeIconLeft="AntDesign"
           handleIconLeft={() => this.props.navigation.openDrawer()}
           title="Intervenções"
           iconRight="sync"
@@ -84,7 +84,7 @@ class Intervencao extends Component {
             <HeaderCard style={styles.header} icon="list" title="Listagem" />
             <CardItem>
               <Image
-                source={require("../../../../images/icons/apiario128.png")}
+                source={images.icons.apiario}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker

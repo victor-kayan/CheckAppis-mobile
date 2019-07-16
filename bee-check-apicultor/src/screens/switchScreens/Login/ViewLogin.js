@@ -14,10 +14,9 @@ import {
   Spinner
 } from "native-base";
 import { Alert } from "../../../componentes";
-import { colors } from "../../../../assets";
+import { colors, images } from "../../../../assets";
 import styles from "./styles";
 
-const logo = require("../../../../images/logo.png");
 let { height } = Dimensions.get("window");
 
 const ViewLogin = ({
@@ -33,13 +32,13 @@ const ViewLogin = ({
 }) => (
   <Container>
     <ImageBackground
-      source={require("../../../../images/backgroundLogin.jpg")}
+      source={images.login.background}
       style={[styles.backgroundImage, { height: height }]}
     >
       <Content padder>
         <Card transparent style={styles.cardContainer}>
           <View style={styles.view}>
-            <Image source={logo} />
+            <Image source={images.logo} />
             <View style={styles.logoName}>
               <Text style={styles.textLogoBee}>Bee</Text>
               <Text style={styles.textLogoCheck} note>

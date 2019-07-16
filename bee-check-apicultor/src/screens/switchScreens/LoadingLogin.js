@@ -1,9 +1,8 @@
 import React from "react";
 import { View, AsyncStorage, StyleSheet, Image, Alert } from "react-native";
 import { Spinner, Text } from "native-base";
-import { colors, constants, routes } from "../../../assets";
+import { colors, constants, routes, images } from "../../../assets";
 import { Api } from "../../../services";
-const logo = require("../../../images/logo.png");
 
 class LoadingLogin extends React.Component {
   async componentDidMount() {
@@ -48,7 +47,7 @@ class LoadingLogin extends React.Component {
   render() {
     return (
       <View style={styles.view}>
-        <Image source={logo} />
+        <Image source={images.logo} />
         <View style={styles.logoName}>
           <Text
             style={{ color: colors.black, fontWeight: "bold", fontSize: 40 }}

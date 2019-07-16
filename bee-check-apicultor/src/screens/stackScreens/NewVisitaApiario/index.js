@@ -16,9 +16,7 @@ import { createVisita } from "../../../redux/actions/visitaActions";
 import { Image } from "react-native";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
 import FormVisita from "./FormVisita";
-import { routes } from "../../../../assets";
-
-const imageApiario128 = require("../../../../images/icons/apiario128.png");
+import { routes, images } from "../../../../assets";
 
 class NewVisitaApiario extends Component {
   constructor(props) {
@@ -47,8 +45,16 @@ class NewVisitaApiario extends Component {
   };
 
   render() {
-    const { apiarios, loading } = this.props;
+    const { loading } = this.props;
     const { selectedPickerApiario } = this.state;
+
+    console.log("props", this.props.apiarios);
+    
+
+    const apiarios = this.props.apiarios.filter(apiario => apiario.colmeias.length > 0)
+
+    console.log("some", apiarios);
+
 
     return (
       <Container>
@@ -63,7 +69,7 @@ class NewVisitaApiario extends Component {
           <Card>
             <CardItem>
               <Image
-                source={require("../../../../images/icons/apiario128.png")}
+                source={images.icons.apiario}
                 style={styles.iconImagemSelectPicker}
               />
               <Picker
@@ -131,7 +137,7 @@ class NewVisitaApiario extends Component {
                     alignItems: "center"
                   }}
                 >
-                  <Image source={imageApiario128} />
+                  <Image style={{marginTop: '15%'}} source={images.home.apiario} />
                 </View>
               </>
             )
