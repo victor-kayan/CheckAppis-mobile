@@ -5,7 +5,7 @@ export default {
         justifyContent: "space-between"
     },
     text : { 
-        marginHorizontal: "20%", fontSize: 12
+        marginHorizontal: "1%", fontSize: 12
     },
     badge_text: {
         fontSize: 15,

@@ -73,9 +73,7 @@ class NewColmeia extends Component {
   slectPhoto = () => {
     ImagePicker.showImagePicker(options, response => {
       if (response.didCancel) {
-        // console.log("User cancelled image picker");
       } else if (response.error) {
-        // console.log("ImagePicker Error: ", response.error);
       } else {
         const source = { uri: response.uri };
         this.setState({ foto: response, foto_uri: source });
@@ -86,7 +84,6 @@ class NewColmeia extends Component {
   render() {
     const { loading } = this.props;
     const { colmeia, foto_uri } = this.state;
-    // console.log(this.props.navigation.isFocused());
     return (
       <Root>
         <Container>

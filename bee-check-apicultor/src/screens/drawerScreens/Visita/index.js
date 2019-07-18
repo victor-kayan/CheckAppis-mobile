@@ -46,7 +46,7 @@ class Visita extends Component {
   }
 
   componentDidMount() {
-    this.handleRefresh();
+    this.handleRefresh();    
   }
 
   handleRefresh = () => {
@@ -73,7 +73,6 @@ class Visita extends Component {
   };
 
   handleDetalhar = visita => {
-    console.log("visita", visita);
     
     this.props.navigation.navigate(routes.DetalhesVisita, {
       visita, apiario: this.state.selectedPickerApiario

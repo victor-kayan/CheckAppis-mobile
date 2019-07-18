@@ -43,8 +43,6 @@ class NewVisitaColmeia extends Component {
       this.setState({ doneColmeias: false });
     }
     if (done) {
-      console.log("nextProps", nextProps);
-
       this.setState({ done: false });
       if (nextProps.storeError) {
         return Toast.show({
@@ -71,8 +69,25 @@ class NewVisitaColmeia extends Component {
   renderItemColmeia = (colmeias, colmeiasVisitadas) => {
     let colmeiasAux = [];
     let color = "#FAFAFA";
-    if (colmeias && colmeias.length) {
+    if (
+      colmeias &&
+      colmeias.length &&
+      colmeiasVisitadas.length !== colmeias.length
+    ) {
       colmeiasAux.push("Cancelar Seleção");
+    } else if (colmeiasVisitadas.length === colmeias.length) {
+      console.log(colmeiasVisitadas.length === colmeias.length);
+      colmeiasAux.push(
+        <Button
+          style={{ backgroundColor: colors.btn_success }}
+          iconRight
+          full
+          onPress={this.onConcluirVisita}
+        >
+          <Text>Concluir visita</Text>
+          <Icon type="FontAwesome" name="save" />
+        </Button>
+      );
     } else {
       colmeiasAux.push("Apiarios sem colmeias");
     }
@@ -86,7 +101,6 @@ class NewVisitaColmeia extends Component {
       colmeia &&
         colmeiasAux.push(<ColmeiaItem colorIcon={color} colmeia={colmeia} />);
     });
-    // console.log("colmeiasVisitadas", colmeiasVisitadas);
 
     this.setState({ colmeiasNaoVisitadas: colmeiasAux });
   };
@@ -105,18 +119,22 @@ class NewVisitaColmeia extends Component {
       ...values,
       colmeia_id: colmeia.id
     };
+    console.log("colmeias visitadas", colmeiasVisitadas);
+
     index =
       colmeiasVisitadas &&
+      colmeiasVisitadas.length &&
       colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
 
     if (index >= 0) {
-      this.setState(prevState => ({
-        colmeiasVisitadas: {
-          ...prevState.colmeiasVisitadas,
-          [prevState.colmeiasVisitadas[index]]: visita
-        },
+      this.setState({
+        colmeiasVisitadas: [
+          ...this.state.colmeiasVisitadas.slice(0, index),
+          Object.assign({}, this.state.colmeiasVisitadas[index], visita),
+          ...this.state.colmeiasVisitadas.slice(index + 1)
+        ],
         colmeia: null
-      }));
+      });
     } else {
       this.setState({
         colmeiasVisitadas: [...colmeiasVisitadas, visita],
@@ -128,6 +146,7 @@ class NewVisitaColmeia extends Component {
       buttonText: "",
       type: "success"
     });
+    console.log("colmeias visitadas", colmeiasVisitadas);
     this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
   };
 
@@ -236,7 +255,10 @@ class NewVisitaColmeia extends Component {
                   alignItems: "center"
                 }}
               >
-                <Image style={{marginTop: '15%'}} source={images.home.colmeia} />
+                <Image
+                  style={{ marginTop: "15%" }}
+                  source={images.home.colmeia}
+                />
               </View>
             </>
           ) : (

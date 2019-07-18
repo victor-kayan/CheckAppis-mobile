@@ -21,9 +21,7 @@ import "moment/locale/pt-br";
 class DetalhesVisita extends React.Component {
   render() {
     const visita = this.props.navigation.getParam("visita", "");
-    const apiario = this.props.navigation.getParam("apiairo", "");
-
-    console.log(visita);
+    const apiario = this.props.navigation.getParam("apiario", "");
 
     return (
       <Container>

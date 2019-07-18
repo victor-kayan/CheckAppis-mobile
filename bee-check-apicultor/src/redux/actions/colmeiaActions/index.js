@@ -33,11 +33,11 @@ export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
           buttonText: "",
           type: "success"
         });
-        dispatch(getColemiasByApiario({ id: apiario_id }));
         dispatch({
           type: CREATE_COLMEIA,
           payload: {
-            loading: false
+            loading: false,
+            colmeia: response.data.colmeia
           }
         });
       })

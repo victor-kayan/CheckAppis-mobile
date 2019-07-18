@@ -4,7 +4,7 @@ import { uris, constants } from "../../../../assets";
 import { AsyncStorage } from "react-native";
 
 export const login = ({ email, password }) => {
-  console.log("LOGIN");
+  console.log("LOGIN");  
   return dispatch => {
     dispatch({
       type: LOADING_LOGIN,

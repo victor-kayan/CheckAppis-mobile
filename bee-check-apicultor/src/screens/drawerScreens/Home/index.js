@@ -6,7 +6,6 @@ import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
 
 const CardMenu = ({ uri, text, onPress, textButton }) => {
-  // console.log("color", color);
 
   return (
     <View

@@ -21,7 +21,7 @@ export const getVisitasByApiario = ({ apiario_id }) => {
     Api.instance
       .get(uris.GET_VISITAS_BY_APIARIO + apiario_id)
       .then(function(response) {
-        console.log("sucesso");
+        console.log(response);
         dispatch({
           type: GET_VISITAS_BY_APIARIO,
           payload: {

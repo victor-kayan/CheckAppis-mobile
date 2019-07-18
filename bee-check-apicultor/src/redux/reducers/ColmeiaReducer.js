@@ -20,7 +20,8 @@ export const ColmeiaReducer = (state = initialState, action) => {
     case CREATE_COLMEIA:
       return {
         ...state,
-        loading: action.payload.loading
+        loading: action.payload.loading,
+        colmeias: [...state.colmeias, action.payload.colmeia]
       };
     case LOADING_COLMEIA:
       return {

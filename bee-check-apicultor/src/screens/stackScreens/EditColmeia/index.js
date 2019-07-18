@@ -55,9 +55,7 @@ class EditColmeia extends Component {
   slectPhoto = () => {
     ImagePicker.showImagePicker(options, response => {
       if (response.didCancel) {
-        // console.log("User cancelled image picker");
       } else if (response.error) {
-        // console.log("ImagePicker Error: ", response.error);
       } else {
         const source = { uri: response.uri };
         this.setState({ foto: response, foto_uri: source });
@@ -69,7 +67,6 @@ class EditColmeia extends Component {
     const { colmeia, foto, foto_uri } = this.state;
     const { loading } = this.props;
 
-    // console.log(colmeia);
     return (
       <Container>
         <HeaderCustom title="Edição" />
