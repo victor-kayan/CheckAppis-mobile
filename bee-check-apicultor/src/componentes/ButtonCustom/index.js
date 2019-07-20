@@ -23,7 +23,7 @@ const ButtonCustom = ({
     ) : 
       null
     }
-    <Text style={{color: colors.black}}>{title}</Text>
+    <Text style={{color: colors.black, fontWeight: "500"}}>{title}</Text>
     {iconRight ? (
         <Icon
             style={{color: colors.black}}

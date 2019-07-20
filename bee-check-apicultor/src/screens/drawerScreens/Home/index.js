@@ -65,8 +65,8 @@ const CardMenu = ({ uri, text, onPress, textButton }) => {
             }}
             onPress={onPress}
           >
-            <Text>{textButton}</Text>
-            <Icon type="SimpleLineIcons" name="action-redo" />
+            <Text style={{fontWeight:"500"}}>{textButton}</Text>
+            <Icon type="SimpleLineIcons" active name="action-redo" />
           </TouchableOpacity>
         </View>
       </View>

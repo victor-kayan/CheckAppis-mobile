@@ -1,4 +1,4 @@
-import {INTERVENCAO_GET_ALL_BY_APIARIO, INTERVENCAO_LOADING, INTERVENCAO_CONCLUIR} from "../actions/intervencaoActions/actionsType";
+import {INTERVENCAO_GET_ALL_BY_APICULTOR, INTERVENCAO_LOADING, INTERVENCAO_CONCLUIR} from "../actions/intervencaoActions/actionsType";
 
 const initialState = {
   intervencoes: null,
@@ -7,7 +7,7 @@ const initialState = {
 
 export const IntervencaoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case INTERVENCAO_GET_ALL_BY_APIARIO:
+    case INTERVENCAO_GET_ALL_BY_APICULTOR:
       return {
         ...state,
         loading: action.payload.loading,

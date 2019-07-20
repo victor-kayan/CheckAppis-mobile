@@ -1,7 +1,4 @@
 import React from "react";
-import moment from "moment";
-import "moment/locale/pt-br";
-
 import {
   Container,
   Content,
@@ -9,17 +6,17 @@ import {
   Card,
   CardItem,
   Body,
-  Right,
   Badge,
   Left,
   Thumbnail,
   View,
   Grid,
-  Col
+  Col,
+  Textarea
 } from "native-base";
 import { HeaderCustom } from "../../../componentes";
 import styles from "./styles";
-import { colors } from "../../../../assets";
+import { images } from "../../../../assets";
 
 class DetalhesVisitaColmeia extends React.Component {
   render() {
@@ -53,7 +50,11 @@ class DetalhesVisitaColmeia extends React.Component {
                           borderColor: "rgba(0, 0, 0, 0.19)",
                           borderWidth: 1
                         }}
-                        source={{ uri: visita.colmeia.foto }}
+                        source={
+                          visita.colmeia && visita.colmeia.foto
+                            ? { uri: visita.colmeia.foto }
+                            : images.fotoDefault
+                        }
                       />
                       <Body>
                         <View
@@ -82,89 +83,137 @@ class DetalhesVisitaColmeia extends React.Component {
                   </CardItem>
                   <View style={{ marginTop: 20 }}>
                     <Text
-                      style={{ marginHorizontal: 10, fontWeight: "bold", fontSize: 13 }}
+                      style={{
+                        marginHorizontal: 10,
+                        fontWeight: "bold",
+                        fontSize: 13
+                      }}
                     >{`Dados dos quadros:`}</Text>
                   </View>
                   <Grid>
                     {/* COLULA 1 */}
                     <Col style={{ marginHorizontal: 5 }}>
-                      <CardItem style={styles.cardItem}>
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
                         <Text style={styles.text}>Com mel</Text>
                         <Badge style={styles.badge_success}>
                           <Text style={styles.badge_text}>
                             {visita.qtd_quadros_mel}
                           </Text>
                         </Badge>
-                      </CardItem>
-                      <CardItem style={styles.cardItem}>
+                      </View>
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
                         <Text style={styles.text}>Cria aberta</Text>
-                        <Right>
-                          <Badge style={styles.badge_success}>
-                            <Text style={styles.badge_text}>
-                              {visita.qtd_cria_aberta}
-                            </Text>
-                          </Badge>
-                        </Right>
-                      </CardItem>
-                      <CardItem style={styles.cardItem}>
+                        <Badge style={styles.badge_success}>
+                          <Text style={styles.badge_text}>
+                            {visita.qtd_cria_aberta}
+                          </Text>
+                        </Badge>
+                      </View>
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
                         <Text style={styles.text}>Postura </Text>
-                        <Right>
-                          <Badge
-                            style={
-                              visita.is_postura
-                                ? styles.badge_success
-                                : styles.badge_error
-                            }
-                          >
-                            <Text style={styles.badge_text}>
-                              {visita.is_postura ? "S" : "N"}
-                            </Text>
-                          </Badge>
-                        </Right>
-                      </CardItem>
+                        <Badge
+                          style={
+                            visita.is_postura
+                              ? styles.badge_success
+                              : styles.badge_error
+                          }
+                        >
+                          <Text style={styles.badge_text}>
+                            {visita.is_postura ? "SIM" : "NÃO"}
+                          </Text>
+                        </Badge>
+                      </View>
                     </Col>
                     {/* COLULA 1 */}
                     {/* COLULA 2 */}
                     <Col style={{ marginHorizontal: 5 }}>
-                      <CardItem style={styles.cardItem}>
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
                         <Text style={styles.text}>Com polén</Text>
-                        <Right>
-                          <Badge style={styles.badge_success}>
-                            <Text style={styles.badge_text}>
-                              {visita.qtd_quadros_polen}
-                            </Text>
-                          </Badge>
-                        </Right>
-                      </CardItem>
-                      <CardItem style={styles.cardItem}>
+                        <Badge style={styles.badge_success}>
+                          <Text style={styles.badge_text}>
+                            {visita.qtd_quadros_polen}
+                          </Text>
+                        </Badge>
+                      </View>
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
                         <Text style={styles.text}>Cria fechada</Text>
-                        <Right>
-                          <Badge style={styles.badge_success}>
-                            <Text style={styles.badge_text}>
-                              {visita.qtd_cria_fechada}
-                            </Text>
-                          </Badge>
-                        </Right>
-                      </CardItem>
-                      <CardItem style={styles.cardItem}>
+                        <Badge style={styles.badge_success}>
+                          <Text style={styles.badge_text}>
+                            {visita.qtd_cria_fechada}
+                          </Text>
+                        </Badge>
+                      </View>
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
                         <Text style={styles.text}>Abelhas mortas </Text>
-                        <Right>
-                          <Badge
-                            style={
-                              visita.is_abelhas_mortas
-                                ? styles.badge_success
-                                : styles.badge_error
-                            }
-                          >
-                            <Text style={styles.badge_text}>
-                              {visita.is_abelhas_mortas ? "S" : "N"}
-                            </Text>
-                          </Badge>
-                        </Right>
-                      </CardItem>
+                        <Badge
+                          style={
+                            visita.is_abelhas_mortas
+                              ? styles.badge_success
+                              : styles.badge_error
+                          }
+                        >
+                          <Text style={styles.badge_text}>
+                            {visita.is_abelhas_mortas ? "SIM" : "NÃO"}
+                          </Text>
+                        </Badge>
+                      </View>
                     </Col>
                     {/* COLULA 2 */}
                   </Grid>
+                  <View style={{ marginTop: 20 }}>
+                    <Text
+                      style={{
+                        marginHorizontal: 10,
+                        fontWeight: "bold",
+                        fontSize: 13
+                      }}
+                    >{`Observações:`}</Text>
+                  </View>
+                  <CardItem>
+                    <Textarea
+                      rowSpan={3}
+                      value={visita.observacao}
+                      editable={false}
+                      style={{ width: "100%", borderRadius: 5 }}
+                      bordered
+                    />
+                  </CardItem>
                 </Card>
               );
             })}

@@ -20,11 +20,11 @@ import {
   NewVisitaApiario,
   NewVisitaColmeia,
   IntervencaoColmeia,
-  DetalhesVisitaColmeia,
+  DetalhesVisitaColmeia
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
-import { Root } from "native-base";
+import { Root, StyleProvider } from "native-base";
 
 export default class App extends React.Component {
   render() {

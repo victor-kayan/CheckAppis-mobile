@@ -1,14 +1,14 @@
 import {
   INTERVENCAO_LOADING,
-  INTERVENCAO_GET_ALL_BY_APIARIO,
+  INTERVENCAO_GET_ALL_BY_APICULTOR,
   INTERVENCAO_CONCLUIR
 } from "./actionsType";
 import { uris } from "../../../../assets";
 import { Toast } from "native-base";
 import { Api } from "../../../../services";
 
-export const fecthIntervencoesByApiario = ({ apiario_id }) => {
-  console.log("GET INTERVENCOES DO APIARIO " + apiario_id);
+export const fecthIntervencoesByApicultor = () => {
+  console.log("GET INTERVENCOES DO APICULTOR ");
   return dispatch => {
     dispatch({
       type: INTERVENCAO_LOADING,
@@ -17,11 +17,11 @@ export const fecthIntervencoesByApiario = ({ apiario_id }) => {
       }
     });
     Api.instance
-      .get(uris.GET_INTERVENCOES_BY_APIARIO + apiario_id)
+      .get(uris.GET_INTERVENCOES_BY_APICULTOR)
       .then(response => {
         console.log(response);
         dispatch({
-          type: INTERVENCAO_GET_ALL_BY_APIARIO,
+          type: INTERVENCAO_GET_ALL_BY_APICULTOR,
           payload: {
             loading: false,
             intervencoes: response.data.intervencoes

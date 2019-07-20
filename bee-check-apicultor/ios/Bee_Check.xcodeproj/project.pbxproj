@@ -77,6 +77,10 @@
 		AA52BC925AB148D18C06448D /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CE9950C8EF452C9918949B /* libRCTImageResizer.a */; };
 		E5EE687CC9C84C10BDF08114 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CB5BCA83FF436E911BC4F0 /* libRNFS.a */; };
 		D096FE82B1424500B3CA0A58 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69974256994D4C0A8C4078EA /* libBVLinearGradient.a */; };
+		E8A194CFF7E0487B95138BB6 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12E2FDED67F646AE8ACFBAC3 /* Fontisto.ttf */; };
+		37E06AA1D50F4496B68895EC /* Geometria-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8862F634EE73449189E25AF5 /* Geometria-Bold.ttf */; };
+		B3F48E1969544FFE8F005075 /* Geometria-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6499FF88068949458EDD23A1 /* Geometria-Italic.ttf */; };
+		EF8669406F5443849C8288B1 /* Geometria.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A025CB3167804F118C626BB9 /* Geometria.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -428,6 +432,10 @@
 		C9CB5BCA83FF436E911BC4F0 /* libRNFS.a */ = {isa = PBXFileReference; name = "libRNFS.a"; path = "libRNFS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		631725B1B74948D1954EAA13 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		69974256994D4C0A8C4078EA /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		12E2FDED67F646AE8ACFBAC3 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8862F634EE73449189E25AF5 /* Geometria-Bold.ttf */ = {isa = PBXFileReference; name = "Geometria-Bold.ttf"; path = "../assets/fonts/Geometria-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6499FF88068949458EDD23A1 /* Geometria-Italic.ttf */ = {isa = PBXFileReference; name = "Geometria-Italic.ttf"; path = "../assets/fonts/Geometria-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A025CB3167804F118C626BB9 /* Geometria.ttf */ = {isa = PBXFileReference; name = "Geometria.ttf"; path = "../assets/fonts/Geometria.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -738,6 +746,10 @@
 				3A6B9BAC1F9A47EC9E496621 /* FontAwesome5_Brands.ttf */,
 				06B3C019035947A186C1D168 /* FontAwesome5_Regular.ttf */,
 				BDBEE386F00D47FD97C95DD4 /* FontAwesome5_Solid.ttf */,
+				12E2FDED67F646AE8ACFBAC3 /* Fontisto.ttf */,
+				8862F634EE73449189E25AF5 /* Geometria-Bold.ttf */,
+				6499FF88068949458EDD23A1 /* Geometria-Italic.ttf */,
+				A025CB3167804F118C626BB9 /* Geometria.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1222,6 +1234,10 @@
 				5CB1C84B76404ED5BF3BD2EF /* FontAwesome5_Brands.ttf in Resources */,
 				B67B9CBBEBD840B597E33342 /* FontAwesome5_Regular.ttf in Resources */,
 				329EDD25AC3B466C9966FD7A /* FontAwesome5_Solid.ttf in Resources */,
+				E8A194CFF7E0487B95138BB6 /* Fontisto.ttf in Resources */,
+				37E06AA1D50F4496B68895EC /* Geometria-Bold.ttf in Resources */,
+				B3F48E1969544FFE8F005075 /* Geometria-Italic.ttf in Resources */,
+				EF8669406F5443849C8288B1 /* Geometria.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

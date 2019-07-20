@@ -23,10 +23,11 @@ export default images = {
     apiario: require("../images/home/apiario128.png"),
     visita: require("../images/home/visita128.png"),
     intervencao: require("../images/home/intervencao128.png"),
+    checked: require("../images/home/checked1.png"),
     colmeia64: require("../images/home/colmeia64.png"),
     apiario64: require("../images/home/apiario64.png"),
     visita64: require("../images/home/visita64.png"),
-    intervencao64: require("../images/home/intervencao64.png")
+    intervencao64: require("../images/home/intervencao64.png"),
   },
 
   sider: {

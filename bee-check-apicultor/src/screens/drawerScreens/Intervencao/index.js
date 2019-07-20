@@ -1,72 +1,41 @@
 import React, { Component } from "react";
 import { Image } from "react-native";
-import {
-  Card,
-  CardItem,
-  Container,
-  Content,
-  Picker,
-  Text,
-  Left,
-  Thumbnail,
-  Body,
-  Icon,
-  Button,
-  Right
-} from "native-base";
+import { Container, Content, Text, View } from "native-base";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
-import { fecthIntervencoesByApiario, concluirIntervencao } from "../../../redux/actions/intervencaoActions";
+import {
+  fecthIntervencoesByApicultor,
+  concluirIntervencao
+} from "../../../redux/actions/intervencaoActions";
 import {
   HeaderCustom,
-  HeaderCard,
   SpinnerCustom,
   ButtonCustom
 } from "../../../componentes";
-import moment from "moment";
-import "moment/locale/pt-br";
-import styles from "./styles";
-import { colors, routes, images } from "../../../../assets";
+import { images, routes } from "../../../../assets";
 
 class Intervencao extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedPickerApiario: []
-    };
+    this.state = {};
   }
 
   componentDidMount() {
-    this.fetchApiarios();
+    this.fetchIntervencoes();
   }
 
   handleRefresh() {
-    this.fetchApiarios();
-    this.setState({ selectedPickerApiario: null });
+    this.fetchIntervencoes();
   }
 
-  fetchApiarios() {
-    this.props.fetchApiariosByUser();
-  }
-
-  onValueChangePickerApiario = apiario => {
-    this.setState({ selectedPickerApiario: apiario });
-    if (apiario) {
-      this.props.fecthIntervencoesByApiario({ apiario_id: apiario.id });
-    }
-  };
-
-  handleConcluir = (intervencao) => {
-    this.props.concluirIntervencao({intervencao_id : intervencao.id});
-    this.props.fecthIntervencoesByApiario({apiario_id: intervencao.apiario_id});
+  fetchIntervencoes() {
+    this.props.fecthIntervencoesByApicultor();
   }
 
   render() {
-    const { selectedPickerApiario } = this.state;
-    const { apiarios, loading } = this.props;
-    const { intervencoes } = selectedPickerApiario ? this.props : [];
-
+    const { loading, intervencoes } = this.props;
+    console.log(!intervencoes);
+    
     return (
       <Container>
         <HeaderCustom
@@ -79,140 +48,43 @@ class Intervencao extends Component {
           typeIconRight="AntDesign"
         />
         <SpinnerCustom visible={loading} />
-        <Content padder scrollEnabled={true}>
-          <Card>
-            <HeaderCard style={styles.header} icon="list" title="Listagem" />
-            <CardItem>
-              <Image
-                source={images.icons.apiario}
-                style={styles.iconImagemSelectPicker}
-              />
-              <Picker
-                mode="dropdown"
-                selectedValue={selectedPickerApiario}
-                style={styles.pikerLisitApiario}
-                onValueChange={itemValue =>
-                  this.onValueChangePickerApiario(itemValue)
-                }
-              >
-                <Picker.Item
-                  enabled={false}
-                  key={null}
-                  label={"Selecione um Apiario"}
-                  value={null}
-                />
-                {!apiarios ? (
-                  <Picker.Item
-                    enabled={false}
-                    note
-                    label={"Nenhum Apiario encontrado"}
-                  />
-                ) : (
-                  apiarios.map(data => {
-                    return (
-                      <Picker.Item
-                        key={data.id}
-                        label={data.nome}
-                        value={data}
-                      />
-                    );
-                  })
-                )}
-              </Picker>
-            </CardItem>
-          </Card>
-          <Card transparent>
-            <CardItem header>
-              <Text>Listagem de Intervenções</Text>
-            </CardItem>
-            {intervencoes && intervencoes.length > 0 ? (
-              intervencoes.map(intervencao => {
-                return (
-                  <Card key={intervencao.id} style={{ flex: 0 }}>
-                    <CardItem>
-                      <Left>
-                        <Thumbnail source={{ uri: intervencao.tecnico.foto }} />
-                        <Body>
-                          <Text>{intervencao.tecnico.name}</Text>
-                          <Text note>
-                            {moment(intervencao.created_at).fromNow()}
-                          </Text>
-                        </Body>
-                      </Left>
-                    </CardItem>
-                    <CardItem>
-                      <Body>
-                        <Text>{intervencao.descricao}</Text>
-                      </Body>
-                    </CardItem>
-                    <CardItem>
-                      <Left>
-                        <Button transparent textStyle={{ color: "#2EC72E" }}>
-                          <Icon name="clock" style={{ color: "#2EC72E" }} />
-                          <Text style={{ color: "#2EC72E", fontSize: 10 }}>
-                            Inicio:{" "}
-                            {moment(intervencao.data_inicio).format(
-                              "DD MMMM  YYYY"
-                            )}
-                          </Text>
-                        </Button>
-                      </Left>
-                      <Right>
-                        <Button transparent textStyle={{ color: "#FB0505" }}>
-                          <Icon name="clock" style={{ color: "#FB0505" }} />
-                          <Text style={{ color: "#FB0505", fontSize: 10 }}>
-                            Fim:{" "}
-                            {moment(intervencao.data_fim).format(
-                              "DD MMMM  YYYY"
-                            )}
-                          </Text>
-                        </Button>
-                      </Right>
-                    </CardItem>
-                    <CardItem>
-                      <Left>
-                        <ButtonCustom
-                          small
-                          style={styles.button}
-                          title="Concluir"
-                          onPress={() => this.handleConcluir(intervencao)}
-                        />
-                      </Left>
-                      <Right>
-                        <ButtonCustom
-                          small
-                          iconRight
-                          style={styles.button}
-                          title="Colmeias"
-                          iconRight="magnifying-glass"
-                          typeIconRight="Entypo"
-                          onPress={() =>
-                            this.props.navigation.navigate(
-                              routes.IntervencaoColmeia,
-                              {
-                                intervencao_id: intervencao.id
-                              }
-                            )
-                          }
-                        />
-                      </Right>
-                    </CardItem>
-                  </Card>
-                );
-              })
-            ) : !selectedPickerApiario && !selectedPickerApiario > 0 ? (
-              <CardItem>
-                <Text style={{ marginStart: 10 }}>
-                  Primeiro selecione um apiario
-                </Text>
-              </CardItem>
-            ) : (
-              <CardItem>
-                <Text>Nenhuma Intervenção cadastrada para este Apiario</Text>
-              </CardItem>
-            )}
-          </Card>
-        </Content>
+        {!intervencoes ? (
+          <View
+            style={{
+              flex: 1,
+              marginHorizontal: "8%",
+              marginTop: "20%",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between"
+            }}
+          >
+            <View>
+              <Text>
+                No monento não há nenhuma Intervenção para seu(s) Apiario(s)
+              </Text>
+            </View>
+            <View>
+              <Image source={images.home.checked} />
+            </View>
+            <ButtonCustom
+              onPress={() => this.props.navigation.navigate(routes.Home)}
+              iconLeft="home"
+              typeIconLeficonLeft="AntDesign"
+              title="Retornar a tela inical"
+              style={{
+                alignSelf: "flex-end",
+                marginHorizontal: "8%",
+              }}
+            />
+          </View>
+        ) : (
+          <Content padder scrollEnabled={true}>
+            <View>
+              <Text>Lista de Intervenções</Text>
+            </View>
+          </Content>
+        )}
       </Container>
     );
   }
@@ -228,7 +100,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchApiariosByUser, fecthIntervencoesByApiario, concluirIntervencao },
+    { fecthIntervencoesByApicultor, concluirIntervencao },
     dispatch
   );
 }

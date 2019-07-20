@@ -1,6 +1,6 @@
 const uris = {
   // BASE_URL: "https://bee-check-api.herokuapp.com/api/",
-  BASE_URL: "http://192.168.200.232:8080/api/",
+  BASE_URL: "http://192.168.200.232/api/",
 
   LOGIN: "auth/login/apicultor",
   LOGOUT: "auth/logout",
@@ -19,7 +19,7 @@ const uris = {
   POST_VISITA_COLMEIA: "visita/colmeia",
   GET_VISITAS_COLMEIA_BY_VISITA_APIARIO: "visitas/colmeias/visita/apiario/",
 
-  GET_INTERVENCOES_BY_APIARIO: 'intervencao/apiario/apiario/',
+  GET_INTERVENCOES_BY_APICULTOR: 'intervencoes/user',
   GET_INTERVENCAO_APIARIO_CONCLUIR: 'intervencao/apiario/concluir/',
 
   GET_INTERVENCAO_COLMEIA_BY_INTERVENCAO_APIARIO: 'intervencao/colmeia/intervencao/',
