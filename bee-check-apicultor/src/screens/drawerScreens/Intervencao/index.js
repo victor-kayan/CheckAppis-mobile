@@ -1,41 +1,25 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
-import { Container, Content, Text, View } from "native-base";
+import { Image, TouchableOpacity } from "react-native";
+import {
+  Container,
+  Content,
+  Text,
+  View,
+  Card,
+  CardItem,
+  Body
+} from "native-base";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
   fecthIntervencoesByApicultor,
   concluirIntervencao
 } from "../../../redux/actions/intervencaoActions";
-import {
-  HeaderCustom,
-  SpinnerCustom,
-  ButtonCustom
-} from "../../../componentes";
+import { HeaderCustom } from "../../../componentes";
 import { images, routes } from "../../../../assets";
 
 class Intervencao extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    this.fetchIntervencoes();
-  }
-
-  handleRefresh() {
-    this.fetchIntervencoes();
-  }
-
-  fetchIntervencoes() {
-    this.props.fecthIntervencoesByApicultor();
-  }
-
   render() {
-    const { loading, intervencoes } = this.props;
-    console.log(!intervencoes);
-    
     return (
       <Container>
         <HeaderCustom
@@ -47,55 +31,71 @@ class Intervencao extends Component {
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-        <SpinnerCustom visible={loading} />
-        {!intervencoes ? (
-          <View
-            style={{
-              flex: 1,
-              marginHorizontal: "8%",
-              marginTop: "20%",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "space-between"
-            }}
-          >
-            <View>
-              <Text>
-                No monento não há nenhuma Intervenção para seu(s) Apiario(s)
-              </Text>
-            </View>
-            <View>
-              <Image source={images.home.checked} />
-            </View>
-            <ButtonCustom
-              onPress={() => this.props.navigation.navigate(routes.Home)}
-              iconLeft="home"
-              typeIconLeficonLeft="AntDesign"
-              title="Retornar a tela inical"
-              style={{
-                alignSelf: "flex-end",
-                marginHorizontal: "8%",
-              }}
-            />
-          </View>
-        ) : (
-          <Content padder scrollEnabled={true}>
-            <View>
-              <Text>Lista de Intervenções</Text>
-            </View>
-          </Content>
-        )}
+        <Content padder scrollEnabled={true}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.IntervencaoApiario)}>
+            <Card style={{ height: 200, marginTop: 30 }}>
+              <CardItem>
+                <View style={{ flex: 1, flexDirection: "row" }}>
+                  <Image
+                    style={{ width: 54, height: 54 }}
+                    source={images.home.apiario64}
+                  />
+                  <Text
+                    style={{
+                      marginHorizontal: 10,
+                      fontSize: 22,
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Intervenções para o(s) Apiario(s)
+                  </Text>
+                </View>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Text style={{ color: "#B8B8B8" }}>
+                    Listar Intervenções cadastradas para o(s) seu(s) apiario(s)
+                  </Text>
+                </Body>
+              </CardItem>
+            </Card>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Card style={{ height: 200}}>
+              <CardItem>
+                <View style={{ flex: 1, flexDirection: "row" }}>
+                  <Image
+                    style={{ width: 54, height: 54 }}
+                    source={images.home.colmeia64}
+                  />
+                  <Text
+                    style={{
+                      marginHorizontal: 10,
+                      fontSize: 22,
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Intervenções para as Colmeias
+                  </Text>
+                </View>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Text style={{ color: "#B8B8B8" }}>
+                    Listar Intervenções cadastradas para as colmeias de seu(s) apiario(s)
+                  </Text>
+                </Body>
+              </CardItem>
+            </Card>
+          </TouchableOpacity>
+        </Content>
       </Container>
     );
   }
 }
 
 function mapStateToProps(state, props) {
-  return {
-    apiarios: state.apiarioState.apiarios,
-    loading: state.apiarioState.loading || state.intervencaoState.loading,
-    intervencoes: state.intervencaoState.intervencoes
-  };
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {

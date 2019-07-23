@@ -6,22 +6,23 @@ const initialState = {
 };
 
 export const IntervencaoReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const {type, payload} = action;
+  switch (type) {
     case INTERVENCAO_GET_ALL_BY_APICULTOR:
       return {
         ...state,
-        loading: action.payload.loading,
-        intervencoes: action.payload.intervencoes
+        loading: payload.loading,
+        intervencoes: payload.intervencoes
       };
     case INTERVENCAO_CONCLUIR:
       return {
         ...state,
-        loading: action.payload.loading
+        loading: payload.loading
       }
     case INTERVENCAO_LOADING:
       return {
         ...state,
-        loading: action.payload.loading
+        loading: payload.loading
       };
     default:
       return state;

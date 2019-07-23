@@ -7,8 +7,10 @@ const routes = {
   EditColmeia: "EditColmeia",
   NewColmeia: "NewColmeia",
 
-  IntervencaoColmeia: "IntervencaoColmeia",
   IntervencaoHome: "Intervencao",
+  IntervencaoApiario: "IntervencaoApiario",
+  IntervencaoColmeia: "IntervencaoColmeia",
+  DetalhesIntervencao: "DetalhesIntervencao",
 
   VisitasHome: "Visita",
   NewVisita: "Visita",

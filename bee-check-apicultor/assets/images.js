@@ -3,7 +3,9 @@ export default images = {
     colmeia: require("../images/icons/colmeia.png"),
     apiario: require("../images/icons/apiario.png"),
     visita: require("../images/icons/visita.png"),
-    intervencao: require("../images/icons/intervencao.png")
+    intervencao: require("../images/icons/intervencao.png"),
+    clock_success: require("../images/icons/clock-success.png"),
+    clock_danger: require("../images/icons/clock-danger.png"),
   },
 
   gif: {

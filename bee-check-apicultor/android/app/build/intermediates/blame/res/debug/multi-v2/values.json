@@ -54,12 +54,9 @@
                 {
                     "source": "/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/res/values/styles.xml",
                     "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "54",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "133"
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
                     },
                     "to": {
                         "startLines": "595",
@@ -73,9 +70,11 @@
                 {
                     "source": "/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/src/main/res/values/strings.xml",
                     "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "46",
+                        "endOffsets": "58"
                     },
                     "to": {
                         "startLines": "555",

@@ -19,7 +19,6 @@ export const fecthIntervencoesByApicultor = () => {
     Api.instance
       .get(uris.GET_INTERVENCOES_BY_APICULTOR)
       .then(response => {
-        console.log(response);
         dispatch({
           type: INTERVENCAO_GET_ALL_BY_APICULTOR,
           payload: {

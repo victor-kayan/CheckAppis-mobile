@@ -19,12 +19,14 @@ import {
   DetalhesVisita,
   NewVisitaApiario,
   NewVisitaColmeia,
+  IntervencaoApiario,
   IntervencaoColmeia,
-  DetalhesVisitaColmeia
+  DetalhesVisitaColmeia,
+  DetalhesIntervencao
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
-import { Root, StyleProvider } from "native-base";
+import { Root } from "native-base";
 
 export default class App extends React.Component {
   render() {
@@ -61,9 +63,11 @@ const StackNavigator = createStackNavigator(
     EditColmeia,
     NewVisitaApiario,
     NewVisitaColmeia,
+    IntervencaoApiario,
+    IntervencaoColmeia,
     DetalhesVisitaColmeia,
     DetalhesVisita,
-    IntervencaoColmeia
+    DetalhesIntervencao
   },
   {
     initialRouteName: "DrawerNavigator",
