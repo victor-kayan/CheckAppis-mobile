@@ -1,5 +1,5 @@
 import { Api } from "../../../../services";
-import { uris } from "../../../../assets";
+import { URLS } from "../../../../assets";
 import {
   DELETE_COLMEIA,
   CREATE_COLMEIA,
@@ -20,7 +20,7 @@ export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
     });
 
     Api.instance
-      .post(uris.POST_COLMEIA, {
+      .post(URLS.CREATE_COLMEIA_URL, {
         nome,
         descricao,
         apiario_id,
@@ -73,7 +73,7 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
     });
 
     Api.instance
-      .put(uris.PUT_COLMEIA + id, {
+      .put(URLS.formattedURL(URLS.UPDATE_COLMEIA_URL, { colmeia_id: id }), {
         nome,
         descricao,
         apiario_id,
@@ -127,7 +127,7 @@ export const getColemiasByApiario = ({ id }) => {
     });
 
     Api.instance
-      .get(uris.GET_COLMEIAS_BY_APIARIO + id)
+      .get(URLS.formattedURL(URLS.GET_COLMEIAS_BY_APIARIO_URL, { apiario_id: id }))
       .then(response => {
         console.log(response);
         dispatch({
@@ -171,7 +171,7 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
       }
     });
     Api.instance
-      .delete(uris.DELETE_COLMEIA_BY_ID + id)
+      .delete(URLS.formattedURL(URLS.DELETE_COLMEIA_URL, { colmeia_id: id }))
       .then(response => {
         console.log(response);
         Toast.show({

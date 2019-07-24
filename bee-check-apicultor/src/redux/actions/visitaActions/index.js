@@ -1,10 +1,10 @@
 import {
-  GET_VISITAS_BY_APIARIO,
+  GET_VISITAS_BY_APIARIO_URL,
   VISITA_LOADING,
   VISITA_APIARIO_CREATE_SUCCESS,
   VISITA_APIARIO_DELETE_SUCCESS
 } from "./actionsTypes";
-import { uris } from "../../../../assets";
+import { URLS } from "../../../../assets";
 import { Api } from "../../../../services";
 import { Toast } from "native-base";
 
@@ -17,13 +17,13 @@ export const getVisitasByApiario = ({ apiario_id }) => {
         visitaIsLoading: true
       }
     });
-    // axios.get(uris.BASE_URL+ uris.GET_VISITAS_BY_APIARIO + apiario_id)
+    // axios.get(URLS.BASE_URL+ URLS.GET_VISITAS_BY_APIARIO_URL + apiario_id)
     Api.instance
-      .get(uris.GET_VISITAS_BY_APIARIO + apiario_id)
+      .get(URLS.formattedURL(URLS.GET_VISITAS_BY_APIARIO_URL, { apiario_id }))
       .then(function(response) {
         console.log(response);
         dispatch({
-          type: GET_VISITAS_BY_APIARIO,
+          type: GET_VISITAS_BY_APIARIO_URL,
           payload: {
             visitaIsLoading: false,
             visitas: response.data.visitas
@@ -64,7 +64,7 @@ export const createVisita = data => {
       }
     });
     Api.instance
-      .post(uris.POST_VISITA_APIARIO, {
+      .post(URLS.CREATE_VISITA_URL, {
         ...data
       })
       .then(response => {
@@ -106,7 +106,9 @@ export const deleteVisita = ({ visita_id, apiario_id }) => {
       }
     });
     Api.instance
-      .delete(uris.DELETE_VISITA_APIARIO + visita_id)
+      .delete(
+        URLS.formattedURL(URLS.DELETE_VISITA_URL, { visita_id: visita_id })
+      )
       .then(response => {
         console.log(response);
         dispatch(getVisitasByApiario({ apiario_id }));

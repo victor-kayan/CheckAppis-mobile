@@ -1,6 +1,6 @@
 import { LOGIN, LOGOUT, LOADING_LOGIN } from "./actionsType";
 import { Api } from "../../../../services";
-import { uris, constants } from "../../../../assets";
+import { URLS, constants } from "../../../../assets";
 import { AsyncStorage } from "react-native";
 
 export const login = ({ email, password }) => {
@@ -12,7 +12,7 @@ export const login = ({ email, password }) => {
         loading: true
       }
     });
-    Api.instance.post(uris.LOGIN, { email, password })
+    Api.instance.post(URLS.LOGIN_URL, { email, password })
       .then(response => {
         if (response) {
           console.log(response);
@@ -60,7 +60,7 @@ export const logout = () => {
       }
     });
 
-    Api.instance.post(uris.LOGOUT)
+    Api.instance.post(URLS.LOGOUT_URL)
       .then(response => {
         // if (response) {
           console.log(response);

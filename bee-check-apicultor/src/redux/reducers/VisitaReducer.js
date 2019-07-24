@@ -25,7 +25,7 @@ export const VisitaReducer = (state = initialState, action) => {
   }
 
   switch (type) {
-    case VisitaTypes.GET_VISITAS_BY_APIARIO:
+    case VisitaTypes.GET_VISITAS_BY_APIARIO_URL:
       return {
         ...state,
         visitaIsLoading: payload.visitaIsLoading,

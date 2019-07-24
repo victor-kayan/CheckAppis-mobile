@@ -17,21 +17,40 @@ class LoadingLogin extends React.Component {
           return response;
         },
         function(error) {
-          if (error.response && error.response.status === 401) {
+          console.log("error", error);
+
+          if (
+            error.response &&
+            error.response.status &&
+            error.response.status === 401
+          ) {
             AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
             Alert.alert(
               "Erro na autenticação",
               "Por favor,efetue login novamente"
             );
-          } else if (error.response.status === 500) {
+          } else if (
+            error.response &&
+            error.response.status &&
+            error.response.status === 500
+          ) {
             Alert.alert(
               "Erro durante o processamento",
               "Servico temporariamente indisponivel"
             );
-          } else if (error.response.status === 404) {
+          } else if (
+            error.response &&
+            error.response.status &&
+            error.response.status === 404
+          ) {
             Alert.alert(
               "Serviço não encontrado",
               "Servidor temporariamente indisponivel"
+            );
+          } else {
+            Alert.alert(
+              "Serviço indisponivel",
+              "Contate o admistrador do sistema"
             );
           }
           // Do something with response error

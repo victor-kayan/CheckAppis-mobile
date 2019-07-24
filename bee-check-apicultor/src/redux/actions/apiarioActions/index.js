@@ -1,11 +1,11 @@
 import { GET_ALL_APIARIOS_BY_USER, LOADING_APIARIO } from "./actionsType";
 import { Api } from "../../../../services";
-import { uris } from "../../../../assets";
+import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 
 export const fetchApiariosByUser = () => {
   console.log("GET ALL APIARIOS");
-
+  
   return dispatch => {
     dispatch({
       type: LOADING_APIARIO,
@@ -14,7 +14,7 @@ export const fetchApiariosByUser = () => {
       }
     });
     Api.instance
-      .get(uris.GET_APIARIO_BY_USER)
+      .get(URLS.GET_APIARIOS_BY_USER_URL)
       .then(response => {
         console.log(response);
         dispatch({
@@ -48,7 +48,3 @@ export const fetchApiariosByUser = () => {
       });
   };
 };
-
-export const createVisita = data => {
-
-}

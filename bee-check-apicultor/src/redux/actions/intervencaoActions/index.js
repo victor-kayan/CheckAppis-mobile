@@ -1,9 +1,10 @@
 import {
   INTERVENCAO_LOADING,
   INTERVENCAO_GET_ALL_BY_APICULTOR,
-  INTERVENCAO_CONCLUIR
+  INTERVENCAO_CONCLUIR,
+  INTERVENCAO_CONCLUIR_SUCCESS
 } from "./actionsType";
-import { uris } from "../../../../assets";
+import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 import { Api } from "../../../../services";
 
@@ -17,7 +18,7 @@ export const fecthIntervencoesByApicultor = () => {
       }
     });
     Api.instance
-      .get(uris.GET_INTERVENCOES_BY_APICULTOR)
+      .get(URLS.GET_INTERVENCOES_BY_APICULTOR_URL)
       .then(response => {
         dispatch({
           type: INTERVENCAO_GET_ALL_BY_APICULTOR,
@@ -58,34 +59,23 @@ export const concluirIntervencao = ({ intervencao_id }) => {
       }
     });
     Api.instance
-      .get(uris.GET_INTERVENCAO_APIARIO_CONCLUIR + intervencao_id)
+      .get(
+        URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
+          intervencao_id,
+          intervencao_id
+        })
+      )
       .then(response => {
-        console.log(response);
-        if (response.data.status != 200) {
-          Toast.show({
-            text: response.data.message,
-            buttonText: "",
-            type: "success"
-          });
-          dispatch({
-            type: INTERVENCAO_LOADING,
-            payload: {
-              loading: false
-            }
-          });
-        } else {
-          Toast.show({
-            text: "Intervenção concluida",
-            buttonText: "",
-            type: "success"
-          });
-          dispatch({
-            type: INTERVENCAO_CONCLUIR,
-            payload: {
-              loading: false
-            }
-          });
-        }
+        Toast.show({
+          text: response.data.message,
+          buttonText: "",
+          type: "success"
+        });
+        dispatch(fecthIntervencoesByApicultor());
+        dispatch({
+          type: INTERVENCAO_CONCLUIR_SUCCESS,
+          payload: {}
+        });
       })
       .catch(error => {
         console.log(error);
@@ -99,10 +89,8 @@ export const concluirIntervencao = ({ intervencao_id }) => {
           });
         }
         dispatch({
-          type: INTERVENCAO_LOADING,
-          payload: {
-            loading: false
-          }
+          type: INTERVENCAO_CONCLUIR_SUCCESS,
+          payload: {}
         });
         throw error;
       });
