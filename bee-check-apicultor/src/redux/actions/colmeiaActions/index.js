@@ -10,7 +10,6 @@ import {
 import { Toast } from "native-base";
 
 export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
-  console.log("COLMEIA CREATE");
   return dispatch => {
     dispatch({
       type: LOADING_COLMEIA,
@@ -27,7 +26,6 @@ export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
         foto
       })
       .then(response => {
-        console.log(response);
         Toast.show({
           text: "Colmeia criada com sucesso.",
           buttonText: "",
@@ -42,15 +40,11 @@ export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
         });
       })
       .catch(error => {
-        // console.log(error);
-        if (error.response) {
-          console.log(error);
-          Toast.show({
-            text: error.response.data.message,
-            buttonText: "",
-            type: "danger"
-          });
-        }
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "danger"
+        });
         dispatch({
           type: LOADING_COLMEIA,
           payload: {
@@ -63,7 +57,6 @@ export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
 };
 
 export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
-  console.log("COLMEIA EDIT");
   return dispatch => {
     dispatch({
       type: LOADING_COLMEIA,
@@ -80,7 +73,6 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
         foto
       })
       .then(response => {
-        console.log(response);
         Toast.show({
           text: "Edição realizada com sucesso.",
           buttonText: "",
@@ -95,16 +87,11 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
         });
       })
       .catch(error => {
-        // console.log(error);
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          Toast.show({
-            text: error.response.data.message,
-            buttonText: "",
-            type: "danger"
-          });
-        }
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "danger"
+        });
         dispatch({
           type: LOADING_COLMEIA,
           payload: {
@@ -117,7 +104,6 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
 };
 
 export const getColemiasByApiario = ({ id }) => {
-  console.log("GET COLMEIAS" + id);
   return dispatch => {
     dispatch({
       type: LOADING_COLMEIA,
@@ -127,9 +113,10 @@ export const getColemiasByApiario = ({ id }) => {
     });
 
     Api.instance
-      .get(URLS.formattedURL(URLS.GET_COLMEIAS_BY_APIARIO_URL, { apiario_id: id }))
+      .get(
+        URLS.formattedURL(URLS.GET_COLMEIAS_BY_APIARIO_URL, { apiario_id: id })
+      )
       .then(response => {
-        console.log(response);
         dispatch({
           type: GET_COLMEIA_BY_APIARIO,
           payload: {
@@ -139,16 +126,11 @@ export const getColemiasByApiario = ({ id }) => {
         });
       })
       .catch(error => {
-        // console.log(error);
-        if (error) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          Toast.show({
-            text: error.response.data.message,
-            buttonText: "",
-            type: "danger"
-          });
-        }
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "danger"
+        });
         dispatch({
           type: LOADING_COLMEIA,
           payload: {
@@ -161,8 +143,6 @@ export const getColemiasByApiario = ({ id }) => {
 };
 
 export const deleteColmeiaById = ({ id, apiario_id }) => {
-  console.log("COLMEIA");
-
   return dispatch => {
     dispatch({
       type: LOADING_COLMEIA,
@@ -173,7 +153,6 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
     Api.instance
       .delete(URLS.formattedURL(URLS.DELETE_COLMEIA_URL, { colmeia_id: id }))
       .then(response => {
-        console.log(response);
         Toast.show({
           text: "Colmeia deletada com sucesso",
           buttonText: "",
@@ -188,16 +167,11 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
         dispatch(getColemiasByApiario({ id: apiario_id }));
       })
       .catch(error => {
-        console.log(error);
-        if (error.response) {
-          //   console.log(error.response.data);
-          //   console.log(error.response.status);
-          Toast.show({
-            text: error.response.data.message,
-            buttonText: "",
-            type: "danger"
-          });
-        }
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "danger"
+        });
         dispatch({
           type: LOADING_COLMEIA,
           payload: {

@@ -14,12 +14,10 @@ import {
 import { HeaderCustom, ButtonCustom } from "../../../componentes";
 
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { concluirIntervencao } from "../../../redux/actions/intervencaoActions";
 
 import moment from "moment";
 import "moment/locale/pt-br";
-import { images, routes } from "../../../../assets";
+import { images } from "../../../../assets";
 
 class DetalhesIntervencao extends Component {
   constructor(props) {
@@ -30,15 +28,26 @@ class DetalhesIntervencao extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.concluindoIntervencao && nextProps.concluirIntervencaoSuccess) {
+    if (
+      this.state.concluindoIntervencao &&
+      nextProps.concluirIntervencaoSuccess
+    ) {
+      const route = this.props.navigation.getParam(
+        "routeOnSuccessConcluir",
+        ""
+      );
+
       this.setState({ concluindoIntervencao: false });
-      this.props.navigation.navigate(routes.IntervencaoApiario);
+      this.props.navigation.navigate(route);
     }
   }
 
   render() {
     const intervencao = this.props.navigation.getParam("intervencao", "");
-    const { concluirIntervencao } = this.props;
+    const onConcluirIntervencao = this.props.navigation.getParam(
+      "onConcluirIntervencao",
+      ""
+    );
 
     return (
       <Container>
@@ -200,9 +209,7 @@ class DetalhesIntervencao extends Component {
               <TouchableOpacity>
                 <ButtonCustom
                   onPress={() => {
-                    concluirIntervencao({
-                      intervencao_id: intervencao && intervencao.id
-                    });
+                    onConcluirIntervencao(intervencao);
                     this.setState({ concluindoIntervencao: true });
                   }}
                   iconRight="check"
@@ -220,15 +227,12 @@ class DetalhesIntervencao extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    concluirIntervencaoSuccess: state.intervencaoState.concluirIntervencaoSuccess
+    concluirIntervencaoSuccess:
+      state.intervencaoState.concluirIntervencaoSuccess
   };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ concluirIntervencao }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(DetalhesIntervencao);

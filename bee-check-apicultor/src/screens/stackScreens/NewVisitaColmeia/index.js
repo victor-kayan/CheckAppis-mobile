@@ -76,7 +76,6 @@ class NewVisitaColmeia extends Component {
     ) {
       colmeiasAux.push("Cancelar Seleção");
     } else if (colmeiasVisitadas.length === colmeias.length) {
-      console.log(colmeiasVisitadas.length === colmeias.length);
       colmeiasAux.push(
         <Button
           style={{ backgroundColor: colors.btn_success }}
@@ -119,7 +118,6 @@ class NewVisitaColmeia extends Component {
       ...values,
       colmeia_id: colmeia.id
     };
-    console.log("colmeias visitadas", colmeiasVisitadas);
 
     index =
       colmeiasVisitadas &&
@@ -146,7 +144,6 @@ class NewVisitaColmeia extends Component {
       buttonText: "",
       type: "success"
     });
-    console.log("colmeias visitadas", colmeiasVisitadas);
     this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
   };
 

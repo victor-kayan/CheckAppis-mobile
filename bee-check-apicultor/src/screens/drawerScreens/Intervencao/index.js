@@ -32,7 +32,11 @@ class Intervencao extends Component {
           typeIconRight="AntDesign"
         />
         <Content padder scrollEnabled={true}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.IntervencaoApiario)}>
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.navigate(routes.IntervencaoApiario)
+            }
+          >
             <Card style={{ height: 200, marginTop: 30 }}>
               <CardItem>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -60,8 +64,12 @@ class Intervencao extends Component {
               </CardItem>
             </Card>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Card style={{ height: 200}}>
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.navigate(routes.IntervencaoColmeia)
+            }
+          >
+            <Card style={{ height: 200 }}>
               <CardItem>
                 <View style={{ flex: 1, flexDirection: "row" }}>
                   <Image
@@ -82,7 +90,8 @@ class Intervencao extends Component {
               <CardItem>
                 <Body>
                   <Text style={{ color: "#B8B8B8" }}>
-                    Listar Intervenções cadastradas para as colmeias de seu(s) apiario(s)
+                    Listar Intervenções cadastradas para as colmeias de seu(s)
+                    apiario(s)
                   </Text>
                 </Body>
               </CardItem>

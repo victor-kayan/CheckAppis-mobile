@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  AsyncStorage,
-  NetInfo,
-} from "react-native";
+import { AsyncStorage, NetInfo, StatusBar } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { login } from "../../../redux/actions/userActions";
@@ -10,7 +7,6 @@ import { constants, routes } from "../../../../assets";
 import ViewLogin from "./ViewLogin";
 
 class Login extends React.Component {
-
   state = {
     email: "apicultor@gmail.com",
     password: "123456",
@@ -21,14 +17,12 @@ class Login extends React.Component {
 
   componentDidMount() {
     NetInfo.isConnected.fetch().then(isConnected => {
-      console.log("First, is " + (isConnected ? "online" : "offline"));
       this.setIsconected(isConnected ? true : false);
     });
   }
 
   componentWillUnmount() {
     NetInfo.isConnected.fetch().then(isConnected => {
-      console.log("First, is " + (isConnected ? "online" : "offline"));
       this.setIsconected(isConnected ? true : false);
     });
   }
@@ -66,7 +60,6 @@ class Login extends React.Component {
           nextProps.token
         );
       } catch (error) {
-        console.log(error);
         throw error;
       }
       this.props.navigation.navigate(routes.Home);
@@ -84,16 +77,19 @@ class Login extends React.Component {
     const { error, email, password, message } = this.state;
 
     return (
-      <ViewLogin
-        message={message}
-        error={error}
-        email={email}
-        handleEmail={email => this.setState({email})}
-        password={password}
-        handlePassword={password => this.setState({password})}
-        handleLogin={this.login}
-        loading={loading}
-      />
+      <>
+        <StatusBar hidden />
+        <ViewLogin
+          message={message}
+          error={error}
+          email={email}
+          handleEmail={email => this.setState({ email })}
+          password={password}
+          handlePassword={password => this.setState({ password })}
+          handleLogin={this.login}
+          loading={loading}
+        />
+      </>
     );
   }
 }
@@ -120,4 +116,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login);
-

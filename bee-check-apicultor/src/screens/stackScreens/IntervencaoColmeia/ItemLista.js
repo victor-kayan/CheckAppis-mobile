@@ -16,8 +16,7 @@ import {
 } from "native-base";
 import { ButtonCustom } from "../../../componentes";
 
-export const ItemLista = ({ intervencao }) => {
-  console.log(intervencao.apiario);
+export const ItemLista = ({ handleOnPressDetalhar, intervencao }) => {
 
   return (
     <Card>
@@ -26,7 +25,12 @@ export const ItemLista = ({ intervencao }) => {
           <View style={{ flex: 1, flexDirection: "row" }}>
             <Image
               style={{ paddingHorizontal: 20, width: 45, height: 45 }}
-              source={images.home.apiario64}
+              source={{
+                uri:
+                  intervencao.colmeia &&
+                  intervencao.colmeia.foto &&
+                  intervencao.colmeia.foto
+              }}
             />
             <View
               style={{
@@ -36,12 +40,12 @@ export const ItemLista = ({ intervencao }) => {
                 paddingHorizontal: 20
               }}
             >
-              <Text style={{ fontWeight: "bold" }}>Apiario: </Text>
+              <Text style={{ fontWeight: "bold" }}>Colmeia: </Text>
               <Text style={{ color: "#A1A1A1" }}>
                 {intervencao &&
-                  intervencao.apiario &&
-                  intervencao.apiario.nome &&
-                  intervencao.apiario.nome}
+                  intervencao.colmeia &&
+                  intervencao.colmeia.nome &&
+                  intervencao.colmeia.nome}
               </Text>
             </View>
           </View>
@@ -94,7 +98,7 @@ export const ItemLista = ({ intervencao }) => {
         <Left />
         <Right>
           <ButtonCustom
-            onPress={() => console.log("detalhar")}
+            onPress={() => handleOnPressDetalhar(intervencao)}
             small
             iconRight="search"
             typeIconRight="FontAwesome"

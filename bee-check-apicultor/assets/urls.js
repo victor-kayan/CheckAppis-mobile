@@ -4,7 +4,8 @@ export const BASE_URL = "http://192.168.200.232/api";
 export const LOGIN_URL = "/auth/login/apicultor";
 export const LOGOUT_URL = "/auth/logout";
 
-export const GET_APIARIOS_BY_USER_URL = "/apiarios/user";
+export const GET_APIARIOS_BY_USER_URL = "/apicultor/apiarios";
+export const GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_URL = "/apicultor/colmeiaswithintervencoes/apiarios";
 
 export const DELETE_COLMEIA_URL = "/colmeia/{colmeia_id}";
 export const CREATE_COLMEIA_URL = "/colmeia";
@@ -15,7 +16,7 @@ export const GET_VISITAS_BY_APIARIO_URL = "/apiario/{apiario_id}/visitas";
 export const CREATE_VISITA_URL = "/visita";
 export const DELETE_VISITA_URL = "/visita/{visita_id}";
 
-export const GET_INTERVENCOES_BY_APICULTOR_URL = "/intervencoes/user";
+export const GET_INTERVENCOES_BY_APICULTOR_URL = "/apicultor/apiarios/intervencoes";
 export const CONCLUIR_INTERVENCAO_APIARIO_URL = "/intervencao/{intervencao_id}/concluir";
 
 export const GET_INTERVENCOES_COLMEIAS_BY_APIARIO_URL = "/apiario/{apiario_id}/intervencoes/colmeias";

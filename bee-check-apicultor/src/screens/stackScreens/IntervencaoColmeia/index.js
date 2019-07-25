@@ -1,212 +1,157 @@
 import React, { Component } from "react";
-import LinearGradient from "react-native-linear-gradient";
-import { Text, View, Icon } from "native-base";
-import { StatusBar, TouchableOpacity, Image, ScrollView } from "react-native";
-import { colors, routes, images } from "../../../../assets";
-import styles from "./styles";
-
-const CardMenu = ({ uri, text, onPress, textButton }) => {
-
-  return (
-    <View
-      style={{
-        height: 200,
-        backgroundColor: "#fff",
-        marginHorizontal: 8,
-        marginTop: 8,
-        borderColor: "rgba(0, 0, 0, 0.14)",
-        borderRadius: 7,
-        borderStyle: "solid",
-        borderWidth: 2,
-        shadowColor: "rgba(255, 191, 0, 0.4)",
-        shadowOffset: { height: 4, width: 4 }
-      }}
-    >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingHorizontal: 10,
-          paddingTop: 10
-        }}
-      >
-        <Image style={{ paddingRight: 10 }} source={uri} />
-        <Text
-          adjustsFontSizeToFit={true}
-          numberOfLines={5}
-          style={{ color: "rgba(0, 0, 0, 0.59)", marginHorizontal: 20 }}
-        >
-          {text}
-        </Text>
-      </View>
-      <View
-        style={{
-          alignItems: "flex-end",
-          flexDirection: "column-reverse",
-          flex: 1,
-          paddingEnd: 10,
-          paddingBottom: 10
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: colors.theme_primary,
-            width: 220,
-            height: 45,
-            borderRadius: 7
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingHorizontal: 10,
-              paddingTop: 10
-            }}
-            onPress={onPress}
-          >
-            <Text style={{fontWeight:"500"}}>{textButton}</Text>
-            <Icon type="SimpleLineIcons" active name="action-redo" />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
-  );
-};
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchApiariosHasColmeiasHasIntervencoes } from "../../../redux/actions/apiarioActions";
+import {
+  fecthIntervencoesColmeiasByApiario,
+  concluirIntervencaoColmeia
+} from "../../../redux/actions/intervencaoActions";
+import { Text, Container, Content, Card, CardItem, View } from "native-base";
+import { Image } from "react-native";
+import { images, routes } from "../../../../assets";
+import { HeaderCustom, SpinnerCustom } from "../../../componentes";
+import { RenderSelectApiario } from "./RenderSelectApiario";
+import { ColmeiasSemIntervencao } from "./ColmeiasSemIntervencao";
+import { ItemLista } from "./ItemLista";
+// import moment from "moment";
+// import "moment/locale/pt-br";
 
 class IntervencaoColmeia extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedPickerApiario: null
+    };
+  }
+
+  componentDidMount() {
+    this.handleRefresh();
+  }
+
+  handleRefresh = () => {
+    this.props.fetchApiariosHasColmeiasHasIntervencoes();
+  };
+
+  handleValueChangePickerApiario = apiario => {
+    this.setState({ selectedPickerApiario: apiario });
+
+    if (apiario) {
+      this.fecthIntervencoesColmeias(apiario.id);
+    }
+  };
+
+  fecthIntervencoesColmeias = apiario_id => {
+    this.props.fecthIntervencoesColmeiasByApiario({ apiario_id });
+  };
+
+  handleReturnHome = () => {
+    this.props.navigation.navigate(routes.Home);
+  };
+
+  onDetalharIntervencao = intervencao => {
+    this.props.navigation.navigate(routes.DetalhesIntervencao, {
+      intervencao: intervencao,
+      routeOnSuccessConcluir: routes.IntervencaoColmeia,
+      onConcluirIntervencao: this.props.concluirIntervencaoColmeia
+    });
+  };
+
   render() {
+    const { selectedPickerApiario } = this.state;
+    const { apiarios, loading } = this.props;
+    const { intervencoesByApiario } =
+      selectedPickerApiario == null ? [] : this.props;
+
     return (
-      <>
-        <StatusBar backgroundColor={colors.theme_default} />
-        <LinearGradient
-          colors={[colors.theme_default, "#F4CC26", "#FFDD50", "#FFE579"]}
-          style={{ height: "40%" }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "flex-start",
-              marginHorizontal: 20,
-              marginTop: 20
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => this.props.navigation.openDrawer()}
-            >
-              <Icon type="AntDesign" name="menuunfold" active />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginHorizontal: "5%",
-              alignItems: "center"
-            }}
-          >
-            <View style={{ alignItems: "center", width: "33%" }}>
-              <Image
-                source={images.home.colmeia64}
-              />
-              <View style={{ marginTop: "15%", alignItems: "center" }}>
-                <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
-                >
-                  100
-                </Text>
-                <Text
-                  style={{
-                    marginTop: "10%",
-                    color: "#ff8416",
-                    fontWeight: "bold",
-                    fontSize: 17
-                  }}
-                >
-                  Colmeias
-                </Text>
-              </View>
-            </View>
-            <View style={{ alignItems: "center", width: "33%" }}>
-              <Image
-                source={images.home.visita64}
-                style={styles.image}
-              />
-              <View style={{ marginTop: "15%", alignItems: "center" }}>
-                <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
-                >
-                  100
-                </Text>
-                <Text
-                  style={{
-                    marginTop: "10%",
-                    color: "#ff8416",
-                    fontWeight: "bold",
-                    fontSize: 17
-                  }}
-                >
-                  Visitas
-                </Text>
-              </View>
-            </View>
-            <View style={{ alignItems: "center", width: "33%" }}>
-              <Image
-                source={images.home.intervencao64}
-                style={styles.image}
-              />
-              <View style={{ marginTop: "15%", alignItems: "center" }}>
-                <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
-                >
-                  100
-                </Text>
-                <Text
-                  style={{
-                    marginTop: "10%",
-                    color: "#ff8416",
-                    fontWeight: "bold",
-                    fontSize: 17
-                  }}
-                >
-                  Intervenções
-                </Text>
-              </View>
-            </View>
-          </View>
-        </LinearGradient>
-        <ScrollView style={{ marginBottom: 8 }}>
-          <CardMenu
-            uri={images.home.colmeia64}
-            onPress={() => this.props.navigation.navigate(routes.ColmeiaHome)}
-            textButton="Ir para Colmeias"
-            text={
-              "Em Colmeias  você pode controlar  todas as colmeias de seu(s) apiario(s)"
-            }
-          />
-          <CardMenu
-            uri={images.home.visita64}
-            onPress={() => this.props.navigation.navigate(routes.VisitasHome)}
-            text={
-              "Em Colmeias  você pode controlar  todas as colmeias de seu(s) apiario(s)"
-            }
-            textButton="Ir para Visitas"
-          />
-          <CardMenu
-            uri={images.home.intervencao64}
-            text={
-              "Em Colmeias  você pode controlar  todas as colmeias de seu(s) apiario(s)"
-            }
-            onPress={() =>
-              this.props.navigation.navigate(routes.IntervencaoHome)
-            }
-            textButton="Ir para Intervenções"
-          />
-        </ScrollView>
-      </>
+      <Container>
+        <HeaderCustom
+          handleIconLeft={() => this.props.navigation.openDrawer()}
+          title="Intervenções"
+          iconRight="sync"
+          handleIconRight={() => this.handleRefresh()}
+          typeIconRight="AntDesign"
+        />
+        <SpinnerCustom visible={loading} />
+        {!apiarios ? (
+          <ColmeiasSemIntervencao onReturnHome={this.handleReturnHome} />
+        ) : (
+          <Content padder scrollEnabled={true}>
+            <Card>
+              <CardItem>
+                <RenderSelectApiario
+                  apiarios={apiarios}
+                  onValueChangePickerApiario={
+                    this.handleValueChangePickerApiario
+                  }
+                  selectedPickerApiario={selectedPickerApiario}
+                />
+              </CardItem>
+            </Card>
+            {!loading &&
+            intervencoesByApiario &&
+            intervencoesByApiario.length > 0
+              ? intervencoesByApiario.map((intervencao, index) => (
+                  <ItemLista
+                    handleOnPressDetalhar={this.onDetalharIntervencao}
+                    key={index}
+                    intervencao={intervencao}
+                  />
+                ))
+              : !loading &&
+                !selectedPickerApiario &&
+                !selectedPickerApiario > 0 && (
+                  <>
+                    <CardItem
+                      style={{
+                        marginTop: 20,
+                        flexDirection: "column",
+                        alignItems: "center"
+                      }}
+                    >
+                      <Text>Primeiro selecione um apiario</Text>
+                    </CardItem>
+                    <View
+                      style={{
+                        flex: 1,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                    >
+                      <Image
+                        style={{ marginTop: "15%" }}
+                        source={images.home.apiario}
+                      />
+                    </View>
+                  </>
+                )}
+          </Content>
+        )}
+      </Container>
     );
   }
 }
 
-export default IntervencaoColmeia;
+// export default Visita;
+function mapStateToProps(state, props) {
+  return {
+    apiarios: state.apiarioState.apiarios,
+    intervencoesByApiario: state.intervencaoState.intervencoesByApiario,
+    loading: state.apiarioState.loading || state.intervencaoState.loading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      fetchApiariosHasColmeiasHasIntervencoes,
+      fecthIntervencoesColmeiasByApiario,
+      concluirIntervencaoColmeia
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(IntervencaoColmeia);

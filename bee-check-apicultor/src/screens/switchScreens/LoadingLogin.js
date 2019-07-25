@@ -17,7 +17,6 @@ class LoadingLogin extends React.Component {
           return response;
         },
         function(error) {
-          console.log("error", error);
 
           if (
             error.response &&

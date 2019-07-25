@@ -1,5 +1,7 @@
 import {
-  GET_ALL_APIARIOS_BY_USER, LOADING_APIARIO
+  GET_ALL_APIARIOS_BY_USER,
+  LOADING_APIARIO,
+  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS
 } from "../actions/apiarioActions/actionsType";
 
 const initialState = {
@@ -12,8 +14,16 @@ export const ApiarioReducer = (state = initialState, action) => {
       return {
         ...state,
         apiarios: action.payload.apiarios,
-        loading: action.payload.loading,
+        loading: action.payload.loading
       };
+
+    case GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS:
+      return {
+        ...state,
+        apiarios: action.payload.apiarios,
+        loading: false
+      };
+
     case LOADING_APIARIO:
       return {
         ...state,

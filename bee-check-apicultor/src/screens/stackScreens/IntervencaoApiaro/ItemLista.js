@@ -17,6 +17,7 @@ import {
 import { ButtonCustom } from "../../../componentes";
 
 export const ItemLista = ({ handleOnPressDetalhar, intervencao }) => {
+
   return (
     <Card>
       <CardItem>

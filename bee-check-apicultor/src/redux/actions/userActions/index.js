@@ -4,7 +4,6 @@ import { URLS, constants } from "../../../../assets";
 import { AsyncStorage } from "react-native";
 
 export const login = ({ email, password }) => {
-  console.log("LOGIN");  
   return dispatch => {
     dispatch({
       type: LOADING_LOGIN,
@@ -14,9 +13,6 @@ export const login = ({ email, password }) => {
     });
     Api.instance.post(URLS.LOGIN_URL, { email, password })
       .then(response => {
-        if (response) {
-          console.log(response);
-        }
         Api.instance.defaults.headers.Authorization = `Bearer ${
           response.data.token
         }`;
@@ -30,13 +26,6 @@ export const login = ({ email, password }) => {
         });
       })
       .catch(error => {
-        console.log(error);
-        
-        if (error.response) {
-
-          // console.log(error.response.data);
-          // console.log(error.response.status);
-        }
         dispatch({
           type: LOADING_LOGIN,
           payload: {
@@ -50,7 +39,6 @@ export const login = ({ email, password }) => {
 };
 
 export const logout = () => {
-  console.log("LOGOUT");
 
   return dispatch => {
     dispatch({
@@ -62,9 +50,6 @@ export const logout = () => {
 
     Api.instance.post(URLS.LOGOUT_URL)
       .then(response => {
-        // if (response) {
-          console.log(response);
-        // }
         AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
         dispatch({
           type: LOGOUT,
@@ -77,7 +62,6 @@ export const logout = () => {
         });
       })
       .catch(error => {
-        console.log(error);
         dispatch({
           type: LOADING_LOGIN,
           payload: {

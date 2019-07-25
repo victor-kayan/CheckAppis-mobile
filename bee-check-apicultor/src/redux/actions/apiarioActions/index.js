@@ -1,11 +1,13 @@
-import { GET_ALL_APIARIOS_BY_USER, LOADING_APIARIO } from "./actionsType";
+import {
+  GET_ALL_APIARIOS_BY_USER,
+  LOADING_APIARIO,
+  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS
+} from "./actionsType";
 import { Api } from "../../../../services";
 import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 
 export const fetchApiariosByUser = () => {
-  console.log("GET ALL APIARIOS");
-  
   return dispatch => {
     dispatch({
       type: LOADING_APIARIO,
@@ -16,7 +18,6 @@ export const fetchApiariosByUser = () => {
     Api.instance
       .get(URLS.GET_APIARIOS_BY_USER_URL)
       .then(response => {
-        console.log(response);
         dispatch({
           type: GET_ALL_APIARIOS_BY_USER,
           payload: {
@@ -26,18 +27,11 @@ export const fetchApiariosByUser = () => {
         });
       })
       .catch(error => {
-        console.log(error);
-        if (error.response) {
-          //   console.log(error.response.data);
-          //   console.log(error.response.status);
-          Toast.show({
-            text: error.response.data.message,
-            buttonText: "",
-            type: "warning"
-          });
-          // if(error.response.status === 401)
-          // this.props.navigation.navigate('Login');
-        }
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "warning"
+        });
         dispatch({
           type: LOADING_APIARIO,
           payload: {
@@ -45,6 +39,40 @@ export const fetchApiariosByUser = () => {
           }
         });
         throw error;
+      });
+  };
+};
+
+export const fetchApiariosHasColmeiasHasIntervencoes = () => {
+  return dispatch => {
+    dispatch({
+      type: LOADING_APIARIO,
+      payload: {
+        loading: true
+      }
+    });
+    Api.instance
+      .get(URLS.GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_URL)
+      .then(response => {
+        dispatch({
+          type: GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS,
+          payload: {
+            apiarios: response.data.apiarios
+          }
+        });
+      })
+      .catch(error => {
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "warning"
+        });
+        dispatch({
+          type: LOADING_APIARIO,
+          payload: {
+            loading: false
+          }
+        });
       });
   };
 };
