@@ -1,4 +1,4 @@
-#Mon Jul 22 19:58:31 BRT 2019
+#Thu Jul 25 23:02:45 BRT 2019
 base.0=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
