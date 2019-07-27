@@ -1,12 +1,14 @@
 import {
   GET_ALL_APIARIOS_BY_USER,
   LOADING_APIARIO,
-  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS
+  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS,
+  GET_COUNT_APIARIOS_BY_APICULTOR
 } from "../actions/apiarioActions/actionsType";
 
 const initialState = {
   apiarios: null,
-  loading: false
+  loading: false,
+  countApiarios: 0
 };
 export const ApiarioReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -21,6 +23,13 @@ export const ApiarioReducer = (state = initialState, action) => {
       return {
         ...state,
         apiarios: action.payload.apiarios,
+        loading: false
+      };
+
+    case GET_COUNT_APIARIOS_BY_APICULTOR:
+      return {
+        ...state,
+        countApiarios: action.payload.countApiarios,
         loading: false
       };
 

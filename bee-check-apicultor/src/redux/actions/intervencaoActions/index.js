@@ -4,7 +4,8 @@ import {
   INTERVENCAO_CONCLUIR_SUCCESS,
   INTERVENCAO_GET_ALL_BY_APIARIO,
   INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-  INTERVENCAO_COLMEIA_CONCLUIR_ERROR
+  INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+  GET_COUNT_INTERVENCOES_BY_APICULTOR
 } from "./actionsType";
 import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
@@ -167,6 +168,40 @@ export const concluirIntervencaoColmeia = intervencao => {
           payload: {}
         });
         throw error;
+      });
+  };
+};
+
+export const getCountIntervencoesByApicultor = () => {
+  return dispatch => {
+    dispatch({
+      type: INTERVENCAO_LOADING,
+      payload: {
+        loading: true
+      }
+    });
+    Api.instance
+      .get(URLS.GET_COUNT_INTERVENCOES_URL)
+      .then(response => {
+        dispatch({
+          type: GET_COUNT_INTERVENCOES_BY_APICULTOR,
+          payload: {
+            coutIntervencoes: response.data.count_intervencoes
+          }
+        });
+      })
+      .catch(error => {
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "warning"
+        });
+        dispatch({
+          type: INTERVENCAO_LOADING,
+          payload: {
+            loading: false
+          }
+        });
       });
   };
 };

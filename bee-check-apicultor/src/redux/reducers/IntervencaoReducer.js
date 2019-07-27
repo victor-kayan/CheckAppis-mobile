@@ -5,14 +5,16 @@ import {
   INTERVENCAO_CONCLUIR_ERROR,
   INTERVENCAO_GET_ALL_BY_APIARIO,
   INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-  INTERVENCAO_COLMEIA_CONCLUIR_ERROR
+  INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+  GET_COUNT_INTERVENCOES_BY_APICULTOR
 } from "../actions/intervencaoActions/actionsType";
 
 const initialState = {
   intervencoes: null,
   intervencoesByApiario: null,
   loading: false,
-  concluirIntervencaoSuccess: false
+  concluirIntervencaoSuccess: false,
+  coutIntervencoes: 0
 };
 
 export const IntervencaoReducer = (state = initialState, action) => {
@@ -65,6 +67,14 @@ export const IntervencaoReducer = (state = initialState, action) => {
         loading: payload.loading,
         concluirIntervencaoSuccess: false
       };
+
+    case GET_COUNT_INTERVENCOES_BY_APICULTOR:
+      return {
+        ...state,
+        loading: false,
+        coutIntervencoes: payload.coutIntervencoes
+      };
+
     default:
       return state;
   }

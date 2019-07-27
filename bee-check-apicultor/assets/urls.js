@@ -22,6 +22,11 @@ export const CONCLUIR_INTERVENCAO_APIARIO_URL = "/intervencao/{intervencao_id}/c
 export const GET_INTERVENCOES_COLMEIAS_BY_APIARIO_URL = "/apiario/{apiario_id}/intervencoes/colmeias";
 export const CONCLUIR_INTERVENCAO_COLMEIA_URL = "/intervencao/colmeia/{intervencao_id}/concluir";
 
+//Statistics
+export const GET_COUNT_APIARIOS_URL = "apicultor/apiarios/count";
+export const GET_COUNT_COLMEIAS_URL = "apicultor/colmeias/count";
+export const GET_COUNT_INTERVENCOES_URL = "apicultor/intervencoes/count";
+
 export const formattedURL = (url, params = {}) => {
   if (url) {
     if (params) {

@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { Text, View, Icon } from "native-base";
+import { Text, View, Icon, Spinner } from "native-base";
 import { StatusBar, TouchableOpacity, Image } from "react-native";
 import { colors, images } from "../../../../assets";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import GooglePlacesInput from "./GooglePlacesInput";
+
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { getCountApiariosByApicultor } from "../../../redux/actions/apiarioActions";
+import { getCountColmeiasApiariosByApicultor } from "../../../redux/actions/colmeiaActions";
+import { getCountIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
 
 const styles = StyleSheet.create({
   mapContainer: {
@@ -38,10 +45,16 @@ class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getCountApiariosByApicultor();
+    this.props.getCountColmeiasApiariosByApicultor();
+    this.props.getCountIntervencoesByApicultor();
+  }
+
   handleLocationSelected = (data, { geometry }) => {
     const {
       location: { lat: latitude, lng: longitude }
-    } = geometry;    
+    } = geometry;
 
     this.setState({
       region: {
@@ -54,6 +67,8 @@ class Home extends Component {
   };
 
   render() {
+    const { countColmeias, countApiarios, coutIntervencoes } = this.props;
+
     return (
       <>
         <StatusBar backgroundColor={colors.theme_default} />
@@ -85,12 +100,34 @@ class Home extends Component {
             }}
           >
             <View style={{ alignItems: "center", width: "33%" }}>
+              <Image source={images.home.apiario64} style={styles.image} />
+              <View style={{ marginTop: "15%", alignItems: "center" }}>
+                <Text
+                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
+                >
+                  {countApiarios && countApiarios}
+                </Text>
+                <Text
+                  style={{
+                    marginTop: "10%",
+                    color: "#ff8416",
+                    fontWeight: "bold",
+                    fontSize: 17
+                  }}
+                >
+                  {countApiarios && countApiarios === 1
+                    ? "Apiario"
+                    : "Apiarios"}
+                </Text>
+              </View>
+            </View>
+            <View style={{ alignItems: "center", width: "33%" }}>
               <Image source={images.home.colmeia64} />
               <View style={{ marginTop: "15%", alignItems: "center" }}>
                 <Text
                   style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
                 >
-                  100
+                  {countColmeias && countColmeias}
                 </Text>
                 <Text
                   style={{
@@ -100,27 +137,9 @@ class Home extends Component {
                     fontSize: 17
                   }}
                 >
-                  Colmeias
-                </Text>
-              </View>
-            </View>
-            <View style={{ alignItems: "center", width: "33%" }}>
-              <Image source={images.home.visita64} style={styles.image} />
-              <View style={{ marginTop: "15%", alignItems: "center" }}>
-                <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
-                >
-                  100
-                </Text>
-                <Text
-                  style={{
-                    marginTop: "10%",
-                    color: "#ff8416",
-                    fontWeight: "bold",
-                    fontSize: 17
-                  }}
-                >
-                  Visitas
+                  {countColmeias && countColmeias === 1
+                    ? "Colmeia"
+                    : "Colmeias"}
                 </Text>
               </View>
             </View>
@@ -130,7 +149,7 @@ class Home extends Component {
                 <Text
                   style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
                 >
-                  100
+                  {coutIntervencoes && coutIntervencoes}
                 </Text>
                 <Text
                   style={{
@@ -140,7 +159,9 @@ class Home extends Component {
                     fontSize: 17
                   }}
                 >
-                  Intervenções
+                  {coutIntervencoes && coutIntervencoes === 1
+                    ? "Intervencao"
+                    : "Intervenções"}
                 </Text>
               </View>
             </View>
@@ -158,5 +179,30 @@ class Home extends Component {
     );
   }
 }
+function mapStateToProps(state, props) {
+  return {
+    countApiarios: state.apiarioState.countApiarios,
+    countColmeias: state.colmeiaState.countColmeias,
+    coutIntervencoes: state.intervencaoState.coutIntervencoes,
+    loading:
+      state.apiarioState.loading ||
+      state.colmeiaState.loading ||
+      state.intervencaoState.loading
+  };
+}
 
-export default Home;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      getCountApiariosByApicultor,
+      getCountColmeiasApiariosByApicultor,
+      getCountIntervencoesByApicultor
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

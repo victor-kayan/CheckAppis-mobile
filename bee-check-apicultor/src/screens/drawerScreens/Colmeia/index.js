@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Image } from "react-native";
+import { PanResponder } from 'react-native';
 import {
-  Left,
-  Right,
   Icon,
   Card,
   CardItem,

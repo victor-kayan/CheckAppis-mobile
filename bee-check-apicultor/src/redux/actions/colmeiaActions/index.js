@@ -5,7 +5,8 @@ import {
   CREATE_COLMEIA,
   LOADING_COLMEIA,
   GET_COLMEIA_BY_APIARIO,
-  EDIT_COLMEIA
+  EDIT_COLMEIA,
+  GET_COUNT_COLMEIAS_BY_APIARIOS_APICULTOR
 } from "./actionsType";
 import { Toast } from "native-base";
 
@@ -179,6 +180,40 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
           }
         });
         throw error;
+      });
+  };
+};
+
+export const getCountColmeiasApiariosByApicultor = () => {
+  return dispatch => {
+    dispatch({
+      type: LOADING_COLMEIA,
+      payload: {
+        loading: true
+      }
+    });
+    Api.instance
+      .get(URLS.GET_COUNT_COLMEIAS_URL)
+      .then(response => {
+        dispatch({
+          type: GET_COUNT_COLMEIAS_BY_APIARIOS_APICULTOR,
+          payload: {
+            countColmeias: response.data.count_colmeias
+          }
+        });
+      })
+      .catch(error => {
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "warning"
+        });
+        dispatch({
+          type: LOADING_COLMEIA,
+          payload: {
+            loading: false
+          }
+        });
       });
   };
 };
