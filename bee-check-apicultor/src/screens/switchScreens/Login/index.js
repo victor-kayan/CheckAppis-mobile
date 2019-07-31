@@ -8,8 +8,8 @@ import ViewLogin from "./ViewLogin";
 
 class Login extends React.Component {
   state = {
-    email: "apicultor@gmail.com",
-    password: "123456",
+    email: "",
+    password: "",
     error: false,
     message: "",
     connect: false

@@ -1,8 +1,11 @@
 import {
-  GET_ALL_APIARIOS_BY_USER,
+  GET_ALL_APIARIOS_BY_USER_SUCCESS,
   LOADING_APIARIO,
-  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS,
-  GET_COUNT_APIARIOS_BY_APICULTOR
+  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_SUCCESS,
+  GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS,
+  GET_ALL_APIARIOS_BY_USER_ERROR,
+  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_ERROR,
+  GET_COUNT_APIARIOS_BY_APICULTOR_ERROR
 } from "./actionsType";
 import { Api } from "../../../../services";
 import { URLS } from "../../../../assets";
@@ -20,10 +23,9 @@ export const fetchApiariosByUser = () => {
       .get(URLS.GET_APIARIOS_BY_USER_URL)
       .then(response => {
         dispatch({
-          type: GET_ALL_APIARIOS_BY_USER,
+          type: GET_ALL_APIARIOS_BY_USER_SUCCESS,
           payload: {
-            apiarios: response.data.apiarios,
-            loading: false
+            apiarios: response.data.apiarios
           }
         });
       })
@@ -34,12 +36,11 @@ export const fetchApiariosByUser = () => {
           type: "warning"
         });
         dispatch({
-          type: LOADING_APIARIO,
+          type: GET_ALL_APIARIOS_BY_USER_ERROR,
           payload: {
-            loading: false
+            error: error
           }
         });
-        throw error;
       });
   };
 };
@@ -56,7 +57,7 @@ export const fetchApiariosHasColmeiasHasIntervencoes = () => {
       .get(URLS.GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_URL)
       .then(response => {
         dispatch({
-          type: GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS,
+          type: GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_SUCCESS,
           payload: {
             apiarios: response.data.apiarios
           }
@@ -69,9 +70,9 @@ export const fetchApiariosHasColmeiasHasIntervencoes = () => {
           type: "warning"
         });
         dispatch({
-          type: LOADING_APIARIO,
+          type: GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_ERROR,
           payload: {
-            loading: false
+            error
           }
         });
       });
@@ -90,7 +91,7 @@ export const getCountApiariosByApicultor = () => {
       .get(URLS.GET_COUNT_APIARIOS_URL)
       .then(response => {
         dispatch({
-          type: GET_COUNT_APIARIOS_BY_APICULTOR,
+          type: GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS,
           payload: {
             countApiarios: response.data.count_apiarios
           }
@@ -103,9 +104,9 @@ export const getCountApiariosByApicultor = () => {
           type: "warning"
         });
         dispatch({
-          type: LOADING_APIARIO,
+          type: GET_COUNT_APIARIOS_BY_APICULTOR_ERROR,
           payload: {
-            loading: false
+            error
           }
         });
       });

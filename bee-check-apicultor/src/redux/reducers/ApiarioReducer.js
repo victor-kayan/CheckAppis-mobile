@@ -1,42 +1,68 @@
 import {
-  GET_ALL_APIARIOS_BY_USER,
+  GET_ALL_APIARIOS_BY_USER_SUCCESS,
   LOADING_APIARIO,
-  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS,
-  GET_COUNT_APIARIOS_BY_APICULTOR
+  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_SUCCESS,
+  GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS,
+  GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_ERROR,
+  GET_ALL_APIARIOS_BY_USER_ERROR,
+  GET_COUNT_APIARIOS_BY_APICULTOR_ERROR
 } from "../actions/apiarioActions/actionsType";
 
 const initialState = {
   apiarios: null,
   loading: false,
-  countApiarios: 0
+  countApiarios: 0,
+  error: null
 };
 export const ApiarioReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case GET_ALL_APIARIOS_BY_USER:
+  const { type, payload } = action;
+  switch (type) {
+    case GET_ALL_APIARIOS_BY_USER_SUCCESS:
       return {
         ...state,
-        apiarios: action.payload.apiarios,
-        loading: action.payload.loading
-      };
-
-    case GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS:
-      return {
-        ...state,
-        apiarios: action.payload.apiarios,
+        apiarios: payload.apiarios,
         loading: false
       };
 
-    case GET_COUNT_APIARIOS_BY_APICULTOR:
+    case GET_ALL_APIARIOS_BY_USER_ERROR:
       return {
         ...state,
-        countApiarios: action.payload.countApiarios,
+        error: payload.error,
+        loading: false
+      };
+
+    case GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_SUCCESS:
+      return {
+        ...state,
+        apiarios: payload.apiarios,
+        loading: false
+      };
+
+    case GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_ERROR:
+      return {
+        ...state,
+        error: payload.error,
+        loading: false
+      };
+
+    case GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS:
+      return {
+        ...state,
+        countApiarios: payload.countApiarios,
+        loading: false
+      };
+
+    case GET_COUNT_APIARIOS_BY_APICULTOR_ERROR:
+      return {
+        ...state,
+        error: payload.error,
         loading: false
       };
 
     case LOADING_APIARIO:
       return {
         ...state,
-        loading: action.payload.loading
+        loading: payload.loading
       };
     default:
       return state;

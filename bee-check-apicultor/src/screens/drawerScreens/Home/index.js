@@ -4,13 +4,16 @@ import LinearGradient from "react-native-linear-gradient";
 import { Text, View, Icon, Spinner } from "native-base";
 import { StatusBar, TouchableOpacity, Image } from "react-native";
 import { colors, images } from "../../../../assets";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import GooglePlacesInput from "./GooglePlacesInput";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { getCountApiariosByApicultor } from "../../../redux/actions/apiarioActions";
+import {
+  getCountApiariosByApicultor,
+  fetchApiariosByUser
+} from "../../../redux/actions/apiarioActions";
 import { getCountColmeiasApiariosByApicultor } from "../../../redux/actions/colmeiaActions";
 import { getCountIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
 
@@ -49,6 +52,7 @@ class Home extends Component {
     this.props.getCountApiariosByApicultor();
     this.props.getCountColmeiasApiariosByApicultor();
     this.props.getCountIntervencoesByApicultor();
+    this.props.fetchApiariosByUser();
   }
 
   handleLocationSelected = (data, { geometry }) => {
@@ -67,7 +71,12 @@ class Home extends Component {
   };
 
   render() {
-    const { countColmeias, countApiarios, coutIntervencoes } = this.props;
+    const {
+      countColmeias,
+      countApiarios,
+      coutIntervencoes,
+      apiarios
+    } = this.props;
 
     return (
       <>
@@ -173,7 +182,19 @@ class Home extends Component {
           region={this.state.region}
           zoomEnabled
           loadingEnabled
-        />
+        >
+          {apiarios &&
+            apiarios.length &&
+            apiarios.map(apiario => (
+              <Marker
+                coordinate={{
+                  latitude: parseFloat(apiario.latitude),
+                  longitude: parseFloat(apiario.longitude)
+                }}
+                image={images.home.apiario64}
+              />
+            ))}
+        </MapView>
         <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
       </>
     );
@@ -181,6 +202,7 @@ class Home extends Component {
 }
 function mapStateToProps(state, props) {
   return {
+    apiarios: state.apiarioState.apiarios,
     countApiarios: state.apiarioState.countApiarios,
     countColmeias: state.colmeiaState.countColmeias,
     coutIntervencoes: state.intervencaoState.coutIntervencoes,
@@ -195,6 +217,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       getCountApiariosByApicultor,
+      fetchApiariosByUser,
       getCountColmeiasApiariosByApicultor,
       getCountIntervencoesByApicultor
     },

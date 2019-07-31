@@ -51,7 +51,6 @@ const ViewLogin = ({
             <Item last style={{ marginTop: 25 }}>
               <Icon active type="Entypo" name="email" style={styles.icon} />
               <Input
-                autoFocus
                 underlineColorAndroid="transparent"
                 autoCapitalize="none"
                 value={email}
