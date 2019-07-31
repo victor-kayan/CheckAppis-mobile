@@ -11,7 +11,8 @@ import {
   Icon,
   Item,
   Toast,
-  Root
+  Root,
+  View
 } from "native-base";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -160,10 +161,24 @@ class NewColmeia extends Component {
                     width: "100%"
                   }}
                 >
-                  <Image
-                    style={styles.imageFormColmeia}
-                    source={foto_uri != null ? foto_uri : images.fotoDefault}
-                  />
+                  {foto_uri ? (
+                    <Image style={styles.imageFormColmeia} source={foto_uri} />
+                  ) : (
+                    <View style={{justifyContent: "center",
+                    alignItems: "center",}}>
+                      <Icon
+                        type="EvilIcons"
+                        name="camera"
+                        active
+                        style={{
+                          fontSize: 50,
+                          paddingTop: 55,
+                          color: "#B8B8B8"
+                        }}
+                      />
+                      <Text  style={{ color: "#B8B8B8", paddingBottom: 55 }}>Sem Imagem</Text>
+                    </View>
+                  )}
                 </Item>
                 <ButtonCustom
                   onPress={() => this.onAddColmeia()}

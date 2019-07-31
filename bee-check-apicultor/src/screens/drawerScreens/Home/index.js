@@ -187,6 +187,7 @@ class Home extends Component {
             apiarios.length &&
             apiarios.map(apiario => (
               <Marker
+                key={apiario.id}
                 coordinate={{
                   latitude: parseFloat(apiario.latitude),
                   longitude: parseFloat(apiario.longitude)

@@ -13,8 +13,8 @@ export default class GooglePlacesInput extends Component {
 
     return (
       <GooglePlacesAutocomplete
-        placeholder={"Para onde?"}
-        placeholderTextColor={"#333"}
+        placeholder={"Buscar endereço..."}
+        placeholderTextColor={"#B8B8B8"}
         onPress={onLocationSelected}
         query={{
           key: "AIzaSyA3byNpUcao4ZQud-zGppXCjHSZVOaoygI",
@@ -46,7 +46,7 @@ export default class GooglePlacesInput extends Component {
           textInput: {
             height: 54,
             margin: 0,
-            borderRadius: 0,
+            borderRadius: 5,
             paddingTop: 0,
             paddingBottom: 0,
             paddingLeft: 20,

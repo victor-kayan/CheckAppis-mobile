@@ -56,7 +56,7 @@ const ViewLogin = ({
                 value={email}
                 placeholder="email"
                 style={styles.input}
-                placeholderTextColor={colors.white}
+                placeholderTextColor={"#B8B8B8"}
                 onChangeText={handleEmail}
               />
             </Item>
@@ -68,7 +68,7 @@ const ViewLogin = ({
                 autoCapitalize="none"
                 placeholder="senha"
                 style={styles.input}
-                placeholderTextColor={colors.white}
+                placeholderTextColor={"#B8B8B8"}
                 value={password}
                 onChangeText={handlePassword}
               />
