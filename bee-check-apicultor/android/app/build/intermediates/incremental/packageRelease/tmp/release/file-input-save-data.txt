@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jul 26 00:05:23 BRT 2019
+#Wed Aug 14 20:19:55 BRT 2019
 56.path=fonts/Entypo.ttf
 5.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 42.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
@@ -34,7 +34,7 @@
 1.set=NATIVE_RESOURCE
 37.baseType=DIRECTORY
 28.baseType=DIRECTORY
-16.path=fonts/Geometria-Italic.ttf
+16.path=lib/x86/libglog.so
 19.baseType=DIRECTORY
 57.set=NATIVE_RESOURCE
 65.baseType=DIRECTORY
@@ -46,7 +46,7 @@
 63.path=fonts/Foundation.ttf
 35.set=NATIVE_RESOURCE
 2.path=lib/armeabi-v7a/libgnustl_shared.so
-16.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/assets/release
+16.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 24.set=NATIVE_RESOURCE
 6.path=lib/x86/libfolly_json.so
 63.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/assets/release
@@ -93,7 +93,7 @@
 60.set=ASSET
 count=66
 27.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
-16.set=ASSET
+16.set=NATIVE_RESOURCE
 37.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 11.baseType=DIRECTORY
 49.baseType=DIRECTORY
@@ -158,7 +158,7 @@ count=66
 24.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 34.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 1.baseType=DIRECTORY
-14.path=lib/armeabi-v7a/libnative-filters.so
+14.path=fonts/Geometria-Italic.ttf
 37.set=NATIVE_RESOURCE
 18.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 28.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/assets/release
@@ -167,7 +167,7 @@ count=66
 38.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 0.path=lib/x86/libstatic-webp.so
 15.set=NATIVE_RESOURCE
-14.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
+14.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/assets/release
 14.baseType=DIRECTORY
 23.baseType=DIRECTORY
 65.path=lib/armeabi-v7a/libicu_common.so
@@ -234,7 +234,7 @@ count=66
 44.baseType=DIRECTORY
 35.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 9.set=ASSET
-15.path=lib/x86/libglog.so
+15.path=lib/armeabi-v7a/libnative-filters.so
 47.set=ASSET
 19.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 4.baseType=DIRECTORY
@@ -246,7 +246,7 @@ count=66
 1.path=lib/x86/libjsc.so
 25.set=NATIVE_RESOURCE
 15.base=/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/release/0
-14.set=NATIVE_RESOURCE
+14.set=ASSET
 35.baseType=DIRECTORY
 26.baseType=DIRECTORY
 17.baseType=DIRECTORY

@@ -184,7 +184,7 @@ class Home extends Component {
           loadingEnabled
         >
           {apiarios &&
-            apiarios.length &&
+            apiarios.length ?
             apiarios.map(apiario => (
               <Marker
                 key={apiario.id}
@@ -192,9 +192,9 @@ class Home extends Component {
                   latitude: parseFloat(apiario.latitude),
                   longitude: parseFloat(apiario.longitude)
                 }}
-                image={images.home.apiario64}
+                image={images.icons.apiario}
               />
-            ))}
+            )): null}
         </MapView>
         <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
       </>
