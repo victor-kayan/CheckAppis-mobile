@@ -9,6 +9,7 @@ class FormVisita extends Component {
     this.state = {
       qtd_quadros_mel: 0,
       qtd_quadros_polen: 0,
+      qtd_quadros_vazios: 0,
       tem_abelhas_mortas: 1,
       qtd_cria_aberta: 0,
       qtd_cria_fechada: 0,
@@ -25,6 +26,7 @@ class FormVisita extends Component {
     const {
       qtd_quadros_mel,
       qtd_quadros_polen,
+      qtd_quadros_vazios,
       qtd_cria_aberta,
       qtd_cria_fechada,
       observacao
@@ -35,6 +37,7 @@ class FormVisita extends Component {
       tem_postura,
       qtd_quadros_mel,
       qtd_quadros_polen,
+      qtd_quadros_vazios,
       qtd_cria_aberta,
       qtd_cria_fechada,
       observacao
@@ -48,6 +51,7 @@ class FormVisita extends Component {
     this.setState({
       qtd_quadros_mel: 0,
       qtd_quadros_polen: 0,
+      qtd_quadros_vazios: 0,
       tem_abelhas_mortas: 1,
       qtd_cria_aberta: 0,
       qtd_cria_fechada: 0,
@@ -65,6 +69,7 @@ class FormVisita extends Component {
     const {
       qtd_quadros_mel,
       qtd_quadros_polen,
+      qtd_quadros_vazios,
       tem_abelhas_mortas,
       qtd_cria_aberta,
       qtd_cria_fechada,
@@ -152,6 +157,29 @@ class FormVisita extends Component {
                     qtd_cria_fechada <= 0
                       ? qtd_cria_fechada
                       : qtd_cria_fechada - 1
+                })
+              }
+            />
+          </Right>
+        </CardItem>
+        <CardItem>
+          <Left>
+            <Text>Há quantos quadros vazios?</Text>
+          </Left>
+          <Right>
+            <InputNumeric
+              value={qtd_quadros_vazios}
+              onChangePlus={() =>
+                this.setState({
+                  qtd_quadros_vazios: qtd_quadros_vazios + 1
+                })
+              } // this is necessary for this component
+              onChangeMinus={() =>
+                this.setState({
+                  qtd_quadros_vazios:
+                  qtd_quadros_vazios <= 0
+                      ? qtd_quadros_vazios
+                      : qtd_quadros_vazios - 1
                 })
               }
             />
