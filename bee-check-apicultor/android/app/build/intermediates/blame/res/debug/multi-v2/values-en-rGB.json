@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "/home/ifrn/Documentos/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
-                    "source": "/home/evocorp/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/41957f85d2278fba9775f66144d8198c/res/values-en-rGB/values-en-rGB.xml",
+                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/res/values-en-rGB/values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "289",
+                        "endColumns": "196",
+                        "endOffsets": "485"
                     },
                     "to": {
-                        "startLines": "37",
+                        "startLines": "26",
                         "startColumns": "4",
-                        "startOffsets": "4409",
-                        "endColumns": "100",
-                        "endOffsets": "4505"
+                        "startOffsets": "2819",
+                        "endColumns": "196",
+                        "endOffsets": "3011"
                     }
                 },
                 {
-                    "source": "/home/evocorp/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/a53b97f47622ce0c48e62dbe07f37bca/res/values-en-rGB/values-en-rGB.xml",
+                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5e0237ba7b41ee39683bf3a3ab6b60de/res/values-en-rGB/values-en-rGB.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/evocorp/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/e1ce066f4c14f4d12ad1103572bf66de/res/values-en-rGB/values.xml",
+                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/res/values-en-rGB/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "/home/evocorp/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/b4f1dc5427612012abf7b2a939fdf96f/res/values-en-rGB/values.xml",
+                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/da018b22321945814300d3241af4d7da/res/values-en-rGB/values-en-rGB.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "289",
-                        "endColumns": "196",
-                        "endOffsets": "485"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "26",
+                        "startLines": "37",
                         "startColumns": "4",
-                        "startOffsets": "2819",
-                        "endColumns": "196",
-                        "endOffsets": "3011"
+                        "startOffsets": "4409",
+                        "endColumns": "100",
+                        "endOffsets": "4505"
                     }
                 }
             ]

@@ -14,6 +14,8 @@ class FormVisita extends Component {
       qtd_cria_aberta: 0,
       qtd_cria_fechada: 0,
       tem_postura: 1,
+      tem_zangao: 1,
+      tem_realeira: 1,
       visita_apiario_id: 0,
       observacao: ""
     };
@@ -22,6 +24,8 @@ class FormVisita extends Component {
   handleAddVisita = () => {
     let tem_abelhas_mortas = this.state.tem_abelhas_mortas == 1 ? 0 : 1;
     let tem_postura = this.state.tem_postura == 1 ? 0 : 1;
+    let tem_zangao = this.state.tem_zangao == 1 ? 0 : 1;
+    let tem_realeira = this.state.tem_realeira == 1 ? 0 : 1;
 
     const {
       qtd_quadros_mel,
@@ -35,6 +39,8 @@ class FormVisita extends Component {
     let values = {
       tem_abelhas_mortas,
       tem_postura,
+      tem_zangao,
+      tem_realeira,
       qtd_quadros_mel,
       qtd_quadros_polen,
       qtd_quadros_vazios,
@@ -56,6 +62,8 @@ class FormVisita extends Component {
       qtd_cria_aberta: 0,
       qtd_cria_fechada: 0,
       tem_postura: 1,
+      tem_zangao: 1,
+      tem_realeira: 1,
       visita_apiario_id: 0,
       observacao: ""
     });
@@ -74,6 +82,8 @@ class FormVisita extends Component {
       qtd_cria_aberta,
       qtd_cria_fechada,
       tem_postura,
+      tem_zangao,
+      tem_realeira,
       observacao
     } = this.state;
     return (
@@ -97,6 +107,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
             <Text>Há quantos quadros de Pólen?</Text>
@@ -120,6 +131,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
             <Text>Há quantos quadros de cria Aberta?</Text>
@@ -139,6 +151,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
             <Text>Há quantos quadros de cria Fechada?</Text>
@@ -162,6 +175,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
             <Text>Há quantos quadros vazios?</Text>
@@ -185,9 +199,10 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
-            <Text>Há abelhas mortas no Alavo?</Text>
+            <Text>Há abelhas mortas no Alvado?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -198,6 +213,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
             <Text>Há presença de Postura?</Text>
@@ -209,6 +225,31 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
+        <CardItem>
+          <Left>
+            <Text>Há presença de Zangão?</Text>
+          </Left>
+          <Right>
+            <InputSwitch
+              value={tem_zangao}
+              onValueChange={tem_zangao => this.setState({ tem_zangao })} // this is necessary for this component
+            />
+          </Right>
+        </CardItem>
+
+        <CardItem>
+          <Left>
+            <Text>Há presença de Realeira?</Text>
+          </Left>
+          <Right>
+            <InputSwitch
+              value={tem_realeira}
+              onValueChange={tem_realeira => this.setState({ tem_realeira })} // this is necessary for this component
+            />
+          </Right>
+        </CardItem>
+
         <CardItem>
           <Textarea
             rowSpan={4}

@@ -145,6 +145,8 @@ class NewVisitaColmeia extends Component {
       type: "success"
     });
     this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
+
+    console.log(colmeiasVisitadas)
   };
 
   onConcluirVisita = () => {
@@ -156,6 +158,8 @@ class NewVisitaColmeia extends Component {
       apiario_id: this.props.navigation.getParam("apiario_id", "")
     };
     this.props.createVisita(data);
+
+    console.log(data)
   };
 
   onChangeSelectColmeia = index => {

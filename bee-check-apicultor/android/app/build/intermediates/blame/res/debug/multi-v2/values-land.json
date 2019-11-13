@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/evocorp/TCC/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+            "outputFile": "/home/ifrn/Documentos/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/home/evocorp/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/debf2834b70375913d1abe84646370a9/res/values-land/values-land.xml",
+                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/5f5a3e0f853b3b917f1b9b75e0453bb7/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/evocorp/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/a53b97f47622ce0c48e62dbe07f37bca/res/values-land/values-land.xml",
+                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5e0237ba7b41ee39683bf3a3ab6b60de/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
