@@ -26,6 +26,10 @@ class NewVisitaApiario extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({selectedPickerApiario: this.props.apiario})
+  }
+
   handleRefresh = () => {
     this.props.fetchApiariosByUser();
     this.setState({ selectedPickerApiario: null });
@@ -48,7 +52,7 @@ class NewVisitaApiario extends Component {
     const { loading } = this.props;
     const { selectedPickerApiario } = this.state;    
 
-    const apiarios = this.props.apiarios.filter(apiario => apiario.colmeias.length > 0)
+    // const apiarios = this.props.apiarios.filter(apiario => apiario.colmeias.length > 0)
 
     return (
       <Container>
@@ -60,82 +64,18 @@ class NewVisitaApiario extends Component {
         />
         <Content padder>
           <SpinnerCustom visible={loading} />
-          <Card>
-            <CardItem>
-              <Image
-                source={images.icons.apiario}
-                style={styles.iconImagemSelectPicker}
-              />
-              <Picker
-                mode="dropdown"
-                selectedValue={selectedPickerApiario}
-                style={styles.pikerLisitApiario}
-                onValueChange={itemValue =>
-                  this.onValueChangePickerApiario(itemValue)
-                }
-              >
-                <Picker.Item
-                  enabled={false}
-                  key={null}
-                  label={"Selecione um Apiario"}
-                  value={null}
-                />
-                {!apiarios ? (
-                  <Picker.Item
-                    enabled={false}
-                    note
-                    label={"Nenhum Apiario encontrado"}
-                  />
-                ) : (
-                  apiarios.map(data => {
-                    return (
-                      <Picker.Item
-                        key={data.id}
-                        label={data.nome}
-                        value={data}
-                      />
-                    );
-                  })
-                )}
-              </Picker>
-            </CardItem>
-          </Card>
+        
           {!loading && selectedPickerApiario ? (
             <View>
               <CardItem>
                 <Text style={styles.textSubTitle}>
-                  {selectedPickerApiario &&
-                    `Responda as questões abaixo sobre o apiario ${
-                      selectedPickerApiario.nome
-                    }`}
+                  Responda as questões abaixo sobre o apiario {selectedPickerApiario.nome}
                 </Text>
               </CardItem>
               <FormVisita handleAddVisitaApiario={this.onAddVisitaApiario} />
             </View>
-          ) : (
-            !loading && (
-              <>
-                <CardItem
-                  style={{
-                    marginTop: 20,
-                    flexDirection: "column",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text>Primeiro selecione um apiario</Text>
-                </CardItem>
-                <View
-                  style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Image style={{marginTop: '15%'}} source={images.home.apiario} />
-                </View>
-              </>
-            )
-          )}
+          ): null }
+
         </Content>
       </Container>
     );
@@ -161,3 +101,82 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewVisitaApiario);
+
+
+//  <Card>
+//             <CardItem>
+//               <Image
+//                 source={images.icons.apiario}
+//                 style={styles.iconImagemSelectPicker}
+//               />
+//               <Picker
+//                 mode="dropdown"
+//                 selectedValue={selectedPickerApiario}
+//                 style={styles.pikerLisitApiario}
+//                 onValueChange={itemValue =>
+//                   this.onValueChangePickerApiario(itemValue)
+//                 }
+//               >
+//                 <Picker.Item
+//                   enabled={false}
+//                   key={null}
+//                   label={"Selecione um Apiario"}
+//                   value={null}
+//                 />
+//                 {!apiarios ? (
+//                   <Picker.Item
+//                     enabled={false}
+//                     note
+//                     label={"Nenhum Apiario encontrado"}
+//                   />
+//                 ) : (
+//                   apiarios.map(data => {
+//                     return (
+//                       <Picker.Item
+//                         key={data.id}
+//                         label={data.nome}
+//                         value={data}
+//                       />
+//                     );
+//                   })
+//                 )}
+//               </Picker>
+//             </CardItem>
+//           </Card> 
+
+// {!loading && selectedPickerApiario ? (
+//   <View>
+//     <CardItem>
+//       <Text style={styles.textSubTitle}>
+//         {selectedPickerApiario &&
+//           `Responda as questões abaixo sobre o apiario ${
+//             selectedPickerApiario.nome
+//           }`}
+//       </Text>
+//     </CardItem>
+//     <FormVisita handleAddVisitaApiario={this.onAddVisitaApiario} />
+//   </View>
+// ) : (
+//   !loading && (
+//     <>
+//       <CardItem
+//         style={{
+//           marginTop: 20,
+//           flexDirection: "column",
+//           alignItems: "center"
+//         }}
+//       >
+//         <Text>Primeiro selecione um apiario</Text>
+//       </CardItem>
+//       <View
+//         style={{
+//           flex: 1,
+//           justifyContent: "center",
+//           alignItems: "center"
+//         }}
+//       >
+//         <Image style={{marginTop: '15%'}} source={images.home.apiario} />
+//       </View>
+//     </>
+//   )
+// )}

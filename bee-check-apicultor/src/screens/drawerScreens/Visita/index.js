@@ -262,7 +262,7 @@ class Visita extends Component {
           <ActionButton.Item
             buttonColor={colors.theme_primary}
             title="Nova Visita"
-            onPress={() => this.props.navigation.navigate(routes.NewVisitaApiario)}
+            onPress={() => this.props.navigation.navigate(routes.NewVisitaApiario, { apiario: selectedPickerApiario })}
           >
             <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
           </ActionButton.Item>

@@ -1,4 +1,4 @@
-#Wed Oct 30 16:10:59 BRT 2019
+#Thu Feb 27 17:01:20 BRT 2020
 base.0=/home/ifrn/Documentos/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

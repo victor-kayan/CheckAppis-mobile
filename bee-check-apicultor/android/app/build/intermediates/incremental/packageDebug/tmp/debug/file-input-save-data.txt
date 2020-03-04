@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Oct 30 16:10:59 BRT 2019
+#Thu Feb 27 17:01:20 BRT 2020
 56.path=fonts/Foundation.ttf
 5.base=/home/ifrn/Documentos/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/assets/debug
 42.base=/home/ifrn/Documentos/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
