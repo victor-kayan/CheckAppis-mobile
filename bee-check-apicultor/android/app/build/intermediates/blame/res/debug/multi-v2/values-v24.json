@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ifrn/Documentos/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/5074089db5525108b5d1a1ccff9f82da/res/values-v24/values-v24.xml",

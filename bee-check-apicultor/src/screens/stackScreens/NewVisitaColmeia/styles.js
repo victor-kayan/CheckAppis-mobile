@@ -20,5 +20,9 @@ export default {
   },
   buttonSalveVisita: {
     marginTop: 20
+  },
+  buttonFinishVisita: {
+    backgroundColor: "#2b580c",
+    color: "white"
   }
 };

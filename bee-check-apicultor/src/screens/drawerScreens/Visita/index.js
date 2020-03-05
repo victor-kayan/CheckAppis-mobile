@@ -73,7 +73,6 @@ class Visita extends Component {
   };
 
   handleDetalhar = visita => {
-    
     this.props.navigation.navigate(routes.DetalhesVisita, {
       visita, apiario: this.state.selectedPickerApiario
     });

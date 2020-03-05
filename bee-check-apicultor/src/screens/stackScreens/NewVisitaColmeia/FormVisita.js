@@ -53,6 +53,38 @@ class FormVisita extends Component {
     this.clearState();
   };
 
+  handleFinishVisita = () => {
+    let tem_abelhas_mortas = this.state.tem_abelhas_mortas == 1 ? 0 : 1;
+    let tem_postura = this.state.tem_postura == 1 ? 0 : 1;
+    let tem_zangao = this.state.tem_zangao == 1 ? 0 : 1;
+    let tem_realeira = this.state.tem_realeira == 1 ? 0 : 1;
+
+    const {
+      qtd_quadros_mel,
+      qtd_quadros_polen,
+      qtd_quadros_vazios,
+      qtd_cria_aberta,
+      qtd_cria_fechada,
+      observacao
+    } = this.state;
+
+    let values = {
+      tem_abelhas_mortas,
+      tem_postura,
+      tem_zangao,
+      tem_realeira,
+      qtd_quadros_mel,
+      qtd_quadros_polen,
+      qtd_quadros_vazios,
+      qtd_cria_aberta,
+      qtd_cria_fechada,
+      observacao
+    };
+
+    this.props.handleFinishVisitaColmeia(values);
+    this.clearState();
+  };
+
   clearState = () => {
     this.setState({
       qtd_quadros_mel: 0,
@@ -262,9 +294,18 @@ class FormVisita extends Component {
         </CardItem>
         <CardItem style={{ alignSelf: "flex-end" }}>
           <ButtonCustom
+            style={styles.buttonFinishVisita}
+            onPress={this.handleFinishVisita}
+            title="Concluir Visita"
+            iconRight="arrowright"
+            typeIconRight="AntDesign"
+          />
+        </CardItem>
+        <CardItem style={{ alignSelf: "flex-end" }}>
+          <ButtonCustom
             style={styles.buttonSalveVisita}
             onPress={this.handleAddVisita}
-            title="Proxima Colmeia"
+            title="Próxima Colmeia"
             iconRight="arrowright"
             typeIconRight="AntDesign"
           />

@@ -53,7 +53,7 @@ class NewVisitaApiario extends Component {
     return (
       <Container>
         <HeaderCustom
-          title="Visita"
+          title="Nova Visita"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"

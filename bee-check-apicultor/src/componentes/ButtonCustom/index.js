@@ -13,7 +13,7 @@ const ButtonCustom = ({
   style,
   ...rest
 }) => (
-    <Button {...rest} style={[{ borderRadius: 15, backgroundColor: colors.theme_primary},style]} onPress={onPress}>
+    <Button {...rest} style={[{ borderRadius: 15, backgroundColor: colors.theme_default},style]} onPress={onPress}>
     {iconLeft ? (
         <Icon
         style={{color: colors.black}}
@@ -23,10 +23,10 @@ const ButtonCustom = ({
     ) : 
       null
     }
-    <Text style={{color: colors.black, fontWeight: "500"}}>{title}</Text>
+    <Text style={{color: colors.white, fontWeight: "500"}}>{title}</Text>
     {iconRight ? (
         <Icon
-            style={{color: colors.black}}
+            style={{color: colors.white}}
             type={typeIconRight}
             name={iconRight}
         />

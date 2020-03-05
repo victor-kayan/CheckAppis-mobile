@@ -149,16 +149,48 @@ class NewVisitaColmeia extends Component {
     console.log(colmeiasVisitadas)
   };
 
+  onFinishVisitaColmeia = values => {
+    const { colmeia, colmeiasVisitadas } = this.state;
+    let index = -1;
+    let visita = {
+      ...values,
+      colmeia_id: colmeia.id
+    };
+
+    index =
+      colmeiasVisitadas &&
+      colmeiasVisitadas.length &&
+      colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
+
+    if (index >= 0) {
+      this.setState({
+        colmeiasVisitadas: [
+          ...this.state.colmeiasVisitadas.slice(0, index),
+          Object.assign({}, this.state.colmeiasVisitadas[index], visita),
+          ...this.state.colmeiasVisitadas.slice(index + 1)
+        ],
+        colmeia: null
+      });
+
+    } else {
+      this.setState({
+        colmeiasVisitadas: [...colmeiasVisitadas, visita],
+        colmeia: null
+      });
+    }
+    
+    this.onConcluirVisita();
+  };
+
   onConcluirVisita = () => {
     const { colmeiasVisitadas } = this.state;
-    this.setState({ done: true });
+    this.setState({ done: true});
     data = {
       visitas_colmeias: colmeiasVisitadas,
       visita_apiario: this.props.navigation.getParam("visita_apiario", ""),
       apiario_id: this.props.navigation.getParam("apiario_id", "")
     };
     this.props.createVisita(data);
-
     console.log(data)
   };
 
@@ -232,11 +264,11 @@ class NewVisitaColmeia extends Component {
             <View>
               <CardItem>
                 <Text style={styles.textSubTitle}>
-                  Responda as questões abaixo sobre a colmeia{" "}
+                  Responda às questões abaixo sobre a colmeia{" "}
                   {this.state.colmeia && this.state.colmeia.nome}
                 </Text>
               </CardItem>
-              <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} />
+              <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.onFinishVisitaColmeia} />
             </View>
           ) : !loading && !colmeia ? (
             <>
