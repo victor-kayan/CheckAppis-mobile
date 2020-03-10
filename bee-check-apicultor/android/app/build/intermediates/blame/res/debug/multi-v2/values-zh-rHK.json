@@ -1,44 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "/home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5e0237ba7b41ee39683bf3a3ab6b60de/res/values-zh-rHK/values-zh-rHK.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,293,393,475,572,680,756,832,910,1006,1102,1197,1294,1389,1487,1638,1732",
-                        "endColumns": "94,92,99,81,96,107,75,75,77,95,95,94,96,94,97,150,93,77",
-                        "endOffsets": "195,288,388,470,567,675,751,827,905,1001,1097,1192,1289,1384,1482,1633,1727,1805"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,293,393,475,572,680,756,832,910,1006,1102,1197,1294,1389,1487,1638,3915",
-                        "endColumns": "94,92,99,81,96,107,75,75,77,95,95,94,96,94,97,150,93,77",
-                        "endOffsets": "195,288,388,470,567,675,751,827,905,1001,1097,1192,1289,1384,1482,1633,1727,3988"
-                    }
-                },
-                {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/da018b22321945814300d3241af4d7da/res/values-zh-rHK/values-zh-rHK.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "101",
-                        "endOffsets": "152"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3993",
-                        "endColumns": "101",
-                        "endOffsets": "4090"
-                    }
-                },
-                {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/res/values-zh-rHK/values.xml",
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/res/values-zh-rHK/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/res/values-zh-rHK/values.xml",
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9fcdfee4c9cb420d68862b4a2d742df7/res/values-zh-rHK/values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "101",
+                        "endOffsets": "152"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3993",
+                        "endColumns": "101",
+                        "endOffsets": "4090"
+                    }
+                },
+                {
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/res/values-zh-rHK/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -69,6 +52,23 @@
                         "startOffsets": "1732,1835,1995,2112,2216,2382,2500,2789,2958,3061,3221,3338,3504,3642,3727,3814",
                         "endColumns": "102,159,116,103,165,117,121,168,102,159,116,165,137,84,86,100",
                         "endOffsets": "1830,1990,2107,2211,2377,2495,2617,2953,3056,3216,3333,3499,3637,3722,3809,3910"
+                    }
+                },
+                {
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ad0ef16e4514339a2153f8fa26cf21a1/res/values-zh-rHK/values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,293,393,475,572,680,756,832,910,1006,1102,1197,1294,1389,1487,1638,1732",
+                        "endColumns": "94,92,99,81,96,107,75,75,77,95,95,94,96,94,97,150,93,77",
+                        "endOffsets": "195,288,388,470,567,675,751,827,905,1001,1097,1192,1289,1384,1482,1633,1727,1805"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,293,393,475,572,680,756,832,910,1006,1102,1197,1294,1389,1487,1638,3915",
+                        "endColumns": "94,92,99,81,96,107,75,75,77,95,95,94,96,94,97,150,93,77",
+                        "endOffsets": "195,288,388,470,567,675,751,827,905,1001,1097,1192,1289,1384,1482,1633,1727,3988"
                     }
                 }
             ]

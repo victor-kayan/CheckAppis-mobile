@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-de/values-de.xml",
+            "outputFile": "/home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-de/values-de.xml",
             "map": [
                 {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/da018b22321945814300d3241af4d7da/res/values-de/values-de.xml",
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9fcdfee4c9cb420d68862b4a2d742df7/res/values-de/values-de.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/res/values-de/values.xml",
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/res/values-de/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5e0237ba7b41ee39683bf3a3ab6b60de/res/values-de/values-de.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,210,308,420,506,611,726,803,879,961,1072,1175,1274,1385,1487,1594,1750,1852",
-                        "endColumns": "104,97,111,85,104,114,76,75,81,110,102,98,110,101,106,155,101,81",
-                        "endOffsets": "205,303,415,501,606,721,798,874,956,1067,1170,1269,1380,1482,1589,1745,1847,1929"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,210,308,420,506,611,726,803,879,961,1072,1175,1274,1385,1487,1594,1750,4541",
-                        "endColumns": "104,97,111,85,104,114,76,75,81,110,102,98,110,101,106,155,101,81",
-                        "endOffsets": "205,303,415,501,606,721,798,874,956,1067,1170,1269,1380,1482,1589,1745,1847,4618"
-                    }
-                },
-                {
-                    "source": "/home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/res/values-de/values.xml",
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/res/values-de/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -69,6 +52,23 @@
                         "startOffsets": "2921",
                         "endColumns": "203",
                         "endOffsets": "3120"
+                    }
+                },
+                {
+                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ad0ef16e4514339a2153f8fa26cf21a1/res/values-de/values-de.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,210,308,420,506,611,726,803,879,961,1072,1175,1274,1385,1487,1594,1750,1852",
+                        "endColumns": "104,97,111,85,104,114,76,75,81,110,102,98,110,101,106,155,101,81",
+                        "endOffsets": "205,303,415,501,606,721,798,874,956,1067,1170,1269,1380,1482,1589,1745,1847,1929"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,210,308,420,506,611,726,803,879,961,1072,1175,1274,1385,1487,1594,1750,4541",
+                        "endColumns": "104,97,111,85,104,114,76,75,81,110,102,98,110,101,106,155,101,81",
+                        "endOffsets": "205,303,415,501,606,721,798,874,956,1067,1170,1269,1380,1482,1589,1745,1847,4618"
                     }
                 }
             ]

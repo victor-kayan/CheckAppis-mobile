@@ -35,7 +35,7 @@ const datas = [
     name: "Intervenções",
     route: routes.IntervencaoHome,
     icon: images.sider.intervencao
-  }
+  },
 ];
 
 class SideBar extends Component {
@@ -82,9 +82,9 @@ class SideBar extends Component {
                 ))
               : null}
             <Separator bordered>
-              <Text style={styles.textDivider}>configurações</Text>
+              <Text style={styles.textDivider}>CONFIGURAÇÕES</Text>
             </Separator>
-            <CardItem button noBorder>
+            <CardItem button noBorder onPress={() => this.props.navigation.navigate("Perfil")}>
               <Left>
                 <Thumbnail
                   square

@@ -1,292 +1,292 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-MERGED from [:react-native-linear-gradient] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-23:12
-MERGED from [:react-native-vector-icons] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-maps] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-12:12
-MERGED from [com.facebook.react:react-native:0.57.4] /home/ifrn/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/da39a71150bbf751b980e3faeb8d7829/AndroidManifest.xml:2:1-15:12
-MERGED from [com.android.support:design:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/5f5a3e0f853b3b917f1b9b75e0453bb7/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5e0237ba7b41ee39683bf3a3ab6b60de/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fresco:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/fresco-1.13.0.aar/8b6af6b4e30a190263655f7dd74b82a7/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-gif:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-gif-1.13.0.aar/87c5ae55ac9ed750714cd3d98c20b1a2/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-webp:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-webp-1.13.0.aar/3f1986c6c7aaecd103ec97d29b802d41/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:webpsupport:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/webpsupport-1.13.0.aar/f557cdcf400172a0f707797193ddee36/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:16:1-25:12
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:16:1-21:12
-MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/09fd2006fd4cd917c240eafb4940c1dd/AndroidManifest.xml:2:1-5:12
-MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:16:1-23:12
-MERGED from [com.android.support:support-v4:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/4a9b08e63c777fc19c78923053816ff9/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/7b290d56f2f8bf854aa5d38181a51a53/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/b12cd9c2da0c70c653c1e64bc2e21d44/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/6d8a80761103cd9f3e3ece4b3d7f5a41/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/32b25483102ea3b233854aea2cd2ca74/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/57aa65e8ee0706327675b5ad053efac1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/f3f1b8f864063147b514a9305903509b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/a28e95ba2051906634ff4a852b40d4ba/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/5074089db5525108b5d1a1ccff9f82da/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/da018b22321945814300d3241af4d7da/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/9af3ce5d15de4dff4c9da8b64b76de74/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-base:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-base-1.13.0.aar/a7dac96d8d482d10cfabe815654e3141/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/nativeimagetranscoder-1.13.0.aar/267c5a5cce16df40e606be4493035a39/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.13.0.aar/5079b8eccad8831f6199ecb46d249b59/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/drawee-1.13.0.aar/4198477048b6d3d5a56aa5b0a7fd52ff/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.13.0.aar/35e94c9cf2a5a6ed77646110c1113c04/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.13.0.aar/2595172233613176ff212be2aa9ae25f/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.13.0.aar/8095e8677aed4509cb3d976d1522a1e2/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.6.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/92a961f28f11700844170989ea358465/AndroidManifest.xml:2:1-13:12
-MERGED from [org.webkit:android-jsc:r174650] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/06540d4d9494dc922e0cd6de5f665ecd/AndroidManifest.xml:1:1-3:12
-MERGED from [com.facebook.fresco:fbcore:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/fbcore-1.13.0.aar/63c2a65ea7e6f82d30a1e46f35ce04ad/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f8d697ece3d5e3b23904abe4a4ceba39/AndroidManifest.xml:2:1-13:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/c75ab83f3a778a85a836fbdf2437f415/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/1556893b423ac8c8efdf6417ca5a7c65/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d3343a72fcc1ec8c7dce7f4d90cc6b39/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/9e94f312e85ee8d75a30964c90926f29/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+MERGED from [:react-native-linear-gradient] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-23:12
+MERGED from [:react-native-vector-icons] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-maps] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-12:12
+MERGED from [com.facebook.react:react-native:0.57.4] /home/sadrak/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/64c4293a18bb6811c7408176a7527246/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:design:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/e3f49d162606f47f33e02c329873bd59/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ad0ef16e4514339a2153f8fa26cf21a1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/fresco-1.13.0.aar/722eb4a4295150b6e6b51b647ae4567c/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-gif:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-gif-1.13.0.aar/7d1f0a85b184f82bfd85d70be6a65696/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-webp:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-webp-1.13.0.aar/6183181472446c1c9474330a4566f45a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:webpsupport:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/webpsupport-1.13.0.aar/163f55bc6bbcc7e1950b5ec9b52475b4/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:16:1-25:12
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/e85b3f09aae5029a7f07ea88c5592b4f/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:16:1-23:12
+MERGED from [com.android.support:support-v4:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/ec0b48d0cece80b90788d4452e54dd5b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/7ef6491eb150716a545313285bcbf8cd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/ecd89d8be23e3e530e7ad5f79b19f077/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/2e81ed330004107f40b520d8c17d324e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/53d136a636495a6417e43ec315183cac/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/045508b539d90ed06da820183c4d8137/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/c96773068ae512fad51f890c94d1ce90/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/7ed0f39c85e47231c2da9c9cc3b2d71c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/f5afc73052993b299d984357a8bc060b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9fcdfee4c9cb420d68862b4a2d742df7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/5823a08e18a53b2d824c4dbf48d5bf68/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-base:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-base-1.13.0.aar/241b2ee8c4b2f49853750d4918c44c4e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/nativeimagetranscoder-1.13.0.aar/da73c1ebbc442e7b2eb41449e3accb07/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.13.0.aar/e8af9e0ee151a861e709ed972290f423/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/drawee-1.13.0.aar/f5d0eb1038e6207d4ebb3f9268af0303/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.13.0.aar/f68c6180133a37ab1b1406e944c1e789/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.13.0.aar/39832db287211be3f1178e3b46bcaf98/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.13.0.aar/92e2bc59fbd206a6f3d07cedbddbddb1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/fc0b35c77b724cee3e3a9cefc23339f4/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r174650] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/f9245ed7a727289068de769107308a51/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:fbcore:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/fbcore-1.13.0.aar/935b2dd62c05f00b63a24cafc2beb518/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/aa228b15063f0118c0800190366f3294/AndroidManifest.xml:2:1-13:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/27050b91b519508930f43979ebebaece/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/f8a77d5e8266c84de3d438747f8d8c68/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/8929130702097f50eee9de52b0cede4f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/13026bc7b12877b600b1c8894f320c9e/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
 	package
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:2:5-28
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:2:5-28
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:4:5-67
-MERGED from [:react-native-maps] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
-MERGED from [:react-native-maps] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:20:5-66
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:20:5-66
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [:react-native-maps] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
+MERGED from [:react-native-maps] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:4:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.57.4] /home/ifrn/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/da39a71150bbf751b980e3faeb8d7829/AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.57.4] /home/ifrn/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/da39a71150bbf751b980e3faeb8d7829/AndroidManifest.xml:11:5-78
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.57.4] /home/sadrak/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/64c4293a18bb6811c7408176a7527246/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.57.4] /home/sadrak/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/64c4293a18bb6811c7408176a7527246/AndroidManifest.xml:11:5-78
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:5:22-75
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:6:5-79
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:19:5-78
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:19:5-78
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:6:5-79
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:19:5-78
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:19:5-78
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:6:22-76
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:6:22-76
 uses-permission#android.permission.CAMERA
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:7:5-65
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:7:5-65
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:7:22-62
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:7:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:8:5-80
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:8:5-80
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:8:22-78
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:8:22-78
 application
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:9:5-32:19
-MERGED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
-MERGED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
-MERGED from [com.facebook.react:react-native:0.57.4] /home/ifrn/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/da39a71150bbf751b980e3faeb8d7829/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.57.4] /home/ifrn/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/da39a71150bbf751b980e3faeb8d7829/AndroidManifest.xml:13:5-20
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:24:5-19
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:24:5-19
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/09fd2006fd4cd917c240eafb4940c1dd/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/09fd2006fd4cd917c240eafb4940c1dd/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:19:5-21:19
-MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:19:5-21:19
-MERGED from [com.facebook.soloader:soloader:0.6.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/92a961f28f11700844170989ea358465/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.6.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/92a961f28f11700844170989ea358465/AndroidManifest.xml:11:5-20
-MERGED from [org.webkit:android-jsc:r174650] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/06540d4d9494dc922e0cd6de5f665ecd/AndroidManifest.xml:2:3-17
-MERGED from [org.webkit:android-jsc:r174650] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/06540d4d9494dc922e0cd6de5f665ecd/AndroidManifest.xml:2:3-17
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f8d697ece3d5e3b23904abe4a4ceba39/AndroidManifest.xml:7:5-11:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f8d697ece3d5e3b23904abe4a4ceba39/AndroidManifest.xml:7:5-11:19
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:9:5-32:19
+MERGED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [com.facebook.react:react-native:0.57.4] /home/sadrak/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/64c4293a18bb6811c7408176a7527246/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.57.4] /home/sadrak/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/64c4293a18bb6811c7408176a7527246/AndroidManifest.xml:13:5-20
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/e85b3f09aae5029a7f07ea88c5592b4f/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/e85b3f09aae5029a7f07ea88c5592b4f/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:19:5-21:19
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/fc0b35c77b724cee3e3a9cefc23339f4/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/fc0b35c77b724cee3e3a9cefc23339f4/AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/f9245ed7a727289068de769107308a51/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/f9245ed7a727289068de769107308a51/AndroidManifest.xml:2:3-17
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/aa228b15063f0118c0800190366f3294/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/aa228b15063f0118c0800190366f3294/AndroidManifest.xml:7:5-11:19
 	android:label
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:11:7-39
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:11:7-39
 	android:icon
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:12:7-41
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:12:7-41
 	android:allowBackup
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:13:7-34
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:13:7-34
 	android:theme
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:14:7-38
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:14:7-38
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:10:7-38
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:10:7-38
 activity#com.bee_check.MainActivity
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:15:7-24:18
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:15:7-24:18
 	android:label
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:17:9-41
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:17:9-41
 	android:windowSoftInputMode
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:19:9-51
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:19:9-51
 	android:configChanges
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:18:9-79
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:18:9-79
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:16:9-37
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:16:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:20:9-23:25
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:20:9-23:25
 action#android.intent.action.MAIN
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:21:13-65
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:21:13-65
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:21:21-62
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:21:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:22:13-73
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:22:13-73
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:22:23-70
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:22:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:25:7-84
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:25:7-84
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:25:17-81
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:25:17-81
 meta-data#com.google.android.geo.API_KEY
-ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:28:6-31:11
+ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:28:6-31:11
 	android:value
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:30:9-64
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:30:9-64
 	android:name
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:29:9-54
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:29:9-54
 uses-sdk
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-MERGED from [:react-native-linear-gradient] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-linear-gradient] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-maps] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-maps] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.react:react-native:0.57.4] /home/ifrn/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/da39a71150bbf751b980e3faeb8d7829/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.57.4] /home/ifrn/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/da39a71150bbf751b980e3faeb8d7829/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:design:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/5f5a3e0f853b3b917f1b9b75e0453bb7/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/5f5a3e0f853b3b917f1b9b75e0453bb7/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5e0237ba7b41ee39683bf3a3ab6b60de/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5e0237ba7b41ee39683bf3a3ab6b60de/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fresco:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/fresco-1.13.0.aar/8b6af6b4e30a190263655f7dd74b82a7/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/fresco-1.13.0.aar/8b6af6b4e30a190263655f7dd74b82a7/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-gif-1.13.0.aar/87c5ae55ac9ed750714cd3d98c20b1a2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-gif-1.13.0.aar/87c5ae55ac9ed750714cd3d98c20b1a2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-webp:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-webp-1.13.0.aar/3f1986c6c7aaecd103ec97d29b802d41/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-webp:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-webp-1.13.0.aar/3f1986c6c7aaecd103ec97d29b802d41/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:webpsupport:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/webpsupport-1.13.0.aar/f557cdcf400172a0f707797193ddee36/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:webpsupport:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/webpsupport-1.13.0.aar/f557cdcf400172a0f707797193ddee36/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:23:5-42
-MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:23:5-42
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/09fd2006fd4cd917c240eafb4940c1dd/AndroidManifest.xml:3:5-42
-MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/09fd2006fd4cd917c240eafb4940c1dd/AndroidManifest.xml:3:5-42
-MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:17:5-42
-MERGED from [com.android.support:support-v4:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/4a9b08e63c777fc19c78923053816ff9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/4a9b08e63c777fc19c78923053816ff9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/7b290d56f2f8bf854aa5d38181a51a53/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/7b290d56f2f8bf854aa5d38181a51a53/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/b12cd9c2da0c70c653c1e64bc2e21d44/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/b12cd9c2da0c70c653c1e64bc2e21d44/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/6d8a80761103cd9f3e3ece4b3d7f5a41/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/6d8a80761103cd9f3e3ece4b3d7f5a41/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/32b25483102ea3b233854aea2cd2ca74/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/32b25483102ea3b233854aea2cd2ca74/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/57aa65e8ee0706327675b5ad053efac1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/57aa65e8ee0706327675b5ad053efac1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/f3f1b8f864063147b514a9305903509b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/f3f1b8f864063147b514a9305903509b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/a28e95ba2051906634ff4a852b40d4ba/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/a28e95ba2051906634ff4a852b40d4ba/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/5074089db5525108b5d1a1ccff9f82da/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/5074089db5525108b5d1a1ccff9f82da/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/da018b22321945814300d3241af4d7da/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/da018b22321945814300d3241af4d7da/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/9af3ce5d15de4dff4c9da8b64b76de74/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/9af3ce5d15de4dff4c9da8b64b76de74/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-base:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-base-1.13.0.aar/a7dac96d8d482d10cfabe815654e3141/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-base:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-base-1.13.0.aar/a7dac96d8d482d10cfabe815654e3141/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/nativeimagetranscoder-1.13.0.aar/267c5a5cce16df40e606be4493035a39/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/nativeimagetranscoder-1.13.0.aar/267c5a5cce16df40e606be4493035a39/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.13.0.aar/5079b8eccad8831f6199ecb46d249b59/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.13.0.aar/5079b8eccad8831f6199ecb46d249b59/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/drawee-1.13.0.aar/4198477048b6d3d5a56aa5b0a7fd52ff/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/drawee-1.13.0.aar/4198477048b6d3d5a56aa5b0a7fd52ff/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.13.0.aar/35e94c9cf2a5a6ed77646110c1113c04/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.13.0.aar/35e94c9cf2a5a6ed77646110c1113c04/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.13.0.aar/2595172233613176ff212be2aa9ae25f/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.13.0.aar/2595172233613176ff212be2aa9ae25f/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.13.0.aar/8095e8677aed4509cb3d976d1522a1e2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.13.0.aar/8095e8677aed4509cb3d976d1522a1e2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/92a961f28f11700844170989ea358465/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/92a961f28f11700844170989ea358465/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.fresco:fbcore:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/fbcore-1.13.0.aar/63c2a65ea7e6f82d30a1e46f35ce04ad/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.13.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/fbcore-1.13.0.aar/63c2a65ea7e6f82d30a1e46f35ce04ad/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f8d697ece3d5e3b23904abe4a4ceba39/AndroidManifest.xml:5:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f8d697ece3d5e3b23904abe4a4ceba39/AndroidManifest.xml:5:5-43
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/c75ab83f3a778a85a836fbdf2437f415/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/c75ab83f3a778a85a836fbdf2437f415/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/1556893b423ac8c8efdf6417ca5a7c65/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/1556893b423ac8c8efdf6417ca5a7c65/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d3343a72fcc1ec8c7dce7f4d90cc6b39/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d3343a72fcc1ec8c7dce7f4d90cc6b39/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/9e94f312e85ee8d75a30964c90926f29/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] /home/ifrn/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/9e94f312e85ee8d75a30964c90926f29/AndroidManifest.xml:20:5-44
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-linear-gradient] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-maps] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.react:react-native:0.57.4] /home/sadrak/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/64c4293a18bb6811c7408176a7527246/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.4] /home/sadrak/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/64c4293a18bb6811c7408176a7527246/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/e3f49d162606f47f33e02c329873bd59/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/e3f49d162606f47f33e02c329873bd59/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ad0ef16e4514339a2153f8fa26cf21a1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ad0ef16e4514339a2153f8fa26cf21a1/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/fresco-1.13.0.aar/722eb4a4295150b6e6b51b647ae4567c/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/fresco-1.13.0.aar/722eb4a4295150b6e6b51b647ae4567c/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-gif-1.13.0.aar/7d1f0a85b184f82bfd85d70be6a65696/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-gif-1.13.0.aar/7d1f0a85b184f82bfd85d70be6a65696/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-webp:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-webp-1.13.0.aar/6183181472446c1c9474330a4566f45a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-webp:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-webp-1.13.0.aar/6183181472446c1c9474330a4566f45a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:webpsupport:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/webpsupport-1.13.0.aar/163f55bc6bbcc7e1950b5ec9b52475b4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:webpsupport:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/webpsupport-1.13.0.aar/163f55bc6bbcc7e1950b5ec9b52475b4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/e85b3f09aae5029a7f07ea88c5592b4f/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.1.aar/e85b3f09aae5029a7f07ea88c5592b4f/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/ec0b48d0cece80b90788d4452e54dd5b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/ec0b48d0cece80b90788d4452e54dd5b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/7ef6491eb150716a545313285bcbf8cd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/7ef6491eb150716a545313285bcbf8cd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/ecd89d8be23e3e530e7ad5f79b19f077/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/ecd89d8be23e3e530e7ad5f79b19f077/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/2e81ed330004107f40b520d8c17d324e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/2e81ed330004107f40b520d8c17d324e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/53d136a636495a6417e43ec315183cac/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/53d136a636495a6417e43ec315183cac/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/045508b539d90ed06da820183c4d8137/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/045508b539d90ed06da820183c4d8137/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/c96773068ae512fad51f890c94d1ce90/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/c96773068ae512fad51f890c94d1ce90/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/7ed0f39c85e47231c2da9c9cc3b2d71c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/7ed0f39c85e47231c2da9c9cc3b2d71c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/f5afc73052993b299d984357a8bc060b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/f5afc73052993b299d984357a8bc060b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9fcdfee4c9cb420d68862b4a2d742df7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9fcdfee4c9cb420d68862b4a2d742df7/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/5823a08e18a53b2d824c4dbf48d5bf68/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/5823a08e18a53b2d824c4dbf48d5bf68/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-base-1.13.0.aar/241b2ee8c4b2f49853750d4918c44c4e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-base-1.13.0.aar/241b2ee8c4b2f49853750d4918c44c4e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/nativeimagetranscoder-1.13.0.aar/da73c1ebbc442e7b2eb41449e3accb07/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/nativeimagetranscoder-1.13.0.aar/da73c1ebbc442e7b2eb41449e3accb07/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.13.0.aar/e8af9e0ee151a861e709ed972290f423/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.13.0.aar/e8af9e0ee151a861e709ed972290f423/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/drawee-1.13.0.aar/f5d0eb1038e6207d4ebb3f9268af0303/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/drawee-1.13.0.aar/f5d0eb1038e6207d4ebb3f9268af0303/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.13.0.aar/f68c6180133a37ab1b1406e944c1e789/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.13.0.aar/f68c6180133a37ab1b1406e944c1e789/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.13.0.aar/39832db287211be3f1178e3b46bcaf98/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.13.0.aar/39832db287211be3f1178e3b46bcaf98/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.13.0.aar/92e2bc59fbd206a6f3d07cedbddbddb1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.13.0.aar/92e2bc59fbd206a6f3d07cedbddbddb1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/fc0b35c77b724cee3e3a9cefc23339f4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/fc0b35c77b724cee3e3a9cefc23339f4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/fbcore-1.13.0.aar/935b2dd62c05f00b63a24cafc2beb518/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.13.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/fbcore-1.13.0.aar/935b2dd62c05f00b63a24cafc2beb518/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/aa228b15063f0118c0800190366f3294/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/aa228b15063f0118c0800190366f3294/AndroidManifest.xml:5:5-43
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/27050b91b519508930f43979ebebaece/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/27050b91b519508930f43979ebebaece/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/f8a77d5e8266c84de3d438747f8d8c68/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/f8a77d5e8266c84de3d438747f8d8c68/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/8929130702097f50eee9de52b0cede4f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/8929130702097f50eee9de52b0cede4f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/13026bc7b12877b600b1c8894f320c9e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/sadrak/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/13026bc7b12877b600b1c8894f320c9e/AndroidManifest.xml:20:5-44
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml
 provider#com.imagepicker.FileProvider
-ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:9-20:20
+ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:9-20:20
 	android:grantUriPermissions
-		ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:16:13-47
+		ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:16:13-47
 	android:authorities
-		ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:13-60
+		ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:13-60
 	android:exported
-		ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:13-37
+		ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:13-37
 	android:name
-		ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:13-56
+		ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:13-56
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:13-19:58
+ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:13-19:58
 	android:resource
-		ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:19:17-55
+		ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:19:17-55
 	android:name
-		ADDED from [:react-native-image-picker] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:17-67
+		ADDED from [:react-native-image-picker] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:17-67
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from [:react-native-maps] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:10:5-81
+ADDED from [:react-native-maps] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:10:5-81
 	android:name
-		ADDED from [:react-native-maps] /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:10:22-78
+		ADDED from [:react-native-maps] /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:10:22-78
 uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:21:5-77
+ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:21:5-77
 	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:21:19-51
+		ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:21:19-51
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/b3963eb3469915d780ec57c10997791e/AndroidManifest.xml:21:52-75
+		ADDED from [com.google.android.gms:play-services-maps:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.1.aar/d281b312ef8911afec4fe4e69dc0aa1a/AndroidManifest.xml:21:52-75
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:19:9-172
+ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:19:9-172
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:19:146-170
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:19:146-170
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:19:86-145
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:19:86-145
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/4c7afcd6f01c845d8e8b16e7f773a9f9/AndroidManifest.xml:19:19-85
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/27cf356d070c88941ab7ea94b3f176bd/AndroidManifest.xml:19:19-85
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:20:9-121
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f8d697ece3d5e3b23904abe4a4ceba39/AndroidManifest.xml:8:9-10:69
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/ifrn/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f8d697ece3d5e3b23904abe4a4ceba39/AndroidManifest.xml:8:9-10:69
+ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:20:9-121
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/aa228b15063f0118c0800190366f3294/AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /home/sadrak/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/aa228b15063f0118c0800190366f3294/AndroidManifest.xml:8:9-10:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:20:66-119
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:20:66-119
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/ifrn/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/40d69a71eeb69dd5fe962e453f988cf3/AndroidManifest.xml:20:20-65
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] /home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/008f31bbe12deb06d960bed4fa10db2a/AndroidManifest.xml:20:20-65
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /home/ifrn/Documentos/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/sadrak/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

@@ -17,7 +17,8 @@ const routes = {
   DetalhesVisitaColmeia: "DetalhesVisitaColmeia",
   DetalhesVisita: "DetalhesVisita",
   NewVisitaApiario: "NewVisitaApiario",
-  NewVisitaColmeia: "NewVisitaColmeia"
+  NewVisitaColmeia: "NewVisitaColmeia",
+  Perfil: "Perfil"
 };
 
 export default routes;

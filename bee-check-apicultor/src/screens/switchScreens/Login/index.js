@@ -43,12 +43,12 @@ class Login extends React.Component {
       if (email == "" || password == "") {
         this.setState({ error: true, message: "Preencha todos os campos" });
       } else if (!email.includes("@")) {
-        this.setState({ error: true, message: "Email Invalido" });
+        this.setState({ error: true, message: "Email inválido." });
       } else {
         await login({ email, password });
       }
     } else {
-      alert("Falha na Conexão", "erro ao tentar conectar ao servidor.");
+      alert("Falha na Conexão.", "Erro ao tentar conectar ao servidor.");
     }
   };
 
@@ -68,7 +68,7 @@ class Login extends React.Component {
       nextProps.loading == false &&
       this.state.email != ""
     ) {
-      this.setState({ error: true, message: "Email ou senha invalidos" });
+      this.setState({ error: true, message: "Email ou senha inválidos." });
     }
   };
 

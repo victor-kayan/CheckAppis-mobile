@@ -89,7 +89,7 @@ class Visita extends Component {
           iconLeft="menuunfold"
           typeIconLeft="AntDesign"
           handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Visitas"
+          title="Histórico"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"

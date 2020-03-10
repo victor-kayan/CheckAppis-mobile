@@ -150,6 +150,7 @@ class NewVisitaColmeia extends Component {
   };
 
   onFinishVisitaColmeia = values => {
+    
     const { colmeia, colmeiasVisitadas } = this.state;
     let index = -1;
     let visita = {
@@ -179,6 +180,7 @@ class NewVisitaColmeia extends Component {
       });
     }
     
+    this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
     this.onConcluirVisita();
   };
 

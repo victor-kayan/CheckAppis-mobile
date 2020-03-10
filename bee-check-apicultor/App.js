@@ -10,7 +10,8 @@ import {
   Home,
   Visita,
   Colmeia,
-  Intervencao
+  Intervencao,
+  Perfil
 } from "./src/screens/drawerScreens";
 import { Login, LoadingLogin } from "./src/screens/switchScreens";
 import {
@@ -33,7 +34,7 @@ export default class App extends React.Component {
     return (
       <Provider store={Store}>
         <Root>
-          <SwitchNavigator />
+          <DrawerNavigator/>
         </Root>
       </Provider>
     );
@@ -45,10 +46,11 @@ const DrawerNavigator = createDrawerNavigator(
     Home,
     Colmeia,
     Visita,
-    Intervencao
+    Intervencao,
+    Perfil
   },
   {
-    initialRouteName: "Visita",
+    initialRouteName: "Perfil",
     contentComponent: props => <SideBar {...props} />,
     navigationOptions: {
       headerTransparent: true

@@ -125,8 +125,8 @@ class Home extends Component {
                   }}
                 >
                   {countApiarios && countApiarios === 1
-                    ? "Apiario"
-                    : "Apiarios"}
+                    ? "Apiário"
+                    : "Apiários"}
                 </Text>
               </View>
             </View>
