@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, LOADING_LOGIN } from "../actions/userActions/actionsType";
+import { LOGIN, LOGOUT, LOADING_LOGIN, GET_INFORMATIONS_USER } from "../actions/userActions/actionsType";
 
 const initialState = {
   user: {},
@@ -28,6 +28,11 @@ export const UserReducer = (state = initialState, action) => {
         ...state,
         loading: action.payload.loading,
       };
+    case GET_INFORMATIONS_USER:
+      return {
+        ...state,
+        user: action.payload.user,
+      }
     default:
       return state;
   }

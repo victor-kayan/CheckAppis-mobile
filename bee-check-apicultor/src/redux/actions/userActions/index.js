@@ -99,7 +99,7 @@ export const fetchDataUser = () => {
       })
       .catch(error => {
         dispatch({
-          type: LOADING_LOGIN,
+          type: GET_INFORMATIONS_USER,
           payload: {
             logged: false,
             loading: false

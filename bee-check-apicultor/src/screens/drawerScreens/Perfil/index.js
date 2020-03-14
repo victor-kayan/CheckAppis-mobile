@@ -54,7 +54,6 @@ class Perfil extends Component {
         <View style = {styles.container}>
 
           <View style = {styles.userProfile}>
-            <View style = {styles.profilePhoto}></View>
             <View style={styles.userProfileText}>
               <Text style = {styles.heyText}>Olá,</Text>
               <Text style = {styles.userName}>!</Text>

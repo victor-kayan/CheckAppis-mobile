@@ -32,22 +32,11 @@ export default {
     backgroundColor: colors.white,
   },
 
-  profilePhoto: {
-    height: 100,
-    width: 100,
-    backgroundColor: colors.black,
-    margin: 30,
-    borderRadius: 50,
-  },
-
   userProfile: {
     flexDirection: "row",
-    alignItems: "center"
-  },
-
-  userProfile: {
-    flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    height: 80,
+    padding: 30
   },
 
   userName: {
