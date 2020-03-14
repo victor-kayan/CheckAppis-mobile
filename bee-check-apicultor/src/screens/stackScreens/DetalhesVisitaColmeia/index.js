@@ -27,7 +27,7 @@ class DetalhesVisitaColmeia extends React.Component {
 
     return (
       <Container>
-        <HeaderCustom title="Detalhes" />
+        <HeaderCustom title="Colmeias" />
         <Content padder>
           {visita_colmeias &&
             visita_colmeias.map(visita => {
@@ -88,7 +88,7 @@ class DetalhesVisitaColmeia extends React.Component {
                         fontWeight: "bold",
                         fontSize: 13
                       }}
-                    >{`Dados dos quadros:`}</Text>
+                    >{`Dados das faces do quadro:`}</Text>
                   </View>
                   <Grid>
                     {/* COLULA 1 */}

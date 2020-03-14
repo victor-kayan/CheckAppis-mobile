@@ -14,7 +14,7 @@ const InputSwitch = ({ value, onValueChange, ...rest }) => (
     switchSpeedChange={500}
     switchBorderColor="#d4d4d4"
     switchBackgroundColor="#fff"
-    btnBorderColor={colors.black}
+    btnBorderColor="#d4d4d4"
     btnBackgroundColor={colors.theme_default}
     fontColor="#b1b1b1"
     activeFontColor="#fff"

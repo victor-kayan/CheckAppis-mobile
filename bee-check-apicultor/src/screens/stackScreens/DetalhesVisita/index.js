@@ -25,7 +25,7 @@ class DetalhesVisita extends React.Component {
 
     return (
       <Container>
-        <HeaderCustom title="Detalhes" />
+        <HeaderCustom title="Detalhes da Visita" />
         <Content>
           <View
             style={{

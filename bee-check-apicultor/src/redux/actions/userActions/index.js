@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, LOADING_LOGIN } from "./actionsType";
+import { LOGIN, LOGOUT, LOADING_LOGIN, GET_INFORMATIONS_USER } from "./actionsType";
 import { Api } from "../../../../services";
 import { URLS, constants } from "../../../../assets";
 import { AsyncStorage } from "react-native";
@@ -21,7 +21,7 @@ export const login = ({ email, password }) => {
           payload: {
             loading: false,
             logged: true,
-            token: response.data.token
+            token: response.data.token,
           }
         });
       })
@@ -71,4 +71,42 @@ export const logout = () => {
         throw error;
       });
   };
+};
+
+export const fetchDataUser = () => {
+  
+  return dispatch => {
+    dispatch({
+      type: GET_INFORMATIONS_USER,
+      payload: {
+        loading: true
+      }
+    });
+    Api.instance.post(URLS.LOGIN_URL, { email, password })
+      .then(response => {
+        Api.instance.defaults.headers.Authorization = `Bearer ${
+          response.data.token
+        }`;
+        dispatch({
+          type: GET_INFORMATIONS_USER,
+          payload: {
+            loading: false,
+            logged: true,
+            token: response.data.token,
+            user: response.data.token
+          }
+        });
+      })
+      .catch(error => {
+        dispatch({
+          type: LOADING_LOGIN,
+          payload: {
+            logged: false,
+            loading: false
+          }
+        });
+        throw error;
+      });
+  };
+
 };

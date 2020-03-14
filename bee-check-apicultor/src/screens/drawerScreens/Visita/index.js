@@ -113,14 +113,14 @@ class Visita extends Component {
                 <Picker.Item
                   enabled={false}
                   key={null}
-                  label={"Selecione um Apiario"}
+                  label={"Selecione um apiário"}
                   value={null}
                 />
                 {!apiarios ? (
                   <Picker.Item
                     enabled={false}
                     note
-                    label={"Nenhum Apiario encontrado"}
+                    label={"Nenhum apiário encontrado"}
                   />
                 ) : (
                   apiarios.map(data => {
@@ -209,7 +209,7 @@ class Visita extends Component {
                   alignItems: "center"
                 }}
               >
-                <Text>Primeiro selecione um apiario</Text>
+                <Text>Primeiro selecione um apiário</Text>
               </CardItem>
               <View
                 style={{

@@ -122,7 +122,7 @@ class FormVisita extends Component {
       <View>
         <CardItem>
           <Left>
-            <Text>Há quantos quadros de Mel?</Text>
+            <Text>Há quantas faces de mel?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -142,7 +142,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantos quadros de Pólen?</Text>
+            <Text>Há quantas faces de pólen?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -166,7 +166,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantos quadros de cria Aberta?</Text>
+            <Text>Há quantas faces de crias abertas?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -186,7 +186,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantos quadros de cria Fechada?</Text>
+            <Text>Há quantas faces de crias fechadas?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -210,7 +210,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantos quadros vazios?</Text>
+            <Text>Há quantas faces vazias?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -234,7 +234,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há abelhas mortas no Alvado?</Text>
+            <Text>Há abelhas mortas no alvado?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -248,7 +248,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há presença de Postura?</Text>
+            <Text>Há presença de postura?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -260,7 +260,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há presença de Zangão?</Text>
+            <Text>Há presença de zangão?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -272,7 +272,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há presença de Realeira?</Text>
+            <Text>Há presença de realeira?</Text>
           </Left>
           <Right>
             <InputSwitch
