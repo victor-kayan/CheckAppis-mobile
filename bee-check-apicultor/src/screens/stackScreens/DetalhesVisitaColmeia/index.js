@@ -93,13 +93,7 @@ class DetalhesVisitaColmeia extends React.Component {
                   <Grid>
                     {/* COLULA 1 */}
                     <Col style={{ marginHorizontal: 5 }}>
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                      <View style={styles.itemContainer} >
                         <Text style={styles.text}>Com mel</Text>
                         <Badge style={styles.badge_success}>
                           <Text style={styles.badge_text}>
@@ -108,13 +102,7 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
 
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                      <View style={styles.itemContainer} >
                         <Text style={styles.text}>Cria aberta</Text>
                         <Badge style={styles.badge_success}>
                           <Text style={styles.badge_text}>
@@ -123,13 +111,7 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
                       
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                      <View style={styles.itemContainer} >
                         <Text style={styles.text}>Vazios</Text>
                         <Badge style={styles.badge_success}>
                           <Text style={styles.badge_text}>
@@ -138,15 +120,9 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
 
-                      <View style={{ marginVertical: 10 }} />
+                      <View style={{ marginVertical: 15 }} />
 
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                      <View style={styles.itemContainer} >
                         <Text style={styles.text}>Postura </Text>
                         <Badge
                           style={
@@ -161,13 +137,7 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
 
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                      <View style={styles.itemContainer} >
                         <Text style={styles.text}>Realeira</Text>
                         <Badge
                           style={
@@ -185,13 +155,7 @@ class DetalhesVisitaColmeia extends React.Component {
                     {/* FIM COLULA 1 */}
                     {/* COLULA 2 */}
                     <Col style={{ marginHorizontal: 5 }}>
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                    <View style={styles.itemContainer} >
                         <Text style={styles.text}>Com polén</Text>
                         <Badge style={styles.badge_success}>
                           <Text style={styles.badge_text}>
@@ -200,13 +164,7 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
 
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                      <View style={styles.itemContainer} >
                         <Text style={styles.text}>Cria fechada</Text>
                         <Badge style={styles.badge_success}>
                           <Text style={styles.badge_text}>
@@ -215,15 +173,9 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
 
-                      <View style={{ marginVertical: 30 }} />
+                      <View style={{ marginVertical: 40 }} />
 
-                      <View
-                        style={{
-                          marginTop: 10,
-                          flexDirection: "row",
-                          justifyContent: "space-between"
-                        }}
-                      >
+                      <View style={styles.itemContainer} >
                         <Text style={styles.text}>Abelhas mortas </Text>
                         <Badge
                           style={
@@ -238,13 +190,7 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
 
-                      <View
-                          style={{
-                            marginTop: 10,
-                            flexDirection: "row",
-                            justifyContent: "space-between"
-                          }}
-                        >
+                      <View style={styles.itemContainer} >
                           <Text style={styles.text}>Zangão</Text>
                           <Badge
                             style={

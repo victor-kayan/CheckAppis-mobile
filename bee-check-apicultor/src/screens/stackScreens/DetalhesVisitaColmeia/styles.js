@@ -16,4 +16,9 @@ export default {
     badge_error: {
         backgroundColor: colors.erorr
     },
+    itemContainer: {
+        marginTop: 15,
+        flexDirection: "row",
+        justifyContent: "space-between"
+    }
 }
