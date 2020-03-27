@@ -16,5 +16,17 @@ export default {
     fontSize: 20,
     height: 22,
     color: "white"
+  },
+  swipeRowHiddenContainer: {
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
+  },
+  swipeRowCardItem: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    borderBottomColor: '#CCC',
+    borderBottomWidth: 1
   }
 };

@@ -19,11 +19,12 @@ import {
   Card,
   CardItem,
   Picker,
-  SwipeRow,
+  // SwipeRow,
   View,
   Row,
   Badge
 } from "native-base";
+import { SwipeRow } from 'react-native-swipe-list-view';
 import { Image, TouchableOpacity } from "react-native";
 import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
@@ -139,63 +140,61 @@ class Visita extends Component {
           {!loading && visitas && visitas.length > 0 ? (
             visitas.map(visita => {
               return (
-                <SwipeRow
-                  key={visita.id}
-                  rightOpenValue={-55}
-                  body={
-                    <CardItem>
-                      <TouchableOpacity
-                        onPress={() => this.handleDetalhar(visita)}
-                      >
-                        <View style={{ marginHorizontal: "10%" }}>
-                          <Row>
-                            <Text>
-                              {`Data: ${moment(visita.created_at).format(
-                                "DD MMMM  YYYY"
-                              )}`}
-                            </Text>
-                          </Row>
-                          <Row style={{ marginTop: 5 }}>
-                            <Left>
-                              <Text note>colmeias visitadas</Text>
-                            </Left>
-                            <Badge
-                              style={{
-                                backgroundColor: colors.theme_second,
-                                marginEnd: 5
-                              }}
-                            >
-                              <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
-                            </Badge>
-                          </Row>
-                        </View>
-                      </TouchableOpacity>
-                      <Right>
-                        <Button
-                          transparent
-                          onPress={() => this.handleDetalhar(visita)}
-                        >
-                          <Icon
-                            active
-                            style={{ color: colors.colorIcons }}
-                            name="magnifying-glass"
-                            type="Entypo"
-                          />
-                        </Button>
-                      </Right>
-                    </CardItem>
-                  }
-                  right={
+                <SwipeRow key={ visita.id } rightOpenValue={-55}>
+                  <View style={styles.swipeRowHiddenContainer}>
                     <Button
+                      style={{ height: '100%' }}
                       danger
                       onPress={() =>
                         this.setState({ dialogVisible: true, visita })
                       }
+                      >
+                        <Icon active name="trash" />
+                      </Button>
+                  </View>
+
+                  <CardItem style={ styles.swipeRowCardItem }>
+                    <TouchableOpacity
+                      onPress={() => this.handleDetalhar(visita)}
                     >
-                      <Icon active name="trash" />
-                    </Button>
-                  }
-                />
+                      <View style={{ marginHorizontal: "10%" }}>
+                        <Row>
+                          <Text>
+                            {`Data: ${moment(visita.created_at).format(
+                              "DD MMMM  YYYY"
+                            )}`}
+                          </Text>
+                        </Row>
+                        <Row style={{ marginTop: 5 }}>
+                          <Left>
+                            <Text note>colmeias visitadas</Text>
+                          </Left>
+                          <Badge
+                            style={{
+                              backgroundColor: colors.theme_second,
+                              marginEnd: 5
+                            }}
+                          >
+                            <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
+                          </Badge>
+                        </Row>
+                      </View>
+                    </TouchableOpacity>
+                    <Right>
+                      <Button
+                        transparent
+                        onPress={() => this.handleDetalhar(visita)}
+                      >
+                        <Icon
+                          active
+                          style={{ color: colors.colorIcons }}
+                          name="magnifying-glass"
+                          type="Entypo"
+                        />
+                      </Button>
+                    </Right>
+                  </CardItem>
+                </SwipeRow>
               );
             })
           ) : !loading &&
@@ -303,3 +302,62 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Visita);
+
+
+                // <SwipeRow
+                //   key={visita.id}
+                //   rightOpenValue={-55}
+                //   body={
+                //     <CardItem>
+                //       <TouchableOpacity
+                //         onPress={() => this.handleDetalhar(visita)}
+                //       >
+                //         <View style={{ marginHorizontal: "10%" }}>
+                //           <Row>
+                //             <Text>
+                //               {`Data: ${moment(visita.created_at).format(
+                //                 "DD MMMM  YYYY"
+                //               )}`}
+                //             </Text>
+                //           </Row>
+                //           <Row style={{ marginTop: 5 }}>
+                //             <Left>
+                //               <Text note>colmeias visitadas</Text>
+                //             </Left>
+                //             <Badge
+                //               style={{
+                //                 backgroundColor: colors.theme_second,
+                //                 marginEnd: 5
+                //               }}
+                //             >
+                //               <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
+                //             </Badge>
+                //           </Row>
+                //         </View>
+                //       </TouchableOpacity>
+                //       <Right>
+                //         <Button
+                //           transparent
+                //           onPress={() => this.handleDetalhar(visita)}
+                //         >
+                //           <Icon
+                //             active
+                //             style={{ color: colors.colorIcons }}
+                //             name="magnifying-glass"
+                //             type="Entypo"
+                //           />
+                //         </Button>
+                //       </Right>
+                //     </CardItem>
+                //   }
+                //   right={
+                //     <Button
+                //       danger
+                //       onPress={() =>
+                //         this.setState({ dialogVisible: true, visita })
+                //       }
+                //     >
+                //       <Icon active name="trash" />
+                //     </Button>
+                //   }
+                // />
