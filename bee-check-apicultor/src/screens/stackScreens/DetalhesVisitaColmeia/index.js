@@ -32,7 +32,7 @@ class DetalhesVisitaColmeia extends React.Component {
           {visita_colmeias &&
             visita_colmeias.map(visita => {
               return (
-                <Card key={visita.id}>
+                <Card key={visita.id} style={{ paddingRight: 10 }}>
                   <CardItem
                     header
                     style={{
@@ -107,6 +107,7 @@ class DetalhesVisitaColmeia extends React.Component {
                           </Text>
                         </Badge>
                       </View>
+
                       <View
                         style={{
                           marginTop: 10,
@@ -121,6 +122,24 @@ class DetalhesVisitaColmeia extends React.Component {
                           </Text>
                         </Badge>
                       </View>
+                      
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
+                        <Text style={styles.text}>Vazios</Text>
+                        <Badge style={styles.badge_success}>
+                          <Text style={styles.badge_text}>
+                            {visita.qtd_quadros_vazios}
+                          </Text>
+                        </Badge>
+                      </View>
+
+                      <View style={{ marginVertical: 10 }} />
+
                       <View
                         style={{
                           marginTop: 10,
@@ -141,8 +160,29 @@ class DetalhesVisitaColmeia extends React.Component {
                           </Text>
                         </Badge>
                       </View>
+
+                      <View
+                        style={{
+                          marginTop: 10,
+                          flexDirection: "row",
+                          justifyContent: "space-between"
+                        }}
+                      >
+                        <Text style={styles.text}>Realeira</Text>
+                        <Badge
+                          style={
+                            visita.tem_realeira
+                              ? styles.badge_success
+                              : styles.badge_error
+                          }
+                        >
+                          <Text style={styles.badge_text}>
+                            {visita.tem_realeira ? "SIM" : "NÃO"}
+                          </Text>
+                        </Badge>
+                      </View>
                     </Col>
-                    {/* COLULA 1 */}
+                    {/* FIM COLULA 1 */}
                     {/* COLULA 2 */}
                     <Col style={{ marginHorizontal: 5 }}>
                       <View
@@ -159,6 +199,7 @@ class DetalhesVisitaColmeia extends React.Component {
                           </Text>
                         </Badge>
                       </View>
+
                       <View
                         style={{
                           marginTop: 10,
@@ -173,6 +214,9 @@ class DetalhesVisitaColmeia extends React.Component {
                           </Text>
                         </Badge>
                       </View>
+
+                      <View style={{ marginVertical: 30 }} />
+
                       <View
                         style={{
                           marginTop: 10,
@@ -193,8 +237,30 @@ class DetalhesVisitaColmeia extends React.Component {
                           </Text>
                         </Badge>
                       </View>
-                    </Col>
-                    {/* COLULA 2 */}
+
+                      <View
+                          style={{
+                            marginTop: 10,
+                            flexDirection: "row",
+                            justifyContent: "space-between"
+                          }}
+                        >
+                          <Text style={styles.text}>Zangão</Text>
+                          <Badge
+                            style={
+                              visita.tem_zangao
+                                ? styles.badge_success
+                                : styles.badge_error
+                            }
+                          >
+                            <Text style={styles.badge_text}>
+                              {visita.tem_zangao ? "SIM" : "NÃO"}
+                            </Text>
+                          </Badge>
+                        </View>
+                      </Col>
+                    {/* FIM COLULA 2 */}
+
                   </Grid>
                   <View style={{ marginTop: 20 }}>
                     <Text

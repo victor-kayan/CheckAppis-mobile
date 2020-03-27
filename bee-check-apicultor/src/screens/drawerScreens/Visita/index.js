@@ -19,7 +19,6 @@ import {
   Card,
   CardItem,
   Picker,
-  // SwipeRow,
   View,
   Row,
   Badge
@@ -302,62 +301,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Visita);
-
-
-                // <SwipeRow
-                //   key={visita.id}
-                //   rightOpenValue={-55}
-                //   body={
-                //     <CardItem>
-                //       <TouchableOpacity
-                //         onPress={() => this.handleDetalhar(visita)}
-                //       >
-                //         <View style={{ marginHorizontal: "10%" }}>
-                //           <Row>
-                //             <Text>
-                //               {`Data: ${moment(visita.created_at).format(
-                //                 "DD MMMM  YYYY"
-                //               )}`}
-                //             </Text>
-                //           </Row>
-                //           <Row style={{ marginTop: 5 }}>
-                //             <Left>
-                //               <Text note>colmeias visitadas</Text>
-                //             </Left>
-                //             <Badge
-                //               style={{
-                //                 backgroundColor: colors.theme_second,
-                //                 marginEnd: 5
-                //               }}
-                //             >
-                //               <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
-                //             </Badge>
-                //           </Row>
-                //         </View>
-                //       </TouchableOpacity>
-                //       <Right>
-                //         <Button
-                //           transparent
-                //           onPress={() => this.handleDetalhar(visita)}
-                //         >
-                //           <Icon
-                //             active
-                //             style={{ color: colors.colorIcons }}
-                //             name="magnifying-glass"
-                //             type="Entypo"
-                //           />
-                //         </Button>
-                //       </Right>
-                //     </CardItem>
-                //   }
-                //   right={
-                //     <Button
-                //       danger
-                //       onPress={() =>
-                //         this.setState({ dialogVisible: true, visita })
-                //       }
-                //     >
-                //       <Icon active name="trash" />
-                //     </Button>
-                //   }
-                // />
