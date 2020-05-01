@@ -82,7 +82,7 @@ export const fetchDataUser = () => {
         loading: true
       }
     });
-    Api.instance.post(URLS.LOGIN_URL, { email, password })
+    Api.instance.post(URLS.BASE_URL, constants.ACCESS_TOKEN)
       .then(response => {
         Api.instance.defaults.headers.Authorization = `Bearer ${
           response.data.token
@@ -93,7 +93,6 @@ export const fetchDataUser = () => {
             loading: false,
             logged: true,
             token: response.data.token,
-            user: response.data.token
           }
         });
       })

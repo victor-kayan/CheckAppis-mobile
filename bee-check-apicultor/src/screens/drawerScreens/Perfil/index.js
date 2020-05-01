@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { colors, routes, images, constants } from "../../../../assets";
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import ActionButton from "react-native-action-button";
@@ -8,7 +9,7 @@ import {
   fetchDataUser
 } from "../../../redux/actions/userActions";
 
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, AsyncStorage } from "react-native";
 import {
   Text,
   Left,
@@ -32,9 +33,27 @@ import {
 } from "../../../componentes";
 import "moment/locale/pt-br";
 import styles from "./styles";
-import { constants } from "../../../../assets";
+
 
 class Perfil extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: '',
+      email: '',
+      password: ''
+    };
+  }
+
+  async componentDidMount() {
+    var token = await AsyncStorage.getItem(
+      `@beecheckApp:${constants.ACCESS_TOKEN}`
+    );
+    var email = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_EMAIL}`);
+    var password = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_PASSWORD}`);
+    this.setState({token: token, email: email, password: password})
+  }
 
   render() {
 
@@ -76,11 +95,11 @@ class Perfil extends Component {
         </Separator>
         <View style = {styles.cardInformation}>
           <Text>E-mail do usuário</Text>
-          <Text style = {styles.textInformation}>sadraklyon@gmail.com</Text>
+          <Text style = {styles.textInformation}>{this.state.email}</Text>
         </View>
         <View style = {styles.cardInformation}>
           <Text>Senha</Text>
-          <Text style = {styles.textInformation}>sadrak123</Text>
+          <Text style = {styles.textInformation}>{this.state.password}</Text>
         </View>
         <Separator bordered>
           <Text style={styles.textDivider}>SOBRE O APLICATIVO</Text>
@@ -101,6 +120,7 @@ class Perfil extends Component {
               <Text style = {styles.textInformation}>Direcionar</Text>
           </View>
         </TouchableOpacity>
+        <Text>{this.state.token}</Text>
         </View>
       </Container>
     );
