@@ -84,7 +84,7 @@ class SideBar extends Component {
             <Separator bordered>
               <Text style={styles.textDivider}>CONFIGURAÇÕES</Text>
             </Separator>
-            <CardItem button noBorder onPress={() => this.props.navigation.navigate("Perfil")}>
+            <CardItem button noBorder onPress={() => alert("Tela em construção.")}>
               <Left>
                 <Thumbnail
                   square
