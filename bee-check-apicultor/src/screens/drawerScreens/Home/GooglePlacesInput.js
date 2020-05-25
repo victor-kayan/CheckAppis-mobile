@@ -17,7 +17,7 @@ export default class GooglePlacesInput extends Component {
         placeholderTextColor={"#B8B8B8"}
         onPress={onLocationSelected}
         query={{
-          key: "AIzaSyA3byNpUcao4ZQud-zGppXCjHSZVOaoygI",
+          key: "AIzaSyBfP1l7mY8TVisDD6fx0yjmvDQMHa26prg",
           language: "pt-br"
         }}
         textInputProps={{

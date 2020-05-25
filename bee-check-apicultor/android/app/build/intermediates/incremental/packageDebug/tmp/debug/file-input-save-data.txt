@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Mar 26 15:15:44 BRT 2020
+#Mon May 25 14:07:01 BRT 2020
 56.path=lib/armeabi-v7a/libicu_common.so
 5.base=/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/assets/debug
 42.base=/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

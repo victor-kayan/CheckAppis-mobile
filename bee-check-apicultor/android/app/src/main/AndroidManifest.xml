@@ -27,7 +27,7 @@
      <!-- CHAVE DA API GOOGLE -->
      <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyA3byNpUcao4ZQud-zGppXCjHSZVOaoygI"
+        android:value="AIzaSyBfP1l7mY8TVisDD6fx0yjmvDQMHa26prg"
         />
     </application>
 
