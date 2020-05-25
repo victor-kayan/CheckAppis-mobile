@@ -12,19 +12,8 @@ import {
 import { TouchableOpacity, AsyncStorage } from "react-native";
 import {
   Text,
-  Left,
-  Button,
-  Icon,
-  Right,
   Container,
-  Content,
-  Card,
-  CardItem,
-  Picker,
-  SwipeRow,
   View,
-  Row,
-  Badge,
   Separator,
 } from "native-base";
 

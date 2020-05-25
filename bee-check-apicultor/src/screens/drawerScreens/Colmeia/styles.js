@@ -19,5 +19,11 @@ export default {
     fontSize: 20,
     height: 22,
     color: colors.white
+  },
+  swiperBackContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'space-between',
   }
 };

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar, TouchableOpacity, Image } from "react-native";
+
 import LinearGradient from "react-native-linear-gradient";
-import { Text, View, Icon, Spinner } from "native-base";
-import { StatusBar, TouchableOpacity, Image } from "react-native";
+import { Text, View, Icon } from "native-base";
 import { colors, images } from "../../../../assets";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import GooglePlacesInput from "./GooglePlacesInput";
@@ -192,8 +192,9 @@ class Home extends Component {
                   latitude: parseFloat(apiario.latitude),
                   longitude: parseFloat(apiario.longitude)
                 }}
-                image={images.icons.apiario}
-              />
+              >
+                <Image source={images.icons.apiario} style={{ width: 30, height: 30 }} />
+              </Marker>
             )): null}
         </MapView>
         <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />

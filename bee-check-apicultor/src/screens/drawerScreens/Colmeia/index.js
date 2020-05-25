@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Image } from "react-native";
-import { PanResponder } from 'react-native';
 import {
   Icon,
   Card,
@@ -11,10 +10,10 @@ import {
   Text,
   Thumbnail,
   Button,
-  SwipeRow,
   Row,
   View
 } from "native-base";
+import { SwipeRow } from 'react-native-swipe-list-view';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ActionButton from "react-native-action-button";
@@ -44,12 +43,12 @@ class Colmeia extends Component {
   componentDidMount() {
     this.fetchApiarios();
   }
-
+  
   handleRefresh() {
     this.fetchApiarios();
     this.setState({ selectedPickerApiario: null });
   }
-
+  
   fetchApiarios() {
     this.props.fetchApiariosByUser();
   }
@@ -140,9 +139,12 @@ class Colmeia extends Component {
                   key={colmeia.id}
                   leftOpenValue={55}
                   rightOpenValue={-55}
-                  left={
+                >
+                  {/* Back content */}
+                  <View style={styles.swiperBackContent}>
+                    {/* Left */}
                     <Button
-                      style={{ backgroundColor: colors.theme_second }}
+                      style={{ backgroundColor: colors.theme_second, height: '100%' }}
                       onPress={() =>
                         this.props.navigation.navigate(routes.EditColmeia, {
                           colmeia
@@ -156,8 +158,21 @@ class Colmeia extends Component {
                         name="edit"
                       />
                     </Button>
-                  }
-                  body={
+
+                    {/* Right */}
+                    <Button
+                      danger
+                      style={{ height: '100%' }}
+                      onPress={() =>
+                        this.setState({ dialogVisible: true, colmeia })
+                      }
+                    >
+                      <Icon active name="trash" />
+                    </Button>
+                  </View>
+                  
+                  {/* Body content */}
+                  <View>
                     <CardItem>
                       <Thumbnail
                         square
@@ -178,18 +193,8 @@ class Colmeia extends Component {
                         </Row>
                       </View>
                     </CardItem>
-                  }
-                  right={
-                    <Button
-                      danger
-                      onPress={() =>
-                        this.setState({ dialogVisible: true, colmeia })
-                      }
-                    >
-                      <Icon active name="trash" />
-                    </Button>
-                  }
-                />
+                  </View>
+                </SwipeRow>
               );
             })
           ) : !loading &&
