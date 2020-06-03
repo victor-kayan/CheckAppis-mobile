@@ -17,7 +17,7 @@ import {
   Toast
 } from "native-base";
 import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
-import { createVisita } from "../../../redux/actions/visitaActions";
+import { createVisita, reduxOfflineTest } from "../../../redux/actions/visitaActions";
 import { SpinnerCustom } from "../../../componentes";
 import { colors, routes, images } from "../../../../assets";
 import ColmeiaItem from "./ColmeiaItem";
@@ -150,7 +150,6 @@ class NewVisitaColmeia extends Component {
   };
 
   onFinishVisitaColmeia = values => {
-    
     const { colmeia, colmeiasVisitadas } = this.state;
     let index = -1;
     let visita = {
@@ -172,7 +171,6 @@ class NewVisitaColmeia extends Component {
         ],
         colmeia: null
       });
-
     } else {
       this.setState({
         colmeiasVisitadas: [...colmeiasVisitadas, visita],
@@ -192,8 +190,11 @@ class NewVisitaColmeia extends Component {
       visita_apiario: this.props.navigation.getParam("visita_apiario", ""),
       apiario_id: this.props.navigation.getParam("apiario_id", "")
     };
-    this.props.createVisita(data);
-    console.log(data)
+
+    // this.props.createVisita(data);
+    this.props.reduxOfflineTest(data);
+
+    console.log(`Dados da visita: ${data}`);
   };
 
   onChangeSelectColmeia = index => {
@@ -355,7 +356,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getColemiasByApiario, createVisita }, dispatch);
+  return bindActionCreators({ 
+    getColemiasByApiario, 
+    createVisita, 
+    reduxOfflineTest 
+  }, dispatch);
 }
 
 export default connect(

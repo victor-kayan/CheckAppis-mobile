@@ -47,6 +47,17 @@ export const VisitaReducer = (state = initialState, action) => {
         ...state,
         visitaIsLoading: payload.visitaIsLoading
       };
+
+    case 'TEST_REQUEST':
+      alert('REQUEST INICIADO');
+      return state;
+    case 'TEST_COMMIT':
+      alert('COMMIT REALIZADO');
+      return state;
+    case 'TEST_ROLLBACK':
+      alert('ROLLBACK REALIZADO');
+      return state;
+    
     default:
       return state;
   }
