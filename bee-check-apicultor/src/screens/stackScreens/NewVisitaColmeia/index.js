@@ -38,12 +38,15 @@ class NewVisitaColmeia extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { done, doneColmeias } = this.state;
+    
     if (doneColmeias && nextProps.colmeias) {
       this.renderItemColmeia(nextProps.colmeias, []);
       this.setState({ doneColmeias: false });
     }
+
     if (done) {
       this.setState({ done: false });
+
       if (nextProps.storeError) {
         return Toast.show({
           text: nextProps.storeMessages && nextProps.storeMessages,
@@ -184,7 +187,9 @@ class NewVisitaColmeia extends Component {
 
   onConcluirVisita = () => {
     const { colmeiasVisitadas } = this.state;
+
     this.setState({ done: true});
+
     data = {
       visitas_colmeias: colmeiasVisitadas,
       visita_apiario: this.props.navigation.getParam("visita_apiario", ""),
@@ -192,9 +197,67 @@ class NewVisitaColmeia extends Component {
     };
 
     // this.props.createVisita(data);
+    const serializedData = serializeVisitData(data);
+    console.log(`Dados serializados: ${serializedData}`);
+
     this.props.reduxOfflineTest(data);
 
     console.log(`Dados da visita: ${data}`);
+  };
+
+  /**
+  * Função para calcular e adicionar novas variáveis ao objeto da visitia
+  * 
+  * Os dados contendo as quantidades totais dos itens visitados eram calculados e retornados pela API.
+  * Essa responsabilidade está sendo passada para o frontend devido a implementação da UI otimista.
+  */
+  serializeVisitData = data => {
+    const numberOfVisitedHives = data.visitas_colmeias.length;
+
+    let qtd_quadros_mel = 0, qtd_quadros_polen = 0, qtd_cria_aberta = 0, qtd_cria_fechada = 0, qtd_quadros_vazios = 0;
+    let qtd_colmeias_com_postura = 0, qtd_colmeias_com_abelhas_mortas = 0, qtd_colmeias_com_zangao = 0, qtd_colmeias_com_realeira = 0;
+    
+    for (hiveVisit of data.visitas_colmeias) {
+      qtd_quadros_mel += hiveVisit.qtd_quadros_mel;
+      qtd_quadros_polen += hiveVisit.qtd_quadros_polen;
+      qtd_cria_aberta += hiveVisit.qtd_cria_aberta;
+      qtd_cria_fechada += hiveVisit.qtd_cria_fechada;
+      qtd_quadros_vazios += hiveVisit.qtd_quadros_vazios;
+      
+      if (hiveVisit.tem_postura) {
+        qtd_colmeias_com_postura++;
+      }
+      if (hiveVisit.tem_abelhas_mortas) {
+        qtd_colmeias_com_abelhas_mortas++;
+      }
+      if (hiveVisit.tem_zangao) {
+        qtd_colmeias_com_zangao++;
+      }
+      if (hiveVisit.tem_realeira) {
+        qtd_colmeias_com_realeira++;
+      }
+    }
+
+    let qtd_quadros_analizados = qtd_quadros_mel + qtd_quadros_polen + qtd_cria_aberta + qtd_cria_fechada + qtd_quadros_vazios;
+    
+    let qtd_colmeias_sem_postura = numberOfVisitedHives - qtd_colmeias_com_postura;
+    let qtd_colmeias_sem_abelhas_mortas = numberOfVisitedHives - qtd_colmeias_com_abelhas_mortas;
+    let qtd_colmeias_sem_zangao = numberOfVisitedHives - qtd_colmeias_com_zangao;
+    let qtd_colmeias_sem_realeira = numberOfVisitedHives - qtd_colmeias_com_realeira;
+
+    const visitData = {
+      apiario_id: data.apiario_id,
+      visitas_colmeias: data.visitas_colmeias,
+      visita_apiario: {
+        ...data.visita_apiario,
+        qtd_quadros_mel, qtd_quadros_polen, qtd_cria_aberta, qtd_cria_fechada, qtd_quadros_vazios,
+        qtd_colmeias_com_postura, qtd_colmeias_com_abelhas_mortas, qtd_colmeias_com_zangao, qtd_colmeias_com_realeira,
+        qtd_colmeias_sem_postura, qtd_colmeias_sem_abelhas_mortas, qtd_colmeias_sem_zangao, qtd_colmeias_sem_realeira,
+        qtd_quadros_analizados
+      }
+    };
+
+    return visitData;
   };
 
   onChangeSelectColmeia = index => {

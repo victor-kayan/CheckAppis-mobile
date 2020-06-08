@@ -127,18 +127,70 @@ export const deleteVisita = ({ visita_id, apiario_id }) => {
 };
 
 const bearerToken = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImVlNDljZjY3NjJlZjJiYmIzNjEyNWQyODY3ZGUyMGQxMjliZmY3ZDJlMmQyYjlhZTkwMmE5ZThjNmNmYTMzZDA2MTVjNDJlOTMzMWNjMDRkIn0.eyJhdWQiOiIzIiwianRpIjoiZWU0OWNmNjc2MmVmMmJiYjM2MTI1ZDI4NjdkZTIwZDEyOWJmZjdkMmUyZDJiOWFlOTAyYTllOGM2Y2ZhMzNkMDYxNWM0MmU5MzMxY2MwNGQiLCJpYXQiOjE1ODQxNDE2MTcsIm5iZiI6MTU4NDE0MTYxNywiZXhwIjoxNjE1Njc3NjE3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.02UfcwZ9jfKMlfe2htj5vhB7DdZD1CwMoTfxLvxuKCckXvPBDf1OPAR26gmLB46yUJpni_rKlHGKwOtH-LFdQ9rLeRPXtzDS_vwZAjktpRaZUa_CnHZcpT_gEhtFV67Gr7M6pvIxtkVSSd-TusQahBU0L3hhi_ltxWQ4LqOZkz62LGHeN4TKmfJ-TENoKZClsAQmUA-ryV2Ib5bM83wCCnu_fHXwZ_HFqAuPg691LgiH-Ydm5sY5gYtygXAzpi22IxqH-COPJTVea2fn6xwn_iTq8RX5rueP8x0zATIUbsZV2LoS0UKU6TZh69c6iC6rxYw0_E0Yp1mlBosr5mii5Kr3zRtAM8O_SrrK0iBVIgSfKy5mdmiQPmDdxDYVH1dmDeXTrGUkQ77hGVV6lwvd2zzJCPmC9OauxD7Ymxd0TVdpx1w_Dw2wshvH8jwO2-4gl1EsGt6EbZY9tBdTKI6NNACBf5DVWvN15vySezT0ycgk7ea7P5xur9ULxfOlqnB_jgnA87deUBJUF-zLUMpzqf7JYj7Npyw8Gx9eYx4tOcGN1moFQ9V04yND_JskeCgeiKm87uHOzXm4Y9574Q_dETyde6jOEEgkDhon_hKroCZLm_hdKq378WnkQiiAPL9Quz9EEPv0X0-zHXuP_U2G0kRF9bpnNxJ8spwtWl7n8mQ';
+const responseData = {
+  message: 'Visita regristrada com sucesso',
+  visita: {
+    tem_agua: 1,
+    tem_sombra: 0,
+    tem_comida: 1,
+    observacao: 'observaçao importante',
+    apiario_id: 1,
+    created_at: '2020-06-03 16:24:33',
+    id: 14,
+    qtd_colmeias_com_postura: 0,
+    qtd_colmeias_sem_postura: 1,
+    qtd_colmeias_com_abelhas_mortas: 1,
+    qtd_colmeias_sem_abelhas_mortas: 0,
+    qtd_colmeias_com_zangao: 1,
+    qtd_colmeias_sem_zangao: 0,
+    qtd_colmeias_com_realeira: 0,
+    qtd_colmeias_sem_realeira: 1,
+    qtd_quadros_mel: 0,
+    qtd_quadros_polen: 1,
+    qtd_cria_aberta: 1,
+    qtd_cria_fechada: 1,
+    qtd_quadros_vazios: 1,
+    qtd_quadros_analizados: 4,
+    visita_colmeias: [
+      {
+        id: 14,
+        tem_abelhas_mortas: true,
+        qtd_quadros_mel: 0,
+        qtd_quadros_polen: 1,
+        qtd_cria_aberta: 2,
+        qtd_cria_fechada: 3,
+        observacao: 'olha só que observação bacana',
+        tem_postura: 0,
+        colmeia_id: 1,
+        visita_apiario_id: 14,
+        deleted_at: null,
+        created_at: '2020-06-03 16:24:33',
+        qtd_quadros_vazios: 4,
+        tem_zangao: 1,
+        tem_realeira: 0,
+        colmeia: null
+      }
+    ]
+  }
+};
 
 // Redux offline test action...
 export const reduxOfflineTest = data => {
   return dispatch => {
     dispatch({
-      type: 'TEST_REQUEST',
-      payload: data,
+      // type: 'TEST_REQUEST',
+      // payload: data,
+      type: VISITA_APIARIO_CREATE_SUCCESS,
+      payload: {
+        visitaIsLoading: false,
+        visita: responseData,
+        storeMessages: responseData.message
+      },
       meta: {
         offline: {
           // the network action to execute:
           effect: { 
-            url: 'http://192.168.1.7/api/visita', 
+            url: 'http://192.168.1.8/api/visita',
             method: 'POST', 
             json: {...data},
             headers: {
