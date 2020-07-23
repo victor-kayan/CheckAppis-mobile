@@ -196,13 +196,13 @@ class NewVisitaColmeia extends Component {
       apiario_id: this.props.navigation.getParam("apiario_id", "")
     };
 
+    const serializedData = this.serializeVisitData(data);
+    
     // this.props.createVisita(data);
-    const serializedData = serializeVisitData(data);
-    console.log(`Dados serializados: ${serializedData}`);
-
-    this.props.reduxOfflineTest(data);
-
+    this.props.reduxOfflineTest(serializedData);
+    
     console.log(`Dados da visita: ${data}`);
+    console.log(`Dados serializados: ${serializedData}`);
   };
 
   /**
@@ -238,12 +238,12 @@ class NewVisitaColmeia extends Component {
       }
     }
 
-    let qtd_quadros_analizados = qtd_quadros_mel + qtd_quadros_polen + qtd_cria_aberta + qtd_cria_fechada + qtd_quadros_vazios;
+    const qtd_quadros_analizados = qtd_quadros_mel + qtd_quadros_polen + qtd_cria_aberta + qtd_cria_fechada + qtd_quadros_vazios;
     
-    let qtd_colmeias_sem_postura = numberOfVisitedHives - qtd_colmeias_com_postura;
-    let qtd_colmeias_sem_abelhas_mortas = numberOfVisitedHives - qtd_colmeias_com_abelhas_mortas;
-    let qtd_colmeias_sem_zangao = numberOfVisitedHives - qtd_colmeias_com_zangao;
-    let qtd_colmeias_sem_realeira = numberOfVisitedHives - qtd_colmeias_com_realeira;
+    const qtd_colmeias_sem_postura = numberOfVisitedHives - qtd_colmeias_com_postura;
+    const qtd_colmeias_sem_abelhas_mortas = numberOfVisitedHives - qtd_colmeias_com_abelhas_mortas;
+    const qtd_colmeias_sem_zangao = numberOfVisitedHives - qtd_colmeias_com_zangao;
+    const qtd_colmeias_sem_realeira = numberOfVisitedHives - qtd_colmeias_com_realeira;
 
     const visitData = {
       apiario_id: data.apiario_id,
