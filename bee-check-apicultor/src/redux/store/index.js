@@ -5,10 +5,12 @@ import thunk from 'redux-thunk';
 
 import { Reducers } from '../reducers';
 import Middlewares from "./middlewares";
+import Reactotron from '../../config/ReactotronConfig';
 
 const composedStoreEnhancer = compose(
   applyMiddleware(thunk, ...Middlewares), 
-  offline(offlineConfig)
+  offline(offlineConfig),
+  Reactotron.createEnhancer()
 );
 
 export const Store = createStore(Reducers, composedStoreEnhancer);

@@ -29,7 +29,9 @@ import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
 import { Root } from "native-base";
 
-import './src/config/ReactotronConfig';
+if (__DEV__) {
+  import('./src/config/ReactotronConfig');
+}
 
 export default class App extends React.Component {
   render() {

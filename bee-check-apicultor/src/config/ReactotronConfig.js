@@ -1,14 +1,16 @@
 import Reactotron from 'reactotron-react-native';
+import { reactotronRedux } from 'reactotron-redux'
 import { AsyncStorage } from 'react-native';
 
-if (__DEV__) {
-  const tron = Reactotron
-    .setAsyncStorageHandler(AsyncStorage)
-    .configure()
-    .useReactNative()
-    .connect();
+const tron = Reactotron
+  .setAsyncStorageHandler(AsyncStorage)
+  .configure()
+  .useReactNative()
+  .use(reactotronRedux())
+  .connect();
 
-  tron.clear();
+tron.clear();
 
-  console.tron = tron;
-}
+console.tron = tron;
+
+export default tron;
