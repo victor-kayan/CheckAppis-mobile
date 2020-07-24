@@ -36,12 +36,12 @@ class Perfil extends Component {
   }
 
   async componentDidMount() {
-    var token = await AsyncStorage.getItem(
-      `@beecheckApp:${constants.ACCESS_TOKEN}`
-    );
-    var email = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_EMAIL}`);
-    var password = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_PASSWORD}`);
-    this.setState({token: token, email: email, password: password})
+    // var token = await AsyncStorage.getItem(
+    //   `@beecheckApp:${constants.ACCESS_TOKEN}`
+    // );
+    // var email = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_EMAIL}`);
+    // var password = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_PASSWORD}`);
+    // this.setState({token: token, email: email, password: password})
   }
 
   render() {
