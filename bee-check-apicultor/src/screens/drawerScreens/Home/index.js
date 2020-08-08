@@ -32,7 +32,21 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0
-  }
+  },
+  welcomeName: {
+    color: 'white',
+    fontSize: 20,
+    fontFamily: 'Roboto-Regular',
+  },
+  welcomeDay: {
+    color: 'white',
+    fontSize: 22,
+    fontFamily: 'MontserratBold',
+  },
+  welcomeView: {
+    marginHorizontal: 20,
+    marginVertical: 20,
+  },
 });
 
 class Home extends Component {
@@ -96,8 +110,15 @@ class Home extends Component {
             <TouchableOpacity
               onPress={() => this.props.navigation.openDrawer()}
             >
-              <Icon type="AntDesign" name="menuunfold" active />
+              <Icon type="SimpleLineIcons" name="menu" color="#fff" active />
             </TouchableOpacity>
+          </View>
+          <View style = {styles.welcomeView}>
+            <Text style = {styles.welcomeName}>Olá, Sadrak!</Text>
+            <Text style = {styles.welcomeDay}>O que vamos fazer hoje? </Text>
+          </View>
+          <View>
+            
           </View>
           <View
             style={{
@@ -121,7 +142,7 @@ class Home extends Component {
                     marginTop: "10%",
                     color: "#ff8416",
                     fontWeight: "bold",
-                    fontSize: 17
+                    fontSize: 17,
                   }}
                 >
                   {countApiarios && countApiarios === 1
@@ -202,6 +223,7 @@ class Home extends Component {
     );
   }
 }
+
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
@@ -226,6 +248,7 @@ function mapDispatchToProps(dispatch) {
     dispatch
   );
 }
+
 
 export default connect(
   mapStateToProps,

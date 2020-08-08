@@ -19,7 +19,7 @@ class SpinnerCustom extends Component {
               <View style={styles.alertContainer}>
                 <View style={{ borderRadius: 10, padding: 10, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
                   <Image source={images.gif.loading} />
-                  <Text style={{ marginHorizontal: 20, fontSize: 20, fontFamily: 'regular', fontWeight: 'bold'}}>Carregando...</Text>
+                  <Text style={{ marginHorizontal: 20, fontSize: 20, fontFamily: 'Montserrat-Regular', fontWeight: 'bold'}}>Carregando...</Text>
                 </View>
               </View>
             </View>
