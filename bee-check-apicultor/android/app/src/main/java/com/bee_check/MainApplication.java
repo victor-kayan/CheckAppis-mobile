@@ -28,7 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
+            new MainReactPackage(),
             new MapsPackage(),
             new LinearGradientPackage(),
             new ImagePickerPackage(),
@@ -37,6 +37,11 @@ public class MainApplication extends Application implements ReactApplication {
 
       );
     }
+
+    @Override    
+      public boolean canOverrideExistingModule() {        
+      return true;    
+    }  
 
     @Override
     protected String getJSMainModuleName() {

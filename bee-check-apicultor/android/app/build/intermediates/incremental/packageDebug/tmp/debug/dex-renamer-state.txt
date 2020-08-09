@@ -1,4 +1,4 @@
-#Fri May 29 19:54:45 BRT 2020
+#Sat Aug 08 22:07:34 BRT 2020
 base.0=/home/sadrak/Documents/CheckAppis/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

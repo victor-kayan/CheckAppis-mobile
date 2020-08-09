@@ -20,7 +20,7 @@ const HeaderCustom = ({
     {iconLeft ? (
       <Left>
         <Button transparent onPress={handleIconLeft}>
-          <Icon style={{color: colors.black}} type={typeIconLeft} name={iconLeft} />
+          <Icon style={{color: colors.white}} type={typeIconLeft} name={iconLeft} />
         </Button>
       </Left>
     ) : (
@@ -28,14 +28,14 @@ const HeaderCustom = ({
     )}
 
     <Body>
-      <Title style={{color: colors.black}}>{title}</Title>
+      <Title style={{color: colors.white, fontFamily: "Montserrat-Medium"}}>{title}</Title>
     </Body>
 
     {iconRight ? (
       <Right>
         <Button transparent onPress={handleIconRight}>
           <Icon
-            style={{color: colors.black}}
+            style={{color: colors.white}}
             type={typeIconRight}
             name={iconRight}
           />

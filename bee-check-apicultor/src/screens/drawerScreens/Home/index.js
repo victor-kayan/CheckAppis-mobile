@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, StatusBar, TouchableOpacity, Image } from "react-native";
+import { ScrollView, StyleSheet, StatusBar, TouchableOpacity, Image } from "react-native";
+import Carousel from 'react-native-snap-carousel';
 
 import LinearGradient from "react-native-linear-gradient";
 import { Text, View, Icon } from "native-base";
@@ -18,35 +19,49 @@ import { getCountColmeiasApiariosByApicultor } from "../../../redux/actions/colm
 import { getCountIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
 
 const styles = StyleSheet.create({
-  mapContainer: {
-    position: "absolute",
-    top: 50,
+  map: {
+    position: "relative",
+    top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    height: 0
+    minHeight: '100%'
   },
-  map: {
-    position: "absolute",
-    top: "40%",
-    left: 0,
-    right: 0,
-    bottom: 0
+  mapContainer: {
+    flex: 1,
+    position: 'relative'
   },
   welcomeName: {
     color: 'white',
     fontSize: 20,
-    fontFamily: 'Roboto-Regular',
+    fontFamily: 'Montserrat Regular',
   },
   welcomeDay: {
     color: 'white',
-    fontSize: 22,
-    fontFamily: 'MontserratBold',
+    fontSize: 21,
+    fontFamily: 'Montserrat-Bold',
   },
   welcomeView: {
     marginHorizontal: 20,
     marginVertical: 20,
   },
+  slide: {
+    backgroundColor: colors.white,
+    height: 50,
+    width: '100%',
+  },
+  cardInfo: {
+    width: "30%",
+    height: 170,
+    backgroundColor: colors.white,
+    borderRadius: 20,
+    padding:20,
+    marginHorizontal: 20
+  },
+  scrollCard: {
+    marginTop: 160,
+    position: 'absolute',
+  }
 });
 
 class Home extends Component {
@@ -83,6 +98,8 @@ class Home extends Component {
       }
     });
   };
+ 
+
 
   render() {
     const {
@@ -96,8 +113,8 @@ class Home extends Component {
       <>
         <StatusBar backgroundColor={colors.theme_default} />
         <LinearGradient
-          colors={[colors.theme_default, "#F4CC26", "#FFDD50", "#FFE579"]}
-          style={{ height: "40%" }}
+          colors={[colors.theme_default, colors.theme_second]}
+          style={{ height: "29%" }}
         >
           <View
             style={{
@@ -110,30 +127,101 @@ class Home extends Component {
             <TouchableOpacity
               onPress={() => this.props.navigation.openDrawer()}
             >
-              <Icon type="SimpleLineIcons" name="menu" color="#fff" active />
+              <Icon type="SimpleLineIcons" name="menu" color={colors.white} active />
             </TouchableOpacity>
           </View>
           <View style = {styles.welcomeView}>
             <Text style = {styles.welcomeName}>Olá, Sadrak!</Text>
             <Text style = {styles.welcomeDay}>O que vamos fazer hoje? </Text>
           </View>
-          <View>
-            
+          </LinearGradient>
+          <MapView
+          provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+          style={styles.map}
+          region={this.state.region}
+          zoomEnabled
+          loadingEnabled
+        >
+          {apiarios &&
+            apiarios.length ?
+            apiarios.map(apiario => (
+              <Marker
+                key={apiario.id}
+                coordinate={{
+                  latitude: parseFloat(apiario.latitude),
+                  longitude: parseFloat(apiario.longitude)
+                }}
+              >
+                <Image source={images.icons.apiario} style={{ width: 30, height: 30 }} />
+              </Marker>
+            )): null}
+        </MapView>
+          <View style = {styles.scrollCard}>
+            <ScrollView horizontal={true}
+              contentContainerStyle={{ width: `${100*3}%` }}
+              showsHorizontalScrollIndicator={false}
+              scrollEventThrottle={200}
+              decelerationRate="fast"
+              pagingEnabled
+            >
+            <View style = {styles.cardInfo}>
+              <Text>Apiários</Text>
+              <Text>Quantidade: {countApiarios && countApiarios}</Text>
+            </View>
+            <View style = {styles.cardInfo}>
+              <Text>Colmeias</Text>
+              <Text>Quantidade: {countColmeias && countColmeias}</Text>
+            </View>
+            <View style = {styles.cardInfo}>
+              <Text>Intervenções</Text>
+              <Text>Quantidade: {coutIntervencoes && coutIntervencoes}</Text>
+            </View>
+            </ScrollView>
           </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginHorizontal: "5%",
-              alignItems: "center"
-            }}
-          >
-            <View style={{ alignItems: "center", width: "33%" }}>
+          <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
+      </>
+    );
+  }
+}
+
+function mapStateToProps(state, props) {
+  return {
+    apiarios: state.apiarioState.apiarios,
+    countApiarios: state.apiarioState.countApiarios,
+    countColmeias: state.colmeiaState.countColmeias,
+    coutIntervencoes: state.intervencaoState.coutIntervencoes,
+    loading:
+      state.apiarioState.loading ||
+      state.colmeiaState.loading ||
+      state.intervencaoState.loading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      getCountApiariosByApicultor,
+      fetchApiariosByUser,
+      getCountColmeiasApiariosByApicultor,
+      getCountIntervencoesByApicultor
+    },
+    dispatch
+  );
+}
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
+
+{/* <GooglePlacesInput onLocationSelected={this.handleLocationSelected} /> */}
+
+{/* <View style={{ alignItems: "center", width: "33%" }}>
               <Image source={images.home.apiario64} style={styles.image} />
               <View style={{ marginTop: "15%", alignItems: "center" }}>
                 <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
+                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25,}}
                 >
                   {countApiarios && countApiarios}
                 </Text>
@@ -186,71 +274,12 @@ class Home extends Component {
                     marginTop: "10%",
                     color: "#ff8416",
                     fontWeight: "bold",
-                    fontSize: 17
+                    fontSize: 17,
                   }}
-                >
+                > 
                   {coutIntervencoes && coutIntervencoes === 1
                     ? "Intervencao"
                     : "Intervenções"}
                 </Text>
               </View>
-            </View>
-          </View>
-        </LinearGradient>
-        <MapView
-          provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-          style={styles.map}
-          region={this.state.region}
-          zoomEnabled
-          loadingEnabled
-        >
-          {apiarios &&
-            apiarios.length ?
-            apiarios.map(apiario => (
-              <Marker
-                key={apiario.id}
-                coordinate={{
-                  latitude: parseFloat(apiario.latitude),
-                  longitude: parseFloat(apiario.longitude)
-                }}
-              >
-                <Image source={images.icons.apiario} style={{ width: 30, height: 30 }} />
-              </Marker>
-            )): null}
-        </MapView>
-        <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
-      </>
-    );
-  }
-}
-
-function mapStateToProps(state, props) {
-  return {
-    apiarios: state.apiarioState.apiarios,
-    countApiarios: state.apiarioState.countApiarios,
-    countColmeias: state.colmeiaState.countColmeias,
-    coutIntervencoes: state.intervencaoState.coutIntervencoes,
-    loading:
-      state.apiarioState.loading ||
-      state.colmeiaState.loading ||
-      state.intervencaoState.loading
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      getCountApiariosByApicultor,
-      fetchApiariosByUser,
-      getCountColmeiasApiariosByApicultor,
-      getCountIntervencoesByApicultor
-    },
-    dispatch
-  );
-}
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+            </View> */}
