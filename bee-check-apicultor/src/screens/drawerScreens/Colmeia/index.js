@@ -82,201 +82,16 @@ class Colmeia extends Component {
     return (
       <Container>
         <HeaderCustom
-          iconLeft="menuunfold"
-          typeIconLeft="AntDesign"
+          iconLeft="menu"
+          typeIconLeft="SimpleLineIcons"
           handleIconLeft={() => this.props.navigation.openDrawer()}
           title="Colmeias"
+          description="Aqui, você pode visualizar e gerenciar todas as colmeias cadastradas"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-        <SpinnerCustom visible={loading} />
-        <Content padder scrollEnabled={true}>
-          <Card>
-            <CardItem>
-              <Image
-                source={images.icons.apiario}
-                style={styles.iconImagemSelectPicker}
-              />
-              <Picker
-                mode="dropdown"
-                selectedValue={selectedPickerApiario}
-                style={styles.pikerLisitApiario}
-                onValueChange={itemValue =>
-                  this.onValueChangePickerApiario(itemValue)
-                }
-              >
-                <Picker.Item
-                  enabled={false}
-                  key={null}
-                  label={"Selecione um Apiario"}
-                  value={null}
-                />
-                {!apiarios ? (
-                  <Picker.Item
-                    enabled={false}
-                    note
-                    label={"Nenhum Apiario encontrado"}
-                  />
-                ) : (
-                  apiarios.map(data => {
-                    return (
-                      <Picker.Item
-                        key={data.id}
-                        label={data.nome}
-                        value={data}
-                      />
-                    );
-                  })
-                )}
-              </Picker>
-            </CardItem>
-          </Card>
-          {!loading && colmeias && colmeias.length > 0 ? (
-            colmeias.map(colmeia => {
-              return (
-                <SwipeRow
-                  key={colmeia.id}
-                  leftOpenValue={55}
-                  rightOpenValue={-55}
-                >
-                  {/* Back content */}
-                  <View style={styles.swiperBackContent}>
-                    {/* Left */}
-                    <Button
-                      style={{ backgroundColor: colors.theme_second, height: '100%' }}
-                      onPress={() =>
-                        this.props.navigation.navigate(routes.EditColmeia, {
-                          colmeia
-                        })
-                      }
-                    >
-                      <Icon
-                        active
-                        style={{ color: colors.colorIcons }}
-                        type="FontAwesome"
-                        name="edit"
-                      />
-                    </Button>
-
-                    {/* Right */}
-                    <Button
-                      danger
-                      style={{ height: '100%' }}
-                      onPress={() =>
-                        this.setState({ dialogVisible: true, colmeia })
-                      }
-                    >
-                      <Icon active name="trash" />
-                    </Button>
-                  </View>
-                  
-                  {/* Body content */}
-                  <View>
-                    <CardItem>
-                      <Thumbnail
-                        square
-                        size={20}
-                        style={styles.imageColmeia}
-                        source={{
-                          uri: colmeia.foto
-                        }}
-                      />
-                      <View style={{ marginHorizontal: "10%" }}>
-                        <Row>
-                          <Text>{colmeia.nome}</Text>
-                        </Row>
-                        <Row>
-                          <Text numberOfLines={1} note>
-                            {colmeia.descricao}
-                          </Text>
-                        </Row>
-                      </View>
-                    </CardItem>
-                  </View>
-                </SwipeRow>
-              );
-            })
-          ) : !loading &&
-            !selectedPickerApiario &&
-            !selectedPickerApiario > 0 ? (
-            <>
-              <CardItem
-                style={{
-                  marginTop: 20,
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}
-              >
-                <Text>Primeiro selecione um apiario</Text>
-              </CardItem>
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Image style={{marginTop: '15%'}} source={images.home.apiario} />
-              </View>
-            </>
-          ) : (
-            !loading && (
-              <>
-                <CardItem
-                  style={{
-                    marginTop: 20,
-                    flexDirection: "column",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text>Nenhuma colmeia cadastrada</Text>
-                </CardItem>
-                <View
-                  style={{
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Icon
-                    onPress={() =>
-                      this.props.navigation.navigate(routes.NewColmeia, {
-                        apiario_id: selectedPickerApiario.id
-                      })
-                    }
-                    style={{ color: colors.btn_success, marginLeft: '30%',marginTop: '15%' }}
-                    active
-                    type="AntDesign"
-                    name="pluscircle"
-                  />
-                  <Image source={images.home.colmeia} />
-                </View>
-              </>
-            )
-          )}
-        </Content>
-        {selectedPickerApiario && (
-          <ActionButton buttonColor={colors.btn_success}>
-            <ActionButton.Item
-              buttonColor={"#ffc60b"}
-              title="Nova colmeia"
-              onPress={() =>
-                this.props.navigation.navigate(routes.NewColmeia, {
-                  apiario_id: selectedPickerApiario.id
-                })
-              }
-            >
-              <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
-            </ActionButton.Item>
-          </ActionButton>
-        )}
-        <RemoveDialog
-          visible={dialogVisible}
-          onCancel={() =>
-            this.setState({ dialogVisible: false, colmeia: null })
-          }
-          onDelete={this.deleteColmeia}
-        />
+        
       </Container>
     );
   }
@@ -301,3 +116,191 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Colmeia);
+
+// {/* <SpinnerCustom visible={loading} />
+//         <Content padder scrollEnabled={true}>
+//           <Card>
+//             <CardItem>
+//               <Image
+//                 source={images.icons.apiario}
+//                 style={styles.iconImagemSelectPicker}
+//               />
+//               <Picker
+//                 mode="dropdown"
+//                 selectedValue={selectedPickerApiario}
+//                 style={styles.pikerLisitApiario}
+//                 onValueChange={itemValue =>
+//                   this.onValueChangePickerApiario(itemValue)
+//                 }
+//               >
+//                 <Picker.Item
+//                   enabled={false}
+//                   key={null}
+//                   label={"Selecione um Apiario"}
+//                   value={null}
+//                 />
+//                 {!apiarios ? (
+//                   <Picker.Item
+//                     enabled={false}
+//                     note
+//                     label={"Nenhum Apiario encontrado"}
+//                   />
+//                 ) : (
+//                   apiarios.map(data => {
+//                     return (
+//                       <Picker.Item
+//                         key={data.id}
+//                         label={data.nome}
+//                         value={data}
+//                       />
+//                     );
+//                   })
+//                 )}
+//               </Picker>
+//             </CardItem>
+//           </Card>
+//           {!loading && colmeias && colmeias.length > 0 ? (
+//             colmeias.map(colmeia => {
+//               return (
+//                 <SwipeRow
+//                   key={colmeia.id}
+//                   leftOpenValue={55}
+//                   rightOpenValue={-55}
+//                 >
+//                   {/* Back content */}
+//                   <View style={styles.swiperBackContent}>
+//                     {/* Left */}
+//                     <Button
+//                       style={{ backgroundColor: colors.theme_second, height: '100%' }}
+//                       onPress={() =>
+//                         this.props.navigation.navigate(routes.EditColmeia, {
+//                           colmeia
+//                         })
+//                       }
+//                     >
+//                       <Icon
+//                         active
+//                         style={{ color: colors.colorIcons }}
+//                         type="FontAwesome"
+//                         name="edit"
+//                       />
+//                     </Button>
+
+//                     {/* Right */}
+//                     <Button
+//                       danger
+//                       style={{ height: '100%' }}
+//                       onPress={() =>
+//                         this.setState({ dialogVisible: true, colmeia })
+//                       }
+//                     >
+//                       <Icon active name="trash" />
+//                     </Button>
+//                   </View>
+                  
+//                   {/* Body content */}
+//                   <View>
+//                     <CardItem>
+//                       <Thumbnail
+//                         square
+//                         size={20}
+//                         style={styles.imageColmeia}
+//                         source={{
+//                           uri: colmeia.foto
+//                         }}
+//                       />
+//                       <View style={{ marginHorizontal: "10%" }}>
+//                         <Row>
+//                           <Text>{colmeia.nome}</Text>
+//                         </Row>
+//                         <Row>
+//                           <Text numberOfLines={1} note>
+//                             {colmeia.descricao}
+//                           </Text>
+//                         </Row>
+//                       </View>
+//                     </CardItem>
+//                   </View>
+//                 </SwipeRow>
+//               );
+//             })
+//           ) : !loading &&
+//             !selectedPickerApiario &&
+//             !selectedPickerApiario > 0 ? (
+//             <>
+//               <CardItem
+//                 style={{
+//                   marginTop: 20,
+//                   flexDirection: "column",
+//                   alignItems: "center"
+//                 }}
+//               >
+//                 <Text>Primeiro selecione um apiario</Text>
+//               </CardItem>
+//               <View
+//                 style={{
+//                   flex: 1,
+//                   justifyContent: "center",
+//                   alignItems: "center"
+//                 }}
+//               >
+//                 <Image style={{marginTop: '15%'}} source={images.home.apiario} />
+//               </View>
+//             </>
+//           ) : (
+//             !loading && (
+//               <>
+//                 <CardItem
+//                   style={{
+//                     marginTop: 20,
+//                     flexDirection: "column",
+//                     alignItems: "center"
+//                   }}
+//                 >
+//                   <Text>Nenhuma colmeia cadastrada</Text>
+//                 </CardItem>
+//                 <View
+//                   style={{
+//                     justifyContent: "center",
+//                     alignItems: "center",
+//                   }}
+//                 >
+//                   <Icon
+//                     onPress={() =>
+//                       this.props.navigation.navigate(routes.NewColmeia, {
+//                         apiario_id: selectedPickerApiario.id
+//                       })
+//                     }
+//                     style={{ color: colors.btn_success, marginLeft: '30%',marginTop: '15%' }}
+//                     active
+//                     type="AntDesign"
+//                     name="pluscircle"
+//                   />
+//                   <Image source={images.home.colmeia} />
+//                 </View>
+//               </>
+//             )
+//           )}
+//         </Content>
+//         {selectedPickerApiario && (
+//           <ActionButton buttonColor={colors.btn_success}>
+//             <ActionButton.Item
+//               buttonColor={"#ffc60b"}
+//               title="Nova colmeia"
+//               onPress={() =>
+//                 this.props.navigation.navigate(routes.NewColmeia, {
+//                   apiario_id: selectedPickerApiario.id
+//                 })
+//               }
+//             >
+//               <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
+//             </ActionButton.Item>
+//           </ActionButton>
+//         )}
+//         <RemoveDialog
+//           visible={dialogVisible}
+//           onCancel={() =>
+//             this.setState({ dialogVisible: false, colmeia: null })
+//           }
+//           onDelete={this.deleteColmeia}
+//         /> */}

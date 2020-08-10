@@ -34,7 +34,7 @@ export default class App extends React.Component {
     return (
       <Provider store={Store}>
         <Root>
-          <SwitchNavigator/>
+          <DrawerNavigator/>
         </Root>
       </Provider>
     );
@@ -50,10 +50,11 @@ const DrawerNavigator = createDrawerNavigator(
     Perfil
   },
   {
-    initialRouteName: "Visita",
+    initialRouteName: "Colmeia",
     contentComponent: props => <SideBar {...props} />,
     navigationOptions: {
-      headerTransparent: true
+      headerTransparent: true,
+      headerTintColor: colors.white
     }
   }
 );
@@ -75,7 +76,7 @@ const StackNavigator = createStackNavigator(
     initialRouteName: "DrawerNavigator",
     navigationOptions: {
       headerTransparent: true,
-      headerTintColor: colors.black
+      headerTintColor: colors.white
     }
   }
 );

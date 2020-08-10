@@ -16,7 +16,7 @@ const ButtonCustom = ({
     <Button {...rest} style={[{ borderRadius: 15, backgroundColor: colors.theme_default},style]} onPress={onPress}>
     {iconLeft ? (
         <Icon
-        style={{color: colors.black}}
+        style={{color: colors.white}}
         type={typeIconLeft}
         name={iconLeft}
     />

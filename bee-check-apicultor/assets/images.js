@@ -30,6 +30,7 @@ export default images = {
     apiario64: require("../images/home/apiario64.png"),
     visita64: require("../images/home/visita64.png"),
     intervencao64: require("../images/home/intervencao64.png"),
+    cover: require("../images/home/bee.jpg"),
   },
 
   sider: {
@@ -40,5 +41,11 @@ export default images = {
     intervencao: require("../images/sider/intervencao.png"),
     logout: require("../images/sider/logout.png"),
     profile: require("../images/sider/profile.png")
-  }
+  },
+
+  cards: {
+    apiary: require ("../images/cards/apiary.png"),
+    hive: require ("../images/cards/hive.png"),
+    inter: require ("../images/cards/interventions.png"),
+  },
 };

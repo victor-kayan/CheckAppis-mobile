@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, StatusBar, TouchableOpacity, Image } from "react-native";
+import { ImageBackground, ScrollView, StyleSheet, StatusBar, TouchableOpacity, Image, Animated, SafeAreaView } from "react-native";
 import Carousel from 'react-native-snap-carousel';
-
 import LinearGradient from "react-native-linear-gradient";
 import { Text, View, Icon } from "native-base";
 import { colors, images } from "../../../../assets";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import GooglePlacesInput from "./GooglePlacesInput";
-
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-
 import {
   getCountApiariosByApicultor,
   fetchApiariosByUser
@@ -43,26 +40,70 @@ const styles = StyleSheet.create({
   },
   welcomeView: {
     marginHorizontal: 20,
-    marginVertical: 20,
-  },
-  slide: {
-    backgroundColor: colors.white,
-    height: 50,
-    width: '100%',
+    marginTop: 70,
+    position: 'absolute'
   },
   cardInfo: {
     width: "30%",
     height: 170,
     backgroundColor: colors.white,
     borderRadius: 20,
-    padding:20,
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOpacity: 0,
+    shadowOffset: { x: 0, y: 0 },
+    shadowRadius: 15,
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
   scrollCard: {
     marginTop: 160,
+    marginBottom: 10,
     position: 'absolute',
+    height: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  coverImage: {
+    resizeMode: 'cover',
+    flex: 1, 
+    opacity: 0.1,
+  },
+  viewHeader: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    marginHorizontal: 20,
+    marginTop: 20,
+    backgroundColor: 'transparent',
+    position: 'absolute',
+  },
+  titleCard: {
+    color: colors.theme_second,
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 20,
+    marginLeft: 40,
+  },
+  qtdCard: {
+    color: colors.theme_second,
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 16,
+    marginLeft: 40,
+  },
+  cardIcon: {
+    width: '50%',
+    height: '100%',
+  },
+  viewText: {
+    justifyContent: 'center',
+    width: '50%',
+    height: '100%',
+  },
+  safeArea: {
+    marginTop: 200,
   }
 });
+
 
 class Home extends Component {
   constructor(props) {
@@ -98,7 +139,12 @@ class Home extends Component {
       }
     });
   };
- 
+
+  static navigationOptions = {
+    drawerLabel: 'HOME',
+    headerTintColor: 'white',
+    
+  };
 
 
   render() {
@@ -109,39 +155,45 @@ class Home extends Component {
       apiarios
     } = this.props;
 
+    const cards = [
+      { tile: 'Apiários' },
+      { tile: 'Apiários' },
+      { tile: 'Apiários' }
+    ];
+    
+
     return (
       <>
+
         <StatusBar backgroundColor={colors.theme_default} />
+
         <LinearGradient
           colors={[colors.theme_default, colors.theme_second]}
-          style={{ height: "29%" }}
+          style={{ height: 250}}
         >
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "flex-start",
-              marginHorizontal: 20,
-              marginTop: 20
-            }}
-          >
+          
+          <ImageBackground source={images.home.cover} style={styles.coverImage}/>
+
+          <View style={styles.viewHeader}>
             <TouchableOpacity
               onPress={() => this.props.navigation.openDrawer()}
             >
-              <Icon type="SimpleLineIcons" name="menu" color={colors.white} active />
+              <Icon type="SimpleLineIcons" name="menu" color="white" iconSize={5} active/>
             </TouchableOpacity>
           </View>
           <View style = {styles.welcomeView}>
-            <Text style = {styles.welcomeName}>Olá, Sadrak!</Text>
+            <Text style = {styles.welcomeName}>Olá, Usuário!</Text>
             <Text style = {styles.welcomeDay}>O que vamos fazer hoje? </Text>
           </View>
           </LinearGradient>
+
           <MapView
-          provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+          provider={PROVIDER_GOOGLE} 
           style={styles.map}
           region={this.state.region}
           zoomEnabled
           loadingEnabled
-        >
+          >
           {apiarios &&
             apiarios.length ?
             apiarios.map(apiario => (
@@ -156,6 +208,7 @@ class Home extends Component {
               </Marker>
             )): null}
         </MapView>
+
           <View style = {styles.scrollCard}>
             <ScrollView horizontal={true}
               contentContainerStyle={{ width: `${100*3}%` }}
@@ -164,21 +217,61 @@ class Home extends Component {
               decelerationRate="fast"
               pagingEnabled
             >
+            
             <View style = {styles.cardInfo}>
-              <Text>Apiários</Text>
-              <Text>Quantidade: {countApiarios && countApiarios}</Text>
+              <View style = {styles.viewText}>
+                <Text style = {styles.titleCard}>Apiários</Text>
+                <Text style = {styles.qtdCard}>Quantidade: {countApiarios && countApiarios}</Text>
+              </View>
+              <Image
+                style = {styles.cardIcon}
+                source={require ('../../../../images/cards/apiary.png')}
+              />
             </View>
             <View style = {styles.cardInfo}>
-              <Text>Colmeias</Text>
-              <Text>Quantidade: {countColmeias && countColmeias}</Text>
+              <View style = {styles.viewText}>
+                <Text style = {styles.titleCard}>Colmeias</Text>
+                <Text style = {styles.qtdCard}>Quantidade: {countColmeias && countColmeias}</Text>
+              </View>
+              <Image
+                style = {styles.cardIcon}
+                source={require ('../../../../images/cards/hive.png')}
+              />
             </View>
             <View style = {styles.cardInfo}>
-              <Text>Intervenções</Text>
-              <Text>Quantidade: {coutIntervencoes && coutIntervencoes}</Text>
+            <View style = {styles.viewText}>
+                <Text style = {styles.titleCard}>Intervenções</Text>
+                <Text style = {styles.qtdCard}>Quantidade: {coutIntervencoes && coutIntervencoes}</Text>
+              </View>
+              <Image
+                style = {styles.cardIcon}
+                source={require ('../../../../images/cards/interventions.png')}
+              />
             </View>
             </ScrollView>
+            <View
+              style={{ flexDirection: 'row'}}
+              >
+              {cards.map((_, i) => { 
+              scrollX = new Animated.Value(0);
+              let position = Animated.divide(this.scrollX, 6);
+              let opacity = position.interpolate({
+                inputRange: [i - 1, i, i + 1], // each dot will need to have an opacity of 1 when position is equal to their index (i)
+                outputRange: [0.3, 1, 0.3], // when position is not i, the opacity of the dot will animate to 0.3
+                extrapolate: 'clamp' // this will prevent the opacity of the dots from going outside of the outputRange (i.e. opacity will not be less than 0.3)
+              });
+                return (
+                  <Animated.View
+                    key={i} 
+                    style={{height: 6, width: 6, backgroundColor: '#595959', margin: 8, borderRadius: 5 }}
+                  />
+                );
+              })}
+            </View>
           </View>
+
           <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
+
       </>
     );
   }
@@ -215,71 +308,3 @@ export default connect(
   mapDispatchToProps
 )(Home);
 
-{/* <GooglePlacesInput onLocationSelected={this.handleLocationSelected} /> */}
-
-{/* <View style={{ alignItems: "center", width: "33%" }}>
-              <Image source={images.home.apiario64} style={styles.image} />
-              <View style={{ marginTop: "15%", alignItems: "center" }}>
-                <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25,}}
-                >
-                  {countApiarios && countApiarios}
-                </Text>
-                <Text
-                  style={{
-                    marginTop: "10%",
-                    color: "#ff8416",
-                    fontWeight: "bold",
-                    fontSize: 17,
-                  }}
-                >
-                  {countApiarios && countApiarios === 1
-                    ? "Apiário"
-                    : "Apiários"}
-                </Text>
-              </View>
-            </View>
-            <View style={{ alignItems: "center", width: "33%" }}>
-              <Image source={images.home.colmeia64} />
-              <View style={{ marginTop: "15%", alignItems: "center" }}>
-                <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
-                >
-                  {countColmeias && countColmeias}
-                </Text>
-                <Text
-                  style={{
-                    marginTop: "10%",
-                    color: "#ff8416",
-                    fontWeight: "bold",
-                    fontSize: 17
-                  }}
-                >
-                  {countColmeias && countColmeias === 1
-                    ? "Colmeia"
-                    : "Colmeias"}
-                </Text>
-              </View>
-            </View>
-            <View style={{ alignItems: "center", width: "33%" }}>
-              <Image source={images.home.intervencao64} style={styles.image} />
-              <View style={{ marginTop: "15%", alignItems: "center" }}>
-                <Text
-                  style={{ color: "#ff8416", fontWeight: "bold", fontSize: 25 }}
-                >
-                  {coutIntervencoes && coutIntervencoes}
-                </Text>
-                <Text
-                  style={{
-                    marginTop: "10%",
-                    color: "#ff8416",
-                    fontWeight: "bold",
-                    fontSize: 17,
-                  }}
-                > 
-                  {coutIntervencoes && coutIntervencoes === 1
-                    ? "Intervencao"
-                    : "Intervenções"}
-                </Text>
-              </View>
-            </View> */}
