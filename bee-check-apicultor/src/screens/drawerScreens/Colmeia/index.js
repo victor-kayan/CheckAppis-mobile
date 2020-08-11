@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
+import { Image, ScrollView } from "react-native";
 import {
   Icon,
   Card,
@@ -11,7 +11,8 @@ import {
   Thumbnail,
   Button,
   Row,
-  View
+  View,
+  StatusBar,
 } from "native-base";
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { connect } from "react-redux";
@@ -29,6 +30,8 @@ import {
 } from "../../../redux/actions/colmeiaActions";
 import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
+import LinearGradient from "react-native-linear-gradient";
+
 
 class Colmeia extends Component {
   constructor(props) {
@@ -81,6 +84,7 @@ class Colmeia extends Component {
 
     return (
       <Container>
+
         <HeaderCustom
           iconLeft="menu"
           typeIconLeft="SimpleLineIcons"
@@ -91,6 +95,22 @@ class Colmeia extends Component {
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
+        <View style = {styles.containerContentHives}>
+          <Text style = {styles.title}>Selecione um apiário</Text>
+          <Text style = {styles.description}>Selecione um apiário para ver as colmeias cadastradas nele</Text>
+        </View>
+        <View style = {styles.contentHive}>
+          <Icon type="AntDesign" name="caretdown" style={styles.iconDown}/>
+          <View>
+            <ScrollView>
+              {
+                this.props.apiarios.map (data =>
+                <Apiary key={data.id} label={data.nome} value={data}/>)
+              }
+              <Text>heyyy</Text>
+            </ScrollView>
+          </View>
+        </View>
         
       </Container>
     );

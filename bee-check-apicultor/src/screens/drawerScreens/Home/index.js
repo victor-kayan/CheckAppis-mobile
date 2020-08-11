@@ -178,7 +178,7 @@ class Home extends Component {
             <TouchableOpacity
               onPress={() => this.props.navigation.openDrawer()}
             >
-              <Icon type="SimpleLineIcons" name="menu" color="white" iconSize={5} active/>
+              <Icon type="SimpleLineIcons" name="menu" style={{color: colors.white}} iconSize={5} active/>
             </TouchableOpacity>
           </View>
           <View style = {styles.welcomeView}>

@@ -3,6 +3,7 @@ import { View, AsyncStorage, StyleSheet, Image, Alert } from "react-native";
 import { Spinner, Text } from "native-base";
 import { colors, constants, routes, images } from "../../../assets";
 import { Api } from "../../../services";
+import LinearGradient from "react-native-linear-gradient";
 
 class LoadingLogin extends React.Component {
   async componentDidMount() {
@@ -64,20 +65,24 @@ class LoadingLogin extends React.Component {
 
   render() {
     return (
+      <LinearGradient
+          colors={[colors.theme_default, colors.theme_second]}
+          style={{ height: '100%'}}
+        >
       <View style={styles.view}>
-        <Image source={images.logo} />
+        <Spinner size="large" color={colors.white} />
         <View style={styles.logoName}>
           <Text
-            style={{ color: colors.black, fontWeight: "bold", fontSize: 40 }}
+            style={{ color: colors.white, fontSize: 40, fontFamily:'Montserrat-Bold' }}
           >
-            Bee
-          </Text>
-          <Text style={{ fontSize: 40, marginHorizontal: 10 }} note>
             Check
           </Text>
+          <Text style={{ fontSize: 40, fontFamily: 'Montserrat-Medium', color: colors.white}} note>
+            Appis
+          </Text>
         </View>
-        <Spinner size="large" color={colors.theme_default} />
       </View>
+      </LinearGradient>
     );
   }
 }
@@ -86,7 +91,7 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   logoName: {
     flexDirection: "row"
