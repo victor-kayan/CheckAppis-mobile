@@ -12,7 +12,6 @@ import {
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
-import { createVisita } from "../../../redux/actions/visitaActions";
 import { Image } from "react-native";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
 import FormVisita from "./FormVisita";
@@ -143,7 +142,6 @@ class NewVisitaApiario extends Component {
   }
 }
 
-// export default Visita;
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
@@ -153,7 +151,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchApiariosByUser, createVisita },
+    { fetchApiariosByUser },
     dispatch
   );
 }

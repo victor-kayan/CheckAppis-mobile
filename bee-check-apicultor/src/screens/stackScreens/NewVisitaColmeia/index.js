@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Image } from "react-native";
-import styles from "./styles";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ActionSheetCustom as ActionSheet } from "react-native-actionsheet";
@@ -17,12 +16,15 @@ import {
   Toast
 } from "native-base";
 import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
-import { createVisita, reduxOfflineTest } from "../../../redux/actions/visitaActions";
+import { createVisita } from "../../../redux/actions/visitaActions";
 import { SpinnerCustom } from "../../../componentes";
 import { colors, routes, images } from "../../../../assets";
 import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
 import HeaderVisita from "./HeaderVisita";
+import styles from "./styles";
+
+import tron from '../../../config/ReactotronConfig'
 
 class NewVisitaColmeia extends Component {
   constructor(props) {
@@ -37,6 +39,12 @@ class NewVisitaColmeia extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
+    tron.logImportant('componentWillReceiveProps')
+
+    // ! OBS: Talvez não esteja voltando para a tela de listagem de visitas por que
+    // !      nenhum estado do redux está sendo alterado nas actions
+
     const { done, doneColmeias } = this.state;
     
     if (doneColmeias && nextProps.colmeias) {
@@ -148,8 +156,6 @@ class NewVisitaColmeia extends Component {
       type: "success"
     });
     this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
-
-    console.log(colmeiasVisitadas)
   };
 
   onFinishVisitaColmeia = values => {
@@ -198,15 +204,13 @@ class NewVisitaColmeia extends Component {
 
     const serializedData = this.serializeVisitData(data);
     
-    // this.props.createVisita(data);
-    this.props.reduxOfflineTest(serializedData);
-    
-    console.log(`Dados da visita: ${data}`);
-    console.log(`Dados serializados: ${serializedData}`);
+    this.props.createVisita(serializedData);
+
+    // TODO: Navegar e mostrar toast...
   };
 
   /**
-  * Função para calcular e adicionar novas variáveis ao objeto da visitia
+  * Função para calcular e adicionar novas propriedades (metadados) ao objeto da visita
   * 
   * Os dados contendo as quantidades totais dos itens visitados eram calculados e retornados pela API.
   * Essa responsabilidade está sendo passada para o frontend devido a implementação da UI otimista.
@@ -246,6 +250,7 @@ class NewVisitaColmeia extends Component {
     const qtd_colmeias_sem_realeira = numberOfVisitedHives - qtd_colmeias_com_realeira;
 
     const visitData = {
+      isSynced: false, // Propriedade que define se a visita está sincronizada ou não. Por padrão é definida como "false" pois inicialmente será salvo localmente.
       apiario_id: data.apiario_id,
       visitas_colmeias: data.visitas_colmeias,
       visita_apiario: {
@@ -422,7 +427,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ 
     getColemiasByApiario, 
     createVisita, 
-    reduxOfflineTest 
   }, dispatch);
 }
 
