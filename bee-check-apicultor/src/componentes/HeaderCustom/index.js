@@ -1,7 +1,9 @@
 import React from "react";
-import { colors } from "../../../assets";
+import { colors, images } from "../../../assets";
 import {Left, Icon, Button, Body, Title, Right } from "native-base";
-import {View, Text, TouchableOpacity} from "react-native";
+import {View, Text, TouchableOpacity, ImageBackground, StyleSheet} from "react-native";
+import LinearGradient from "react-native-linear-gradient";
+import styles from "./styles";
 
 const HeaderCustom = ({
   iconRight,
@@ -22,7 +24,12 @@ const HeaderCustom = ({
      }}
     androidStatusBarColor={colors.colorAndroidBarraStatus}
   >
-    <View style = {{justifyContent: 'space-between', flexDirection: 'row', padding: 20, }}>
+    <LinearGradient
+      colors={[colors.theme_default, colors.theme_second]}
+      style={{ height: '100%'}}
+    >
+    <ImageBackground source={images.headers.hive} style = {{resizeMode: 'cover', flex: 1, opacity: 0.1}}/>
+    <View style = {{justifyContent: 'space-between', flexDirection: 'row', padding: 20, position: 'absolute', width: '100%'}}>
         <TouchableOpacity transparent onPress={handleIconLeft}>
           <Icon style={{color: colors.white}} type='SimpleLineIcons' name='menu' />
         </TouchableOpacity>
@@ -34,7 +41,7 @@ const HeaderCustom = ({
           />
         </TouchableOpacity>
     </View>
-
+     <View style = {{width: '70%', position: 'absolute', marginTop: 70}}>
       <Text style={{
         color: colors.white, 
         fontFamily: "Montserrat-Bold", 
@@ -42,14 +49,13 @@ const HeaderCustom = ({
         marginTop: 20, 
         marginLeft: 20, 
         marginBottom: 5}}>{title}</Text>
-      <View style = {{width: '70%'}}>
       <Text style={{
         color: colors.white, 
         fontFamily: "Montserrat Regular", 
         fontSize: 13, 
         marginLeft: 20, }}>{description}</Text>
       </View>
-    
+      </LinearGradient>
   </View>
 );
 

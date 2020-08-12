@@ -48,4 +48,8 @@ export default images = {
     hive: require ("../images/cards/hive.png"),
     inter: require ("../images/cards/interventions.png"),
   },
+
+  headers: {
+    hive: require ("../images/headerimage.jpg"),
+  },
 };

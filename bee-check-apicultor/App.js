@@ -34,7 +34,7 @@ export default class App extends React.Component {
     return (
       <Provider store={Store}>
         <Root>
-          <SwitchNavigator/>
+          <DrawerNavigator/>
         </Root>
       </Provider>
     );

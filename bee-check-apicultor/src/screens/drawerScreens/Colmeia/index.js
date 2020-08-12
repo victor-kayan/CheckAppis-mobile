@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, ScrollView } from "react-native";
+import { Image, ScrollView, StatusBar, ImageBackground } from "react-native";
 import {
   Icon,
   Card,
@@ -12,7 +12,6 @@ import {
   Button,
   Row,
   View,
-  StatusBar,
 } from "native-base";
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { connect } from "react-redux";
@@ -30,7 +29,6 @@ import {
 } from "../../../redux/actions/colmeiaActions";
 import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
-import LinearGradient from "react-native-linear-gradient";
 
 
 class Colmeia extends Component {
@@ -84,23 +82,24 @@ class Colmeia extends Component {
 
     return (
       <Container>
-
-        <HeaderCustom
-          iconLeft="menu"
-          typeIconLeft="SimpleLineIcons"
-          handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Colmeias"
-          description="Aqui, você pode visualizar e gerenciar todas as colmeias cadastradas"
-          iconRight="sync"
-          handleIconRight={() => this.handleRefresh()}
-          typeIconRight="AntDesign"
-        />
+        <StatusBar backgroundColor={colors.theme_default} />
+          <HeaderCustom
+            iconLeft="menu"
+            typeIconLeft="SimpleLineIcons"
+            handleIconLeft={() => this.props.navigation.openDrawer()}
+            title="Colmeias"
+            description="Aqui, você pode visualizar e gerenciar todas as colmeias cadastradas"
+            iconRight="sync"
+            handleIconRight={() => this.handleRefresh()}
+            typeIconRight="AntDesign"
+          />
         <View style = {styles.containerContentHives}>
           <Text style = {styles.title}>Selecione um apiário</Text>
           <Text style = {styles.description}>Selecione um apiário para ver as colmeias cadastradas nele</Text>
         </View>
         <View style = {styles.contentHive}>
-          <Icon type="AntDesign" name="caretdown" style={styles.iconDown}/>
+        <View style = {[styles.triangle,styles.arrowUp]}>
+        </View>
           <View>
             <ScrollView>
               {
