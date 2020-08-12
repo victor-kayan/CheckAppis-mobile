@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import 'react-native-get-random-values';
+
 import { Image } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { v4 as uuidv4 } from 'uuid';
 import { ActionSheetCustom as ActionSheet } from "react-native-actionsheet";
 import {
   Container,
@@ -15,6 +18,7 @@ import {
   H3,
   Toast
 } from "native-base";
+
 import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
 import { createVisita } from "../../../redux/actions/visitaActions";
 import { SpinnerCustom } from "../../../componentes";
@@ -23,8 +27,6 @@ import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
 import HeaderVisita from "./HeaderVisita";
 import styles from "./styles";
-
-import tron from '../../../config/ReactotronConfig'
 
 class NewVisitaColmeia extends Component {
   constructor(props) {
@@ -39,9 +41,6 @@ class NewVisitaColmeia extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
-    tron.logImportant('componentWillReceiveProps')
-
     // ! OBS: Talvez não esteja voltando para a tela de listagem de visitas por que
     // !      nenhum estado do redux está sendo alterado nas actions
 
@@ -249,16 +248,21 @@ class NewVisitaColmeia extends Component {
     const qtd_colmeias_sem_zangao = numberOfVisitedHives - qtd_colmeias_com_zangao;
     const qtd_colmeias_sem_realeira = numberOfVisitedHives - qtd_colmeias_com_realeira;
 
+    const metadata = {
+      qtd_quadros_mel, qtd_quadros_polen, qtd_cria_aberta, qtd_cria_fechada, qtd_quadros_vazios,
+      qtd_colmeias_com_postura, qtd_colmeias_com_abelhas_mortas, qtd_colmeias_com_zangao, qtd_colmeias_com_realeira,
+      qtd_colmeias_sem_postura, qtd_colmeias_sem_abelhas_mortas, qtd_colmeias_sem_zangao, qtd_colmeias_sem_realeira,
+      qtd_quadros_analizados
+    };
+
     const visitData = {
-      isSynced: false, // Propriedade que define se a visita está sincronizada ou não. Por padrão é definida como "false" pois inicialmente será salvo localmente.
-      apiario_id: data.apiario_id,
-      visitas_colmeias: data.visitas_colmeias,
-      visita_apiario: {
+      isSynced: false,  // Propriedade que define se a visita está sincronizada ou não. Por padrão é definida como "false" pois inicialmente será salvo localmente.
+      uuid: uuidv4(),   // Identificador universal único para diferenciar cada visita mesmo antes de ser sincronizada.
+      visita: {
         ...data.visita_apiario,
-        qtd_quadros_mel, qtd_quadros_polen, qtd_cria_aberta, qtd_cria_fechada, qtd_quadros_vazios,
-        qtd_colmeias_com_postura, qtd_colmeias_com_abelhas_mortas, qtd_colmeias_com_zangao, qtd_colmeias_com_realeira,
-        qtd_colmeias_sem_postura, qtd_colmeias_sem_abelhas_mortas, qtd_colmeias_sem_zangao, qtd_colmeias_sem_realeira,
-        qtd_quadros_analizados
+        ...metadata,
+        apiario_id: data.apiario_id,
+        visita_colmeias: data.visitas_colmeias,
       }
     };
 

@@ -3,6 +3,7 @@ package com.bee_check;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.linusu.RNGetRandomValuesPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGetRandomValuesPackage(),
             new LinearGradientPackage(),
             new ImagePickerPackage(),
             new VectorIconsPackage(),

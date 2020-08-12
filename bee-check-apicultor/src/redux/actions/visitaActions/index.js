@@ -139,7 +139,6 @@ export const createVisita = data => {
     dispatch({
       type: INITIATE_CREATE_VISITA,
       payload: {
-        // ! Deve ser salvo no state já no formato final (da resposta da API)
         newVisitaData: data
       },
       meta: {
