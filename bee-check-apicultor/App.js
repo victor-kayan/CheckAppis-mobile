@@ -34,7 +34,7 @@ export default class App extends React.Component {
     return (
       <Provider store={Store}>
         <Root>
-          <DrawerNavigator/>
+          <SwitchNavigator/>
         </Root>
       </Provider>
     );
@@ -50,7 +50,7 @@ const DrawerNavigator = createDrawerNavigator(
     Perfil
   },
   {
-    initialRouteName: "Colmeia",
+    initialRouteName: "Home",
     contentComponent: props => <SideBar {...props} />,
     navigationOptions: {
       headerTransparent: true,

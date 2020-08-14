@@ -51,6 +51,7 @@ export default {
   },
   contentHive: {
     alignItems: 'center',
+    justifyContent: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     flex: 1,
@@ -63,6 +64,7 @@ export default {
     borderStyle: 'solid',
     transform: [{ rotate: '180deg' }],
     alignSelf: 'center',
+    marginBottom: 10,
 },
 arrowUp: {
     borderTopWidth: 0,
@@ -144,4 +146,42 @@ arrowDownRight: {
     borderBottomColor: "white",
     borderLeftColor: 'transparent',
 },
+hive: {
+  width: '100%',
+  height: 100,
+  backgroundColor: colors.white,
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: 10,
+  borderRadius: 15,
+},
+imageApiary: {
+  width: '30%',
+  height: '100%',
+},
+contentText: {
+  width: '50%',
+  height: '100%',
+  justifyContent: 'center',
+  padding: 10,
+},
+contentArrow: {
+  width: '20%',
+  height: '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+arrow: {
+  fontSize: 30,
+  color: colors.blackgrey,
+},
+hiveName: {
+  fontSize: 13,
+  fontFamily: 'Montserrat-Bold',
+},
+hiveDescription: {
+  fontSize: 13,
+  fontFamily: 'Montserrat Regular',
+}
 };

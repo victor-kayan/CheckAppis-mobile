@@ -1,20 +1,19 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, Alert} from 'react-native';
+import { Icon } from "native-base";
+import {View, Text} from 'react-native';
+import styles from "./styles";
 
 
-export default class Match extends React.Component {
+export default class Apiary extends React.Component {
     render () {
         return (
-            <View>
-                <View>
-                    
+            <View style = {styles.apiary}>
+                <View style = {styles.contentText}>
+                  <Text style = {styles.apiaryName}>{this.props.name}</Text>
+                  <Text style = {styles.apiaryDescription}>{this.props.description}</Text>
                 </View>
-                <View>
-                    <Text>{this.props.name}</Text>
-                    <Text>{this.props.description}</Text>
-                </View>
-                <View>
-
+                <View style = {styles.contentArrow}>
+                  <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>
                 </View>
             </View>
         );

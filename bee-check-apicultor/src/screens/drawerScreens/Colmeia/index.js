@@ -29,6 +29,7 @@ import {
 } from "../../../redux/actions/colmeiaActions";
 import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
+import Apiary from "../../../componentes/Apiary";
 
 
 class Colmeia extends Component {
@@ -98,17 +99,14 @@ class Colmeia extends Component {
           <Text style = {styles.description}>Selecione um apiário para ver as colmeias cadastradas nele</Text>
         </View>
         <View style = {styles.contentHive}>
-        <View style = {[styles.triangle,styles.arrowUp]}>
-        </View>
-          <View>
-            <ScrollView>
-              {
-                this.props.apiarios.map (data =>
-                <Apiary key={data.id} label={data.nome} value={data}/>)
-              }
-              <Text>heyyy</Text>
+        <View style = {[styles.triangle,styles.arrowUp]}/>
+            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
+            {
+              apiarios.map (apiary =>
+                <Apiary key = {apiary.id} name = {apiary.nome} description = {apiary.descricao}/>
+              )
+            }
             </ScrollView>
-          </View>
         </View>
         
       </Container>
@@ -135,6 +133,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Colmeia);
+
+/* {
+                this.apiarios.map (data =>
+                <Apiary key={data.id} label={data.nome} value={data}/>)
+              } */
 
 // {/* <SpinnerCustom visible={loading} />
 //         <Content padder scrollEnabled={true}>
