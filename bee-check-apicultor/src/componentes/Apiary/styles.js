@@ -34,5 +34,9 @@ apiaryName: {
 apiaryDescription: {
   fontSize: 13,
   fontFamily: 'Montserrat Regular',
+},
+touchStyle: {
+  alignItems: 'center',
+  justifyContent: 'center',
 }
 };

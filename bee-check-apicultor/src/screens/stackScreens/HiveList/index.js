@@ -32,7 +32,7 @@ import styles from "./styles";
 import Apiary from "../../../componentes/Apiary";
 
 
-class Colmeia extends Component {
+class HiveList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,6 +44,7 @@ class Colmeia extends Component {
 
   componentDidMount() {
     this.fetchApiarios();
+    alert(this.props.navigation.getParam('apiaryId'))
   }
   
   handleRefresh() {
@@ -68,11 +69,6 @@ class Colmeia extends Component {
       // this.props.getColemiasByApiario({id: apiario_id });
     }
   };
-
-  openHiveList = (apiaryId) => {
-    this.props.navigation.navigate(routes.HiveList, {apiaryId});
-};
-
 
   onValueChangePickerApiario = apiario => {
     this.setState({ selectedPickerApiario: apiario });
@@ -100,15 +96,14 @@ class Colmeia extends Component {
             typeIconRight="AntDesign"
           />
         <View style = {styles.containerContentHives}>
-          <Text style = {styles.title}>Selecione um apiário</Text>
-          <Text style = {styles.description}>Selecione um apiário para ver as colmeias cadastradas nele</Text>
+          <Text style = {styles.title}>Aqui estão todas as colmeias do apiário {this.props}</Text>
         </View>
         <View style = {styles.contentHive}>
         <View style = {[styles.triangle,styles.arrowUp]}/>
             <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
             {
               apiarios.map (apiary =>
-                <Apiary key = {apiary.id} apiaryId = {apiary.id} name = {apiary.nome} description = {apiary.descricao} openHiveList = {this.openHiveList}/>
+                <Apiary key = {apiary.id} name = {apiary.nome} description = {apiary.descricao}/>
               )
             }
             </ScrollView>
@@ -137,7 +132,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Colmeia);
+)(HiveList);
 
 /* {
                 this.apiarios.map (data =>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { ImageBackground, ScrollView, StyleSheet, StatusBar, TouchableOpacity, Image, Animated, SafeAreaView } from "react-native";
-import Carousel from 'react-native-snap-carousel';
+import { ImageBackground, ScrollView, StyleSheet, StatusBar, TouchableOpacity, Image, Animated, Dimensions } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { Text, View, Icon } from "native-base";
 import { colors, images } from "../../../../assets";
@@ -14,6 +13,8 @@ import {
 } from "../../../redux/actions/apiarioActions";
 import { getCountColmeiasApiariosByApicultor } from "../../../redux/actions/colmeiaActions";
 import { getCountIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
+
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   map: {
@@ -157,8 +158,8 @@ class Home extends Component {
 
     const cards = [
       { tile: 'Apiários' },
-      { tile: 'Apiários' },
-      { tile: 'Apiários' }
+      { tile: 'Colmeias' },
+      { tile: 'Intervenções' },
     ];
     
 
@@ -211,11 +212,15 @@ class Home extends Component {
 
           <View style = {styles.scrollCard}>
             <ScrollView horizontal={true}
-              contentContainerStyle={{ width: `${100*3}%` }}
+              contentContainerStyle={{ width: `${100*3}%`}}
               showsHorizontalScrollIndicator={false}
               scrollEventThrottle={200}
               decelerationRate="fast"
               pagingEnabled
+              onScroll={Animated.event( // Animated.event returns a function that takes an array where the first element...
+                [{ nativeEvent: { contentOffset: { x: this.scrollX } } }] // ... is an object that maps any nativeEvent prop to a variable
+              )} // in this case we are mapping the value of nativeEvent.contentOffset.x to this.scrollX
+              scrollEventThrottle={16} // this will ensure that this ScrollView's onScroll prop is called no faster than 16ms between each function call
             >
             
             <View style = {styles.cardInfo}>
@@ -254,16 +259,16 @@ class Home extends Component {
               >
               {cards.map((_, i) => { 
               scrollX = new Animated.Value(0);
-              let position = Animated.divide(this.scrollX, 6);
+              let position = Animated.divide(scrollX, width);
               let opacity = position.interpolate({
-                inputRange: [i - 1, i, i + 1], // each dot will need to have an opacity of 1 when position is equal to their index (i)
-                outputRange: [0.3, 1, 0.3], // when position is not i, the opacity of the dot will animate to 0.3
-                extrapolate: 'clamp' // this will prevent the opacity of the dots from going outside of the outputRange (i.e. opacity will not be less than 0.3)
+                inputRange: [i - 1, i, i + 1], 
+                outputRange: [0.3, 1, 0.3], 
+                extrapolate: 'clamp' 
               });
                 return (
                   <Animated.View
                     key={i} 
-                    style={{height: 6, width: 6, backgroundColor: '#595959', margin: 8, borderRadius: 5 }}
+                    style={{opacity, height: 6, width: 6, backgroundColor: '#595959', margin: 8, borderRadius: 5 }}
                   />
                 );
               })}

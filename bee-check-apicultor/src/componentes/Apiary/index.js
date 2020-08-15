@@ -1,12 +1,13 @@
 import React from 'react';
 import { Icon } from "native-base";
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styles from "./styles";
 
 
 export default class Apiary extends React.Component {
     render () {
         return (
+          <TouchableOpacity style = {styles.touchStyle} onPress = {() => this.props.openHiveList(this.props.apiaryId)}>
             <View style = {styles.apiary}>
                 <View style = {styles.contentText}>
                   <Text style = {styles.apiaryName}>{this.props.name}</Text>
@@ -16,6 +17,7 @@ export default class Apiary extends React.Component {
                   <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>
                 </View>
             </View>
+          </TouchableOpacity>
         );
     }
 }

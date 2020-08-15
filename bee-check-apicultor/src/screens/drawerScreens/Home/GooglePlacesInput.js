@@ -44,7 +44,7 @@ export default class GooglePlacesInput extends Component {
             marginHorizontal: 10,
             borderTopWidth: 0,
             borderBottomWidth: 0,
-            marginVertical: 30,
+            marginVertical: 40,
             alignSelf: 'center',
           },
           textInput: {
