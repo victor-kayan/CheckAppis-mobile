@@ -69,8 +69,8 @@ class Colmeia extends Component {
     }
   };
 
-  openHiveList = (apiaryId) => {
-    this.props.navigation.navigate(routes.HiveList, {apiaryId});
+  openHiveList = (apiaryId, name) => {
+    this.props.navigation.navigate(routes.HiveList, {apiaryId, name});
 };
 
 

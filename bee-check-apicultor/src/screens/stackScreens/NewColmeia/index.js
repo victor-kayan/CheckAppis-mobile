@@ -21,10 +21,11 @@ import ImagePicker from "react-native-image-picker";
 import { colors, images } from "../../../../assets";
 import styles from "./styles";
 import {
-  HeaderCustom,
   ButtonCustom,
   SpinnerCustom
 } from "../../../componentes";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
+import LinearGradient from "react-native-linear-gradient";
 
 const options = {
   title: "Imagem da colmeia",
@@ -59,7 +60,7 @@ class NewColmeia extends Component {
         descricao: colmeia.descricao,
         nome: colmeia.nome,
         foto,
-        apiario_id: this.props.navigation.getParam("apiario_id", "")
+        apiario_id: this.props.navigation.getParam("apiaryId")
       });
       this.clearInputs();
       // this.props.navigation.navigate(routes.ColmeiaHome);
@@ -87,14 +88,17 @@ class NewColmeia extends Component {
     const { colmeia, foto_uri } = this.state;
     return (
       <Root>
-        <Container>
-          <HeaderCustom title="Cadastro" />
+        <View style = {{flex: 1, width: '100%', height: '100%', backgroundColor: 'white'}}>
+        <Container style = {{position: 'absolute', alignSelf: 'center', flex: 1, width: '100%'}}>
+          <HeaderCustomStack 
+            title = "Cadastro"
+            description = "Insira as informações solicitadas e cadastre uma nova colmeia" 
+            />
           <Content padder>
             <SpinnerCustom visible={loading} />
-
             <CardItem>
               <Body>
-                <Item style={{ marginTop: 20 }}>
+                <Item style={{ marginTop: 130}}>
                   <Icon
                     style={{
                       color: colors.colorIcons
@@ -105,12 +109,14 @@ class NewColmeia extends Component {
                   />
                   <Input
                     value={colmeia.nome}
-                    placeholder="Nome(Indentificador) da colmeia"
+                    autoFocus = {true}
+                    placeholder="Nome ou identificador da colmeia"
                     onChangeText={nome =>
                       this.setState({
                         colmeia: { ...colmeia, nome }
                       })
                     }
+                    style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
                   />
                 </Item>
                 <Item style={{ marginTop: 20 }}>
@@ -124,77 +130,77 @@ class NewColmeia extends Component {
                   />
                   <Input
                     value={colmeia.descricao}
-                    placeholder="descrição da colmeia"
+                    placeholder="Descrição"
                     onChangeText={descricao =>
                       this.setState({
                         colmeia: { ...colmeia, descricao }
                       })
                     }
+                    style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
                   />
                 </Item>
-
-                <Button
-                  iconRight
-                  full
-                  rounded
-                  onPress={this.slectPhoto.bind(this)}
-                  style={{
-                    backgroundColor: colors.theme_second,
-                    marginTop: 20
-                  }}
-                >
-                  <Text style={{ color: colors.black }}>Tirar Foto</Text>
-                  <Icon
-                    type="EvilIcons"
-                    name="camera"
-                    active
-                    style={{
-                      color: colors.colorIcons,
-                      marginLeft: 15
-                    }}
-                  />
-                </Button>
-                <Item
-                  style={{
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%"
-                  }}
-                >
-                  {foto_uri ? (
-                    <Image style={styles.imageFormColmeia} source={foto_uri} />
-                  ) : (
-                    <View style={{justifyContent: "center",
-                    alignItems: "center",}}>
-                      <Icon
-                        type="EvilIcons"
-                        name="camera"
-                        active
-                        style={{
-                          fontSize: 50,
-                          paddingTop: 55,
-                          color: "#B8B8B8"
-                        }}
-                      />
-                      <Text  style={{ color: "#B8B8B8", paddingBottom: 55 }}>Sem Imagem</Text>
-                    </View>
-                  )}
-                </Item>
+                
                 <ButtonCustom
                   onPress={() => this.onAddColmeia()}
-                  iconLeft="save"
-                  typeIconLeft="FontAwesome"
-                  title="Salvar Colmeia"
+                  iconRight="check"
+                  typeIconRight="AntDesign"
+                  title="CADASTRAR"
                   style={{
-                    alignSelf: "flex-end",
+                    alignSelf: 'center',
                     marginEnd: 10,
-                    marginTop: 20
+                    marginTop: 40, 
                   }}
                 />
               </Body>
             </CardItem>
           </Content>
+          
+          <Item style = {styles.viewImage}>
+            {foto_uri ? (
+              <Image style={styles.imageFormColmeia} source={foto_uri} />
+            ) : (
+              <View>
+                <Icon
+                  type="EvilIcons"
+                  name="camera"
+                  active
+                  style={{
+                    fontSize: 40,
+                    paddingTop: 55,
+                    color: "#B8B8B8",
+                    alignText: 'center',
+                    alignSelf: 'center',
+                    marginBottom: 10,
+                  }}
+                />
+                <Text  style={{ color: "#B8B8B8", paddingBottom: 55, fontFamily: 'Montserrat Regular', fontSize: 15}}>Sem Imagem</Text>
+              </View>
+            )}
+          </Item>
         </Container>
+        </View>
+        <Button
+          full
+          rounded
+          onPress={this.slectPhoto.bind(this)}
+          style={{
+            backgroundColor: colors.theme_second,
+            marginTop: 385,
+            position: 'absolute',
+            alignSelf: 'center',
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingTop: 0,
+            paddingBottom: 0,
+          }}
+        >
+          <LinearGradient
+            colors={[colors.theme_default, colors.theme_second]}
+            style={{ height: '100%', borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
+          >
+            <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 12 }}>TIRAR FOTO</Text>
+          </LinearGradient>
+        </Button>
       </Root>
     );
   }

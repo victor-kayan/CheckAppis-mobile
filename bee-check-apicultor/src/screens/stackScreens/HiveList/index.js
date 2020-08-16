@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, ScrollView, StatusBar, ImageBackground } from "react-native";
+import { Image, ScrollView, StatusBar, ImageBackground, TouchableHighlight } from "react-native";
 import {
   Icon,
   Card,
@@ -13,6 +13,7 @@ import {
   Row,
   View,
 } from "native-base";
+import LinearGradient from "react-native-linear-gradient";
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -20,7 +21,6 @@ import ActionButton from "react-native-action-button";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 import {
   RemoveDialog,
-  HeaderCustom,
   SpinnerCustom
 } from "../../../componentes";
 import {
@@ -29,7 +29,8 @@ import {
 } from "../../../redux/actions/colmeiaActions";
 import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
-import Apiary from "../../../componentes/Apiary";
+import Hive from "../../../componentes/Hive";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 
 class HiveList extends Component {
@@ -37,23 +38,25 @@ class HiveList extends Component {
     super(props);
     this.state = {
       colmeia: {},
+      apiaryId: this.props.navigation.getParam('apiaryId'),
+      apiaryName: this.props.navigation.getParam('name'),
       dialogVisible: false,
-      selectedPickerApiario: null,
+      selectedPickerApiario: true,
     };
   }
 
   componentDidMount() {
     this.fetchApiarios();
-    alert(this.props.navigation.getParam('apiaryId'))
+    this.fetchColmeias(this.state.apiaryId);
+  }
+
+  fetchApiarios() {
+    this.props.fetchApiariosByUser();
   }
   
   handleRefresh() {
     this.fetchApiarios();
     this.setState({ selectedPickerApiario: null });
-  }
-  
-  fetchApiarios() {
-    this.props.fetchApiariosByUser();
   }
 
   fetchColmeias(id) {
@@ -85,28 +88,41 @@ class HiveList extends Component {
     return (
       <Container>
         <StatusBar backgroundColor={colors.theme_default} />
-          <HeaderCustom
-            iconLeft="menu"
-            typeIconLeft="SimpleLineIcons"
-            handleIconLeft={() => this.props.navigation.openDrawer()}
+          <HeaderCustomStack
             title="Colmeias"
-            description="Aqui, você pode visualizar e gerenciar todas as colmeias cadastradas"
+            description="Aqui, você pode visualizar e gerenciar todas as colmeias cadastradas, além de poder cadastrar outras colmeias"
             iconRight="sync"
             handleIconRight={() => this.handleRefresh()}
             typeIconRight="AntDesign"
           />
         <View style = {styles.containerContentHives}>
-          <Text style = {styles.title}>Aqui estão todas as colmeias do apiário {this.props}</Text>
+          <Text style = {styles.title}>Aqui estão todas as colmeias do apiário {this.state.apiaryName}</Text>
         </View>
         <View style = {styles.contentHive}>
         <View style = {[styles.triangle,styles.arrowUp]}/>
             <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
             {
-              apiarios.map (apiary =>
-                <Apiary key = {apiary.id} name = {apiary.nome} description = {apiary.descricao}/>
+              colmeias.map (hive =>
+                <Hive key = {hive.id} name = {hive.nome} description = {hive.descricao}/>
               )
             }
             </ScrollView>
+        </View>
+
+        <View style = {styles.addHiveButton}>
+          <TouchableHighlight
+            activeOpacity={0.5}
+            underlayColor="#ff8500"
+            onPress={() => this.props.navigation.navigate(routes.NewColmeia, this.state.apiaryId)}
+            style = {{borderRadius: 30}}
+          >
+            <LinearGradient
+              colors={[colors.theme_default, colors.theme_second]}
+              style={{ height: '100%', borderRadius: 30}}
+            >
+              <Icon type="FontAwesome5" name="plus" style={styles.plus} iconSize={5} active/>
+            </LinearGradient>
+          </TouchableHighlight>
         </View>
         
       </Container>

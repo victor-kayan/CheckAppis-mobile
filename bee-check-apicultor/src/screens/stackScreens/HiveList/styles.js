@@ -38,16 +38,11 @@ export default {
   },
   title: {
     color: colors.theme_default,
-    fontSize: 18,
-    fontFamily: 'Montserrat-Bold',
-    marginBottom: 5,
-  },
-  description: {
-    color: 'black',
-    fontSize: 13,
+    fontSize: 16,
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
-    marginBottom: 20,
+    marginTop: 10,
+    marginHorizontal: 20,
   },
   contentHive: {
     alignItems: 'center',
@@ -183,5 +178,25 @@ hiveName: {
 hiveDescription: {
   fontSize: 13,
   fontFamily: 'Montserrat Regular',
+},
+addHiveButton: {
+  height: 60,
+  width: 60,
+  position: 'absolute',
+  margin: 30,
+  borderRadius: 30,
+  elevation: 10,
+  shadowColor: colors.theme_primary,
+  shadowOpacity: 0.1,
+  shadowOffset: { x: 0, y: 0 },
+  shadowRadius: 15,
+  marginTop: 700,
+  marginLeft: 280,
+},
+plus: {
+  color: colors.white,
+  textAlign: 'center',
+  alignSelf: 'center',
+  marginTop: 13,
 }
 };

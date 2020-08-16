@@ -4,7 +4,7 @@ import {Left, Icon, Button, Body, Title, Right } from "native-base";
 import {View, Text, TouchableOpacity, ImageBackground, StyleSheet} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-const HeaderCustom = ({
+const HeaderCustomStack = ({
   iconRight,
   typeIconRight,
   handleIconRight,
@@ -28,10 +28,7 @@ const HeaderCustom = ({
       style={{ height: '100%'}}
     >
     <ImageBackground source={images.headers.hive} style = {{resizeMode: 'cover', flex: 1, opacity: 0.1}}/>
-    <View style = {{justifyContent: 'space-between', flexDirection: 'row', padding: 20, position: 'absolute', width: '100%'}}>
-        <TouchableOpacity transparent onPress={handleIconLeft}>
-          <Icon style={{color: colors.white}} type='SimpleLineIcons' name='menu' />
-        </TouchableOpacity>
+    <View style = {{justifyContent: 'flex-end', flexDirection: 'row', padding: 20, position: 'absolute', width: '100%'}}>
         <TouchableOpacity onPress={handleIconRight}>
           <Icon
             style={{color: colors.white}}
@@ -58,4 +55,4 @@ const HeaderCustom = ({
   </View>
 );
 
-export default HeaderCustom;
+export default HeaderCustomStack;
