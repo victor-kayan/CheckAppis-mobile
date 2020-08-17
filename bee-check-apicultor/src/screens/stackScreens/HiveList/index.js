@@ -55,20 +55,27 @@ class HiveList extends Component {
   }
   
   handleRefresh() {
-    this.fetchApiarios();
-    this.setState({ selectedPickerApiario: null });
+    this.fetchColmeias(this.state.apiaryId);
   }
 
   fetchColmeias(id) {
     this.props.getColemiasByApiario({ id });
   }
 
-  deleteColmeia = () => {
+  openNewHive = (apiaryId) => {
+    this.props.navigation.navigate(routes.NewColmeia, {apiaryId});
+  };
+
+  openEditHive = (hive) => {
+    this.props.navigation.navigate(routes.EditColmeia, {hive});
+  };
+
+  deleteColmeia = (hiveId) => {
     this.setState({ dialogVisible: false });
     if (this.state.colmeia) {
       const { id, apiario_id } = this.state.colmeia;
       this.setState({ dialogVisible: false });
-      this.props.deleteColmeiaById({ id, apiario_id });
+      this.props.deleteColmeiaById({ hiveId, apiario_id });
       // this.props.getColemiasByApiario({id: apiario_id });
     }
   };
@@ -90,7 +97,7 @@ class HiveList extends Component {
         <StatusBar backgroundColor={colors.theme_default} />
           <HeaderCustomStack
             title="Colmeias"
-            description="Aqui, você pode visualizar e gerenciar todas as colmeias cadastradas, além de poder cadastrar outras colmeias"
+            description="Aqui, você pode visualizar, cadastrar e gerenciar qualquer colmeia no apiário selecionado"
             iconRight="sync"
             handleIconRight={() => this.handleRefresh()}
             typeIconRight="AntDesign"
@@ -100,10 +107,19 @@ class HiveList extends Component {
         </View>
         <View style = {styles.contentHive}>
         <View style = {[styles.triangle,styles.arrowUp]}/>
-            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
+            <ScrollView contentContainerStyle={{ width: '90%', padding: 5,}}>
+            <SpinnerCustom visible={loading} />
             {
               colmeias.map (hive =>
-                <Hive key = {hive.id} name = {hive.nome} description = {hive.descricao}/>
+                <Hive 
+                  key = {hive.id} 
+                  hiveId = {hive.id} 
+                  name = {hive.nome} 
+                  description = {hive.descricao} 
+                  image = {hive.foto} 
+                  hive = {hive} 
+                  openEditHive = {this.openEditHive}
+                />
               )
             }
             </ScrollView>
@@ -113,7 +129,7 @@ class HiveList extends Component {
           <TouchableHighlight
             activeOpacity={0.5}
             underlayColor="#ff8500"
-            onPress={() => this.props.navigation.navigate(routes.NewColmeia, this.state.apiaryId)}
+            onPress={() => this.openNewHive(this.state.apiaryId)}
             style = {{borderRadius: 30}}
           >
             <LinearGradient

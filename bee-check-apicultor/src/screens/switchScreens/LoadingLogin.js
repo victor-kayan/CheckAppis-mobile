@@ -57,7 +57,7 @@ class LoadingLogin extends React.Component {
           return Promise.reject(error);
         }
       );
-      this.props.navigation.navigate(routes.NewColmeia);
+      this.props.navigation.navigate(routes.Home);
     } else {
       this.props.navigation.navigate(routes.Login);
     }

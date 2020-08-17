@@ -38,7 +38,7 @@ export default {
   },
   title: {
     color: colors.theme_default,
-    fontSize: 16,
+    fontSize: 15,
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
     marginTop: 10,

@@ -183,7 +183,7 @@ class Home extends Component {
             </TouchableOpacity>
           </View>
           <View style = {styles.welcomeView}>
-            <Text style = {styles.welcomeName}>Olá, Usuário!</Text>
+            <Text style = {styles.welcomeName}>Olá, Abreu!</Text>
             <Text style = {styles.welcomeDay}>O que vamos fazer hoje? </Text>
           </View>
           </LinearGradient>

@@ -31,7 +31,7 @@ const options = {
   title: "Imagem da colmeia",
   takePhotoButtonTitle: "Tirar uma nova foto",
   chooseFromLibraryButtonTitle: "Selecionar foto na galeria",
-  quality: 0.5
+  quality: 0.5,
 };
 
 class NewColmeia extends Component {
@@ -101,15 +101,14 @@ class NewColmeia extends Component {
                 <Item style={{ marginTop: 130}}>
                   <Icon
                     style={{
-                      color: colors.colorIcons
+                      color: colors.theme_second
                     }}
                     active
-                    type="AntDesign"
-                    name="idcard"
+                    type="Ionicons"
+                    name="md-finger-print"
                   />
                   <Input
                     value={colmeia.nome}
-                    autoFocus = {true}
                     placeholder="Nome ou identificador da colmeia"
                     onChangeText={nome =>
                       this.setState({
@@ -125,8 +124,8 @@ class NewColmeia extends Component {
                     style={{
                       color: colors.colorIcons
                     }}
-                    type="FontAwesome"
-                    name="pencil"
+                    type="MaterialIcons"
+                    name="view-headline"
                   />
                   <Input
                     value={colmeia.descricao}
@@ -173,7 +172,7 @@ class NewColmeia extends Component {
                     marginBottom: 10,
                   }}
                 />
-                <Text  style={{ color: "#B8B8B8", paddingBottom: 55, fontFamily: 'Montserrat Regular', fontSize: 15}}>Sem Imagem</Text>
+                <Text  style={{ color: "#B8B8B8", paddingBottom: 55, fontFamily: 'Montserrat Regular', fontSize: 15}}>Sem foto</Text>
               </View>
             )}
           </Item>
@@ -198,7 +197,7 @@ class NewColmeia extends Component {
             colors={[colors.theme_default, colors.theme_second]}
             style={{ height: '100%', borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
           >
-            <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 12 }}>TIRAR FOTO</Text>
+            <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 12 }}>TIRAR OU SELECIONAR FOTO</Text>
           </LinearGradient>
         </Button>
       </Root>

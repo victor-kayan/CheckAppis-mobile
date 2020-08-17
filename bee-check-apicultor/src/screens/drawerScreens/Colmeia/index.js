@@ -71,7 +71,7 @@ class Colmeia extends Component {
 
   openHiveList = (apiaryId, name) => {
     this.props.navigation.navigate(routes.HiveList, {apiaryId, name});
-};
+  };
 
 
   onValueChangePickerApiario = apiario => {
@@ -106,9 +106,15 @@ class Colmeia extends Component {
         <View style = {styles.contentHive}>
         <View style = {[styles.triangle,styles.arrowUp]}/>
             <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
+            <SpinnerCustom visible={loading} />
             {
               apiarios.map (apiary =>
-                <Apiary key = {apiary.id} apiaryId = {apiary.id} name = {apiary.nome} description = {apiary.descricao} openHiveList = {this.openHiveList}/>
+                <Apiary 
+                  key = {apiary.id} 
+                  apiaryId = {apiary.id} 
+                  name = {apiary.nome} 
+                  description = {apiary.descricao} 
+                  openHiveList = {this.openHiveList}/>
               )
             }
             </ScrollView>

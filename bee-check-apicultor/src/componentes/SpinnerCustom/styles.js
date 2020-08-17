@@ -12,7 +12,9 @@ const styles = StyleSheet.create({
     width: "100%",
     borderColor: colors.black,
     borderRadius: 5,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

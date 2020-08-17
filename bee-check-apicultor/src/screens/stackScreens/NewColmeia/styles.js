@@ -42,7 +42,7 @@ export default {
     position: 'absolute',
     alignSelf: 'center',
     backgroundColor: colors.white,
-    width: '80%',
+    width: '88%',
     height: 220,
     marginTop: 190,
     borderRadius: 25,
