@@ -114,7 +114,7 @@ class Colmeia extends Component {
                   apiaryId = {apiary.id} 
                   name = {apiary.nome} 
                   description = {apiary.descricao} 
-                  openHiveList = {this.openHiveList}/>
+                  openList = {this.openHiveList}/>
               )
             }
             </ScrollView>

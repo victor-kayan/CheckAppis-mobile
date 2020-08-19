@@ -24,7 +24,7 @@ import {
   Badge
 } from "native-base";
 import { SwipeRow } from 'react-native-swipe-list-view';
-import { Image, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity, StatusBar, ScrollView } from "react-native";
 import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
 import {
@@ -34,6 +34,7 @@ import {
 } from "../../../componentes";
 import moment from "moment";
 import "moment/locale/pt-br";
+import Apiary from "../../../componentes/Apiary";
 
 class Visita extends Component {
   constructor(props) {
@@ -72,6 +73,10 @@ class Visita extends Component {
     });
   };
 
+  openVisitList = (apiaryId, name) => {
+    this.props.navigation.navigate(routes.VisitList, {apiaryId, name});
+  };
+
   handleDetalhar = visita => {
     this.props.navigation.navigate(routes.DetalhesVisita, {
       visita, apiario: this.state.selectedPickerApiario
@@ -85,192 +90,41 @@ class Visita extends Component {
 
     return (
       <Container>
+
+      <StatusBar backgroundColor={colors.theme_default} />
+
         <HeaderCustom
           iconLeft="menuunfold"
           typeIconLeft="AntDesign"
           handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Histórico"
+          title="Histórico de Visitas"
+          description="Aqui, você pode visualizar os dados de todas as visitas realizadas"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-        <SpinnerCustom visible={loading} />
-        <Content padder scrollEnabled={true}>
-          <Card>
-            <CardItem>
-              <Image
-                source={images.icons.apiario}
-                style={styles.iconImagemSelectPicker}
-              />
-              <Picker
-                mode="dropdown"
-                selectedValue={selectedPickerApiario}
-                style={styles.pikerLisitApiario}
-                onValueChange={itemValue =>
-                  this.onValueChangePickerApiario(itemValue)
-                }
-              >
-                <Picker.Item
-                  enabled={false}
-                  key={null}
-                  label={"Selecione um apiário"}
-                  value={null}
-                />
-                {!apiarios ? (
-                  <Picker.Item
-                    enabled={false}
-                    note
-                    label={"Nenhum apiário encontrado"}
-                  />
-                ) : (
-                  apiarios.map(data => {
-                    return (
-                      <Picker.Item
-                        key={data.id}
-                        label={data.nome}
-                        value={data}
-                      />
-                    );
-                  })
-                )}
-              </Picker>
-            </CardItem>
-          </Card>
-          {!loading && visitas && visitas.length > 0 ? (
-            visitas.map(visita => {
-              return (
-                <SwipeRow key={ visita.id } rightOpenValue={-55}>
-                  <View style={styles.swipeRowHiddenContainer}>
-                    <Button
-                      style={{ height: '100%' }}
-                      danger
-                      onPress={() =>
-                        this.setState({ dialogVisible: true, visita })
-                      }
-                      >
-                        <Icon active name="trash" />
-                      </Button>
-                  </View>
 
-                  <CardItem style={ styles.swipeRowCardItem }>
-                    <TouchableOpacity
-                      onPress={() => this.handleDetalhar(visita)}
-                    >
-                      <View style={{ marginHorizontal: "10%" }}>
-                        <Row>
-                          <Text>
-                            {`Data: ${moment(visita.created_at).format(
-                              "DD MMMM  YYYY"
-                            )}`}
-                          </Text>
-                        </Row>
-                        <Row style={{ marginTop: 5 }}>
-                          <Left>
-                            <Text note>colmeias visitadas</Text>
-                          </Left>
-                          <Badge
-                            style={{
-                              backgroundColor: colors.theme_second,
-                              marginEnd: 5
-                            }}
-                          >
-                            <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
-                          </Badge>
-                        </Row>
-                      </View>
-                    </TouchableOpacity>
-                    <Right>
-                      <Button
-                        transparent
-                        onPress={() => this.handleDetalhar(visita)}
-                      >
-                        <Icon
-                          active
-                          style={{ color: colors.colorIcons }}
-                          name="magnifying-glass"
-                          type="Entypo"
-                        />
-                      </Button>
-                    </Right>
-                  </CardItem>
-                </SwipeRow>
-              );
-            })
-          ) : !loading &&
-            !selectedPickerApiario &&
-            !selectedPickerApiario > 0 ? (
-            <>
-              <CardItem
-                style={{
-                  marginTop: 20,
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}
-              >
-                <Text>Primeiro selecione um apiário</Text>
-              </CardItem>
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Image style={{marginTop: '15%'}} source={images.home.apiario} />
-              </View>
-            </>
-          ) : (
-            !loading && (
-              <>
-                <CardItem
-                  style={{
-                    marginTop: 20,
-                    flexDirection: "column",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text>Nenhuma visita cadastrada</Text>
-                </CardItem>
-                <View
-                  style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Icon
-                    onPress={() =>
-                      this.props.navigation.navigate(routes.NewVisitaApiario, {
-                        apiario_id: selectedPickerApiario.id
-                      })
-                    }
-                    style={{ color: colors.btn_success, marginLeft: '30%', marginTop: '15%' }}
-                    active
-                    type="AntDesign"
-                    name="pluscircle"
-                  />
-                  <Image source={images.home.visita} />
-                </View>
-              </>
-            )
-          )}
-        </Content>
-        <ActionButton buttonColor={colors.btn_success}>
-          <ActionButton.Item
-            buttonColor={colors.theme_primary}
-            title="Nova Visita"
-            onPress={() => this.props.navigation.navigate(routes.NewVisitaApiario)}
-          >
-            <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-        </ActionButton>
-        <RemoveDialog
-          visible={dialogVisible}
-          onCancel={() =>
-            this.setState({ dialogVisible: false, colmeia: null })
-          }
-          onDelete={this.handleDelete}
-        />
+        <SpinnerCustom visible={loading} />
+
+        <View style = {styles.containerContentHives}>
+          <Text style = {styles.title}>Selecione um apiário</Text>
+          <Text style = {styles.description}>Selecione um apiário para ver o histórico de visitas correspondente a ele</Text>
+        </View>
+        <View style = {styles.contentHive}>
+        <View style = {[styles.triangle,styles.arrowUp]}/>
+            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
+            {
+              apiarios.map (apiary =>
+                <Apiary 
+                  key = {apiary.id} 
+                  apiaryId = {apiary.id} 
+                  name = {apiary.nome} 
+                  description = {apiary.descricao} 
+                  openList = {this.openVisitList}/>
+              )
+            }
+            </ScrollView>
+        </View>
       </Container>
     );
   }
@@ -301,3 +155,180 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Visita);
+
+// {/* <Content padder scrollEnabled={true}>
+//           <Card>
+//             <CardItem>
+//               <Image
+//                 source={images.icons.apiario}
+//                 style={styles.iconImagemSelectPicker}
+//               />
+//               <Picker
+//                 mode="dropdown"
+//                 selectedValue={selectedPickerApiario}
+//                 style={styles.pikerLisitApiario}
+//                 onValueChange={itemValue =>
+//                   this.onValueChangePickerApiario(itemValue)
+//                 }
+//               >
+//                 <Picker.Item
+//                   enabled={false}
+//                   key={null}
+//                   label={"Selecione um apiário"}
+//                   value={null}
+//                 />
+//                 {!apiarios ? (
+//                   <Picker.Item
+//                     enabled={false}
+//                     note
+//                     label={"Nenhum apiário encontrado"}
+//                   />
+//                 ) : (
+//                   apiarios.map(data => {
+//                     return (
+//                       <Picker.Item
+//                         key={data.id}
+//                         label={data.nome}
+//                         value={data}
+//                       />
+//                     );
+//                   })
+//                 )}
+//               </Picker>
+//             </CardItem>
+//           </Card>
+//           {!loading && visitas && visitas.length > 0 ? (
+//             visitas.map(visita => {
+//               return (
+//                 <SwipeRow key={ visita.id } rightOpenValue={-55}>
+//                   <View style={styles.swipeRowHiddenContainer}>
+//                     <Button
+//                       style={{ height: '100%' }}
+//                       danger
+//                       onPress={() =>
+//                         this.setState({ dialogVisible: true, visita })
+//                       }
+//                       >
+//                         <Icon active name="trash" />
+//                       </Button>
+//                   </View>
+
+//                   <CardItem style={ styles.swipeRowCardItem }>
+//                     <TouchableOpacity
+//                       onPress={() => this.handleDetalhar(visita)}
+//                     >
+//                       <View style={{ marginHorizontal: "10%" }}>
+//                         <Row>
+//                           <Text>
+//                             {`Data: ${moment(visita.created_at).format(
+//                               "DD MMMM  YYYY"
+//                             )}`}
+//                           </Text>
+//                         </Row>
+//                         <Row style={{ marginTop: 5 }}>
+//                           <Left>
+//                             <Text note>colmeias visitadas</Text>
+//                           </Left>
+//                           <Badge
+//                             style={{
+//                               backgroundColor: colors.theme_second,
+//                               marginEnd: 5
+//                             }}
+//                           >
+//                             <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
+//                           </Badge>
+//                         </Row>
+//                       </View>
+//                     </TouchableOpacity>
+//                     <Right>
+//                       <Button
+//                         transparent
+//                         onPress={() => this.handleDetalhar(visita)}
+//                       >
+//                         <Icon
+//                           active
+//                           style={{ color: colors.colorIcons }}
+//                           name="magnifying-glass"
+//                           type="Entypo"
+//                         />
+//                       </Button>
+//                     </Right>
+//                   </CardItem>
+//                 </SwipeRow>
+//               );
+//             })
+//           ) : !loading &&
+//             !selectedPickerApiario &&
+//             !selectedPickerApiario > 0 ? (
+//             <>
+//               <CardItem
+//                 style={{
+//                   marginTop: 20,
+//                   flexDirection: "column",
+//                   alignItems: "center"
+//                 }}
+//               >
+//                 <Text>Primeiro selecione um apiário</Text>
+//               </CardItem>
+//               <View
+//                 style={{
+//                   flex: 1,
+//                   justifyContent: "center",
+//                   alignItems: "center"
+//                 }}
+//               >
+//                 <Image style={{marginTop: '15%'}} source={images.home.apiario} />
+//               </View>
+//             </>
+//           ) : (
+//             !loading && (
+//               <>
+//                 <CardItem
+//                   style={{
+//                     marginTop: 20,
+//                     flexDirection: "column",
+//                     alignItems: "center"
+//                   }}
+//                 >
+//                   <Text>Nenhuma visita cadastrada</Text>
+//                 </CardItem>
+//                 <View
+//                   style={{
+//                     flex: 1,
+//                     justifyContent: "center",
+//                     alignItems: "center"
+//                   }}
+//                 >
+//                   <Icon
+//                     onPress={() =>
+//                       this.props.navigation.navigate(routes.NewVisitaApiario, {
+//                         apiario_id: selectedPickerApiario.id
+//                       })
+//                     }
+//                     style={{ color: colors.btn_success, marginLeft: '30%', marginTop: '15%' }}
+//                     active
+//                     type="AntDesign"
+//                     name="pluscircle"
+//                   />
+//                   <Image source={images.home.visita} />
+//                 </View>
+//               </>
+//             )
+//           )}
+//         </Content>
+//         <ActionButton buttonColor={colors.btn_success}>
+//           <ActionButton.Item
+//             buttonColor={colors.theme_primary}
+//             title="Nova Visita"
+//             onPress={() => this.props.navigation.navigate(routes.NewVisitaApiario)}
+//           >
+//             <Icon name="plus" type="Entypo" style={styles.actionButtonIcon} />
+//           </ActionButton.Item>
+//         </ActionButton>
+//         <RemoveDialog
+//           visible={dialogVisible}
+//           onCancel={() =>
+//             this.setState({ dialogVisible: false, colmeia: null })
+//           }
+//           onDelete={this.handleDelete}
+//         /> */}

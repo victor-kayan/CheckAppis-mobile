@@ -5,9 +5,6 @@ import styles from "./styles";
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { routes, colors } from '../../../assets';
 
-
-
-
 export default class Hive extends React.Component {
     render () {
         return (
@@ -19,7 +16,7 @@ export default class Hive extends React.Component {
 
             <View style={styles.swiperBackContent}>
                 <TouchableOpacity 
-                  onPress={() => alert ('esquerdo')}
+                  onPress={() => this.props.deleteHive(this.props.hiveId)}
                   style={styles.leftTouch}
                 >
                   <View style={styles.leftIcon}>

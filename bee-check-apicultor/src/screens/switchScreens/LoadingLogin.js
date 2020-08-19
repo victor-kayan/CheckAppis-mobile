@@ -1,5 +1,5 @@
 import React from "react";
-import { View, AsyncStorage, StyleSheet, Image, Alert } from "react-native";
+import { View, AsyncStorage, StyleSheet, Image, Alert, StatusBar } from "react-native";
 import { Spinner, Text } from "native-base";
 import { colors, constants, routes, images } from "../../../assets";
 import { Api } from "../../../services";
@@ -27,7 +27,7 @@ class LoadingLogin extends React.Component {
             AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
             Alert.alert(
               "Erro na autenticação",
-              "Por favor,efetue login novamente"
+              "Efetue login novamente."
             );
           } else if (
             error.response &&
@@ -36,7 +36,7 @@ class LoadingLogin extends React.Component {
           ) {
             Alert.alert(
               "Erro durante o processamento",
-              "Servico temporariamente indisponivel"
+              "Serviço temporariamente indisponível."
             );
           } else if (
             error.response &&
@@ -45,12 +45,12 @@ class LoadingLogin extends React.Component {
           ) {
             Alert.alert(
               "Serviço não encontrado",
-              "Servidor temporariamente indisponivel"
+              "Serviço temporariamente indisponível."
             );
           } else {
             Alert.alert(
-              "Serviço indisponivel",
-              "Contate o admistrador do sistema"
+              "Serviço indisponível",
+              "Contate o admistrador do sistema."
             );
           }
           // Do something with response error
@@ -69,6 +69,7 @@ class LoadingLogin extends React.Component {
           colors={[colors.theme_default, colors.theme_second]}
           style={{ height: '100%'}}
         >
+        <StatusBar backgroundColor={colors.theme_default} />
       <View style={styles.view}>
         <Spinner size="large" color={colors.white} />
         <View style={styles.logoName}>

@@ -155,7 +155,7 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
       .delete(URLS.formattedURL(URLS.DELETE_COLMEIA_URL, { colmeia_id: id }))
       .then(response => {
         Toast.show({
-          text: "Colmeia deletada com sucesso",
+          text: "Colmeia deletada com sucesso.",
           buttonText: "",
           type: "success"
         });
@@ -168,11 +168,11 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
         dispatch(getColemiasByApiario({ id: apiario_id }));
       })
       .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "danger"
-        });
+        // Toast.show({
+        //   text: error.response && error.response.data.message,
+        //   buttonText: "",
+        //   type: "danger"
+        // });
         dispatch({
           type: LOADING_COLMEIA,
           payload: {

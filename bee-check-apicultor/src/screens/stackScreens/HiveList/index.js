@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, ScrollView, StatusBar, ImageBackground, TouchableHighlight } from "react-native";
+import { Image, ScrollView, StatusBar, Alert, TouchableHighlight } from "react-native";
 import {
   Icon,
   Card,
@@ -46,7 +46,6 @@ class HiveList extends Component {
   }
 
   componentDidMount() {
-    this.fetchApiarios();
     this.fetchColmeias(this.state.apiaryId);
   }
 
@@ -71,13 +70,28 @@ class HiveList extends Component {
   };
 
   deleteColmeia = (hiveId) => {
-    this.setState({ dialogVisible: false });
-    if (this.state.colmeia) {
-      const { id, apiario_id } = this.state.colmeia;
-      this.setState({ dialogVisible: false });
-      this.props.deleteColmeiaById({ hiveId, apiario_id });
-      // this.props.getColemiasByApiario({id: apiario_id });
-    }
+    Alert.alert(
+      'Excluir Colmeia',
+      'Tem certeza que deseja exlcuir essa Colmeia?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => {
+          this.setState({ dialogVisible: false });
+          if (this.state.colmeia) {
+            const { id, apiario_id } = this.state.colmeia;
+            this.setState({ dialogVisible: false });
+            this.props.deleteColmeiaById({ hiveId, apiario_id });
+            //this.props.getColemiasByApiario({id: apiario_id });
+          }
+        }},
+      ],
+      {cancelable: false},
+    );
+
+    
   };
 
   onValueChangePickerApiario = apiario => {
@@ -119,6 +133,7 @@ class HiveList extends Component {
                   image = {hive.foto} 
                   hive = {hive} 
                   openEditHive = {this.openEditHive}
+                  deleteHive = {this.deleteColmeia}
                 />
               )
             }
