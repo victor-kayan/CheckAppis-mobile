@@ -156,11 +156,11 @@ export const createVisita = data => {
           },
           commit: { 
             type: CREATE_VISITA_COMMIT,
-            meta: data 
+            meta: null
           },
           rollback: { // Disparada caso requisição for feitas mas não for bem sucedida - status code != 200
             type: CREATE_VISITA_ROLLBACK, 
-            meta: data
+            meta: null
           },
         }
       }

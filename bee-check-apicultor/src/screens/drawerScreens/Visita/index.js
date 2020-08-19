@@ -177,6 +177,12 @@ class Visita extends Component {
                             <Text note>{visita.visita_colmeias && visita.visita_colmeias.length}</Text>
                           </Badge>
                         </Row>
+
+                        { // Mostrar se a visita está sincronizada ou não
+                          visita.isSynced
+                            ? (<Text style={{ fontWeight: 'bold', color: '#9F0' }}>SINCRONIZADO</Text>)
+                            : (<Text style={{ fontWeight: 'bold', color: '#F00' }}>NÃO SINCRONIZADO</Text>)
+                        }
                       </View>
                     </TouchableOpacity>
                     <Right>

@@ -41,9 +41,6 @@ class NewVisitaColmeia extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // ! OBS: Talvez não esteja voltando para a tela de listagem de visitas por que
-    // !      nenhum estado do redux está sendo alterado nas actions
-
     const { done, doneColmeias } = this.state;
     
     if (doneColmeias && nextProps.colmeias) {
@@ -205,7 +202,13 @@ class NewVisitaColmeia extends Component {
     
     this.props.createVisita(serializedData);
 
-    // TODO: Navegar e mostrar toast...
+    Toast.show({
+      text: "Visita adicionada!",
+      buttonText: "",
+      type: "success"
+    });
+
+    this.props.navigation.navigate(routes.VisitasHome);
   };
 
   /**
@@ -256,14 +259,12 @@ class NewVisitaColmeia extends Component {
     };
 
     const visitData = {
-      isSynced: false,  // Propriedade que define se a visita está sincronizada ou não. Por padrão é definida como "false" pois inicialmente será salvo localmente.
       uuid: uuidv4(),   // Identificador universal único para diferenciar cada visita mesmo antes de ser sincronizada.
-      visita: {
-        ...data.visita_apiario,
-        ...metadata,
-        apiario_id: data.apiario_id,
-        visita_colmeias: data.visitas_colmeias,
-      }
+      isSynced: false,  // Propriedade que define se a visita está sincronizada ou não. Por padrão é definida como "false" pois inicialmente será salvo localmente.
+      apiario_id: data.apiario_id,
+      visita_colmeias: data.visitas_colmeias,
+      ...data.visita_apiario,
+      ...metadata,
     };
 
     return visitData;

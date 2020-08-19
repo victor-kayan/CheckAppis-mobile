@@ -33,6 +33,8 @@ export const VisitaReducer = (state = initialState, action) => {
       return {
         ...state,
         visitaIsLoading: payload.visitaIsLoading,
+        
+        // ! Fazer um Object assign para manter os estados dos itens não sincronizados
         visitas: payload.visitas
       };
 
@@ -58,19 +60,17 @@ export const VisitaReducer = (state = initialState, action) => {
     case VisitaTypes.INITIATE_CREATE_VISITA:
       return {
         ...state,
-        visitas: [...state.visitas, payload.newVisitaData]
+        visitas: [payload.newVisitaData, ...state.visitas]
       };
 
     case VisitaTypes.CREATE_VISITA_COMMIT:
-      if (meta.success && meta.completed && payload.message === 'Visita registrada com sucesso') {
+      if (meta.success && meta.completed && payload.visita.isSynced) {
         const updatedVisitas = state.visitas.map(visita => {
-          if(visita.id === payload.visita.id) {
-            return Object.assign({}, visita, { isSynced: true })
+          if(visita.uuid === payload.visita.uuid) {
+            return Object.assign({}, visita, payload.visita);
           }
           return visita;
         });
-
-        tron.log(updatedVisitas)
 
         return {
           ...state,
