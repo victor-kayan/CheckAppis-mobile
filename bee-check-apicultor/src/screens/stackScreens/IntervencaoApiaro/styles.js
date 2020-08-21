@@ -15,4 +15,15 @@ export default {
   button: {
     marginBottom: 10,
   },
+  container: {
+    position: "absolute",
+    height: '80%',
+    backgroundColor: colors.white,
+    marginTop: 220,
+    alignItems: 'center',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+    padding: 20,
+    width: '100%',
+  },
 };

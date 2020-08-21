@@ -119,7 +119,6 @@ class Colmeia extends Component {
             }
             </ScrollView>
         </View>
-        
       </Container>
     );
   }
