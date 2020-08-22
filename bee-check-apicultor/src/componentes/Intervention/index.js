@@ -14,7 +14,7 @@ export default class Hive extends React.Component {
                 <Text style = {styles.date}>Descrição da data aqui</Text>
             </View>
             
-            <TouchableOpacity onPress={() => alert('Hey!')} style = {{margin: 0}}>
+            <TouchableOpacity onPress={() => this.props.openInterventionApiary(this.props.intervention)}>
                 <View style = {styles.button}>
                     <Text style = {styles.textButton}>Visualizar</Text>
                 </View>

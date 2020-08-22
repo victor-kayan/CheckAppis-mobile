@@ -26,4 +26,32 @@ export default {
     padding: 20,
     width: '100%',
   },
+  text: {
+    color: colors.black,
+    fontSize: 15,
+    fontFamily: 'Montserrat Regular',
+    textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 20,
+    marginHorizontal: 20,
+  },
+  textNull: {
+    color: colors.blackgrey,
+    fontSize: 15,
+    fontFamily: 'Montserrat Regular',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    marginHorizontal: 20,
+  },
+  icon: {
+    color: colors.blackgrey,
+    fontSize: 90,
+    textAlign: 'center',
+  },
+image: {
+  marginTop: 50,
+  width: 300,
+  height: 280,
+  },
 };
