@@ -92,7 +92,7 @@ class DetalhesIntervencao extends Component {
           </View>
 
           <View style = {styles.cardInformation}>
-            <Icon type="AntDesign" name="calendar" style={styles.icons}/>
+            <Icon type="MaterialIcons" name="view-headline" style={styles.icons}/>
             <View>
               <Text style = {styles.title}>Prescrição</Text>
               <Text style = {styles.description}>{intervencao.descricao}</Text>

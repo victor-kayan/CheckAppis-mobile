@@ -44,14 +44,14 @@ export default {
     marginBottom: 20,
     marginHorizontal: 20,
   },
+  image: {
+    marginTop: 50,
+    width: 300,
+    height: 280,
+    },
   icon: {
     color: colors.blackgrey,
     fontSize: 90,
     textAlign: 'center',
-  },
-image: {
-  marginTop: 50,
-  width: 300,
-  height: 280,
   },
 };

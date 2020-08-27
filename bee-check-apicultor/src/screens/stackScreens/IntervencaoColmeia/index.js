@@ -13,6 +13,9 @@ import { HeaderCustom, SpinnerCustom } from "../../../componentes";
 import { RenderSelectApiario } from "./RenderSelectApiario";
 import { ColmeiasSemIntervencao } from "./ColmeiasSemIntervencao";
 import { ItemLista } from "./ItemLista";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
+import styles from "./styles";
+import Apiary from "../../../componentes/Apiary";
 // import moment from "moment";
 // import "moment/locale/pt-br";
 
@@ -64,68 +67,42 @@ class IntervencaoColmeia extends Component {
 
     return (
       <Container>
-        <HeaderCustom
-          handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Intervenções"
+        <HeaderCustomStack
+          title={`Intervenções nas \nColmeias`}
+          description = "Veja todas as intervenções propostas para suas colmeias"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
         <SpinnerCustom visible={loading} />
-        {!apiarios ? (
-          <ColmeiasSemIntervencao onReturnHome={this.handleReturnHome} />
-        ) : (
-          <Content padder scrollEnabled={true}>
-            <Card>
-              <CardItem>
-                <RenderSelectApiario
-                  apiarios={apiarios}
-                  onValueChangePickerApiario={
-                    this.handleValueChangePickerApiario
-                  }
-                  selectedPickerApiario={selectedPickerApiario}
+          { !apiarios || apiarios == '' ?
+            (
+              <View style = {styles.container}>
+                <Image
+                  style = {styles.image}
+                  source={require ('../../../../images/empty.png')}
                 />
-              </CardItem>
-            </Card>
-            {!loading &&
-            intervencoesByApiario &&
-            intervencoesByApiario.length > 0
-              ? intervencoesByApiario.map((intervencao, index) => (
-                  <ItemLista
-                    handleOnPressDetalhar={this.onDetalharIntervencao}
-                    key={index}
-                    intervencao={intervencao}
-                  />
-                ))
-              : !loading &&
-                !selectedPickerApiario &&
-                !selectedPickerApiario > 0 && (
-                  <>
-                    <CardItem
-                      style={{
-                        marginTop: 20,
-                        flexDirection: "column",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Text>Primeiro selecione um apiario</Text>
-                    </CardItem>
-                    <View
-                      style={{
-                        flex: 1,
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Image
-                        style={{ marginTop: "15%" }}
-                        source={images.home.apiario}
-                      />
-                    </View>
-                  </>
-                )}
-          </Content>
-        )}
+                <Text style = {styles.textNull}>Nã há intervenções nas colmeias dos seus apiários :)</Text>
+              </View>
+              
+            ) : (
+              <View style = {styles.container}>
+                <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>
+                <View style = {styles.containerContent}>
+                  {
+                    apiarios.map (apiary =>
+                    <Apiary 
+                      key = {apiary.id} 
+                      apiaryId = {apiary.id} 
+                      name = {apiary.nome} 
+                      description = {apiary.descricao} 
+                      openList = {this.openHiveList}/>
+                    )
+                  }
+                </View>
+              </View>
+            )
+            }
       </Container>
     );
   }
@@ -155,3 +132,59 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(IntervencaoColmeia);
+
+
+// {!apiarios ? (
+//   <ColmeiasSemIntervencao onReturnHome={this.handleReturnHome} />
+// ) : (
+//   <Content padder scrollEnabled={true}>
+//     <Card>
+//       <CardItem>
+//         <RenderSelectApiario
+//           apiarios={apiarios}
+//           onValueChangePickerApiario={
+//             this.handleValueChangePickerApiario
+//           }
+//           selectedPickerApiario={selectedPickerApiario}
+//         />
+//       </CardItem>
+//     </Card>
+//     {!loading &&
+//     intervencoesByApiario &&
+//     intervencoesByApiario.length > 0
+//       ? intervencoesByApiario.map((intervencao, index) => (
+//           <ItemLista
+//             handleOnPressDetalhar={this.onDetalharIntervencao}
+//             key={index}
+//             intervencao={intervencao}
+//           />
+//         ))
+//       : !loading &&
+//         !selectedPickerApiario &&
+//         !selectedPickerApiario > 0 && (
+//           <>
+//             <CardItem
+//               style={{
+//                 marginTop: 20,
+//                 flexDirection: "column",
+//                 alignItems: "center"
+//               }}
+//             >
+//               <Text>Nenhuma colmeia</Text>
+//             </CardItem>
+//             <View
+//               style={{
+//                 flex: 1,
+//                 justifyContent: "center",
+//                 alignItems: "center"
+//               }}
+//             >
+//               <Image
+//                 style={{ marginTop: "15%" }}
+//                 source={images.home.apiario}
+//               />
+//             </View>
+//           </>
+//         )}
+//   </Content>
+// )}

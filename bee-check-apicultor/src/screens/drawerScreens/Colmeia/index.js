@@ -99,15 +99,25 @@ class Colmeia extends Component {
             handleIconRight={() => this.handleRefresh()}
             typeIconRight="AntDesign"
           />
+          <SpinnerCustom visible={loading} />
         <View style = {styles.containerContentHives}>
           <Text style = {styles.title}>Selecione um apiário</Text>
           <Text style = {styles.description}>Selecione um apiário para ver as colmeias cadastradas nele</Text>
         </View>
         <View style = {styles.contentHive}>
         <View style = {[styles.triangle,styles.arrowUp]}/>
-            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
-            <SpinnerCustom visible={loading} />
-            {
+          <ScrollView contentContainerStyle={{ width: '90%'}}>
+            { !apiarios || apiarios == '' ?
+            (
+              <View style = {styles.container}>
+                <Image
+                  style = {styles.image}
+                  source={require ('../../../../images/empty.png')}
+                />
+                <Text style = {styles.textNull}>Nenhum apiário encontrado :(</Text>
+              </View>
+              
+            ) : (
               apiarios.map (apiary =>
                 <Apiary 
                   key = {apiary.id} 
@@ -116,8 +126,10 @@ class Colmeia extends Component {
                   description = {apiary.descricao} 
                   openList = {this.openHiveList}/>
               )
+            )
             }
-            </ScrollView>
+            <View style = {{height: 30}}/>
+          </ScrollView>
         </View>
       </Container>
     );

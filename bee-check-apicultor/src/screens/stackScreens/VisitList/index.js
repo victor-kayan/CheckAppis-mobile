@@ -70,7 +70,7 @@ class VisitList extends Component {
   };
 
   openNewVisit = (apiaryId) => {
-    this.props.navigation.navigate(routes.NewColmeia, {apiaryId});
+    this.props.navigation.navigate(routes.NewVisitaApiario, {apiaryId});
   };
 
   openVisitDetails = (visit, apiaryId, apiaryName) => {
@@ -116,6 +116,7 @@ class VisitList extends Component {
                 />
                 )
             }
+            <View style = {{height: 120}}/>
             </ScrollView>
         
 
@@ -123,7 +124,7 @@ class VisitList extends Component {
           <TouchableHighlight
             activeOpacity={0.5}
             underlayColor="#ff8500"
-            onPress={() => this.openNewHive(this.state.apiaryId)}
+            onPress={() => this.openNewVisit(this.state.apiaryId)}
             style = {{borderRadius: 30}}
           >
             <LinearGradient

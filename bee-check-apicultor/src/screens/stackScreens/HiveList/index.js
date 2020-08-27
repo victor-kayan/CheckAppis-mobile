@@ -123,7 +123,17 @@ class HiveList extends Component {
         <View style = {[styles.triangle,styles.arrowUp]}/>
             <ScrollView contentContainerStyle={{ width: '90%', padding: 5,}}>
             <SpinnerCustom visible={loading} />
-            {
+            { !colmeias || colmeias == '' ?
+            (
+              <View style = {styles.container}>
+                <Image
+                  style = {styles.image}
+                  source={require ('../../../../images/empty.png')}
+                />
+                <Text style = {styles.textNull}>Nenhuma colmeia encontrada :(</Text>
+              </View>
+              
+            ) : (
               colmeias.map (hive =>
                 <Hive 
                   key = {hive.id} 
@@ -136,7 +146,9 @@ class HiveList extends Component {
                   deleteHive = {this.deleteColmeia}
                 />
               )
+            )
             }
+            <View style = {{height: 120}}/>
             </ScrollView>
         </View>
 

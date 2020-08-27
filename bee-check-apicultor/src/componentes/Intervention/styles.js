@@ -30,7 +30,7 @@ export default {
         color: colors.black,
     },
     button: {
-        width: '75%',
+        width: '67%',
         height: '40%',
         backgroundColor: colors.white,
         flexDirection: 'row',

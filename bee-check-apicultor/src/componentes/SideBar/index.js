@@ -17,7 +17,7 @@ import { routes, images } from "../../../assets";
 
 const datas = [
   {
-    name: "Home",
+    name: "Início",
     route: routes.Home,
     icon: images.sider.home
   },
@@ -131,8 +131,9 @@ const styles = StyleSheet.create({
     resizeMode: "cover"
   },
   text: {
-    fontSize: 16,
-    marginLeft: 20
+    fontSize: 14,
+    marginLeft: 20,
+    fontFamily: 'Montserrat-Medium',
   },
   textDivider: {
     fontWeight: Platform.OS === "ios" ? "500" : "400",

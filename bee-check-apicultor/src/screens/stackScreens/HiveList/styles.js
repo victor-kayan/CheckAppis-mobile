@@ -198,5 +198,19 @@ plus: {
   textAlign: 'center',
   alignSelf: 'center',
   marginTop: 13,
-}
+},
+textNull: {
+  color: colors.blackgrey,
+  fontSize: 15,
+  fontFamily: 'Montserrat Regular',
+  textAlign: 'center',
+  marginTop: 20,
+  marginBottom: 20,
+  marginHorizontal: 20,
+},
+image: {
+  marginTop: 50,
+  width: 300,
+  height: 280,
+  },
 };
