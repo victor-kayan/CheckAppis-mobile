@@ -125,7 +125,7 @@ export const concluirIntervencao = intervencao => {
   };
 };
 
-export const fecthIntervencoesColmeiasByApiario = ({ apiario_id }) => {
+export const fecthIntervencoesColmeiasByApiario = ({ apiaryId }) => {
   return dispatch => {
     dispatch({
       type: INTERVENCAO_LOADING,
@@ -136,7 +136,7 @@ export const fecthIntervencoesColmeiasByApiario = ({ apiario_id }) => {
     Api.instance
       .get(
         URLS.formattedURL(URLS.GET_INTERVENCOES_COLMEIAS_BY_APIARIO_URL, {
-          apiario_id: apiario_id
+          apiario_id: apiaryId
         })
       )
       .then(response => {

@@ -20,7 +20,8 @@ const routes = {
   NewVisitaColmeia: "NewVisitaColmeia",
   Perfil: "Perfil",
   HiveList: "HiveList",
-  VisitList: "VisitList"
+  VisitList: "VisitList",
+  InterventionHiveList: "InterventionHiveList"
 };
 
 export default routes;

@@ -7,12 +7,12 @@ import { routes, colors } from '../../../assets';
 import moment from "moment";
 import "moment/locale/pt-br";
 
-export default class Intervention extends React.Component {
+export default class InterventionHIve extends React.Component {
     render () {
         return (
           <View style = {styles.intervention}>
             <View>
-                <Text style = {styles.apiaryName}>{this.props.apiaryName}</Text>
+                <Text style = {styles.apiaryName}>{this.props.hiveName}</Text>
                 <Text style = {styles.date}>{`${moment(this.props.date).format("DD")} de`} {`${moment(this.props.date).format("MMMM")} de`} {`${moment(this.props.date).format("YYYY")}`}</Text>
             </View>
             

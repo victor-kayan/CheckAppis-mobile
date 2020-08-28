@@ -10,41 +10,34 @@ import { Text, Container, Content, Card, CardItem, View } from "native-base";
 import { Image } from "react-native";
 import { images, routes } from "../../../../assets";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
-import { RenderSelectApiario } from "./RenderSelectApiario";
-import { ColmeiasSemIntervencao } from "./ColmeiasSemIntervencao";
-import { ItemLista } from "./ItemLista";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
 import Apiary from "../../../componentes/Apiary";
+import InterventionHIve from "../../../componentes/InterventionHive";
 // import moment from "moment";
 // import "moment/locale/pt-br";
 
-class IntervencaoColmeia extends Component {
+class InterventionHiveList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedPickerApiario: null
+        apiaryId: this.props.navigation.getParam("apiaryId"),
+        apiaryName: this.props.navigation.getParam("name"),
+        selectedPickerApiario: null,
     };
   }
 
   componentDidMount() {
     this.handleRefresh();
+    alert(this.state.apiaryId);
   }
 
   handleRefresh = () => {
-    this.props.fetchApiariosHasColmeiasHasIntervencoes();
+    this.fecthIntervencoesColmeias(this.state.apiaryId);
   };
 
-  handleValueChangePickerApiario = apiario => {
-    this.setState({ selectedPickerApiario: apiario });
-
-    if (apiario) {
-      this.fecthIntervencoesColmeias(apiario.id);
-    }
-  };
-
-  fecthIntervencoesColmeias = apiario_id => {
-    this.props.fecthIntervencoesColmeiasByApiario({ apiario_id });
+  fecthIntervencoesColmeias = (apiaryId) => {
+    this.props.fecthIntervencoesColmeiasByApiario(apiaryId);
   };
 
   handleReturnHome = () => {
@@ -59,15 +52,9 @@ class IntervencaoColmeia extends Component {
     });
   };
 
-  openInterventionHiveList = (apiaryId, name) => {
-    this.props.navigation.navigate(routes.InterventionHiveList, {apiaryId, name})
-  };
-
   render() {
-    const { selectedPickerApiario } = this.state;
     const { apiarios, loading } = this.props;
-    const { intervencoesByApiario } =
-      selectedPickerApiario == null ? [] : this.props;
+    const { intervencoesByApiario } = this.props;
 
     return (
       <Container>
@@ -79,40 +66,28 @@ class IntervencaoColmeia extends Component {
           typeIconRight="AntDesign"
         />
         <SpinnerCustom visible={loading} />
-          { !apiarios || apiarios == '' ?
-            (
-              <View style = {styles.container}>
-                <Image
-                  style = {styles.image}
-                  source={require ('../../../../images/empty.png')}
-                />
-                <Text style = {styles.textNull}>Nã há intervenções nas colmeias dos seus apiários :)</Text>
-              </View>
-              
-            ) : (
-              <View style = {styles.container}>
-                <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>
-                <View style = {styles.containerContent}>
-                  {
-                    apiarios.map (apiary =>
-                    <Apiary 
-                      key = {apiary.id} 
-                      apiaryId = {apiary.id} 
-                      name = {apiary.nome} 
-                      description = {apiary.descricao} 
-                      openList = {this.openInterventionHiveList}/>
+          
+            <View style = {styles.container}>
+            <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
+            <View style = {styles.containerContent}>
+                {
+                    intervencoesByApiario && intervencoesByApiario.map (hive =>
+                    <InterventionHIve 
+                        key = {hive.id} 
+                        hiveId = {hive.id} 
+                        hiveName = {hive.nome} 
+                        description = {apiary.descricao} 
+                        openList = {this.openHiveList}/>
                     )
-                  }
-                </View>
-              </View>
-            )
-            }
+                }
+            </View>
+            </View>
+
       </Container>
     );
   }
 }
 
-// export default Visita;
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
@@ -135,7 +110,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(IntervencaoColmeia);
+)(InterventionHiveList);
 
 
 // {!apiarios ? (
