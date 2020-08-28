@@ -79,7 +79,7 @@ class IntervencaoApiario extends Component {
                     intervention = {intervention}
                     apiaryName = {intervention.apiario.nome}
                     openInterventionApiary = {this.onDetalharIntervencao}
-                    date = {intervention.criated_at} 
+                    datein = {intervention.criated_at} 
                   />
                 )
               }

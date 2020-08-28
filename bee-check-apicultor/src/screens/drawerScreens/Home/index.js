@@ -100,11 +100,11 @@ class Home extends Component {
           </LinearGradient>
 
           <MapView
-          provider={PROVIDER_GOOGLE} 
-          style={styles.map}
-          region={this.state.region}
-          zoomEnabled
-          loadingEnabled
+            provider={PROVIDER_GOOGLE} 
+            style={styles.map}
+            region={this.state.region}
+            zoomEnabled
+            loadingEnabled
           >
           {apiarios &&
             apiarios.length ?
@@ -116,7 +116,7 @@ class Home extends Component {
                   longitude: parseFloat(apiario.longitude)
                 }}
               >
-                <Image source={images.icons.apiario} style={{ width: 30, height: 30 }} />
+                <Image source={images.icons.checkappis} style={{ width: 30, height: 30 }} />
               </Marker>
             )): null}
         </MapView>

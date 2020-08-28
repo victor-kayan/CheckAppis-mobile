@@ -16,6 +16,7 @@ import { ItemLista } from "./ItemLista";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
 import Apiary from "../../../componentes/Apiary";
+import InterventionHIve from "../../../componentes/InterventionHive";
 // import moment from "moment";
 // import "moment/locale/pt-br";
 

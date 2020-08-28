@@ -23,18 +23,27 @@ class InterventionHiveList extends Component {
     this.state = {
         apiaryId: this.props.navigation.getParam("apiaryId"),
         apiaryName: this.props.navigation.getParam("name"),
-        selectedPickerApiario: null,
+        selectedPickerApiario: true,
     };
   }
 
   componentDidMount() {
     this.handleRefresh();
-    alert(this.state.apiaryId);
   }
 
   handleRefresh = () => {
+    this.props.fetchApiariosHasColmeiasHasIntervencoes();
     this.fecthIntervencoesColmeias(this.state.apiaryId);
   };
+
+  handleValueChangePickerApiario = apiario => {
+    this.setState({ selectedPickerApiario: apiario });
+
+    if (apiario) {
+      this.fecthIntervencoesColmeias(apiario.id);
+    }
+  };
+
 
   fecthIntervencoesColmeias = (apiaryId) => {
     this.props.fecthIntervencoesColmeiasByApiario(apiaryId);
@@ -53,8 +62,9 @@ class InterventionHiveList extends Component {
   };
 
   render() {
+    const { selectedPickerApiario } = this.state;
     const { apiarios, loading } = this.props;
-    const { intervencoesByApiario } = this.props;
+    const { intervencoesByApiario } = selectedPickerApiario == null ? [] : this.props;
 
     return (
       <Container>
@@ -70,14 +80,17 @@ class InterventionHiveList extends Component {
             <View style = {styles.container}>
             <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
             <View style = {styles.containerContent}>
-                {
-                    intervencoesByApiario && intervencoesByApiario.map (hive =>
+                {!loading &&
+                  intervencoesByApiario &&
+                  intervencoesByApiario.length > 0
+                  ? intervencoesByApiario.map (hive =>
                     <InterventionHIve 
                         key = {hive.id} 
                         hiveId = {hive.id} 
                         hiveName = {hive.nome} 
-                        description = {apiary.descricao} 
                         openList = {this.openHiveList}/>
+                    ) : (
+                      <Text>Sem colmeias</Text>
                     )
                 }
             </View>

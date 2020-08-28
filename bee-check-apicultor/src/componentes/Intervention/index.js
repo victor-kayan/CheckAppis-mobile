@@ -13,7 +13,7 @@ export default class Intervention extends React.Component {
           <View style = {styles.intervention}>
             <View>
                 <Text style = {styles.apiaryName}>{this.props.apiaryName}</Text>
-                <Text style = {styles.date}>{`${moment(this.props.date).format("DD")} de`} {`${moment(this.props.date).format("MMMM")} de`} {`${moment(this.props.date).format("YYYY")}`}</Text>
+                <Text style = {styles.date}>{`${moment(this.props.datein).format("DD")} de`} {`${moment(this.props.datein).format("MMMM")} de`} {`${moment(this.props.datein).format("YYYY")}`}</Text>
             </View>
             
             <TouchableOpacity onPress={() => this.props.openInterventionApiary(this.props.intervention)}>

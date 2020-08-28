@@ -149,7 +149,7 @@ export const fecthIntervencoesColmeiasByApiario = ({ apiaryId }) => {
       })
       .catch(error => {
         Toast.show({
-          text: error.response && error.response.data.message,
+          text: "teste",
           buttonText: "",
           type: "danger"
         });
