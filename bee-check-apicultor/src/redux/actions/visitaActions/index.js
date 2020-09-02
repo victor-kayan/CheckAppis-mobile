@@ -19,7 +19,6 @@ export const getVisitasByApiario = ({ apiario_id }) => {
         visitaIsLoading: true
       }
     });
-    // axios.get(URLS.BASE_URL+ URLS.GET_VISITAS_BY_APIARIO_URL + apiario_id)
     Api.instance
       .get(URLS.formattedURL(URLS.GET_VISITAS_BY_APIARIO_URL, { apiario_id }))
       .then(function(response) {
@@ -158,9 +157,11 @@ export const createVisita = data => {
             type: CREATE_VISITA_COMMIT,
             meta: null
           },
-          rollback: { // Disparada caso requisição for feitas mas não for bem sucedida - status code != 200
-            type: CREATE_VISITA_ROLLBACK, 
-            meta: null
+          rollback: { // Disparada caso requisição for feitas mas não for bem sucedida - status code != 200, por exemplo
+            type: CREATE_VISITA_ROLLBACK,
+            meta: { 
+              visitUuid: data.uuid 
+            }
           },
         }
       }

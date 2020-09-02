@@ -30,12 +30,14 @@ export const VisitaReducer = (state = initialState, action) => {
 
   switch (type) {
     case VisitaTypes.GET_VISITAS_BY_APIARIO_URL:
+      const failedVisits = state.visitas.filter(visit => {
+        return visit.permanentlyFailed && !visit.isSynced
+      });
+
       return {
         ...state,
         visitaIsLoading: payload.visitaIsLoading,
-        
-        // ! Fazer um Object assign para manter os estados dos itens não sincronizados
-        visitas: payload.visitas
+        visitas: [...payload.visitas, ...failedVisits]
       };
 
     case VisitaTypes.VISITA_LOADING:
@@ -75,11 +77,24 @@ export const VisitaReducer = (state = initialState, action) => {
         return {
           ...state,
           visitas: updatedVisitas
-        }
+        };
       }
       return state;
 
     case VisitaTypes.CREATE_VISITA_ROLLBACK:
+      if (meta.completed && !meta.success) {
+        const updatedVisitas = state.visitas.map(visita => {
+          if(visita.uuid === meta.visitUuid) {
+            return Object.assign({}, visita, { permanentlyFailed: true })
+          }
+          return visita;
+        }); 
+
+        return { 
+          ...state,
+          visitas: updatedVisitas
+        };
+      }
       return state;
     
     default:

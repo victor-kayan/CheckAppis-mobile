@@ -181,7 +181,9 @@ class Visita extends Component {
                         { // Mostrar se a visita está sincronizada ou não
                           visita.isSynced
                             ? (<Text style={{ fontWeight: 'bold', color: '#9F0' }}>SINCRONIZADO</Text>)
-                            : (<Text style={{ fontWeight: 'bold', color: '#F00' }}>NÃO SINCRONIZADO</Text>)
+                            : visita.permanentlyFailed
+                              ? (<Text style={{ fontWeight: 'bold', color: '#F00' }}>FALHOU PERMANENTEMENTE</Text>)
+                              : (<Text style={{ fontWeight: 'bold', color: '#F60' }}>AINDA NÃO SINCRONIZADO</Text>)
                         }
                       </View>
                     </TouchableOpacity>
