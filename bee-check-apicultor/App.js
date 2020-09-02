@@ -11,7 +11,8 @@ import {
   Visita,
   Colmeia,
   Intervencao,
-  Perfil
+  Perfil,
+  AboutApp
 } from "./src/screens/drawerScreens";
 import { Login, LoadingLogin } from "./src/screens/switchScreens";
 import {
@@ -50,7 +51,8 @@ const DrawerNavigator = createDrawerNavigator(
     Colmeia,
     Visita,
     Intervencao,
-    Perfil
+    Perfil,
+    AboutApp
   },
   {
     initialRouteName: "Home",

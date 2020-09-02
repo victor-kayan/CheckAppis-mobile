@@ -100,7 +100,7 @@ class SideBar extends Component {
                 <Text style={styles.text}>Perfil</Text>
               </Left>
             </CardItem>
-            <CardItem button noBorder onPress={() => this.props.navigation.navigate(routes.Perfil)}>
+            <CardItem button noBorder onPress={() => this.props.navigation.navigate(routes.AboutApp)}>
               <Left>
                 <Thumbnail
                   square

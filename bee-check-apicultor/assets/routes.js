@@ -21,7 +21,8 @@ const routes = {
   Perfil: "Perfil",
   HiveList: "HiveList",
   VisitList: "VisitList",
-  InterventionHiveList: "InterventionHiveList"
+  InterventionHiveList: "InterventionHiveList",
+  AboutApp: "AboutApp",
 };
 
 export default routes;
