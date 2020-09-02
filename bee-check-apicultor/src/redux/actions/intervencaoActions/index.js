@@ -125,7 +125,7 @@ export const concluirIntervencao = intervencao => {
   };
 };
 
-export const fecthIntervencoesColmeiasByApiario = ({ apiaryId }) => {
+export const fecthIntervencoesColmeiasByApiario = apiaryId => {
   return dispatch => {
     dispatch({
       type: INTERVENCAO_LOADING,
@@ -149,7 +149,7 @@ export const fecthIntervencoesColmeiasByApiario = ({ apiaryId }) => {
       })
       .catch(error => {
         Toast.show({
-          text: "teste",
+          text: error.response && error.response.data.message,
           buttonText: "",
           type: "danger"
         });

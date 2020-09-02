@@ -32,7 +32,6 @@ class InterventionHiveList extends Component {
   }
 
   handleRefresh = () => {
-    this.props.fetchApiariosHasColmeiasHasIntervencoes();
     this.fecthIntervencoesColmeias(this.state.apiaryId);
   };
 

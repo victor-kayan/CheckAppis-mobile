@@ -89,7 +89,6 @@ class IntervencaoColmeia extends Component {
                 />
                 <Text style = {styles.textNull}>Nã há intervenções nas colmeias dos seus apiários :)</Text>
               </View>
-              
             ) : (
               <View style = {styles.container}>
                 <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>

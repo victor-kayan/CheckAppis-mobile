@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/sadrak/Documents/CheckAppis/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
+            "outputFile": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
             "map": [
                 {
-                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ad0ef16e4514339a2153f8fa26cf21a1/res/values-sv/values-sv.xml",
+                    "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/values-sv/values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/9fcdfee4c9cb420d68862b4a2d742df7/res/values-sv/values-sv.xml",
+                    "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/57807a45c8d026c851a76b074bef817a/res/values-sv/values-sv.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/4dd0d1fdb9d98854813150f44dbf460c/res/values-sv/values.xml",
+                    "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/09bd2d0139d183071ba50c095cab528b/res/values-sv/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "/home/sadrak/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/08999b131db8c8b17ce290d70103e3a9/res/values-sv/values.xml",
+                    "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/af3a7dd8d5287415a4eaba4fb89c5019/res/values-sv/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
