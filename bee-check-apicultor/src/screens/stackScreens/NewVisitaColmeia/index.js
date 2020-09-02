@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import { Image, NetInfo } from "react-native";
 import 'react-native-get-random-values';
 
-import { Image } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { v4 as uuidv4 } from 'uuid';
@@ -19,7 +19,7 @@ import {
   Toast
 } from "native-base";
 
-import { getColemiasByApiario } from "../../../redux/actions/colmeiaActions";
+import { getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
 import { createVisita } from "../../../redux/actions/visitaActions";
 import { SpinnerCustom } from "../../../componentes";
 import { colors, routes, images } from "../../../../assets";
@@ -35,37 +35,19 @@ class NewVisitaColmeia extends Component {
       colmeia: null,
       colmeiasNaoVisitadas: [],
       colmeiasVisitadas: [],
+      colmeiasDoApiarioAtual: [],
       done: false,
       doneColmeias: false
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    const { done, doneColmeias } = this.state;
-    
+    const apiarioId = this.props.navigation.getParam("apiario_id", "");
+    const { doneColmeias } = this.state;
+
     if (doneColmeias && nextProps.colmeias) {
-      this.renderItemColmeia(nextProps.colmeias, []);
+      this.renderItemColmeia(nextProps.colmeias[apiarioId], []);
       this.setState({ doneColmeias: false });
-    }
-
-    if (done) {
-      this.setState({ done: false });
-
-      if (nextProps.storeError) {
-        return Toast.show({
-          text: nextProps.storeMessages && nextProps.storeMessages,
-          buttonText: "",
-          type: "danger"
-        });
-      } else {
-        Toast.show({
-          text: nextProps.storeMessages && nextProps.storeMessages,
-          buttonText: "",
-          type: "success"
-        });
-
-        this.props.navigation.navigate(routes.VisitasHome);
-      }
     }
   }
 
@@ -73,9 +55,25 @@ class NewVisitaColmeia extends Component {
     this.getColmeiasByApiario();
   }
 
+  getColmeiasByApiario = () => {
+    const apiarioId = this.props.navigation.getParam("apiario_id", "");
+    
+    NetInfo.isConnected.fetch().then(isConnected => {
+      if (isConnected) {
+        this.props.getColmeiasByApiario({ id: apiarioId });
+        this.setState({ doneColmeias: true })
+      } else {
+        this.renderItemColmeia(this.props.colmeias[apiarioId], []);
+      }
+    });
+    
+    this.setState({ colmeiasDoApiarioAtual: this.props.colmeias[apiarioId] });
+  };
+
   renderItemColmeia = (colmeias, colmeiasVisitadas) => {
     let colmeiasAux = [];
     let color = "#FAFAFA";
+
     if (
       colmeias &&
       colmeias.length &&
@@ -97,6 +95,7 @@ class NewVisitaColmeia extends Component {
     } else {
       colmeiasAux.push("Apiarios sem colmeias");
     }
+
     colmeias.forEach(colmeia => {
       color =
         colmeiasVisitadas &&
@@ -109,13 +108,6 @@ class NewVisitaColmeia extends Component {
     });
 
     this.setState({ colmeiasNaoVisitadas: colmeiasAux });
-  };
-
-  getColmeiasByApiario = () => {
-    this.props.getColemiasByApiario({
-      id: this.props.navigation.getParam("apiario_id", "")
-    });
-    this.setState({ colmeia: null, doneColmeias: true });
   };
 
   onAddVisitaColmeia = values => {
@@ -146,12 +138,14 @@ class NewVisitaColmeia extends Component {
         colmeia: null
       });
     }
+    
     Toast.show({
       text: "Visita adicionada",
       buttonText: "",
       type: "success"
     });
-    this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
+
+    this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
   };
 
   onFinishVisitaColmeia = values => {
@@ -183,7 +177,7 @@ class NewVisitaColmeia extends Component {
       });
     }
     
-    this.renderItemColmeia(this.props.colmeias, [...colmeiasVisitadas, visita]);
+    this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
     this.onConcluirVisita();
   };
 
@@ -201,14 +195,14 @@ class NewVisitaColmeia extends Component {
     const serializedData = this.serializeVisitData(data);
     
     this.props.createVisita(serializedData);
-
+    this.props.navigation.navigate(routes.VisitasHome);
+    // TODO: Navegar para a tela de listagem de visitas do apiário que acabou de ser visitado
+    
     Toast.show({
       text: "Visita adicionada!",
       buttonText: "",
       type: "success"
     });
-
-    this.props.navigation.navigate(routes.VisitasHome);
   };
 
   /**
@@ -271,10 +265,10 @@ class NewVisitaColmeia extends Component {
   };
 
   onChangeSelectColmeia = index => {
-    const { colmeias } = this.props;
+    const { colmeiasDoApiarioAtual } = this.state;
 
-    if (index !== 0 && colmeias[index - 1]) {
-      this.setState({ colmeia: colmeias[index - 1] });
+    if (index !== 0 && colmeiasDoApiarioAtual[index - 1]) {
+      this.setState({ colmeia: colmeiasDoApiarioAtual[index - 1] });
     }
   };
 
@@ -287,8 +281,9 @@ class NewVisitaColmeia extends Component {
   };
 
   render() {
-    const { loading, colmeias } = this.props;
-    const { colmeia, colmeiasNaoVisitadas } = this.state;
+    const { loading } = this.props;
+    const { colmeia, colmeiasNaoVisitadas, colmeiasDoApiarioAtual } = this.state;
+
     return (
       <Container>
         <HeaderVisita handleConcluirVisita={this.onConcluirVisita} />
@@ -372,7 +367,7 @@ class NewVisitaColmeia extends Component {
             </>
           ) : (
             !loading &&
-            !colmeias.length && (
+            !colmeiasDoApiarioAtual.length && (
               <>
                 <CardItem
                   style={{
@@ -430,7 +425,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ 
-    getColemiasByApiario, 
+    getColmeiasByApiario, 
     createVisita, 
   }, dispatch);
 }

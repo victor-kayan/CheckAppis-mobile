@@ -35,8 +35,8 @@ export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
         dispatch({
           type: CREATE_COLMEIA,
           payload: {
-            loading: false,
-            colmeia: response.data.colmeia
+            colmeia: response.data.colmeia,
+            apiarioId: apiario_id
           }
         });
       })
@@ -79,7 +79,7 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
           buttonText: "",
           type: "success"
         });
-        dispatch(getColemiasByApiario({ id: apiario_id }));
+        dispatch(getColmeiasByApiario({ id: apiario_id }));
         dispatch({
           type: EDIT_COLMEIA,
           payload: {
@@ -104,15 +104,8 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
   };
 };
 
-export const getColemiasByApiario = ({ id }) => {
+export const getColmeiasByApiario = ({ id }) => {
   return dispatch => {
-    dispatch({
-      type: LOADING_COLMEIA,
-      payload: {
-        loading: true
-      }
-    });
-
     Api.instance
       .get(
         URLS.formattedURL(URLS.GET_COLMEIAS_BY_APIARIO_URL, { apiario_id: id })
@@ -121,8 +114,8 @@ export const getColemiasByApiario = ({ id }) => {
         dispatch({
           type: GET_COLMEIA_BY_APIARIO,
           payload: {
-            loading: false,
-            colmeias: response.data.colmeias
+            colmeias: response.data.colmeias,
+            apiarioId: id
           }
         });
       })
@@ -131,12 +124,6 @@ export const getColemiasByApiario = ({ id }) => {
           text: error.response && error.response.data.message,
           buttonText: "",
           type: "danger"
-        });
-        dispatch({
-          type: LOADING_COLMEIA,
-          payload: {
-            loading: false
-          }
         });
         throw error;
       });
@@ -165,7 +152,7 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
             loading: false
           }
         });
-        dispatch(getColemiasByApiario({ id: apiario_id }));
+        dispatch(getColmeiasByApiario({ id: apiario_id }));
       })
       .catch(error => {
         Toast.show({

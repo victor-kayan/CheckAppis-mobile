@@ -25,7 +25,7 @@ import {
 } from "../../../componentes";
 import {
   deleteColmeiaById,
-  getColemiasByApiario
+  getColmeiasByApiario
 } from "../../../redux/actions/colmeiaActions";
 import { colors, routes, images } from "../../../../assets";
 import styles from "./styles";
@@ -54,16 +54,16 @@ class Colmeia extends Component {
   }
 
   fetchColmeias(id) {
-    this.props.getColemiasByApiario({ id });
+    this.props.getColmeiasByApiario({ id });
   }
 
   deleteColmeia = () => {
     this.setState({ dialogVisible: false });
+
     if (this.state.colmeia) {
       const { id, apiario_id } = this.state.colmeia;
       this.setState({ dialogVisible: false });
       this.props.deleteColmeiaById({ id, apiario_id });
-      // this.props.getColemiasByApiario({id: apiario_id });
     }
   };
 
@@ -77,7 +77,10 @@ class Colmeia extends Component {
   render() {
     const { selectedPickerApiario, dialogVisible } = this.state;
     const { apiarios, loading } = this.props;
-    const { colmeias } = selectedPickerApiario ? this.props : [];
+    
+    const colmeias = selectedPickerApiario 
+      ? this.props.colmeias[selectedPickerApiario.id] // Lista de colmeias referente ao apiário selecionado
+      : [];
 
     return (
       <Container>
@@ -292,7 +295,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchApiariosByUser, deleteColmeiaById, getColemiasByApiario },
+    { fetchApiariosByUser, deleteColmeiaById, getColmeiasByApiario },
     dispatch
   );
 }
