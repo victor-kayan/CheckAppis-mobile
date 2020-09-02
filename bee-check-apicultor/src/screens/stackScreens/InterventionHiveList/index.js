@@ -7,15 +7,13 @@ import {
   concluirIntervencaoColmeia
 } from "../../../redux/actions/intervencaoActions";
 import { Text, Container, Content, Card, CardItem, View } from "native-base";
-import { Image } from "react-native";
+import { Image, ScrollView } from "react-native";
 import { images, routes } from "../../../../assets";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
 import Apiary from "../../../componentes/Apiary";
 import InterventionHIve from "../../../componentes/InterventionHive";
-// import moment from "moment";
-// import "moment/locale/pt-br";
 
 class InterventionHiveList extends Component {
   constructor(props) {
@@ -52,9 +50,9 @@ class InterventionHiveList extends Component {
     this.props.navigation.navigate(routes.Home);
   };
 
-  onDetalharIntervencao = intervencao => {
-    this.props.navigation.navigate(routes.DetalhesIntervencao, {
-      intervencao: intervencao,
+  onDetalharIntervencao = interventionHive => {
+    this.props.navigation.navigate(routes.DetailsInterventionHive, {
+      intervencao: interventionHive,
       routeOnSuccessConcluir: routes.IntervencaoColmeia,
       onConcluirIntervencao: this.props.concluirIntervencaoColmeia
     });
@@ -78,7 +76,7 @@ class InterventionHiveList extends Component {
           
             <View style = {styles.container}>
             <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
-            <View style = {styles.containerContent}>
+            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
                 {!loading &&
                   intervencoesByApiario &&
                   intervencoesByApiario.length > 0
@@ -86,13 +84,22 @@ class InterventionHiveList extends Component {
                     <InterventionHIve 
                         key = {hive.id} 
                         hiveId = {hive.id} 
-                        hiveName = {hive.nome} 
-                        openList = {this.openHiveList}/>
+                        name = {hive.colmeia.nome}
+                        interventionHive = {hive}
+                        date = {hive.created_at} 
+                        openInterventionHive = {this.onDetalharIntervencao}/>
                     ) : (
-                      <Text>Sem colmeias</Text>
+                      <View style = {styles.container}>
+                        <Image
+                          style = {styles.image}
+                          source={require ('../../../../images/empty.png')}
+                        />
+                        <Text style = {styles.textNull}>Nenhuma colmeia encontrada :(</Text>
+                      </View>
                     )
                 }
-            </View>
+                <View style = {{height: 60}}/>
+            </ScrollView>
             </View>
 
       </Container>

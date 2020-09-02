@@ -10,6 +10,7 @@ import DetalhesIntervencao from "./DetalhesIntervencao";
 import HiveList from "./HiveList";
 import VisitList from "./VisitList";
 import InterventionHiveList from "./InterventionHiveList";
+import DetailsInterventionHive from "./DetailsInterventionHive";
 
 export {
   NewColmeia,
@@ -24,4 +25,5 @@ export {
   HiveList,
   VisitList,
   InterventionHiveList,
+  DetailsInterventionHive,
 };

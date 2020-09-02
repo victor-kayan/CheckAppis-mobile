@@ -12,11 +12,11 @@ export default class InterventionHIve extends React.Component {
         return (
           <View style = {styles.intervention}>
             <View>
-                <Text style = {styles.apiaryName}>{this.props.hiveName}</Text>
+                <Text style = {styles.apiaryName}>{this.props.name}</Text>
                 <Text style = {styles.date}>{`${moment(this.props.date).format("DD")} de`} {`${moment(this.props.date).format("MMMM")} de`} {`${moment(this.props.date).format("YYYY")}`}</Text>
             </View>
             
-            <TouchableOpacity onPress={() => this.props.openInterventionApiary(this.props.intervention)}>
+            <TouchableOpacity onPress={() => this.props.openInterventionHive(this.props.interventionHive)}>
                 <View style = {styles.button}>
                     <Text style = {styles.textButton}>Visualizar</Text>
                 </View>

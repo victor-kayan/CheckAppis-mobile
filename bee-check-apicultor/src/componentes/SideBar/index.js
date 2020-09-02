@@ -62,7 +62,7 @@ class SideBar extends Component {
         >
           <LinearGradient
             colors={[colors.theme_default, colors.theme_second]}
-            style={{ height: 250, marginBottom: 20}}
+            style={{ height: 220, marginBottom: 20}}
           >
             <ImageBackground source={images.headers.hive} style = {{resizeMode: 'cover', flex: 1, opacity: 0.1}}/>
             

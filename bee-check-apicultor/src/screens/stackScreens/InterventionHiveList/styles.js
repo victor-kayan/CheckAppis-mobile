@@ -23,6 +23,7 @@ export default {
     alignItems: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
+    padding: 20,
     width: '100%',
   },
   title: {
@@ -32,6 +33,7 @@ export default {
     textAlign: 'center',
     marginTop: 30,
     marginHorizontal: 30,
+    marginBottom: 20,
   },
   containerContent: {
     position: "absolute",

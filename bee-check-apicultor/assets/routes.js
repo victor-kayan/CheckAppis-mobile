@@ -23,6 +23,7 @@ const routes = {
   VisitList: "VisitList",
   InterventionHiveList: "InterventionHiveList",
   AboutApp: "AboutApp",
+  DetailsInterventionHive: "DetailsInterventionHive", 
 };
 
 export default routes;

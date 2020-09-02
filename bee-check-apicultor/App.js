@@ -27,7 +27,8 @@ import {
   DetalhesIntervencao,
   HiveList,
   VisitList,
-  InterventionHiveList
+  InterventionHiveList,
+  DetailsInterventionHive
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
@@ -78,7 +79,8 @@ const StackNavigator = createStackNavigator(
     DetalhesIntervencao,
     HiveList,
     VisitList,
-    InterventionHiveList
+    InterventionHiveList,
+    DetailsInterventionHive,
   },
   {
     initialRouteName: "DrawerNavigator",
