@@ -7,6 +7,10 @@ import IntervencaoApiario from "./IntervencaoApiaro";
 import IntervencaoColmeia from "./IntervencaoColmeia";
 import DetalhesVisitaColmeia from "./DetalhesVisitaColmeia";
 import DetalhesIntervencao from "./DetalhesIntervencao";
+import HiveList from "./HiveList";
+import VisitList from "./VisitList";
+import InterventionHiveList from "./InterventionHiveList";
+import DetailsInterventionHive from "./DetailsInterventionHive";
 
 export {
   NewColmeia,
@@ -17,5 +21,9 @@ export {
   IntervencaoApiario,
   IntervencaoColmeia,
   DetalhesVisitaColmeia,
-  DetalhesIntervencao
+  DetalhesIntervencao,
+  HiveList,
+  VisitList,
+  InterventionHiveList,
+  DetailsInterventionHive,
 };

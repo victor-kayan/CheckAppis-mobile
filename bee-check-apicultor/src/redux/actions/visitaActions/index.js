@@ -10,7 +10,7 @@ import { URLS } from "../../../../assets";
 import { Api } from "../../../../services";
 import { Toast } from "native-base";
 
-export const getVisitasByApiario = ({ apiario_id }) => {
+export const getVisitasByApiario = ({ id }) => {
   return dispatch => {
     dispatch({
       type: VISITA_LOADING,
@@ -19,7 +19,7 @@ export const getVisitasByApiario = ({ apiario_id }) => {
       }
     });
     Api.instance
-      .get(URLS.formattedURL(URLS.GET_VISITAS_BY_APIARIO_URL, { apiario_id }))
+      .get(URLS.formattedURL(URLS.GET_VISITAS_BY_APIARIO_URL, { apiario_id: id }))
       .then(function(response) {
         dispatch({
           type: GET_VISITAS_BY_APIARIO_URL,

@@ -18,7 +18,12 @@ const routes = {
   DetalhesVisita: "DetalhesVisita",
   NewVisitaApiario: "NewVisitaApiario",
   NewVisitaColmeia: "NewVisitaColmeia",
-  Perfil: "Perfil"
+  Perfil: "Perfil",
+  HiveList: "HiveList",
+  VisitList: "VisitList",
+  InterventionHiveList: "InterventionHiveList",
+  AboutApp: "AboutApp",
+  DetailsInterventionHive: "DetailsInterventionHive", 
 };
 
 export default routes;

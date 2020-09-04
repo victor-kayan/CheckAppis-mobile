@@ -11,7 +11,8 @@ import {
   Visita,
   Colmeia,
   Intervencao,
-  Perfil
+  Perfil,
+  AboutApp
 } from "./src/screens/drawerScreens";
 import { Login, LoadingLogin } from "./src/screens/switchScreens";
 import {
@@ -23,7 +24,11 @@ import {
   IntervencaoApiario,
   IntervencaoColmeia,
   DetalhesVisitaColmeia,
-  DetalhesIntervencao
+  DetalhesIntervencao,
+  HiveList,
+  VisitList,
+  InterventionHiveList,
+  DetailsInterventionHive
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
@@ -51,13 +56,15 @@ const DrawerNavigator = createDrawerNavigator(
     Colmeia,
     Visita,
     Intervencao,
-    Perfil
+    Perfil,
+    AboutApp
   },
   {
-    initialRouteName: "Visita",
+    initialRouteName: "Home",
     contentComponent: props => <SideBar {...props} />,
     navigationOptions: {
-      headerTransparent: true
+      headerTransparent: true,
+      headerTintColor: colors.white
     }
   }
 );
@@ -73,13 +80,17 @@ const StackNavigator = createStackNavigator(
     IntervencaoColmeia,
     DetalhesVisitaColmeia,
     DetalhesVisita,
-    DetalhesIntervencao
+    DetalhesIntervencao,
+    HiveList,
+    VisitList,
+    InterventionHiveList,
+    DetailsInterventionHive,
   },
   {
     initialRouteName: "DrawerNavigator",
     navigationOptions: {
       headerTransparent: true,
-      headerTintColor: colors.black
+      headerTintColor: colors.white
     }
   }
 );

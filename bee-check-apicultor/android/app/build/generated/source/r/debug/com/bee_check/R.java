@@ -3013,58 +3013,63 @@ public final class R {
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int uiTiltGestures=0x7f030187;
+    public static final int uiScrollGesturesDuringRotateOrZoom=0x7f030187;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int uiZoomControls=0x7f030188;
+    public static final int uiTiltGestures=0x7f030188;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int uiZoomGestures=0x7f030189;
+    public static final int uiZoomControls=0x7f030189;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int useCompatPadding=0x7f03018a;
+    public static final int uiZoomGestures=0x7f03018a;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int useViewLifecycle=0x7f03018b;
+    public static final int useCompatPadding=0x7f03018b;
+    /**
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     */
+    public static final int useViewLifecycle=0x7f03018c;
     /**
      * <p>May be a floating point value, such as "<code>1.2</code>".
      */
-    public static final int viewAspectRatio=0x7f03018c;
+    public static final int viewAspectRatio=0x7f03018d;
     /**
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      */
-    public static final int viewInflaterClass=0x7f03018d;
+    public static final int viewInflaterClass=0x7f03018e;
     /**
      * <p>May be a reference to another resource, in the form
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      */
-    public static final int voiceIcon=0x7f03018e;
+    public static final int voiceIcon=0x7f03018f;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowActionBar=0x7f03018f;
+    public static final int windowActionBar=0x7f030190;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowActionBarOverlay=0x7f030190;
+    public static final int windowActionBarOverlay=0x7f030191;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowActionModeOverlay=0x7f030191;
+    public static final int windowActionModeOverlay=0x7f030192;
     /**
      * <p>May be a dimension value, which is a floating point number appended with a
      * unit such as "<code>14.5sp</code>".
@@ -3076,7 +3081,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedHeightMajor=0x7f030192;
+    public static final int windowFixedHeightMajor=0x7f030193;
     /**
      * <p>May be a dimension value, which is a floating point number appended with a
      * unit such as "<code>14.5sp</code>".
@@ -3088,7 +3093,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedHeightMinor=0x7f030193;
+    public static final int windowFixedHeightMinor=0x7f030194;
     /**
      * <p>May be a dimension value, which is a floating point number appended with a
      * unit such as "<code>14.5sp</code>".
@@ -3100,7 +3105,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedWidthMajor=0x7f030194;
+    public static final int windowFixedWidthMajor=0x7f030195;
     /**
      * <p>May be a dimension value, which is a floating point number appended with a
      * unit such as "<code>14.5sp</code>".
@@ -3112,7 +3117,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedWidthMinor=0x7f030195;
+    public static final int windowFixedWidthMinor=0x7f030196;
     /**
      * <p>May be a dimension value, which is a floating point number appended with a
      * unit such as "<code>14.5sp</code>".
@@ -3124,7 +3129,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowMinWidthMajor=0x7f030196;
+    public static final int windowMinWidthMajor=0x7f030197;
     /**
      * <p>May be a dimension value, which is a floating point number appended with a
      * unit such as "<code>14.5sp</code>".
@@ -3136,17 +3141,17 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowMinWidthMinor=0x7f030197;
+    public static final int windowMinWidthMinor=0x7f030198;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowNoTitle=0x7f030198;
+    public static final int windowNoTitle=0x7f030199;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int zOrderOnTop=0x7f030199;
+    public static final int zOrderOnTop=0x7f03019a;
   }
   public static final class bool {
     public static final int abc_action_bar_embed_tabs=0x7f040000;
@@ -3204,63 +3209,64 @@ public final class R {
     public static final int common_google_signin_btn_text_light_disabled=0x7f05002e;
     public static final int common_google_signin_btn_text_light_focused=0x7f05002f;
     public static final int common_google_signin_btn_text_light_pressed=0x7f050030;
-    public static final int design_bottom_navigation_shadow_color=0x7f050031;
-    public static final int design_error=0x7f050032;
-    public static final int design_fab_shadow_end_color=0x7f050033;
-    public static final int design_fab_shadow_mid_color=0x7f050034;
-    public static final int design_fab_shadow_start_color=0x7f050035;
-    public static final int design_fab_stroke_end_inner_color=0x7f050036;
-    public static final int design_fab_stroke_end_outer_color=0x7f050037;
-    public static final int design_fab_stroke_top_inner_color=0x7f050038;
-    public static final int design_fab_stroke_top_outer_color=0x7f050039;
-    public static final int design_snackbar_background_color=0x7f05003a;
-    public static final int design_tint_password_toggle=0x7f05003b;
-    public static final int dim_foreground_disabled_material_dark=0x7f05003c;
-    public static final int dim_foreground_disabled_material_light=0x7f05003d;
-    public static final int dim_foreground_material_dark=0x7f05003e;
-    public static final int dim_foreground_material_light=0x7f05003f;
-    public static final int error_color_material=0x7f050040;
-    public static final int foreground_material_dark=0x7f050041;
-    public static final int foreground_material_light=0x7f050042;
-    public static final int highlighted_text_material_dark=0x7f050043;
-    public static final int highlighted_text_material_light=0x7f050044;
-    public static final int material_blue_grey_800=0x7f050045;
-    public static final int material_blue_grey_900=0x7f050046;
-    public static final int material_blue_grey_950=0x7f050047;
-    public static final int material_deep_teal_200=0x7f050048;
-    public static final int material_deep_teal_500=0x7f050049;
-    public static final int material_grey_100=0x7f05004a;
-    public static final int material_grey_300=0x7f05004b;
-    public static final int material_grey_50=0x7f05004c;
-    public static final int material_grey_600=0x7f05004d;
-    public static final int material_grey_800=0x7f05004e;
-    public static final int material_grey_850=0x7f05004f;
-    public static final int material_grey_900=0x7f050050;
-    public static final int notification_action_color_filter=0x7f050051;
-    public static final int notification_icon_bg_color=0x7f050052;
-    public static final int notification_material_background_media_default_color=0x7f050053;
-    public static final int primary_dark_material_dark=0x7f050054;
-    public static final int primary_dark_material_light=0x7f050055;
-    public static final int primary_material_dark=0x7f050056;
-    public static final int primary_material_light=0x7f050057;
-    public static final int primary_text_default_material_dark=0x7f050058;
-    public static final int primary_text_default_material_light=0x7f050059;
-    public static final int primary_text_disabled_material_dark=0x7f05005a;
-    public static final int primary_text_disabled_material_light=0x7f05005b;
-    public static final int ripple_material_dark=0x7f05005c;
-    public static final int ripple_material_light=0x7f05005d;
-    public static final int secondary_text_default_material_dark=0x7f05005e;
-    public static final int secondary_text_default_material_light=0x7f05005f;
-    public static final int secondary_text_disabled_material_dark=0x7f050060;
-    public static final int secondary_text_disabled_material_light=0x7f050061;
-    public static final int switch_thumb_disabled_material_dark=0x7f050062;
-    public static final int switch_thumb_disabled_material_light=0x7f050063;
-    public static final int switch_thumb_material_dark=0x7f050064;
-    public static final int switch_thumb_material_light=0x7f050065;
-    public static final int switch_thumb_normal_material_dark=0x7f050066;
-    public static final int switch_thumb_normal_material_light=0x7f050067;
-    public static final int tooltip_background_dark=0x7f050068;
-    public static final int tooltip_background_light=0x7f050069;
+    public static final int common_google_signin_btn_tint=0x7f050031;
+    public static final int design_bottom_navigation_shadow_color=0x7f050032;
+    public static final int design_error=0x7f050033;
+    public static final int design_fab_shadow_end_color=0x7f050034;
+    public static final int design_fab_shadow_mid_color=0x7f050035;
+    public static final int design_fab_shadow_start_color=0x7f050036;
+    public static final int design_fab_stroke_end_inner_color=0x7f050037;
+    public static final int design_fab_stroke_end_outer_color=0x7f050038;
+    public static final int design_fab_stroke_top_inner_color=0x7f050039;
+    public static final int design_fab_stroke_top_outer_color=0x7f05003a;
+    public static final int design_snackbar_background_color=0x7f05003b;
+    public static final int design_tint_password_toggle=0x7f05003c;
+    public static final int dim_foreground_disabled_material_dark=0x7f05003d;
+    public static final int dim_foreground_disabled_material_light=0x7f05003e;
+    public static final int dim_foreground_material_dark=0x7f05003f;
+    public static final int dim_foreground_material_light=0x7f050040;
+    public static final int error_color_material=0x7f050041;
+    public static final int foreground_material_dark=0x7f050042;
+    public static final int foreground_material_light=0x7f050043;
+    public static final int highlighted_text_material_dark=0x7f050044;
+    public static final int highlighted_text_material_light=0x7f050045;
+    public static final int material_blue_grey_800=0x7f050046;
+    public static final int material_blue_grey_900=0x7f050047;
+    public static final int material_blue_grey_950=0x7f050048;
+    public static final int material_deep_teal_200=0x7f050049;
+    public static final int material_deep_teal_500=0x7f05004a;
+    public static final int material_grey_100=0x7f05004b;
+    public static final int material_grey_300=0x7f05004c;
+    public static final int material_grey_50=0x7f05004d;
+    public static final int material_grey_600=0x7f05004e;
+    public static final int material_grey_800=0x7f05004f;
+    public static final int material_grey_850=0x7f050050;
+    public static final int material_grey_900=0x7f050051;
+    public static final int notification_action_color_filter=0x7f050052;
+    public static final int notification_icon_bg_color=0x7f050053;
+    public static final int notification_material_background_media_default_color=0x7f050054;
+    public static final int primary_dark_material_dark=0x7f050055;
+    public static final int primary_dark_material_light=0x7f050056;
+    public static final int primary_material_dark=0x7f050057;
+    public static final int primary_material_light=0x7f050058;
+    public static final int primary_text_default_material_dark=0x7f050059;
+    public static final int primary_text_default_material_light=0x7f05005a;
+    public static final int primary_text_disabled_material_dark=0x7f05005b;
+    public static final int primary_text_disabled_material_light=0x7f05005c;
+    public static final int ripple_material_dark=0x7f05005d;
+    public static final int ripple_material_light=0x7f05005e;
+    public static final int secondary_text_default_material_dark=0x7f05005f;
+    public static final int secondary_text_default_material_light=0x7f050060;
+    public static final int secondary_text_disabled_material_dark=0x7f050061;
+    public static final int secondary_text_disabled_material_light=0x7f050062;
+    public static final int switch_thumb_disabled_material_dark=0x7f050063;
+    public static final int switch_thumb_disabled_material_light=0x7f050064;
+    public static final int switch_thumb_material_dark=0x7f050065;
+    public static final int switch_thumb_material_light=0x7f050066;
+    public static final int switch_thumb_normal_material_dark=0x7f050067;
+    public static final int switch_thumb_normal_material_light=0x7f050068;
+    public static final int tooltip_background_dark=0x7f050069;
+    public static final int tooltip_background_light=0x7f05006a;
   }
   public static final class dimen {
     public static final int abc_action_bar_content_inset_material=0x7f060000;
@@ -3510,31 +3516,31 @@ public final class R {
     public static final int avd_show_password=0x7f07005c;
     public static final int common_full_open_on_phone=0x7f07005d;
     public static final int common_google_signin_btn_icon_dark=0x7f07005e;
-    public static final int common_google_signin_btn_icon_dark_disabled=0x7f07005f;
-    public static final int common_google_signin_btn_icon_dark_focused=0x7f070060;
-    public static final int common_google_signin_btn_icon_dark_normal=0x7f070061;
-    public static final int common_google_signin_btn_icon_dark_pressed=0x7f070062;
+    public static final int common_google_signin_btn_icon_dark_focused=0x7f07005f;
+    public static final int common_google_signin_btn_icon_dark_normal=0x7f070060;
+    public static final int common_google_signin_btn_icon_dark_normal_background=0x7f070061;
+    public static final int common_google_signin_btn_icon_disabled=0x7f070062;
     public static final int common_google_signin_btn_icon_light=0x7f070063;
-    public static final int common_google_signin_btn_icon_light_disabled=0x7f070064;
-    public static final int common_google_signin_btn_icon_light_focused=0x7f070065;
-    public static final int common_google_signin_btn_icon_light_normal=0x7f070066;
-    public static final int common_google_signin_btn_icon_light_pressed=0x7f070067;
-    public static final int common_google_signin_btn_text_dark=0x7f070068;
-    public static final int common_google_signin_btn_text_dark_disabled=0x7f070069;
-    public static final int common_google_signin_btn_text_dark_focused=0x7f07006a;
-    public static final int common_google_signin_btn_text_dark_normal=0x7f07006b;
-    public static final int common_google_signin_btn_text_dark_pressed=0x7f07006c;
-    public static final int common_google_signin_btn_text_light=0x7f07006d;
-    public static final int common_google_signin_btn_text_light_disabled=0x7f07006e;
-    public static final int common_google_signin_btn_text_light_focused=0x7f07006f;
-    public static final int common_google_signin_btn_text_light_normal=0x7f070070;
-    public static final int common_google_signin_btn_text_light_pressed=0x7f070071;
-    public static final int design_bottom_navigation_item_background=0x7f070072;
-    public static final int design_fab_background=0x7f070073;
-    public static final int design_ic_visibility=0x7f070074;
-    public static final int design_ic_visibility_off=0x7f070075;
-    public static final int design_password_eye=0x7f070076;
-    public static final int design_snackbar_background=0x7f070077;
+    public static final int common_google_signin_btn_icon_light_focused=0x7f070064;
+    public static final int common_google_signin_btn_icon_light_normal=0x7f070065;
+    public static final int common_google_signin_btn_icon_light_normal_background=0x7f070066;
+    public static final int common_google_signin_btn_text_dark=0x7f070067;
+    public static final int common_google_signin_btn_text_dark_focused=0x7f070068;
+    public static final int common_google_signin_btn_text_dark_normal=0x7f070069;
+    public static final int common_google_signin_btn_text_dark_normal_background=0x7f07006a;
+    public static final int common_google_signin_btn_text_disabled=0x7f07006b;
+    public static final int common_google_signin_btn_text_light=0x7f07006c;
+    public static final int common_google_signin_btn_text_light_focused=0x7f07006d;
+    public static final int common_google_signin_btn_text_light_normal=0x7f07006e;
+    public static final int common_google_signin_btn_text_light_normal_background=0x7f07006f;
+    public static final int design_bottom_navigation_item_background=0x7f070070;
+    public static final int design_fab_background=0x7f070071;
+    public static final int design_ic_visibility=0x7f070072;
+    public static final int design_ic_visibility_off=0x7f070073;
+    public static final int design_password_eye=0x7f070074;
+    public static final int design_snackbar_background=0x7f070075;
+    public static final int googleg_disabled_color_18=0x7f070076;
+    public static final int googleg_standard_color_18=0x7f070077;
     public static final int navigation_empty_icon=0x7f070078;
     public static final int notification_action_background=0x7f070079;
     public static final int notification_bg=0x7f07007a;
@@ -3941,28 +3947,29 @@ public final class R {
     public static final int common_google_play_services_install_button=0x7f0d003d;
     public static final int common_google_play_services_install_text=0x7f0d003e;
     public static final int common_google_play_services_install_title=0x7f0d003f;
-    public static final int common_google_play_services_notification_ticker=0x7f0d0040;
-    public static final int common_google_play_services_unknown_issue=0x7f0d0041;
-    public static final int common_google_play_services_unsupported_text=0x7f0d0042;
-    public static final int common_google_play_services_update_button=0x7f0d0043;
-    public static final int common_google_play_services_update_text=0x7f0d0044;
-    public static final int common_google_play_services_update_title=0x7f0d0045;
-    public static final int common_google_play_services_updating_text=0x7f0d0046;
-    public static final int common_google_play_services_wear_update_text=0x7f0d0047;
-    public static final int common_open_on_phone=0x7f0d0048;
-    public static final int common_signin_button_text=0x7f0d0049;
-    public static final int common_signin_button_text_long=0x7f0d004a;
-    public static final int image_button_description=0x7f0d004b;
-    public static final int image_description=0x7f0d004c;
-    public static final int link_description=0x7f0d004d;
-    public static final int password_toggle_content_description=0x7f0d004e;
-    public static final int path_password_eye=0x7f0d004f;
-    public static final int path_password_eye_mask_strike_through=0x7f0d0050;
-    public static final int path_password_eye_mask_visible=0x7f0d0051;
-    public static final int path_password_strike_through=0x7f0d0052;
-    public static final int search_description=0x7f0d0053;
-    public static final int search_menu_title=0x7f0d0054;
-    public static final int status_bar_notification_info_overflow=0x7f0d0055;
+    public static final int common_google_play_services_notification_channel_name=0x7f0d0040;
+    public static final int common_google_play_services_notification_ticker=0x7f0d0041;
+    public static final int common_google_play_services_unknown_issue=0x7f0d0042;
+    public static final int common_google_play_services_unsupported_text=0x7f0d0043;
+    public static final int common_google_play_services_update_button=0x7f0d0044;
+    public static final int common_google_play_services_update_text=0x7f0d0045;
+    public static final int common_google_play_services_update_title=0x7f0d0046;
+    public static final int common_google_play_services_updating_text=0x7f0d0047;
+    public static final int common_google_play_services_wear_update_text=0x7f0d0048;
+    public static final int common_open_on_phone=0x7f0d0049;
+    public static final int common_signin_button_text=0x7f0d004a;
+    public static final int common_signin_button_text_long=0x7f0d004b;
+    public static final int image_button_description=0x7f0d004c;
+    public static final int image_description=0x7f0d004d;
+    public static final int link_description=0x7f0d004e;
+    public static final int password_toggle_content_description=0x7f0d004f;
+    public static final int path_password_eye=0x7f0d0050;
+    public static final int path_password_eye_mask_strike_through=0x7f0d0051;
+    public static final int path_password_eye_mask_visible=0x7f0d0052;
+    public static final int path_password_strike_through=0x7f0d0053;
+    public static final int search_description=0x7f0d0054;
+    public static final int search_menu_title=0x7f0d0055;
+    public static final int status_bar_notification_info_overflow=0x7f0d0056;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0e0000;
@@ -6013,9 +6020,9 @@ public final class R {
         0x7f03015b, 0x7f03015c, 0x7f03015d, 0x7f03015e, 
         0x7f03015f, 0x7f030160, 0x7f030161, 0x7f030162, 
         0x7f030164, 0x7f03017b, 0x7f03017c, 0x7f03017d, 
-        0x7f03017e, 0x7f03018d, 0x7f03018f, 0x7f030190, 
-        0x7f030191, 0x7f030192, 0x7f030193, 0x7f030194, 
-        0x7f030195, 0x7f030196, 0x7f030197, 0x7f030198
+        0x7f03017e, 0x7f03018e, 0x7f030190, 0x7f030191, 
+        0x7f030192, 0x7f030193, 0x7f030194, 0x7f030195, 
+        0x7f030196, 0x7f030197, 0x7f030198, 0x7f030199
       };
     /**
      * <p>This symbol is the offset where the {@link android.R.attr#windowIsFloating}
@@ -8497,7 +8504,7 @@ public final class R {
     public static final int[] FloatingActionButton={
         0x7f030039, 0x7f03003a, 0x7f030041, 0x7f03008d, 
         0x7f030099, 0x7f03009a, 0x7f030106, 0x7f030115, 
-        0x7f03018a
+        0x7f03018b
       };
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#backgroundTint}
@@ -8993,7 +9000,7 @@ public final class R {
         0x7f030118, 0x7f030119, 0x7f03011a, 0x7f03011b, 
         0x7f03011c, 0x7f03011d, 0x7f03011e, 0x7f03011f, 
         0x7f030120, 0x7f030121, 0x7f030122, 0x7f030123, 
-        0x7f03018c
+        0x7f03018d
       };
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#actualImageScaleType}
@@ -9768,6 +9775,7 @@ public final class R {
      * <tr><td><code>{@link #MapAttrs_uiMapToolbar com.bee_check:uiMapToolbar}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiRotateGestures com.bee_check:uiRotateGestures}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiScrollGestures com.bee_check:uiScrollGestures}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MapAttrs_uiScrollGesturesDuringRotateOrZoom com.bee_check:uiScrollGesturesDuringRotateOrZoom}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiTiltGestures com.bee_check:uiTiltGestures}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiZoomControls com.bee_check:uiZoomControls}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiZoomGestures com.bee_check:uiZoomGestures}</code></td><td></td></tr>
@@ -9792,6 +9800,7 @@ public final class R {
      * @see #MapAttrs_uiMapToolbar
      * @see #MapAttrs_uiRotateGestures
      * @see #MapAttrs_uiScrollGestures
+     * @see #MapAttrs_uiScrollGesturesDuringRotateOrZoom
      * @see #MapAttrs_uiTiltGestures
      * @see #MapAttrs_uiZoomControls
      * @see #MapAttrs_uiZoomGestures
@@ -9804,7 +9813,7 @@ public final class R {
         0x7f0300c9, 0x7f0300ca, 0x7f0300cb, 0x7f0300cc, 
         0x7f0300e4, 0x7f0300e7, 0x7f030183, 0x7f030184, 
         0x7f030185, 0x7f030186, 0x7f030187, 0x7f030188, 
-        0x7f030189, 0x7f03018b, 0x7f030199
+        0x7f030189, 0x7f03018a, 0x7f03018c, 0x7f03019a
       };
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#ambientEnabled}
@@ -9986,6 +9995,16 @@ public final class R {
      */
     public static final int MapAttrs_uiScrollGestures=17;
     /**
+     * <p>This symbol is the offset where the {@link com.bee_check.R.attr#uiScrollGesturesDuringRotateOrZoom}
+     * attribute's value can be found in the {@link #MapAttrs} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name com.bee_check:uiScrollGesturesDuringRotateOrZoom
+     */
+    public static final int MapAttrs_uiScrollGesturesDuringRotateOrZoom=18;
+    /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#uiTiltGestures}
      * attribute's value can be found in the {@link #MapAttrs} array.
      *
@@ -9994,7 +10013,7 @@ public final class R {
      *
      * @attr name com.bee_check:uiTiltGestures
      */
-    public static final int MapAttrs_uiTiltGestures=18;
+    public static final int MapAttrs_uiTiltGestures=19;
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#uiZoomControls}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -10004,7 +10023,7 @@ public final class R {
      *
      * @attr name com.bee_check:uiZoomControls
      */
-    public static final int MapAttrs_uiZoomControls=19;
+    public static final int MapAttrs_uiZoomControls=20;
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#uiZoomGestures}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -10014,7 +10033,7 @@ public final class R {
      *
      * @attr name com.bee_check:uiZoomGestures
      */
-    public static final int MapAttrs_uiZoomGestures=20;
+    public static final int MapAttrs_uiZoomGestures=21;
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#useViewLifecycle}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -10024,7 +10043,7 @@ public final class R {
      *
      * @attr name com.bee_check:useViewLifecycle
      */
-    public static final int MapAttrs_useViewLifecycle=21;
+    public static final int MapAttrs_useViewLifecycle=22;
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#zOrderOnTop}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -10034,7 +10053,7 @@ public final class R {
      *
      * @attr name com.bee_check:zOrderOnTop
      */
-    public static final int MapAttrs_zOrderOnTop=22;
+    public static final int MapAttrs_zOrderOnTop=23;
     /**
      * Attributes that can be used with a MenuGroup.
      * <p>Includes the following attributes:</p>
@@ -11178,7 +11197,7 @@ public final class R {
         0x7f03005c, 0x7f03006e, 0x7f03007e, 0x7f0300af, 
         0x7f0300bb, 0x7f0300cd, 0x7f03010c, 0x7f03010d, 
         0x7f030127, 0x7f030128, 0x7f03013f, 0x7f030144, 
-        0x7f03018e
+        0x7f03018f
       };
     /**
      * <p>This symbol is the offset where the {@link android.R.attr#focusable}
@@ -11595,7 +11614,7 @@ public final class R {
         0x7f030116, 0x7f030117, 0x7f030118, 0x7f030119, 
         0x7f03011a, 0x7f03011b, 0x7f03011c, 0x7f03011d, 
         0x7f03011e, 0x7f03011f, 0x7f030120, 0x7f030121, 
-        0x7f030122, 0x7f030123, 0x7f03018c
+        0x7f030122, 0x7f030123, 0x7f03018d
       };
     /**
      * <p>This symbol is the offset where the {@link com.bee_check.R.attr#actualImageResource}

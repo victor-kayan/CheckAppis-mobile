@@ -10,6 +10,7 @@ import {
 import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 import { Api } from "../../../../services";
+import {Alert} from "react-native";
 
 export const fecthIntervencoesByApicultor = () => {
   return dispatch => {
@@ -49,46 +50,82 @@ export const fecthIntervencoesByApicultor = () => {
 
 export const concluirIntervencao = intervencao => {
   return dispatch => {
-    dispatch({
-      type: INTERVENCAO_LOADING,
-      payload: {
-        loading: true
-      }
-    });
-    Api.instance
-      .get(
-        URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
-          intervencao_id: intervencao.id
-        })
-      )
-      .then(response => {
-        Toast.show({
-          text: response.data.message,
-          buttonText: "",
-          type: "success"
-        });
-        dispatch(fecthIntervencoesByApicultor());
-        dispatch({
-          type: INTERVENCAO_CONCLUIR_SUCCESS,
-          payload: {}
-        });
-      })
-      .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "danger"
-        });
-        dispatch({
-          type: INTERVENCAO_CONCLUIR_SUCCESS,
-          payload: {}
-        });
-        throw error;
-      });
+    Alert.alert(
+      'Concluir Intervenção',
+          'Tem certeza que deseja concluir esta intervenção?',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              onPress: () => {
+                dispatch({
+                  type: INTERVENCAO_LOADING,
+                  payload: {
+                    loading: true
+                  }
+                });
+                Api.instance
+                  .get(
+                    URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
+                      intervencao_id: intervencao.id
+                    })
+                  )
+                  .then(response => {
+                    Alert.alert(
+                      'Intervenção Concluída',
+                      'Intervenção concluída com sucesso.',
+                      [
+                        {
+                          text: 'Cancelar',
+                          style: 'cancel',
+                        },
+                        {
+                          text: 'OK', 
+                          style: 'cancel'
+                        },
+                      ],
+                      {cancelable: false},
+                    );
+                    dispatch(fecthIntervencoesByApicultor());
+                    dispatch({
+                      type: INTERVENCAO_CONCLUIR_SUCCESS,
+                      payload: {}
+                    });
+                  })
+                  .catch(error => {
+                    Alert.alert(
+                      'Erro',
+                      error.response && error.response.data.message,
+                      [
+                        {
+                          text: 'Cancelar',
+                          style: 'cancel',
+                        },
+                        {
+                          text: 'OK', 
+                          style: 'cancel'
+                        },
+                      ],
+                      {cancelable: false},
+                    );
+                    dispatch({
+                      type: INTERVENCAO_CONCLUIR_SUCCESS,
+                      payload: {}
+                    });
+                    throw error;
+                  });
+              }
+            },
+          ],
+          {cancelable: false},
+    )
   };
 };
 
-export const fecthIntervencoesColmeiasByApiario = ({ apiario_id }) => {
+export const fecthIntervencoesColmeiasByApiario = apiaryId => {
   return dispatch => {
     dispatch({
       type: INTERVENCAO_LOADING,
@@ -99,7 +136,7 @@ export const fecthIntervencoesColmeiasByApiario = ({ apiario_id }) => {
     Api.instance
       .get(
         URLS.formattedURL(URLS.GET_INTERVENCOES_COLMEIAS_BY_APIARIO_URL, {
-          apiario_id: apiario_id
+          apiario_id: apiaryId
         })
       )
       .then(response => {
@@ -129,46 +166,61 @@ export const fecthIntervencoesColmeiasByApiario = ({ apiario_id }) => {
 
 export const concluirIntervencaoColmeia = intervencao => {
   return dispatch => {
-    dispatch({
-      type: INTERVENCAO_LOADING,
-      payload: {
-        loading: true
-      }
-    });
-    Api.instance
-      .get(
-        URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
-          intervencao_id: intervencao.id
-        })
-      )
-      .then(response => {
-        Toast.show({
-          text: response.data.message,
-          buttonText: "",
-          type: "success"
-        });
-        dispatch(
-          fecthIntervencoesColmeiasByApiario({
-            apiario_id: intervencao.colmeia.apiario_id
-          })
-        );
-        dispatch({
-          type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-          payload: {}
-        });
-      })
-      .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "danger"
-        });
-        dispatch({
-          type: INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
-          payload: {}
-        });
-        throw error;
-      });
+    Alert.alert(
+      'Concluir Intervenção',
+          'Tem certeza que deseja concluir esta intervenção?',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              onPress: () => {
+                dispatch({
+                  type: INTERVENCAO_LOADING,
+                  payload: {
+                    loading: true
+                  }
+                });
+                Api.instance
+                  .get(
+                    URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
+                      intervencao_id: intervencao.id
+                    })
+                  )
+                  .then(response => {
+                    Toast.show({
+                      text: response.data.message,
+                      buttonText: "",
+                      type: "success"
+                    });
+                    dispatch(
+                      fecthIntervencoesColmeiasByApiario({
+                        apiario_id: intervencao.colmeia.apiario_id
+                      })
+                    );
+                    dispatch({
+                      type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
+                      payload: {}
+                    });
+                  })
+                  .catch(error => {
+                    Toast.show({
+                      text: error.response && error.response.data.message,
+                      buttonText: "",
+                      type: "danger"
+                    });
+                    dispatch({
+                      type: INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+                      payload: {}
+                    });
+                    throw error;
+                  });
+              }
+            },
+          ],
+          {cancelable: false},)
   };
 };
 

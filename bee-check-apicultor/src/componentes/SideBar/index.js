@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Platform, Dimensions, StyleSheet } from "react-native";
+import { ImageBackground, Platform, Dimensions, StyleSheet, Image } from "react-native";
 import {
   Content,
   Text,
@@ -13,11 +13,12 @@ import {
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { logout } from "../../redux/actions/userActions";
-import { routes, images } from "../../../assets";
+import { routes, images, colors } from "../../../assets";
+import LinearGradient from "react-native-linear-gradient";
 
 const datas = [
   {
-    name: "Home",
+    name: "Início",
     route: routes.Home,
     icon: images.sider.home
   },
@@ -57,9 +58,15 @@ class SideBar extends Component {
       <Container>
         <Content
           bounces={false}
-          style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
+          style={{ backgroundColor: "#fff", height: '100%' }}
         >
-          <Image source={images.sider.drawerCover} style={styles.drawerCover} />
+          <LinearGradient
+            colors={[colors.theme_default, colors.theme_second]}
+            style={{ height: 220, marginBottom: 20}}
+          >
+            <ImageBackground source={images.headers.hive} style = {{resizeMode: 'cover', flex: 1, opacity: 0.1}}/>
+            
+          </LinearGradient>
 
           <View>
             {datas && Object.keys(datas).length
@@ -71,20 +78,19 @@ class SideBar extends Component {
                     onPress={() => this.props.navigation.navigate(data.route)}
                   >
                     <Left>
-                      <Thumbnail
-                        square
-                        source={data.icon}
-                        style={{ height: 30, width: 30 }}
-                      />
+                        <Thumbnail
+                          square
+                          source={data.icon}
+                          style={{ height: 30, width: 30 }}
+                        />
                       <Text style={styles.text}>{data.name}</Text>
                     </Left>
                   </CardItem>
                 ))
               : null}
-            <Separator bordered>
-              <Text style={styles.textDivider}>CONFIGURAÇÕES</Text>
-            </Separator>
-            <CardItem button noBorder onPress={() => alert("Tela em construção.")}>
+            <Separator style = {{backgroundColor: 'white', borderBottomColor: colors.blackgrey, borderBottomWidth: 1, width: '93%', alignSelf: 'flex-end', height: 15, marginBottom: 8}}/>
+              
+            <CardItem button noBorder onPress={() => this.props.navigation.navigate(routes.Perfil)}>
               <Left>
                 <Thumbnail
                   square
@@ -92,6 +98,16 @@ class SideBar extends Component {
                   style={{ height: 30, width: 30 }}
                 />
                 <Text style={styles.text}>Perfil</Text>
+              </Left>
+            </CardItem>
+            <CardItem button noBorder onPress={() => this.props.navigation.navigate(routes.AboutApp)}>
+              <Left>
+                <Thumbnail
+                  square
+                  source={images.sider.info}
+                  style={{ height: 30, width: 30 }}
+                />
+                <Text style={styles.text}>Sobre o aplicativo</Text>
               </Left>
             </CardItem>
             <CardItem button noBorder onPress={() => this.logout()}>
@@ -131,8 +147,9 @@ const styles = StyleSheet.create({
     resizeMode: "cover"
   },
   text: {
-    fontSize: 16,
-    marginLeft: 20
+    fontSize: 14,
+    marginLeft: 20,
+    fontFamily: 'Montserrat-Medium',
   },
   textDivider: {
     fontWeight: Platform.OS === "ios" ? "500" : "400",

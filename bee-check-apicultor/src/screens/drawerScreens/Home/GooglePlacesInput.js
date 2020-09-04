@@ -12,6 +12,7 @@ export default class GooglePlacesInput extends Component {
     const { onLocationSelected } = this.props;
 
     return (
+      
       <GooglePlacesAutocomplete
         placeholder={"Buscar endereço..."}
         placeholderTextColor={"#B8B8B8"}
@@ -22,7 +23,7 @@ export default class GooglePlacesInput extends Component {
         }}
         textInputProps={{
           onFocus: () => this.setState({ searchFocused: true }),
-          onBlur: () => this.setState({ searchFocused: false }),
+          onBlur: () => this.setState({ searchFocused: true }),
           autoCapitaliza: "nome",
           autoCorrect: false
         }}
@@ -39,14 +40,17 @@ export default class GooglePlacesInput extends Component {
             flex: 1,
             backgroundColor: "transparent",
             height: 44,
+            width: '90%',
             marginHorizontal: 10,
             borderTopWidth: 0,
-            borderBottomWidth: 0
+            borderBottomWidth: 0,
+            marginVertical: 40,
+            alignSelf: 'center',
           },
           textInput: {
-            height: 54,
+            height: 50,
             margin: 0,
-            borderRadius: 5,
+            borderRadius: 30,
             paddingTop: 0,
             paddingBottom: 0,
             paddingLeft: 20,
@@ -59,9 +63,8 @@ export default class GooglePlacesInput extends Component {
             shadowOpacity: 0.1,
             shadowOffset: { x: 0, y: 0 },
             shadowRadius: 15,
-            borderWidth: 1,
-            borderColor: "#DDD",
-            fontSize: 18
+            fontSize: 15,
+            fontFamily: 'Montserrat-Medium',
           },
           listView: {
             borderWidth: 1,
@@ -80,7 +83,7 @@ export default class GooglePlacesInput extends Component {
           },
           row: {
             padding: 20,
-            height: 58
+            height: 58,
           }
         }}
       />

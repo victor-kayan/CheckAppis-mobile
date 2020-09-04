@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
-import { Container, Content, Text, View } from "native-base";
+import { Image, ScrollView } from "react-native";
+import { Container, Content, Text, View, Icon} from "native-base";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
@@ -8,17 +8,21 @@ import {
   concluirIntervencao
 } from "../../../redux/actions/intervencaoActions";
 import {
-  HeaderCustom,
   SpinnerCustom,
   ButtonCustom
 } from "../../../componentes";
 import { images, routes } from "../../../../assets";
 import { ItemLista } from "./ItemLista";
+import styles from "./styles";
+import Intervention from "../../../componentes/Intervention";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 class IntervencaoApiario extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+
+    };
   }
 
   componentDidMount() {
@@ -33,9 +37,9 @@ class IntervencaoApiario extends Component {
     this.props.fecthIntervencoesByApicultor();
   }
 
-  onDetalharIntervencao = intervencao => {
+  onDetalharIntervencao = intervention => {
     this.props.navigation.navigate(routes.DetalhesIntervencao, {
-      intervencao: intervencao,
+      intervencao: intervention,
       routeOnSuccessConcluir: routes.IntervencaoApiario,
       onConcluirIntervencao: this.props.concluirIntervencao
     });
@@ -46,56 +50,45 @@ class IntervencaoApiario extends Component {
 
     return (
       <Container>
-        <HeaderCustom
-          handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Intervenções"
+        <HeaderCustomStack
+          title={`Intervenções nos \nApiários`}
+          description = "Veja todas as intervenções propostas para seus apiários"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
         <SpinnerCustom visible={loading} />
-        {!intervencoes || intervencoes.lenght <= 0 ? (
-          <View
-            style={{
-              flex: 1,
-              marginHorizontal: "8%",
-              marginTop: "20%",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "space-between"
-            }}
-          >
-            <View>
-              <Text>
-                No monento não há nenhuma Intervenção para seu(s) Apiario(s)
-              </Text>
-            </View>
-            <View>
-              <Image source={images.home.checked} />
-            </View>
-            <ButtonCustom
-              onPress={() => this.props.navigation.navigate(routes.Home)}
-              iconLeft="home"
-              typeIconLeficonLeft="AntDesign"
-              title="Retornar a tela inical"
-              style={{
-                alignSelf: "flex-end",
-                marginHorizontal: "8%"
-              }}
-            />
+      {!intervencoes || intervencoes == '' ? 
+        (
+          <View style = {styles.container}>
+            <Image
+                style = {styles.image}
+                source={require ('../../../../images/empty.png')}
+              />
+            <Text style = {styles.textNull}>Nenhuma intervenção para ser concluída no momento :)</Text>
           </View>
         ) : (
-          <Content padder scrollEnabled={true}>
-            {intervencoes &&
-              intervencoes.map((intervencao, index) => (
-                <ItemLista
-                  handleOnPressDetalhar={this.onDetalharIntervencao}
-                  key={index}
-                  intervencao={intervencao}
-                />
-              ))}
-          </Content>
-        )}
+          <View style = {styles.container}>
+            <Text style = {styles.text}>Aqui estão todas as intervenções dos seus apiários</Text>
+            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
+              {
+                intervencoes && intervencoes.map ( (intervention, index) =>
+                  <Intervention 
+                    key = {index} 
+                    interId = {intervention.id} 
+                    intervention = {intervention}
+                    apiaryName = {intervention.apiario.nome}
+                    openInterventionApiary = {this.onDetalharIntervencao}
+                    datein = {intervention.criated_at} 
+                  />
+                )
+              }
+              <View style = {{height: 60}}/>
+            </ScrollView>
+          </View>
+        )
+      
+      }
       </Container>
     );
   }
@@ -120,3 +113,47 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(IntervencaoApiario);
+
+
+// {!intervencoes || intervencoes.lenght <= 0 ? (
+//   <View
+//     style={{
+//       flex: 1,
+//       marginHorizontal: "8%",
+//       marginTop: "20%",
+//       flexDirection: "column",
+//       alignItems: "center",
+//       justifyContent: "space-between"
+//     }}
+//   >
+//     <View>
+//       <Text>
+//         No monento não há nenhuma Intervenção para seu(s) Apiario(s)
+//       </Text>
+//     </View>
+//     <View>
+//       <Image source={images.home.checked} />
+//     </View>
+//     <ButtonCustom
+//       onPress={() => this.props.navigation.navigate(routes.Home)}
+//       iconLeft="home"
+//       typeIconLeficonLeft="AntDesign"
+//       title="Retornar a tela inical"
+//       style={{
+//         alignSelf: "flex-end",
+//         marginHorizontal: "8%"
+//       }}
+//     />
+//   </View>
+// ) : (
+//   <Content padder scrollEnabled={true}>
+//     {intervencoes &&
+//       intervencoes.map((intervencao, index) => (
+//         <ItemLista
+//           handleOnPressDetalhar={this.onDetalharIntervencao}
+//           key={index}
+//           intervencao={intervencao}
+//         />
+//       ))}
+//   </Content>
+// )}

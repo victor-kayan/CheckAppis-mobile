@@ -19,9 +19,16 @@ import moment from "moment";
 import "moment/locale/pt-br";
 
 class DetalhesVisita extends React.Component {
+
+  componentDidMount() {
+    alert(this.props.navigation.getParam("apiaryId"));
+  }
+
+
   render() {
-    const visita = this.props.navigation.getParam("visita", "");
-    const apiario = this.props.navigation.getParam("apiario", "");
+    const visita = this.props.navigation.getParam("visit", "");
+    const apiaryId = this.props.navigation.getParam("apiaryId", "");
+    const apiaryName = this.props.navigation.getParam("apiaryName", "");
 
     return (
       <Container>
@@ -51,7 +58,7 @@ class DetalhesVisita extends React.Component {
                 fontSize: 17
               }}
             >
-              {`Apiario ${apiario && apiario.nome}`}
+              {`Apiario ${apiaryName}`}
             </Text>
           </View>
           <Grid style={{ marginTop: 30 }}>
@@ -141,7 +148,7 @@ class DetalhesVisita extends React.Component {
           <View style={{ marginTop: 20 }}>
             <Text
               style={{ marginHorizontal: 10, fontWeight: "bold" }}
-            >{`Colmeias visitadas:   ${visita.visita_colmeias.length}`}</Text>
+            >{`Colmeias visitadas:   ${visita.visita_colmeias}`}</Text>
           </View>
           <Grid style={{ marginTop: 20 }}>
             <Col style={{ marginHorizontal: 5 }}>
