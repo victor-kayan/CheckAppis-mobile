@@ -81,7 +81,9 @@ class Visita extends Component {
   render() {
     const { selectedPickerApiario, dialogVisible } = this.state;
     const { apiarios, loading } = this.props;
-    const { visitas } = selectedPickerApiario == null ? [] : this.props;
+    const visitas = selectedPickerApiario !== null
+      ? this.props.visitas[selectedPickerApiario.id]
+      : [];
 
     return (
       <Container>
@@ -180,10 +182,10 @@ class Visita extends Component {
 
                         { // Mostrar se a visita está sincronizada ou não
                           visita.isSynced
-                            ? (<Text style={{ fontWeight: 'bold', color: '#9F0' }}>SINCRONIZADO</Text>)
+                            ? (<Text style={{ fontWeight: 'bold', color: '#9F0' }}>SINCRONIZADO</Text>) // visita.isSynced -> TRUE; visita.permanentlyFailed -> FALSE
                             : visita.permanentlyFailed
-                              ? (<Text style={{ fontWeight: 'bold', color: '#F00' }}>FALHOU PERMANENTEMENTE</Text>)
-                              : (<Text style={{ fontWeight: 'bold', color: '#F60' }}>AINDA NÃO SINCRONIZADO</Text>)
+                              ? (<Text style={{ fontWeight: 'bold', color: '#F00' }}>FALHOU PERMANENTEMENTE</Text>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> TRUE 
+                              : (<Text style={{ fontWeight: 'bold', color: '#F60' }}>AINDA NÃO SINCRONIZADO</Text>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> FALSE
                         }
                       </View>
                     </TouchableOpacity>
@@ -299,7 +301,6 @@ function mapDispatchToProps(dispatch) {
       fetchApiariosByUser,
       getVisitasByApiario,
       deleteVisita
-      // fecthVisitasColmeiaByVisita
     },
     dispatch
   );

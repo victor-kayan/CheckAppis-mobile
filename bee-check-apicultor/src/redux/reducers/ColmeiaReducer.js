@@ -8,8 +8,8 @@ import {
 } from "../actions/colmeiaActions/actionsType";
 
 const initialState = {
+  colmeias: {}, // Objeto com arrays de colmeias por apiários
   loading: false,
-  colmeias: {}, // Array de colmeias por apiários
   countColmeias: 0
 };
 
@@ -25,8 +25,8 @@ export const ColmeiaReducer = (state = initialState, action) => {
     case CREATE_COLMEIA:
       const colmeiasListWithNewColmeia = {
         [action.payload.apiarioId]: [
-          ...state.colmeias[action.payload.apiarioId],
-          action.payload.colmeia
+          action.payload.colmeia,
+          ...state.colmeias[action.payload.apiarioId]
         ]
       };
 
@@ -66,6 +66,7 @@ export const ColmeiaReducer = (state = initialState, action) => {
         ...state,
         loading: action.payload.loading
       };
+      
     default:
       return state;
   }
