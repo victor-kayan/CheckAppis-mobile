@@ -26,7 +26,7 @@ export const getVisitasByApiario = ({ id }) => {
           payload: {
             visitas: response.data.visitas,
             visitaIsLoading: false,
-            apiarioId: apiario_id
+            apiarioId: id
           }
         });
       })

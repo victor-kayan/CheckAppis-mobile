@@ -63,7 +63,7 @@ class VisitList extends Component {
     const { selectedApiary } = this.state;
     const { loading } = this.props;
     const visitas = selectedApiary !== null
-      ? this.props.visitas[selectedApiary.id]
+      ? this.props.visitas[selectedApiary.id] || []
       : [];
 
     return (

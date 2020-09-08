@@ -1,4 +1,5 @@
 import Alert from "./Alert";
+import Apiary from './Apiary';
 import SideBar from "./SideBar";
 import HeaderCard from "./HeaderCard";
 import InputSwitch from "./InputSwitch";
@@ -10,6 +11,7 @@ import SpinnerCustom from "./SpinnerCustom";
 
 export {
   Alert,
+  Apiary,
   SideBar,
   HeaderCard,
   InputSwitch,

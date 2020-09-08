@@ -1,5 +1,5 @@
 // export const BASE_URL = "https://bee-check.herokuapp.com/api/";
-export const BASE_URL = 'http://192.168.1.8/api/';
+export const BASE_URL = 'http://192.168.1.9/api/';
 
 export const LOGIN_URL = "/auth/login/apicultor";
 export const LOGOUT_URL = "/auth/logout";

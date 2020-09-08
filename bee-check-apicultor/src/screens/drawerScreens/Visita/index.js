@@ -1,22 +1,19 @@
 import React, { Component } from "react";
+import { StatusBar, ScrollView } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 
-import { Container } from "native-base";
-import { StatusBar } from "react-native";
+import { Container, View, Text } from "native-base";
 import { colors, routes } from "../../../../assets";
-import { HeaderCustom, SpinnerCustom } from "../../../componentes";
+import { HeaderCustom, SpinnerCustom, Apiary } from "../../../componentes";
+import styles from './styles';
 
 class Visita extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      visita: {},
-      dialogVisible: false,
-      selectedPickerApiario: null
-    };
+    this.state = {};
   }
 
   componentDidMount() {

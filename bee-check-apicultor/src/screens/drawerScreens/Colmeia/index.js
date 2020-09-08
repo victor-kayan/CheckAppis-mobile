@@ -6,9 +6,9 @@ import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 import { getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
 
+import { Container, Text, View } from "native-base";
 import { colors, routes } from "../../../../assets";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
-import { Container, Text, View } from "native-base";
 import Apiary from "../../../componentes/Apiary";
 import styles from "./styles";
 
