@@ -62,9 +62,11 @@ class SideBar extends Component {
         >
           <LinearGradient
             colors={[colors.theme_default, colors.theme_second]}
-            style={{ height: 220, marginBottom: 20}}
+            style={{ height: 220, marginBottom: 20, justifyContent: 'center'}}
           >
-            <ImageBackground source={images.headers.hive} style = {{resizeMode: 'cover', flex: 1, opacity: 0.1}}/>
+            <ImageBackground source={images.headers.hive} style = {{resizeMode: 'cover', flex: 1, opacity: 0.1, }}/>
+            <Image source={images.sider.logo} style = {styles.logo}/>
+            
             
           </LinearGradient>
 
@@ -161,6 +163,13 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     textAlign: "center",
     marginTop: Platform.OS === "android" ? -3 : undefined
+  },
+  logo: {
+    height: '29%',
+    width: '70%',
+    alignSelf: 'center',
+    position: 'absolute',
+    opacity: 0.9,
   }
 });
 

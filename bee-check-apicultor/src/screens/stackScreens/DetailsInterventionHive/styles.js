@@ -34,11 +34,10 @@ export default {
   },
   container: {
     position: "absolute",
-    height: '80%',
     backgroundColor: colors.white,
-    marginTop: 220,
     alignItems: 'flex-start',
-    padding: 45,
+    paddingHorizontal: 45,
+    paddingTop: 20,
     width: '100%',
   },
   text: {

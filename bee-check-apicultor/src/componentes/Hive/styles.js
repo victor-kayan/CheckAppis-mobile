@@ -2,7 +2,7 @@ import { colors } from "../../../assets";
 
 export default {
 hive: {
-  width: '100%',
+  width: '97%',
   height: 100,
   backgroundColor: colors.white,
   flexDirection: 'row',

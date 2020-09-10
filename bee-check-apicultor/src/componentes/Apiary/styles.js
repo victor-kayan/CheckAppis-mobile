@@ -2,7 +2,7 @@ import { colors } from "../../../assets";
 
 export default {
 apiary: {
-  width: '100%',
+  width: '95%',
   height: 100,
   backgroundColor: colors.white,
   flexDirection: 'row',

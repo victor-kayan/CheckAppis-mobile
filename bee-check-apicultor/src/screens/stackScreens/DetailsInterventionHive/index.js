@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { ScrollView, TouchableOpacity } from "react-native";
 import {
   Container,
   View,
@@ -12,13 +12,10 @@ import {
   Content,
   Icon
 } from "native-base";
-import { HeaderCustom, ButtonCustom } from "../../../componentes";
-
 import { connect } from "react-redux";
 
 import moment from "moment";
 import "moment/locale/pt-br";
-import { images } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
 
@@ -58,7 +55,9 @@ class DetailsInterventionHive extends Component {
           title="Detalhes"
           description = "Veja todos os detalhes da intervenção selecionada anteriormente" 
         />
-        <View style = {styles.container}>
+        
+        
+        <ScrollView contentContainerStyle={styles.container}>
           <View style = {styles.viewInformations}>
             <Text style = {styles.informations}>Informações</Text>
           </View>
@@ -104,7 +103,11 @@ class DetailsInterventionHive extends Component {
             <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
           </TouchableOpacity>
 
-        </View>
+          <View style = {{height: 90}}/>
+
+
+          </ScrollView>
+        
         
         
       </Container>

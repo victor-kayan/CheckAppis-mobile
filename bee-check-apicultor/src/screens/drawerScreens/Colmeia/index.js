@@ -57,7 +57,7 @@ class Colmeia extends Component {
           <SpinnerCustom visible={loading} />
         <View style = {styles.containerContentHives}>
           <Text style = {styles.title}>Selecione um apiário</Text>
-          <Text style = {styles.description}>Selecione um apiário para ver as colmeias cadastradas nele</Text>
+          <Text style = {styles.description}>Selecione um apiário para ver suas colmeias</Text>
         </View>
         <View style = {styles.contentHive}>
         <View style = {[styles.triangle,styles.arrowUp]}/>

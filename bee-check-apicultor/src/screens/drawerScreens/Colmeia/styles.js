@@ -35,6 +35,7 @@ export default {
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     padding: 20,
+    width: '100%',
   },
   title: {
     color: colors.theme_default,
