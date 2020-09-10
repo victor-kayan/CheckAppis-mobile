@@ -60,8 +60,8 @@ export default {
     transform: [{ rotate: '180deg' }],
     alignSelf: 'center',
     marginBottom: 10,
-},
-arrowUp: {
+  },
+  arrowUp: {
     borderTopWidth: 0,
     borderRightWidth: 30,
     borderBottomWidth: 30,
@@ -70,8 +70,8 @@ arrowUp: {
     borderRightColor: 'transparent',
     borderBottomColor: "white",
     borderLeftColor: 'transparent',
-},
-arrowRight: {
+  },
+  arrowRight: {
     borderTopWidth: 30,
     borderRightWidth: 0,
     borderBottomWidth: 30,
@@ -80,8 +80,8 @@ arrowRight: {
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
     borderLeftColor: "white",
-},
-arrowDown: {
+  },
+  arrowDown: {
     borderTopWidth: 30,
     borderRightWidth: 30,
     borderBottomWidth: 0,
@@ -90,8 +90,8 @@ arrowDown: {
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
     borderLeftColor: 'transparent',
-},
-arrowLeft: {
+  },
+  arrowLeft: {
     borderTopWidth: 30,
     borderRightWidth: "white",
     borderBottomWidth: 30,
@@ -100,8 +100,8 @@ arrowLeft: {
     borderRightColor: "white",
     borderBottomColor: 'transparent',
     borderLeftColor: 'transparent',
-},
-arrowUpLeft: {
+  },
+  arrowUpLeft: {
     borderTopWidth: 30,
     borderRightWidth: "white",
     borderBottomWidth: 0,
@@ -110,8 +110,8 @@ arrowUpLeft: {
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
     borderLeftColor: 'transparent',
-},
-arrowUpRight: {
+  },
+  arrowUpRight: {
     borderTopWidth: 0,
     borderRightWidth: "white",
     borderBottomWidth: 30,
@@ -120,8 +120,8 @@ arrowUpRight: {
     borderRightColor: "white",
     borderBottomColor: 'transparent',
     borderLeftColor: 'transparent',
-},
-arrowDownLeft: {
+  },
+  arrowDownLeft: {
     borderTopWidth: 30,
     borderRightWidth: 0,
     borderBottomWidth: 0,
@@ -130,8 +130,8 @@ arrowDownLeft: {
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
     borderLeftColor: "white",
-},
-arrowDownRight: {
+  },
+  arrowDownRight: {
     borderTopWidth: 0,
     borderRightWidth: 0,
     borderBottomWidth: 30,
@@ -140,77 +140,78 @@ arrowDownRight: {
     borderRightColor: 'transparent',
     borderBottomColor: "white",
     borderLeftColor: 'transparent',
-},
-hive: {
-  width: '100%',
-  height: 100,
-  backgroundColor: colors.white,
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: 10,
-  borderRadius: 15,
-},
-imageApiary: {
-  width: '30%',
-  height: '100%',
-},
-contentText: {
-  width: '50%',
-  height: '100%',
-  justifyContent: 'center',
-  padding: 10,
-},
-contentArrow: {
-  width: '20%',
-  height: '100%',
-  justifyContent: 'center',
-  alignItems: 'center',
-},
-arrow: {
-  fontSize: 30,
-  color: colors.blackgrey,
-},
-hiveName: {
-  fontSize: 13,
-  fontFamily: 'Montserrat-Bold',
-},
-hiveDescription: {
-  fontSize: 13,
-  fontFamily: 'Montserrat Regular',
-},
-addHiveButton: {
-  height: 60,
-  width: 60,
-  position: 'absolute',
-  margin: 30,
-  borderRadius: 30,
-  elevation: 10,
-  shadowColor: colors.theme_primary,
-  shadowOpacity: 0.1,
-  shadowOffset: { x: 0, y: 0 },
-  shadowRadius: 15,
-  marginTop: 700,
-  marginLeft: 280,
-},
-plus: {
-  color: colors.white,
-  textAlign: 'center',
-  alignSelf: 'center',
-  marginTop: 13,
-},
-textNull: {
-  color: colors.blackgrey,
-  fontSize: 15,
-  fontFamily: 'Montserrat Regular',
-  textAlign: 'center',
-  marginTop: 20,
-  marginBottom: 20,
-  marginHorizontal: 20,
-},
-image: {
-  marginTop: 50,
-  width: 300,
-  height: 280,
+  },
+  hive: {
+    width: '100%',
+    height: 100,
+    backgroundColor: colors.white,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
+    borderRadius: 15,
+  },
+  imageApiary: {
+    width: '30%',
+    height: '100%',
+  },
+  contentText: {
+    width: '50%',
+    height: '100%',
+    justifyContent: 'center',
+    padding: 10,
+  },
+  contentArrow: {
+    width: '20%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  arrow: {
+    fontSize: 30,
+    color: colors.blackgrey,
+  },
+  hiveName: {
+    fontSize: 13,
+    fontFamily: 'Montserrat-Bold',
+  },
+  hiveDescription: {
+    fontSize: 13,
+    fontFamily: 'Montserrat Regular',
+  },
+  addHiveButton: {
+    height: 60,
+    width: 60,
+    position: 'absolute',
+    margin: 30,
+    borderRadius: 30,
+    elevation: 10,
+    shadowColor: colors.theme_primary,
+    shadowOpacity: 0.1,
+    shadowOffset: { x: 0, y: 0 },
+    shadowRadius: 15,
+    marginTop: 700,
+    marginLeft: 280,
+  },
+  plus: {
+    color: colors.white,
+    textAlign: 'center',
+    alignSelf: 'center',
+    marginTop: 13,
+  },
+  textNull: {
+    color: colors.blackgrey,
+    fontSize: 15,
+    fontFamily: 'Montserrat Regular',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    marginHorizontal: 20,
+  },
+  image: {
+    marginTop: 50,
+    width: 300,
+    height: 280,
+    backgroundColor: 'transparent'
   },
 };

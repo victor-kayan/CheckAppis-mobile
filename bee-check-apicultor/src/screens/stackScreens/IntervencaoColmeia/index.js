@@ -6,19 +6,13 @@ import {
   fecthIntervencoesColmeiasByApiario,
   concluirIntervencaoColmeia
 } from "../../../redux/actions/intervencaoActions";
-import { Text, Container, Content, Card, CardItem, View } from "native-base";
+import { Text, Container, View } from "native-base";
 import { Image } from "react-native";
-import { images, routes } from "../../../../assets";
-import { HeaderCustom, SpinnerCustom } from "../../../componentes";
-import { RenderSelectApiario } from "./RenderSelectApiario";
-import { ColmeiasSemIntervencao } from "./ColmeiasSemIntervencao";
-import { ItemLista } from "./ItemLista";
+import { routes } from "../../../../assets";
+import { SpinnerCustom } from "../../../componentes";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
 import Apiary from "../../../componentes/Apiary";
-import InterventionHIve from "../../../componentes/InterventionHive";
-// import moment from "moment";
-// import "moment/locale/pt-br";
 
 class IntervencaoColmeia extends Component {
   constructor(props) {
@@ -87,7 +81,7 @@ class IntervencaoColmeia extends Component {
                   style = {styles.image}
                   source={require ('../../../../images/empty.png')}
                 />
-                <Text style = {styles.textNull}>Nã há intervenções nas colmeias dos seus apiários :)</Text>
+                <Text style = {styles.textNull}>{`Nã há intervenções nas colmeias dos seus apiários :)`}</Text>
               </View>
             ) : (
               <View style = {styles.container}>

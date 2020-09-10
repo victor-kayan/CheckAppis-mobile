@@ -1,15 +1,16 @@
 import React from "react";
-import { ImageBackground, Image, Dimensions, TouchableOpacity, StatusBar} from "react-native";
+import { 
+  ImageBackground, 
+  TextInput, 
+  Dimensions, 
+  TouchableOpacity, 
+  StatusBar
+} from "react-native";
 import {
-  Item,
   Input,
   Icon,
-  Button,
   Container,
   Text,
-  Content,
-  Card,
-  Form,
   View,
   Spinner
 } from "native-base";
@@ -49,10 +50,9 @@ const ViewLogin = ({
     <View style = {styles.loginView}>
       <Text style = {styles.accessText}>ACESSE SUA CONTA</Text>
 
-
       <View style = {styles.viewInput}>
         <Icon type="FontAwesome5" name="user-alt" style = {styles.iconInputi}/>
-        <Input
+        <TextInput
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           value={email}
@@ -60,11 +60,14 @@ const ViewLogin = ({
           style={styles.input}
           placeholderTextColor={"#B8B8B8"}
           onChangeText={handleEmail}
+          blurOnSubmit={false}
+          onSubmitEditing={() => {this.passwordInput.focus()}}
         />
       </View>
       <View style = {styles.viewInput}>
         <Icon type="FontAwesome" name="lock" style = {styles.iconInput}/>
-        <Input
+        <TextInput
+          ref={(input) => {this.passwordInput = input}}
           secureTextEntry={true}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
@@ -75,7 +78,6 @@ const ViewLogin = ({
           onChangeText={handlePassword}
         />
       </View>
-
 
       <Text style = {styles.forgotText}>Esqueci minha senha</Text>
 

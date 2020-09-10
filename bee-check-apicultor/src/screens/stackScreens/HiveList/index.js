@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Image, 
+import { 
+  Image, 
   ScrollView, 
   StatusBar, 
   Alert, 
@@ -97,18 +98,18 @@ class HiveList extends Component {
           <Text style = {styles.title}>Aqui estão todas as colmeias do apiário {this.state.selectedApiary.nome}</Text>
         </View>
         <View style = {styles.contentHive}>
-        <View style = {[styles.triangle,styles.arrowUp]}/>
-            <ScrollView contentContainerStyle={{ width: '90%', padding: 5,}}>
+          <View style = {[styles.triangle,styles.arrowUp]}/>
+          <ScrollView contentContainerStyle={{ width: '90%', padding: 5,}}>
             <SpinnerCustom visible={loading} />
             { !colmeias || colmeias == '' ?
             (
-              <View style = {styles.container}>
+              <>
                 <Image
                   style = {styles.image}
                   source={require ('../../../../images/empty.png')}
                 />
-                <Text style = {styles.textNull}>Nenhuma colmeia encontrada :(</Text>
-              </View>
+                <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada :(`}</Text>
+              </>
             ) : (
               colmeias.map (hive =>
                 <Hive 
@@ -125,7 +126,7 @@ class HiveList extends Component {
             )
             }
             <View style = {{height: 120}}/>
-            </ScrollView>
+          </ScrollView>
         </View>
 
         <View style = {styles.addHiveButton}>

@@ -142,7 +142,7 @@ export default {
   input: {
     color: colors.blackgrey,
     borderBottomWidth: 1,
-    width: '85%',
+    width: '100%',
     borderBottomColor: colors.blackgrey,
     fontFamily: 'Montserrat Regular',
     fontSize: 15,

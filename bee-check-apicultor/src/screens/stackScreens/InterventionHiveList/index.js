@@ -94,7 +94,7 @@ class InterventionHiveList extends Component {
                           style = {styles.image}
                           source={require ('../../../../images/empty.png')}
                         />
-                        <Text style = {styles.textNull}>Nenhuma colmeia encontrada :(</Text>
+                        <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada :(`}</Text>
                       </View>
                     )
                 }

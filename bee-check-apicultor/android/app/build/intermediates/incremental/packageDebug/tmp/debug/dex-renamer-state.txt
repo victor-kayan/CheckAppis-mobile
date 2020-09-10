@@ -1,4 +1,4 @@
-#Tue Sep 08 22:35:49 GFT 2020
-base.0=E\:\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Thu Sep 10 12:24:48 BRT 2020
+base.0=/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
