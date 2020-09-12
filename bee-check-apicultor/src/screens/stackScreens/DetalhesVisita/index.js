@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity, ScrollView } from "react-native";
 import {
   Container,
   Content,
@@ -17,6 +17,7 @@ import { images, colors, routes } from "../../../../assets";
 import styles from "./styles";
 import moment from "moment";
 import "moment/locale/pt-br";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 class DetalhesVisita extends React.Component {
 
@@ -27,9 +28,152 @@ class DetalhesVisita extends React.Component {
 
     return (
       <Container>
-        <HeaderCustom title="Detalhes da Visita" />
-        <Content>
-          <View
+        <HeaderCustomStack 
+          title="Detalhes da Visita"
+          description="Veja os detalhes da visita selecionada anteriormente" 
+        />
+        <View style = {styles.viewContent}>
+          <Text style = {styles.apiaryName}>{apiaryName}</Text>
+        </View>
+          <ScrollView contentContainerStyle = {{ width: '100%', padding: 5,}}>
+            <View style = {styles.cardInformation}>
+              <View style = {styles.lineCardInformation}>
+                <View style = {styles.lineHeader}>
+                  <Icon type="AntDesign" name="calendar" style = {styles.icons}/>
+                  <Text style = {styles.textLineHeader}>Data</Text>
+                </View>
+                <View style = {styles.lineBody}>
+                  <Text style = {styles.textBodyLine}>{moment(visita.created_at).format("DD/MM/YYYY")}</Text>
+                </View>
+              </View>
+
+              <View style = {styles.lineCardInformation}>
+                <View style = {styles.lineHeader}>
+                  <Icon type="MaterialCommunityIcons" name="box-shadow" style = {styles.icons}/>
+                  <Text style = {styles.textLineHeader}>Está sombreado?</Text>
+                </View>
+                <View style = {styles.lineBody}>
+                  <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_sombra ? "Sim" : "Não"}</Text>
+                </View>
+              </View>
+
+              <View style = {styles.lineCardInformation}>
+                <View style = {styles.lineHeader}>
+                  <Icon type="Ionicons" name="water-outline" style = {styles.icons}/>
+                  <Text style = {styles.textLineHeader}>Tem água?</Text>
+                </View>
+                <View style = {styles.lineBody}>
+                  <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_agua ? "Sim" : "Não"}</Text>
+                </View>
+              </View>
+
+              <View style = {styles.lineCardInformation}>
+                <View style = {styles.lineHeader}>
+                  <Icon type="MaterialCommunityIcons" name="food-apple-outline" style = {styles.icons}/>
+                  <Text style = {styles.textLineHeader}>Tem comida?</Text>
+                </View>
+                <View style = {styles.lineBody}>
+                  <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_comida ? "Sim" : "Não"}</Text>
+                </View>
+              </View>
+            </View>
+
+            <View style = {styles.cardInformation}>
+              <View style = {styles.headerInformation}>
+                <Icon type="EvilIcons" name="archive" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
+                <View style = {styles.titles}>
+                  <Text style = {styles.titleInformation}>Colmeias</Text>
+                  <Text style = {styles.descriptionInformation}>Total de colmeias analisadas: {visita.visita_colmeias}</Text>
+                </View>
+              </View>
+              <View style = {styles.dataInformations}>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Com postura</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_com_postura}</Text>
+                  </View>
+                </View>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Sem postura</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                  </View>
+                </View>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Com abelha morta</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                  </View>
+                </View>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Sem abelha morta</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            <View style = {styles.cardInformation}>
+              <View style = {styles.headerInformation}>
+                <Icon type="AntDesign" name="laptop" style = {styles.icons}/>
+                <View style = {styles.titles}>
+                  <Text style = {styles.titleInformation}>Quadros</Text>
+                  <Text style = {styles.descriptionInformation}>Total de quadros analisados: {visita.qtd_quadros_analizados}</Text>
+                </View>
+              </View>
+              <View style = {styles.dataInformations}>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Com mel</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_quadros_mel}</Text>
+                  </View>
+                </View>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Com pólen</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                  </View>
+                </View>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Com cria aberta</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                  </View>
+                </View>
+                <View style = {styles.lineDataInformations}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textLineDataInformations}>Com cria fechada</Text>
+                  </View>
+                  <View style = {styles.sizeData}>
+                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </ScrollView>
+      </Container>
+    );
+  }
+}
+
+export default DetalhesVisita;
+/* 
+ <View
             style={{
               flexDirection: "row",
               justifyContent: "center",
@@ -57,7 +201,7 @@ class DetalhesVisita extends React.Component {
             </Text>
           </View>
           <Grid style={{ marginTop: 30 }}>
-            {/* COLULA 1 */}
+            {/* COLULA 1 }
             <Col style={{ marginHorizontal: 5 }}>
               <View
                 style={{
@@ -90,9 +234,9 @@ class DetalhesVisita extends React.Component {
               </View>
             </Col>
 
-            {/* COLULA 1 */}
+            {/* COLULA 1 }
 
-            {/* COLULA 2 */}
+            {/* COLULA 2 }
 
             <Col style={{ marginHorizontal: 10 }}>
               <View
@@ -135,7 +279,7 @@ class DetalhesVisita extends React.Component {
                 </Badge>
               </View>
             </Col>
-            {/* COLULA 2 */}
+            {/* COLULA 2 }
           </Grid>
           <View style={{ marginTop: 30, backgroundColor: "#E6E4E4" }}>
             <Text style={{ marginHorizontal: 10 }}>Dados das colmeias</Text>
@@ -378,11 +522,5 @@ class DetalhesVisita extends React.Component {
                 <Text>Detalhar por Colmeia</Text>
               </TouchableOpacity>
             </View>
-          </View>
-        </Content>
-      </Container>
-    );
-  }
-}
-
-export default DetalhesVisita;
+          </View> 
+ */
