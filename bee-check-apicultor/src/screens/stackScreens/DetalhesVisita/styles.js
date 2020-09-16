@@ -142,5 +142,12 @@ export default {
   },
   sizeData: {
     width: '20%'
-  }
+  },
+  detailsButton: {
+    height: 50,
+    width: '77%',
+    marginTop: 20,
+    marginBottom: 30,
+    alignSelf: 'center',
+  },
 };

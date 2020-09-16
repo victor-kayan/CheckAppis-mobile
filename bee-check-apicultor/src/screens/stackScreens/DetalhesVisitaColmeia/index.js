@@ -14,9 +14,9 @@ import {
   Col,
   Textarea
 } from "native-base";
-import { HeaderCustom } from "../../../componentes";
 import styles from "./styles";
 import { images } from "../../../../assets";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 class DetalhesVisitaColmeia extends React.Component {
   render() {
@@ -27,7 +27,10 @@ class DetalhesVisitaColmeia extends React.Component {
 
     return (
       <Container>
-        <HeaderCustom title="Colmeias" />
+        <HeaderCustomStack 
+          title={`Detalhes da Visita \npor Colmeia`}
+          description = "Veja as informações da visita separadas por colmeia analisada" 
+        />
         <Content padder>
           {visita_colmeias &&
             visita_colmeias.map(visita => {

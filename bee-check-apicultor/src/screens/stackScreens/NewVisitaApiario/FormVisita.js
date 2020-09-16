@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { View, CardItem, Left, Text, Right, Textarea, Body } from "native-base";
 import { InputSwitch, ButtonCustom } from "../../../componentes";
 import styles from "./styles";
+import LinearGradient from "react-native-linear-gradient";
+import { TouchableOpacity } from "react-native";
+import { colors } from "../../../../assets";
 
 class FormVisita extends Component {
   constructor(props) {
@@ -36,7 +39,7 @@ class FormVisita extends Component {
       <View>
         <CardItem>
           <Left>
-            <Text>Há Água?</Text>
+            <Text style = {styles.textForm}>Há água?</Text>
           </Left>
           <Body />
           <Right>
@@ -48,7 +51,7 @@ class FormVisita extends Component {
         </CardItem>
         <CardItem>
           <Left>
-            <Text>Está sombreado?</Text>
+            <Text style = {styles.textForm}>Está sombreado?</Text>
           </Left>
           <Body />
           <Right>
@@ -60,7 +63,7 @@ class FormVisita extends Component {
         </CardItem>
         <CardItem>
           <Left>
-            <Text>Há Comida?</Text>
+            <Text style = {styles.textForm}>Há comida?</Text>
           </Left>
           <Body />
           <Right>
@@ -75,19 +78,20 @@ class FormVisita extends Component {
             rowSpan={4}
             value={observacao}
             onChangeText={observacao => this.setState({ observacao })}
-            style={{ width: "100%", borderRadius: 5 }}
+            style={{ width: "100%", borderRadius: 10, fontFamily: 'Montserrat-Regular', fontSize: 13, }}
             bordered
             placeholder="Observações"
           />
         </CardItem>
         <CardItem style={{ alignSelf: "flex-end" }}>
-          <ButtonCustom
-            style={styles.buttonSalveVisita}
-            onPress={this.handleAddVisita}
-            title="Visitar Colmeias"
-            iconRight="arrowright"
-            typeIconRight="AntDesign"
-          />
+          <TouchableOpacity onPress={this.handleAddVisita} style = {styles.visitButton}>
+            <LinearGradient
+              colors={[colors.theme_default, colors.theme_second]}
+              style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
+            >
+              <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, }}>VISITAR COLMEIAS</Text>
+            </LinearGradient>
+          </TouchableOpacity>
         </CardItem>
       </View>
     );

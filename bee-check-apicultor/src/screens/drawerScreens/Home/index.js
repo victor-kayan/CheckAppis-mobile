@@ -14,6 +14,7 @@ import {
 import { getCountColmeiasApiariosByApicultor } from "../../../redux/actions/colmeiaActions";
 import { getCountIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
 import styles from "./styles";
+import MarkerCallOut from "../../../componentes/MarkerCallOut";
 
 const { width } = Dimensions.get('window');
 
@@ -110,13 +111,15 @@ class Home extends Component {
             apiarios.length ?
             apiarios.map(apiario => (
               <Marker
-                key={apiario.id}
+                key = {apiario.id}
+                onCalloutPress={ () => {this.onMarkerInfoPressed(pothole) } }
                 coordinate={{
                   latitude: parseFloat(apiario.latitude),
                   longitude: parseFloat(apiario.longitude)
                 }}
               >
                 <Image source={images.icons.checkappis} style={{ width: 30, height: 30 }} />
+                <MarkerCallOut title={ apiario.nome } />
               </Marker>
             )): null}
         </MapView>

@@ -13,12 +13,36 @@ export default {
     width: "90%"
   },
   textSubTitle: {
-    color: colors.btn_success,
-    marginTop: 20,
-    marginBottom: 5,
-    fontWeight: "bold"
+    color: colors.theme_default,
+    fontSize: 16,
+    fontFamily: 'Montserrat-Bold',
+    marginBottom: 10,
+    marginTop: 8,
+    textAlign: "center",
   },
   buttonSalveVisita: {
     marginTop: 20
-  }
+  },
+  containerContentForm: {
+    position: "absolute",
+    height: '80%',
+    backgroundColor: 'white',
+    marginTop: 220,
+    alignItems: 'center',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+    padding: 20,
+    width: '100%'
+  },
+  textForm: {
+    fontFamily: 'Montserrat-Medium',
+    fontSize: 14,
+  },
+  visitButton: {
+    height: 50,
+    width: '77%',
+    marginTop: 20,
+    marginBottom: 30,
+    alignSelf: 'center',
+  },
 };

@@ -10,24 +10,25 @@ import {
   View
 } from "native-base";
 import { connect } from "react-redux";
+import { ScrollView, StatusBar, TouchableHighlight } from "react-native";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 import { Image } from "react-native";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
 import FormVisita from "./FormVisita";
 import { routes, images } from "../../../../assets";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 class NewVisitaApiario extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedPickerApiario: null
+      selectedPickerApiario: this.props.navigation.getParam("apiary", ""),
     };
   }
 
   handleRefresh = () => {
     this.props.fetchApiariosByUser();
-    this.setState({ selectedPickerApiario: null });
   };
 
   onAddVisitaApiario = values => {
@@ -51,15 +52,42 @@ class NewVisitaApiario extends Component {
 
     return (
       <Container>
-        <HeaderCustom
+        <HeaderCustomStack
           title="Nova Visita"
-          iconRight="sync"
-          handleIconRight={() => this.handleRefresh()}
-          typeIconRight="AntDesign"
+          description = "Insira as informações solicitadas e cadastre numa nova visita no apiário"
         />
-        <Content padder>
-          <SpinnerCustom visible={loading} />
-          <Card>
+        <View style = {styles.containerContentForm}>
+          <Text style = {styles.textSubTitle}>{`Responda às questões abaixo\n sobre o apiário `} {selectedPickerApiario.nome}</Text>
+        </View>
+        <SpinnerCustom visible={loading} />
+        <ScrollView contentContainerStyle={{ width: '100%', paddingHorizontal: 15, paddingVertical: 5, }}>
+          <FormVisita handleAddVisitaApiario={this.onAddVisitaApiario} />
+        </ScrollView>   
+      </Container>
+    );
+  }
+}
+
+function mapStateToProps(state, props) {
+  return {
+    apiarios: state.apiarioState.apiarios,
+    loading: state.apiarioState.loading || state.visitaState.visitaIsLoading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { fetchApiariosByUser },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewVisitaApiario);
+
+{/* <Card>
             <CardItem>
               <Image
                 source={images.icons.apiario}
@@ -98,65 +126,4 @@ class NewVisitaApiario extends Component {
                 )}
               </Picker>
             </CardItem>
-          </Card>
-
-          {!loading && selectedPickerApiario ? (
-            <View>
-              <CardItem>
-                <Text style={styles.textSubTitle}>
-                  {selectedPickerApiario &&
-                    `Responda as questões abaixo sobre o apiário ${
-                      selectedPickerApiario.nome
-                    }`}
-                </Text>
-              </CardItem>
-              <FormVisita handleAddVisitaApiario={this.onAddVisitaApiario} />
-            </View>
-          ) : (
-            !loading && (
-              <>
-                <CardItem
-                  style={{
-                    marginTop: 20,
-                    flexDirection: "column",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text>Primeiro selecione um apiário</Text>
-                </CardItem>
-                <View
-                  style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Image style={{marginTop: '15%'}} source={images.home.apiario} />
-                </View>
-              </>
-            )
-          )}
-        </Content>
-      </Container>
-    );
-  }
-}
-
-function mapStateToProps(state, props) {
-  return {
-    apiarios: state.apiarioState.apiarios,
-    loading: state.apiarioState.loading || state.visitaState.visitaIsLoading
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { fetchApiariosByUser },
-    dispatch
-  );
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NewVisitaApiario);
+          </Card> */}

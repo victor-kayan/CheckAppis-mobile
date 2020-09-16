@@ -18,6 +18,7 @@ import styles from "./styles";
 import moment from "moment";
 import "moment/locale/pt-br";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
+import LinearGradient from "react-native-linear-gradient";
 
 class DetalhesVisita extends React.Component {
 
@@ -100,7 +101,7 @@ class DetalhesVisita extends React.Component {
                     <Text style = {styles.textLineDataInformations}>Sem postura</Text>
                   </View>
                   <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_sem_postura}</Text>
                   </View>
                 </View>
                 <View style = {styles.lineDataInformations}>
@@ -108,7 +109,7 @@ class DetalhesVisita extends React.Component {
                     <Text style = {styles.textLineDataInformations}>Com abelha morta</Text>
                   </View>
                   <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_com_abelhas_mortas}</Text>
                   </View>
                 </View>
                 <View style = {styles.lineDataInformations}>
@@ -116,7 +117,7 @@ class DetalhesVisita extends React.Component {
                     <Text style = {styles.textLineDataInformations}>Sem abelha morta</Text>
                   </View>
                   <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_sem_abelhas_mortas}</Text>
                   </View>
                 </View>
               </View>
@@ -144,7 +145,7 @@ class DetalhesVisita extends React.Component {
                     <Text style = {styles.textLineDataInformations}>Com pólen</Text>
                   </View>
                   <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_quadros_polen}</Text>
                   </View>
                 </View>
                 <View style = {styles.lineDataInformations}>
@@ -152,7 +153,7 @@ class DetalhesVisita extends React.Component {
                     <Text style = {styles.textLineDataInformations}>Com cria aberta</Text>
                   </View>
                   <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_cria_aberta}</Text>
                   </View>
                 </View>
                 <View style = {styles.lineDataInformations}>
@@ -160,11 +161,36 @@ class DetalhesVisita extends React.Component {
                     <Text style = {styles.textLineDataInformations}>Com cria fechada</Text>
                   </View>
                   <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>00</Text>
+                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_cria_fechada}</Text>
                   </View>
                 </View>
               </View>
             </View>
+
+            <View style = {styles.cardInformation}>
+              <View style = {styles.headerInformation}>
+                <Icon type="EvilIcons" name="navicon" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
+                <View style = {styles.titles}>
+                  <Text style = {styles.titleInformation}>Observações</Text>
+                  <Text style = {styles.descriptionInformation}>Observações feitas durante a visita</Text>
+                </View>
+              </View>
+              <View style = {styles.dataInformations}>
+                <View style = {styles.lineDataInformations}>
+                    <Text style = {styles.textLineDataInformations}>{visita.observacao}</Text>
+                </View>
+              </View>
+            </View>
+
+            <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})} style = {styles.detailsButton}>
+              <LinearGradient
+                colors={[colors.theme_default, colors.theme_second]}
+                style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
+              >
+                <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, }}>DETALHAR POR COLMEIA</Text>
+              </LinearGradient>
+            </TouchableOpacity>
+
           </ScrollView>
       </Container>
     );

@@ -6,17 +6,18 @@ const InputSwitch = ({ value, onValueChange, ...rest }) => (
   <Switch
     {...rest}
     onValueChange={onValueChange}
-    text1="NÃO"
-    text2="SIM"
+    text1="Não"
+    text2="Sim"
     switchHeight={44}
     switchdirection="ltr"
     switchBorderRadius={100}
     switchSpeedChange={500}
     switchBorderColor="#d4d4d4"
     switchBackgroundColor="#fff"
-    btnBorderColor="#d4d4d4"
+    btnBorderColor="transparent"
     btnBackgroundColor={colors.theme_default}
     fontColor="#b1b1b1"
+    fontFamily='Montserrat-Medium'
     activeFontColor="#fff"
     value={value}
   />
