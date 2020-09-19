@@ -90,6 +90,8 @@ class VisitList extends Component {
                   hives = {visit.visita_colmeias}
                   hivesLength = {visit.visita_colmeias.length}  
                   visit = {visit}
+                  sync = {visit.isSynced}
+                  fail = {visit.permanentlyFailed}
                   openVisitList = {this.openVisitDetails}
                 />
               )

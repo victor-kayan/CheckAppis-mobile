@@ -1,4 +1,4 @@
-import { colors } from "../../../../assets";
+import { colors, constants } from "../../../../assets";
 
 export default {
   map: {

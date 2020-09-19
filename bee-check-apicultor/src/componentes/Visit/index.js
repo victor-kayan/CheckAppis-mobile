@@ -16,6 +16,13 @@ export default class Visit extends React.Component {
                   <Text style = {styles.apiaryDescription}>Colmeias visitadas: {this.props.hives && this.props.hivesLength}</Text>
                 </View>
                 <View style = {styles.contentArrow}>
+                  {
+                    this.props.sync
+                    ? (<Text style={styles.statusIcon}>S</Text>) // visita.isSynced -> TRUE; visita.permanentlyFailed -> FALSE
+                    : this.props.fail
+                    ? (<Text style={styles.statusIcon}>FP</Text>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> TRUE 
+                    : (<Text style={styles.statusIcon}>NS</Text>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> FALSE
+                  }
                   <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>
                 </View>
             </View>

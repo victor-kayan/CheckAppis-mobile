@@ -108,7 +108,22 @@ class HiveList extends Component {
                   style = {styles.image}
                   source={require ('../../../../images/empty.png')}
                 />
-                <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada :(`}</Text>
+                <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada. Recarregue a página ou cadastre uma nova colmeia :)`}</Text>
+                <View style = {styles.addHiveButton}>
+                  <TouchableHighlight
+                    activeOpacity={0.5}
+                    underlayColor="#ff8500"
+                    onPress={this.openNewHive}
+                    style = {{borderRadius: 30}}
+                  >
+                    <LinearGradient
+                      colors={[colors.theme_default, colors.theme_second]}
+                      style={{ height: '100%', borderRadius: 30}}
+                    >
+                      <Icon type="FontAwesome5" name="plus" style={styles.plus} iconSize={5} active/>
+                    </LinearGradient>
+                  </TouchableHighlight>
+                </View>
               </>
             ) : (
               colmeias.map (hive =>

@@ -1,4 +1,4 @@
-import { colors } from "../../../../assets";
+import { colors, constants } from "../../../../assets";
 
 export default {
   iconImagemSelectPicker: {
@@ -34,7 +34,7 @@ export default {
     height: '80%',
     width: '100%',
     backgroundColor: 'white',
-    marginTop: 220,
+    marginTop: constants.SCREEN_HEIGHT/3.6,
     alignItems: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
@@ -51,7 +51,7 @@ export default {
     fontSize: 13,
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 25,
   },
   contentHive: {
     alignItems: 'center',
@@ -60,6 +60,7 @@ export default {
     borderTopRightRadius: 35,
     flex: 1,
     backgroundColor: colors.grey,
+    marginTop: 15,
   },
   triangle: {
     width: 0,

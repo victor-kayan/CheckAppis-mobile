@@ -15,20 +15,27 @@ apiary: {
   alignSelf: 'center',
 },
 contentText: {
-  width: '80%',
+  width: '70%',
   height: '100%',
   justifyContent: 'center',
   paddingLeft: 25,
 },
 contentArrow: {
-  width: '20%',
+  width: '30%',
   height: '100%',
   justifyContent: 'center',
   alignItems: 'center',
+  flexDirection: 'row',
+  alignContent: 'space-between',
 },
 arrow: {
   fontSize: 30,
   color: colors.theme_second,
+},
+statusIcon: {
+  marginRight: 20,
+  fontWeight: 'bold', 
+  color: '#9F0'
 },
 apiaryName: {
   fontSize: 13,

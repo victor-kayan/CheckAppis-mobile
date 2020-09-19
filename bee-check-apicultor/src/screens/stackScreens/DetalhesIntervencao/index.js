@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, ScrollView, TouchableOpacity } from "react-native";
 import {
   Container,
   View,
@@ -59,6 +59,8 @@ class DetalhesIntervencao extends Component {
           description = "Veja todos os detalhes da intervenção selecionada anteriormente" 
         />
         <View style = {styles.container}>
+        </View>
+        <ScrollView contentContainerStyle={styles.containerContent}>
           <View style = {styles.viewInformations}>
             <Text style = {styles.informations}>Informações</Text>
           </View>
@@ -103,8 +105,9 @@ class DetalhesIntervencao extends Component {
             <Text style = {styles.textButton}>Marcar como concluída</Text>
             <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
           </TouchableOpacity>
+          <View style = {{height: 70}}/>
 
-        </View>
+        </ScrollView>
         
         
       </Container>

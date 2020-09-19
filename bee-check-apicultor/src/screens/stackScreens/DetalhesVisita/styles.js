@@ -1,4 +1,4 @@
-import { colors } from "../../../../assets";
+import { colors, constants } from "../../../../assets";
 
 export default {
   cardItem: {
@@ -32,7 +32,7 @@ export default {
     position: "absolute",
     height: '80%',
     backgroundColor: 'white',
-    marginTop: 220,
+    marginTop: constants.SCREEN_HEIGHT/3.6,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     flex: 1,

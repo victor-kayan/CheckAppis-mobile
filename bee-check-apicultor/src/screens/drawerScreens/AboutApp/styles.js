@@ -1,10 +1,10 @@
-import { colors } from "../../../../assets";
+import { colors, constants } from "../../../../assets";
 
 export default {
   viewInformations: {
     position: "absolute",
     alignSelf: 'center',
-    marginTop: 235,
+    marginTop: constants.SCREEN_HEIGHT/3.7,
     alignItems: 'center',
     width: '100%'
   },
@@ -23,7 +23,7 @@ export default {
   },
   logo: {
     width: '70%',
-    height: 90,
+    height: 95,
     margin: 20,
   },
   buttonPolitics: {

@@ -177,7 +177,14 @@ class DetalhesVisita extends React.Component {
               </View>
               <View style = {styles.dataInformations}>
                 <View style = {styles.lineDataInformations}>
-                    <Text style = {styles.textLineDataInformations}>{visita.observacao}</Text>
+                  {
+                    visita.observacao == null ? 
+                    (
+                      <Text style = {styles.textLineDataInformations}>Nenhuma observação importante foi feita.</Text>
+                    ) : (
+                      <Text style = {styles.textLineDataInformations}>{visita.observacao}</Text>
+                    )
+                  }
                 </View>
               </View>
             </View>

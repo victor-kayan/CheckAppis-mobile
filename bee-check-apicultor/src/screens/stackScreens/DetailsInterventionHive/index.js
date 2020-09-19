@@ -57,6 +57,8 @@ class DetailsInterventionHive extends Component {
         />
         
         
+        <View style = {styles.containerContent}>
+        </View>
         <ScrollView contentContainerStyle={styles.container}>
           <View style = {styles.viewInformations}>
             <Text style = {styles.informations}>Informações</Text>

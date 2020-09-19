@@ -1,4 +1,4 @@
-import { colors } from "../../../../assets";
+import { colors, constants } from "../../../../assets";
 
 export default {
   iconImagemSelectPicker: {
@@ -30,7 +30,7 @@ export default {
     position: "absolute",
     height: '80%',
     backgroundColor: 'white',
-    marginTop: 220,
+    marginTop: constants.SCREEN_HEIGHT/3.6,
     alignItems: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
@@ -190,8 +190,8 @@ export default {
     shadowOpacity: 0.1,
     shadowOffset: { x: 0, y: 0 },
     shadowRadius: 15,
-    marginTop: 700,
-    marginLeft: 280,
+    marginTop: constants.SCREEN_HEIGHT/1.17,
+    marginLeft: constants.SCREEN_WIDTH/1.3,
   },
   plus: {
     color: colors.white,
