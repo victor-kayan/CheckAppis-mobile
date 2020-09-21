@@ -23,8 +23,8 @@ class Home extends Component {
     super(props);
     this.state = {
       region: {
-        latitude: -6.975353699999999,
-        longitude: -38.7294817,
+        latitude: -7.814615,
+        longitude: -39.234215,
         latitudeDelta: 8,
         longitudeDelta: 8
       },
@@ -59,7 +59,6 @@ class Home extends Component {
     
   };
 
-
   render() {
     const {
       countColmeias,
@@ -77,20 +76,15 @@ class Home extends Component {
 
     return (
       <>
-
         <StatusBar backgroundColor={colors.theme_default} />
 
         <LinearGradient
           colors={[colors.theme_default, colors.theme_second]}
-          style={{ height: 250}}
+          style={{ height: "35%"}}
         >
-          
           <ImageBackground source={images.home.cover} style={styles.coverImage}/>
-
           <View style={styles.viewHeader}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.openDrawer()}
-            >
+            <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
               <Icon type="SimpleLineIcons" name="menu" style={{color: colors.white}} iconSize={5} active/>
             </TouchableOpacity>
           </View>
@@ -98,7 +92,18 @@ class Home extends Component {
             <Text style = {styles.welcomeName}>Olá, Abreu!</Text>
             <Text style = {styles.welcomeDay}>O que vamos fazer hoje? </Text>
           </View>
-          </LinearGradient>
+          <View style = {styles.viewInfo}>
+            <View style = {styles.cardInfo}>
+              <Text>{countApiarios && countApiarios} Apiários</Text>
+            </View>
+            <View>
+              <Text>{countColmeias && countColmeias} Colmeias</Text>
+            </View>
+            <View>
+              <Text>{coutIntervencoes && coutIntervencoes} Intervenções</Text>
+            </View>
+          </View>
+        </LinearGradient>
 
           <MapView
             provider={PROVIDER_GOOGLE} 
@@ -106,6 +111,236 @@ class Home extends Component {
             region={this.state.region}
             zoomEnabled
             loadingEnabled
+            customMapStyle = {[
+              {
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#f5f5f5"
+                  }
+                ]
+              },
+              {
+                "elementType": "labels.icon",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#616161"
+                  }
+                ]
+              },
+              {
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  {
+                    "color": "#f5f5f5"
+                  }
+                ]
+              },
+              {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#bdbdbd"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#eeeeee"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "labels.text",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#757575"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.business",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#e5e5e5"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.park",
+                "elementType": "labels.text",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#9e9e9e"
+                  }
+                ]
+              },
+              {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#ffffff"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.arterial",
+                "elementType": "labels",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.arterial",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#757575"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#dadada"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "labels",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#616161"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.local",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.local",
+                "elementType": "labels",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#9e9e9e"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#e5e5e5"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#eeeeee"
+                  }
+                ]
+              },
+              {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#c9c9c9"
+                  }
+                ]
+              },
+              {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#9e9e9e"
+                  }
+                ]
+              }
+            ]}
           >
           {apiarios &&
             apiarios.length ?
@@ -124,7 +359,45 @@ class Home extends Component {
             )): null}
         </MapView>
 
-          <View style = {styles.scrollCard}>
+          <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
+
+      </>
+    );
+  }
+}
+
+function mapStateToProps(state, props) {
+  return {
+    apiarios: state.apiarioState.apiarios,
+    countApiarios: state.apiarioState.countApiarios,
+    countColmeias: state.colmeiaState.countColmeias,
+    coutIntervencoes: state.intervencaoState.coutIntervencoes,
+    loading:
+      state.apiarioState.loading ||
+      state.colmeiaState.loading ||
+      state.intervencaoState.loading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      getCountApiariosByApicultor,
+      fetchApiariosByUser,
+      getCountColmeiasApiariosByApicultor,
+      getCountIntervencoesByApicultor
+    },
+    dispatch
+  );
+}
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
+
+{/* <View style = {styles.scrollCard}>
             <ScrollView horizontal={true}
               contentContainerStyle={{ width: `${100*3}%`}}
               showsHorizontalScrollIndicator={false}
@@ -187,43 +460,5 @@ class Home extends Component {
                 );
               })}
             </View>
-          </View>
-
-          <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
-
-      </>
-    );
-  }
-}
-
-function mapStateToProps(state, props) {
-  return {
-    apiarios: state.apiarioState.apiarios,
-    countApiarios: state.apiarioState.countApiarios,
-    countColmeias: state.colmeiaState.countColmeias,
-    coutIntervencoes: state.intervencaoState.coutIntervencoes,
-    loading:
-      state.apiarioState.loading ||
-      state.colmeiaState.loading ||
-      state.intervencaoState.loading
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      getCountApiariosByApicultor,
-      fetchApiariosByUser,
-      getCountColmeiasApiariosByApicultor,
-      getCountIntervencoesByApicultor
-    },
-    dispatch
-  );
-}
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+          </View> */}
 

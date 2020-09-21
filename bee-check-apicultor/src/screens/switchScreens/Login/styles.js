@@ -1,4 +1,5 @@
 import { colors } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
   backgroundImage: {
@@ -6,6 +7,13 @@ export default {
     justifyContent: "center",
     resizeMode: "cover",
     opacity: 0.1
+  },
+  logo: {
+    height: 85,
+    width: 72,
+    marginTop: hp('13.5%'),
+    marginLeft: wp('7%'),
+    position: 'absolute',
   },
   content: {
     height: '45%',
@@ -27,16 +35,16 @@ export default {
     fontFamily: 'Montserrat-Bold',
     color: colors.white,
     marginBottom: 5,
-    marginLeft: 30,
-    marginTop: 170,
+    marginLeft: wp('7%'),
+    marginTop: hp('25%'),
     position: 'absolute',
   },
   welcomeText: {
     fontSize: 14,
     fontFamily: 'Montserrat Regular',
     color: colors.white,
-    marginLeft: 30,
-    marginTop: 210,
+    marginLeft: wp('7%'),
+    marginTop: hp('30%'),
     position: 'absolute',
   },
   notText: {
@@ -44,7 +52,7 @@ export default {
     fontFamily: 'Montserrat Regular',
     color: colors.blackgrey,
     textAlign: 'center',
-    marginTop: 270,
+    marginTop: hp('10%'),
   },
   forgotText: {
     fontSize: 12,
@@ -80,11 +88,10 @@ export default {
     marginLeft: -3,
   },
   loginView: {
-    position: "absolute",
     height: 300,
     width: '88%',
     backgroundColor: 'white',
-    marginTop: 330,
+    marginTop: hp('-15%'),
     alignItems: 'center',
     borderRadius: 20,
     padding: 20,
@@ -100,8 +107,7 @@ export default {
   loginButton: {
     height: 50,
     width: 150,
-    position: 'absolute',
-    marginTop: 275,
+    marginTop: 40,
     alignSelf: 'center',
   },
   accessText: {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rUS\\values-es-rUS.xml",
+            "outputFile": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rUS\\values-es-rUS.xml",
             "map": [
                 {
                     "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.2.0.aar\\223ad061005cdfa5853bf3458218a198\\res\\values-es-rUS\\values.xml",

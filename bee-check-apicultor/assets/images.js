@@ -14,7 +14,8 @@ export default images = {
   },
 
   login: {
-    background: require("../images/backgroundLogin.jpg")
+    background: require("../images/backgroundLogin.jpg"),
+    logo: require("../images/login/checkappis-logo.png")
   },
 
   fotoDefault: require("../images/sem-foto.jpg"),

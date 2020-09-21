@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\values-night-v8\\values-night-v8.xml",

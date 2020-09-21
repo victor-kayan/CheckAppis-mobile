@@ -33,7 +33,7 @@ export default class GooglePlacesInput extends Component {
         styles={{
           container: {
             position: "absolute",
-            top: Platform.select({ ios: 60, android: "42%" }),
+            top: Platform.select({ ios: 60, android: "40%" }),
             width: "100%"
           },
           textInputContainer: {

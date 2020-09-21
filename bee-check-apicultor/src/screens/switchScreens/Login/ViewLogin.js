@@ -4,7 +4,8 @@ import {
   TextInput, 
   Dimensions, 
   TouchableOpacity, 
-  StatusBar
+  StatusBar,
+  Image
 } from "react-native";
 import {
   Input,
@@ -40,12 +41,10 @@ const ViewLogin = ({
           style={{ height: '100%', width: '100%'}}
         >
         <ImageBackground source={images.home.cover} style={styles.coverImage}/>
+        <Image source={images.login.logo} style = {styles.logo}/>
       <Text style = {styles.welcome}>Bem-vindo(a)!</Text>
       <Text style = {styles.welcomeText}>{`O CheckAppis é a forma mais fácil e\nrápida de gerenciar seu apiário.`}</Text>
       </LinearGradient>
-    </View>
-    <View style = {styles.content}>
-      <Text style = {styles.notText}>{`Não está cadastrado?\nEntre em contato com um técnico.`}</Text>
     </View>
     <View style = {styles.loginView}>
       <Text style = {styles.accessText}>ACESSE SUA CONTA</Text>
@@ -92,6 +91,9 @@ const ViewLogin = ({
           ) : null}
         </LinearGradient>
       </TouchableOpacity>
+    </View>
+    <View style = {styles.content}>
+      <Text style = {styles.notText}>{`Não está cadastrado?\nEntre em contato com um técnico.`}</Text>
     </View>
   </Container>
 );

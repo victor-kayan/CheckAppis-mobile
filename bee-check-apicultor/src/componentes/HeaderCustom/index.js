@@ -19,7 +19,7 @@ const HeaderCustom = ({
   {... rest}
     style={{ 
       backgroundColor: colors.theme_default, 
-      height: '40%',
+      height: '35%',
      }}
     androidStatusBarColor={colors.colorAndroidBarraStatus}
   >
@@ -45,7 +45,7 @@ const HeaderCustom = ({
         color: colors.white, 
         fontFamily: "Montserrat-Bold", 
         fontSize: 22, 
-        marginTop: 20, 
+        marginTop: 10, 
         marginLeft: 20, 
         marginBottom: 5}}>{title}</Text>
       <Text style={{

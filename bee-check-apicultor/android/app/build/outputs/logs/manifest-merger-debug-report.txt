@@ -1,15 +1,15 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-MERGED from [:react-native-get-random-values] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-get-random-values\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-linear-gradient] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-linear-gradient\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-23:12
-MERGED from [:react-native-vector-icons] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-maps] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-12:12
-MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\d17f092060807f0a5fed87be633551a4\AndroidManifest.xml:2:1-15:12
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+MERGED from [:react-native-get-random-values] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-get-random-values\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-linear-gradient] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-linear-gradient\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-23:12
+MERGED from [:react-native-vector-icons] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-maps] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\56dbe1f0493251b6b3b7e74ee77d2314\AndroidManifest.xml:2:1-15:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9f204df53d99268ced8fe2a935a8e296\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\f6082604fb49a07f111a43bd00669d11\AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.fresco:fresco:1.13.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\fresco-1.13.0.aar\8b839eb096daed1716fca6bbd32936ba\AndroidManifest.xml:2:1-9:12
@@ -46,57 +46,57 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\sadra\.gradle\
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\add8b6d166b1290ff085ac4b481bf840\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b38e7df7cb1ba94a6c1f5968a5013da4\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\0e7f18c07a1dd2d68d7f9b4fe2f92a79\AndroidManifest.xml:17:1-22:12
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
 	package
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:2:5-28
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:2:5-28
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:4:5-67
-MERGED from [:react-native-maps] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:9:5-67
-MERGED from [:react-native-maps] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:9:5-67
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [:react-native-maps] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:9:5-67
+MERGED from [:react-native-maps] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:9:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\95ca2c4536bdb8aa89809a5a555561ef\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\95ca2c4536bdb8aa89809a5a555561ef\AndroidManifest.xml:24:5-67
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:4:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\d17f092060807f0a5fed87be633551a4\AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\d17f092060807f0a5fed87be633551a4\AndroidManifest.xml:11:5-78
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\56dbe1f0493251b6b3b7e74ee77d2314\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\56dbe1f0493251b6b3b7e74ee77d2314\AndroidManifest.xml:11:5-78
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:5:22-75
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:6:5-79
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:6:5-79
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\95ca2c4536bdb8aa89809a5a555561ef\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\95ca2c4536bdb8aa89809a5a555561ef\AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:6:22-76
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.CAMERA
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:7:5-65
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:7:5-65
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:7:22-62
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:7:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:8:5-80
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:8:5-80
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:8:22-78
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:8:22-78
 application
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:9:5-32:19
-MERGED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-21:19
-MERGED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-21:19
-MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\d17f092060807f0a5fed87be633551a4\AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\d17f092060807f0a5fed87be633551a4\AndroidManifest.xml:13:5-20
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:9:5-32:19
+MERGED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\56dbe1f0493251b6b3b7e74ee77d2314\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\56dbe1f0493251b6b3b7e74ee77d2314\AndroidManifest.xml:13:5-20
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\95ca2c4536bdb8aa89809a5a555561ef\AndroidManifest.xml:30:5-36:19
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\95ca2c4536bdb8aa89809a5a555561ef\AndroidManifest.xml:30:5-36:19
 MERGED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-base-16.1.0.aar\4bedf79be73732449f14efc5b592dfee\AndroidManifest.xml:22:5-27:19
@@ -112,61 +112,61 @@ MERGED from [org.webkit:android-jsc:r174650] C:\Users\sadra\.gradle\caches\trans
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\android-maps-utils-0.5.aar\f7dc0c21a4b2712114585b14ae5c8bda\AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\android-maps-utils-0.5.aar\f7dc0c21a4b2712114585b14ae5c8bda\AndroidManifest.xml:7:5-11:19
 	android:label
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:11:7-39
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:11:7-39
 	android:icon
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:12:7-41
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:12:7-41
 	android:allowBackup
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:13:7-34
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:13:7-34
 	android:theme
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:14:7-38
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:14:7-38
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:10:7-38
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:10:7-38
 activity#com.bee_check.MainActivity
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:15:7-24:18
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:15:7-24:18
 	android:label
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:17:9-41
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:17:9-41
 	android:windowSoftInputMode
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:19:9-51
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:19:9-51
 	android:configChanges
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:18:9-79
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:18:9-79
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:16:9-37
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:16:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:20:9-23:25
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:20:9-23:25
 action#android.intent.action.MAIN
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:21:13-65
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:21:13-65
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:21:21-62
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:21:21-62
 category#android.intent.category.LAUNCHER
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:22:13-73
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:22:13-73
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:22:23-70
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:22:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:25:7-84
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:25:7-84
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:25:17-81
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:25:17-81
 meta-data#com.google.android.geo.API_KEY
-ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:28:6-31:11
+ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:28:6-31:11
 	android:value
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:30:9-64
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:30:9-64
 	android:name
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:29:9-54
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:29:9-54
 uses-sdk
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-MERGED from [:react-native-get-random-values] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-get-random-values\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-get-random-values] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-get-random-values\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-linear-gradient] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-linear-gradient\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-linear-gradient] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-linear-gradient\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-maps] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-maps] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\d17f092060807f0a5fed87be633551a4\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\d17f092060807f0a5fed87be633551a4\AndroidManifest.xml:7:5-9:41
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-get-random-values] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-get-random-values\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-get-random-values] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-get-random-values\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-linear-gradient\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-linear-gradient\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-maps] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\56dbe1f0493251b6b3b7e74ee77d2314\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\56dbe1f0493251b6b3b7e74ee77d2314\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:27.1.1] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9f204df53d99268ced8fe2a935a8e296\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:27.1.1] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9f204df53d99268ced8fe2a935a8e296\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\f6082604fb49a07f111a43bd00669d11\AndroidManifest.xml:20:5-44
@@ -237,36 +237,36 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\sadra\.gradle\caches
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b38e7df7cb1ba94a6c1f5968a5013da4\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\0e7f18c07a1dd2d68d7f9b4fe2f92a79\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\0e7f18c07a1dd2d68d7f9b4fe2f92a79\AndroidManifest.xml:20:5-44
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
-		INJECTED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml
 provider#com.imagepicker.FileProvider
-ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:12:9-20:20
+ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:12:9-20:20
 	android:grantUriPermissions
-		ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:16:13-47
+		ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:16:13-47
 	android:authorities
-		ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:14:13-60
+		ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:14:13-60
 	android:exported
-		ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:13-37
+		ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:13-37
 	android:name
-		ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:13:13-56
+		ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:13:13-56
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:17:13-19:58
+ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:17:13-19:58
 	android:resource
-		ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:19:17-55
+		ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:19:17-55
 	android:name
-		ADDED from [:react-native-image-picker] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:18:17-67
+		ADDED from [:react-native-image-picker] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-image-picker\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:18:17-67
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from [:react-native-maps] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:10:5-81
+ADDED from [:react-native-maps] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:10:5-81
 	android:name
-		ADDED from [:react-native-maps] E:\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:10:22-78
+		ADDED from [:react-native-maps] E:\checkappis\bee-check-mobile\bee-check-apicultor\node_modules\react-native-maps\lib\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:10:22-78
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.1.0.aar\95ca2c4536bdb8aa89809a5a555561ef\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
@@ -296,6 +296,6 @@ MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\sadra\.gra
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\sadra\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.2.0.aar\223ad061005cdfa5853bf3458218a198\AndroidManifest.xml:24:13-58
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:1:1-34:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

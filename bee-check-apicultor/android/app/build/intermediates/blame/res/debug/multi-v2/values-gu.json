@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-gu\\values-gu.xml",
+            "outputFile": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-gu\\values-gu.xml",
             "map": [
                 {
                     "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\c20ae87a95eff6886038c2999facc6d9\\res\\values-gu\\values-gu.xml",
