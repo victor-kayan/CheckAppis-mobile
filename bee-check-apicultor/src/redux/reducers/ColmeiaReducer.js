@@ -4,8 +4,10 @@ import {
   LOADING_COLMEIA,
   GET_COLMEIA_BY_APIARIO,
   EDIT_COLMEIA,
-  GET_COUNT_COLMEIAS_BY_APIARIOS_APICULTOR
+  UPDATE_COUNT_COLMEIAS_BY_APICULTOR,
+  UPDATE_ALL_COLMEIAS
 } from "../actions/colmeiaActions/actionsType";
+import { groupArrayItemsByEqualProperty } from '../../../utils';
 
 const initialState = {
   colmeias: {}, // Objeto com arrays de colmeias por apiários
@@ -14,19 +16,21 @@ const initialState = {
 };
 
 export const ColmeiaReducer = (state = initialState, action) => {
+  const { payload, meta } = action;
+
   switch (action.type) {
     case DELETE_COLMEIA:
     // TODO: Remover a colmeia deletada do estado também sem precisar fazer outra requisição para pegar a lista
       return {
         ...state,
-        loading: action.payload.loading
+        loading: payload.loading
       };
       
     case CREATE_COLMEIA:
       const colmeiasListWithNewColmeia = {
-        [action.payload.apiarioId]: [
-          action.payload.colmeia,
-          ...state.colmeias[action.payload.apiarioId]
+        [payload.apiarioId]: [
+          payload.colmeia,
+          ...state.colmeias[payload.apiarioId]
         ]
       };
 
@@ -39,12 +43,12 @@ export const ColmeiaReducer = (state = initialState, action) => {
     case LOADING_COLMEIA:
       return {
         ...state,
-        loading: action.payload.loading
+        loading: payload.loading
       };
 
     case GET_COLMEIA_BY_APIARIO:
       const updatedApiarioColmeiasList = {
-        [action.payload.apiarioId]: action.payload.colmeias
+        [payload.apiarioId]: payload.colmeias
       };
 
       return {
@@ -53,19 +57,27 @@ export const ColmeiaReducer = (state = initialState, action) => {
         colmeias: Object.assign({}, state.colmeias, updatedApiarioColmeiasList)
       };
 
-    case GET_COUNT_COLMEIAS_BY_APIARIOS_APICULTOR:
+    case UPDATE_COUNT_COLMEIAS_BY_APICULTOR:
       return {
         ...state,
         loading: false,
-        countColmeias: action.payload.countColmeias
+        countColmeias: payload.countColmeias
       };
 
     case EDIT_COLMEIA:
     // TODO: Atualizar colmeias editada no estado sem precisar fazer outra requisição para pegar a lista
       return {
         ...state,
-        loading: action.payload.loading
+        loading: payload.loading
       };
+
+    case UPDATE_ALL_COLMEIAS:
+      return {
+        ...state,
+        colmeias: groupArrayItemsByEqualProperty(
+          payload.allColmeias, 'apiario_id'
+        )
+      }
       
     default:
       return state;

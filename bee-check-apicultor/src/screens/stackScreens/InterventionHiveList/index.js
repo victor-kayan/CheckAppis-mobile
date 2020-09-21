@@ -41,7 +41,6 @@ class InterventionHiveList extends Component {
     }
   };
 
-
   fecthIntervencoesColmeias = (apiaryId) => {
     this.props.fecthIntervencoesColmeiasByApiario(apiaryId);
   };

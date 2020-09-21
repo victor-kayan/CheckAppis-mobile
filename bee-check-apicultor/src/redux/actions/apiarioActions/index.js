@@ -5,7 +5,6 @@ import {
   GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS,
   GET_ALL_APIARIOS_BY_USER_ERROR,
   GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_ERROR,
-  GET_COUNT_APIARIOS_BY_APICULTOR_ERROR
 } from "./actionsType";
 import { Api } from "../../../../services";
 import { URLS } from "../../../../assets";
@@ -79,36 +78,16 @@ export const fetchApiariosHasColmeiasHasIntervencoes = () => {
   };
 };
 
-export const getCountApiariosByApicultor = () => {
+export const updateAllApiariosByApicultor = (apiarios, countApiarios) => {
   return dispatch => {
     dispatch({
-      type: LOADING_APIARIO,
-      payload: {
-        loading: true
-      }
+      type: GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS,
+      payload: { countApiarios }
     });
-    Api.instance
-      .get(URLS.GET_COUNT_APIARIOS_URL)
-      .then(response => {
-        dispatch({
-          type: GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS,
-          payload: {
-            countApiarios: response.data.count_apiarios
-          }
-        });
-      })
-      .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "warning"
-        });
-        dispatch({
-          type: GET_COUNT_APIARIOS_BY_APICULTOR_ERROR,
-          payload: {
-            error
-          }
-        });
-      });
-  };
-};
+    
+    dispatch({
+      type: GET_ALL_APIARIOS_BY_USER_SUCCESS,
+      payload: { apiarios }
+    });
+  }
+}
