@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import {
   Container,
   Content,
@@ -88,14 +88,108 @@ class NewColmeia extends Component {
     const { colmeia, foto_uri } = this.state;
     return (
       <Root>
-        <View style = {{flex: 1, width: '100%', height: '100%', backgroundColor: 'white'}}>
-        <Container style = {{position: 'absolute', alignSelf: 'center', flex: 1, width: '100%'}}>
-          <HeaderCustomStack 
-            title = "Cadastro"
-            description = "Insira as informações solicitadas e cadastre uma nova colmeia" 
-            />
-          <Content padder>
-            <SpinnerCustom visible={loading} />
+        <Container>
+          <HeaderCustomStack/>
+
+          <SpinnerCustom visible={loading} />
+
+          <View style = {styles.containerContent}>
+            <View style = {styles.viewImage}>
+              {foto_uri ? (
+                <Image style={styles.imageFormColmeia} source={foto_uri} />
+              ) : (
+                <View style = {{alignItems: 'center', justifyContent: 'center'}}>
+                  <Icon
+                    type="EvilIcons"
+                    name="camera"
+                    active
+                    style={{
+                      fontSize: 40,
+                      paddingTop: 55,
+                      color: "#B8B8B8",
+                      alignText: 'center',
+                      alignSelf: 'center',
+                      marginBottom: 10,
+                    }}
+                  />
+                  <TouchableOpacity onPress={this.slectPhoto.bind(this)} style = {styles.addPhoto}>
+                    <Text  style={{ color: colors.theme_second, fontFamily: 'Montserrat Regular', fontSize: 15, marginHorizontal: 4}}>Tirar foto</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+            <Item style = {{marginTop: 140}}>
+              <Icon style={{color: colors.theme_second}} active type="Ionicons" name="md-finger-print"/>
+              <Input
+                value={colmeia.nome}
+                placeholder="Nome ou identificador da colmeia"
+                onChangeText={nome => this.setState({colmeia: {...colmeia, nome}})}
+                style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
+              />
+            </Item>
+            <Item style = {{marginTop: 20}}>
+              <Icon style={{color: colors.theme_second}} active type="MaterialIcons" name="view-headline"/>
+              <Input
+                value={colmeia.descricao}
+                placeholder="Descrição"
+                onChangeText={descricao => this.setState({ colmeia: {...colmeia, descricao}})}                
+                style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
+              />
+            </Item>
+            <ButtonCustom
+              onPress={() => this.onAddColmeia()}
+              iconRight="check"
+              typeIconRight="AntDesign"
+              title="CADASTRAR"
+              style={{ alignSelf: 'center', marginEnd: 10, marginTop: 30 }}
+              />
+          </View>
+        </Container>
+      </Root>
+    );
+  }
+}
+
+function mapStateToProps(state, props) {
+  return {
+    loading: state.apiarioState.loading || state.colmeiaState.loading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ createColemia }, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewColmeia);
+
+{/* <Item style = {styles.viewImage}>
+            {foto_uri ? (
+              <Image style={styles.imageFormColmeia} source={foto_uri} />
+            ) : (
+              <View>
+                <Icon
+                  type="EvilIcons"
+                  name="camera"
+                  active
+                  style={{
+                    fontSize: 40,
+                    paddingTop: 55,
+                    color: "#B8B8B8",
+                    alignText: 'center',
+                    alignSelf: 'center',
+                    marginBottom: 10,
+                  }}
+                />
+                <Text  style={{ color: "#B8B8B8", paddingBottom: 55, fontFamily: 'Montserrat Regular', fontSize: 15}}>Sem foto</Text>
+              </View>
+            )}
+          </Item> */}
+
+
+{/* <SpinnerCustom visible={loading} />
             <CardItem>
               <Body>
                 <Item style={{ marginTop: 130}}>
@@ -151,34 +245,9 @@ class NewColmeia extends Component {
                   }}
                 />
               </Body>
-            </CardItem>
-          </Content>
-          
-          <Item style = {styles.viewImage}>
-            {foto_uri ? (
-              <Image style={styles.imageFormColmeia} source={foto_uri} />
-            ) : (
-              <View>
-                <Icon
-                  type="EvilIcons"
-                  name="camera"
-                  active
-                  style={{
-                    fontSize: 40,
-                    paddingTop: 55,
-                    color: "#B8B8B8",
-                    alignText: 'center',
-                    alignSelf: 'center',
-                    marginBottom: 10,
-                  }}
-                />
-                <Text  style={{ color: "#B8B8B8", paddingBottom: 55, fontFamily: 'Montserrat Regular', fontSize: 15}}>Sem foto</Text>
-              </View>
-            )}
-          </Item>
-        </Container>
-        </View>
-        <Button
+            </CardItem> */}
+
+            {/* <Button
           full
           rounded
           onPress={this.slectPhoto.bind(this)}
@@ -199,23 +268,4 @@ class NewColmeia extends Component {
           >
             <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 12 }}>TIRAR OU SELECIONAR FOTO</Text>
           </LinearGradient>
-        </Button>
-      </Root>
-    );
-  }
-}
-
-function mapStateToProps(state, props) {
-  return {
-    loading: state.apiarioState.loading || state.colmeiaState.loading
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ createColemia }, dispatch);
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NewColmeia);
+        </Button> */}

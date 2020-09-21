@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ImageBackground, AsyncStorage, ScrollView, StyleSheet, StatusBar, TouchableOpacity, Image, Animated, Dimensions } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { Text, View, Icon } from "native-base";
-import { colors, images, constants } from "../../../../assets";
+import { colors, images, constants, routes } from "../../../../assets";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import GooglePlacesInput from "./GooglePlacesInput";
 import { connect } from "react-redux";
@@ -15,6 +15,7 @@ import { getCountColmeiasApiariosByApicultor } from "../../../redux/actions/colm
 import { getCountIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
 import styles from "./styles";
 import MarkerCallOut from "../../../componentes/MarkerCallOut";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const { width } = Dimensions.get('window');
 
@@ -80,7 +81,7 @@ class Home extends Component {
 
         <LinearGradient
           colors={[colors.theme_default, colors.theme_second]}
-          style={{ height: "35%"}}
+          style={{ height: hp("37.5%")}}
         >
           <ImageBackground source={images.home.cover} style={styles.coverImage}/>
           <View style={styles.viewHeader}>
@@ -93,15 +94,21 @@ class Home extends Component {
             <Text style = {styles.welcomeDay}>O que vamos fazer hoje? </Text>
           </View>
           <View style = {styles.viewInfo}>
-            <View style = {styles.cardInfo}>
-              <Text>{countApiarios && countApiarios} Apiários</Text>
-            </View>
-            <View>
-              <Text>{countColmeias && countColmeias} Colmeias</Text>
-            </View>
-            <View>
-              <Text>{coutIntervencoes && coutIntervencoes} Intervenções</Text>
-            </View>
+            <TouchableOpacity onPress = {() => alert('Apiários')}>
+              <View style = {styles.cardInfo}>
+                <Text style = {styles.titleCard}>{countApiarios && countApiarios} Apiários</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => this.props.navigation.navigate(routes.ColmeiaHome)}>
+              <View style = {styles.cardInfo}>
+                <Text style = {styles.titleCard}>{countColmeias && countColmeias} Colmeias</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => this.props.navigation.navigate(routes.IntervencaoHome)}>
+              <View style = {styles.cardInfo}>
+                <Text style = {styles.titleCard}>{coutIntervencoes && coutIntervencoes} Intervenções</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </LinearGradient>
 
@@ -358,8 +365,8 @@ class Home extends Component {
               </Marker>
             )): null}
         </MapView>
-
-          <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
+        
+        <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
 
       </>
     );

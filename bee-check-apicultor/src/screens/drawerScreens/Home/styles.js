@@ -1,8 +1,8 @@
 import { colors, constants } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
   map: {
-    position: "relative",
     top: 0,
     left: 0,
     right: 0,
@@ -11,10 +11,12 @@ export default {
   },
   viewInfo: {
     width: '100%',
-    height: 80,
     position: 'absolute',
+    paddingVertical: 5,
     paddingHorizontal: 20,
     flexDirection: 'row',
+    marginTop: hp('18.5%'),
+    marginBottom: 40,
   },
   mapContainer: {
     flex: 1,
@@ -22,34 +24,29 @@ export default {
   },
   welcomeName: {
     color: 'white',
-    fontSize: 20,
+    fontSize: wp('5%'),
     fontFamily: 'Montserrat Regular',
   },
   welcomeDay: {
     color: 'white',
-    fontSize: 21,
+    fontSize: wp('5%'),
     fontFamily: 'Montserrat-Bold',
   },
   welcomeView: {
     marginHorizontal: 20,
-    marginTop: 70,
+    marginTop: hp('8.5%'),
     position: 'absolute'
   },
   cardInfo: {
-    width: "30%",
-    height: 40,
     borderRadius: 10,
     marginHorizontal: 4,
     justifyContent: 'center',
     flexDirection: 'row',
-  },
-  scrollCard: {
-    marginTop: 160,
-    marginBottom: 10,
-    position: 'absolute',
-    height: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: colors.white,
+    paddingVertical: 5,
+    paddingHorizontal: 7,
+    alignItems: 'center'
   },
   coverImage: {
     resizeMode: 'cover',
@@ -65,10 +62,9 @@ export default {
     position: 'absolute',
   },
   titleCard: {
-    color: colors.theme_second,
+    color: colors.white,
     fontFamily: 'Montserrat-Bold',
-    fontSize: 20,
-    marginLeft: 40,
+    fontSize: wp('3.6%'),
   },
   qtdCard: {
     color: colors.theme_second,

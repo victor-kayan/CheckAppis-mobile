@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Platform } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class GooglePlacesInput extends Component {
   state = {
@@ -17,6 +19,7 @@ export default class GooglePlacesInput extends Component {
         placeholder={"Buscar endereço..."}
         placeholderTextColor={"#B8B8B8"}
         onPress={onLocationSelected}
+        returnKeyType="search"
         query={{
           key: "AIzaSyBfP1l7mY8TVisDD6fx0yjmvDQMHa26prg",
           language: "pt-br"
@@ -33,7 +36,7 @@ export default class GooglePlacesInput extends Component {
         styles={{
           container: {
             position: "absolute",
-            top: Platform.select({ ios: 60, android: "40%" }),
+            top: Platform.select({ ios: 60, android: hp("22.5%") }),
             width: "100%"
           },
           textInputContainer: {

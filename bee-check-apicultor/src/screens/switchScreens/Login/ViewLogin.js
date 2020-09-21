@@ -19,6 +19,8 @@ import { Alert, HeaderCustom } from "../../../componentes";
 import { colors, images } from "../../../../assets";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 let { height } = Dimensions.get("window");
 
@@ -33,17 +35,17 @@ const ViewLogin = ({
   loading,
   ...rest
 }) => (
-  <Container>
+  <Container style = {{flex: 1, height: '100%'}}>
     <StatusBar backgroundColor={colors.theme_default} />
     <View style = {styles.contentImage}>
         <LinearGradient
           colors={[colors.theme_default, colors.theme_second]}
-          style={{ height: '100%', width: '100%'}}
+          style={{ height: '100%', width: '100%', flexDirection: 'row'}}
         >
         <ImageBackground source={images.home.cover} style={styles.coverImage}/>
         <Image source={images.login.logo} style = {styles.logo}/>
-      <Text style = {styles.welcome}>Bem-vindo(a)!</Text>
-      <Text style = {styles.welcomeText}>{`O CheckAppis é a forma mais fácil e\nrápida de gerenciar seu apiário.`}</Text>
+        <Text style = {styles.welcome}>Bem-vindo(a)!</Text>
+        <Text style = {styles.welcomeText}>{`O CheckAppis é a forma mais fácil e\nrápida de gerenciar seu apiário.`}</Text>
       </LinearGradient>
     </View>
     <View style = {styles.loginView}>
@@ -78,14 +80,12 @@ const ViewLogin = ({
         />
       </View>
 
-      <Text style = {styles.forgotText}>Esqueci minha senha</Text>
-
       <TouchableOpacity onPress={handleLogin} style = {styles.loginButton}>
         <LinearGradient
           colors={[colors.theme_default, colors.theme_second]}
           style={{ height: '100%', borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
         >
-          <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 14 }}>E N T R A R</Text>
+          <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: wp('3.6%') }}>E N T R A R</Text>
           {loading ? (
             <Spinner color="white" style={styles.spinnerButton} />
           ) : null}
@@ -93,6 +93,7 @@ const ViewLogin = ({
       </TouchableOpacity>
     </View>
     <View style = {styles.content}>
+      <Text style = {styles.forgotText}>Esqueci minha senha</Text>
       <Text style = {styles.notText}>{`Não está cadastrado?\nEntre em contato com um técnico.`}</Text>
     </View>
   </Container>
