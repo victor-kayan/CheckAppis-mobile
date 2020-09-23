@@ -92,6 +92,9 @@ export const concluirIntervencao = intervencao => {
                       ],
                       {cancelable: false},
                     );
+                    /**
+                     // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
+                     */
                     dispatch(fecthIntervencoesByApicultor());
                     dispatch({
                       type: INTERVENCAO_CONCLUIR_SUCCESS,
@@ -146,7 +149,8 @@ export const fecthIntervencoesColmeiasByApiario = apiaryId => {
         dispatch({
           type: INTERVENCAO_GET_ALL_BY_APIARIO,
           payload: {
-            intervencoesByApiario: response.data.intervencoes
+            intervencoesByApiario: response.data.intervencoes,
+            apiaryId
           }
         });
       })
@@ -198,10 +202,11 @@ export const concluirIntervencaoColmeia = intervencao => {
                       buttonText: "",
                       type: "success"
                     });
+                    /**
+                     // TODO: Atualizar lista de intervenções nas colmeias após concluir uma sem precisar fazer outra requisição.
+                     */
                     dispatch(
-                      fecthIntervencoesColmeiasByApiario({
-                        apiario_id: intervencao.colmeia.apiario_id
-                      })
+                      fecthIntervencoesColmeiasByApiario(intervencao.colmeia.apiario_id)
                     );
                     dispatch({
                       type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
@@ -241,13 +246,12 @@ export const updateAllIntervencoesByApicultor = (
     dispatch({
       type: UPDATE_ALL_INTERVENCOES_APIARIOS,
       payload: { intervencoesNosApiarios }
-    })
-    
+    });
+     
     dispatch({
       type: UPDATE_ALL_INTERVENCOES_COLMEIAS,
       payload: { intervencoesNasColmeias }
-    })
+    });
   
-    // TODO: Alterar a estrutura de armazenamento dos estados das intervenções
   }
 }

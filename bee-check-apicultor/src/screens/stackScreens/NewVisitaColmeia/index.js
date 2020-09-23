@@ -60,7 +60,7 @@ class NewVisitaColmeia extends Component {
     
     NetInfo.isConnected.fetch().then(isConnected => {
       if (isConnected) {
-        this.props.getColmeiasByApiario({ id: apiarioId });
+        this.props.getColmeiasByApiario(apiarioId);
         this.setState({ doneColmeias: true })
       } else {
         this.renderItemColmeia(this.props.colmeias[apiarioId], []);

@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosHasColmeiasHasIntervencoes } from "../../../redux/actions/apiarioActions";
-import {
-  fecthIntervencoesColmeiasByApiario,
-  concluirIntervencaoColmeia
-} from "../../../redux/actions/intervencaoActions";
+import { concluirIntervencaoColmeia } from "../../../redux/actions/intervencaoActions";
 import { Text, Container, View } from "native-base";
 import { Image } from "react-native";
 import { routes } from "../../../../assets";
@@ -28,18 +25,6 @@ class IntervencaoColmeia extends Component {
 
   handleRefresh = () => {
     this.props.fetchApiariosHasColmeiasHasIntervencoes();
-  };
-
-  handleValueChangePickerApiario = apiario => {
-    this.setState({ selectedPickerApiario: apiario });
-
-    if (apiario) {
-      this.fecthIntervencoesColmeias(apiario.id);
-    }
-  };
-
-  fecthIntervencoesColmeias = apiario_id => {
-    this.props.fecthIntervencoesColmeiasByApiario({ apiario_id });
   };
 
   handleReturnHome = () => {
@@ -119,7 +104,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchApiariosHasColmeiasHasIntervencoes,
-      fecthIntervencoesColmeiasByApiario,
       concluirIntervencaoColmeia
     },
     dispatch

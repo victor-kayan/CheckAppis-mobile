@@ -32,10 +32,18 @@ export const IntervencaoReducer = (state = initialState, action) => {
       };
 
     case INTERVENCAO_GET_ALL_BY_APIARIO:
+      const updatedColmeiasIntervencoesFromCurrentApiario = {
+        [payload.apiaryId]: payload.intervencoesByApiario
+      };
+      
       return {
         ...state,
         loading: false,
-        intervencoesByApiario: payload.intervencoesByApiario
+        intervencoesByApiario: Object.assign(
+          {},
+          state.intervencoesByApiario,
+          updatedColmeiasIntervencoesFromCurrentApiario
+        )
       };
 
     case INTERVENCAO_CONCLUIR_SUCCESS:
@@ -83,9 +91,7 @@ export const IntervencaoReducer = (state = initialState, action) => {
     case UPDATE_ALL_INTERVENCOES_APIARIOS:
       return {
         ...state,
-        intervencoes: groupArrayItemsByEqualProperty(
-          payload.intervencoesNosApiarios, 'apiario_id'
-        )
+        intervencoes: payload.intervencoesNosApiarios
       }
 
     case UPDATE_ALL_INTERVENCOES_COLMEIAS:

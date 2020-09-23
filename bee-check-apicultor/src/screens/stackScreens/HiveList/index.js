@@ -24,6 +24,8 @@ import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import Hive from "../../../componentes/Hive";
 import styles from "./styles";
 
+import tron from '../../../config/ReactotronConfig'
+
 class HiveList extends Component {
   constructor(props) {
     super(props);
@@ -67,8 +69,9 @@ class HiveList extends Component {
         },
         {text: 'OK', onPress: () => {
           if (this.state.colmeia) {
-            const { apiario_id } = this.state.colmeia;
-            this.props.deleteColmeiaById({ hiveId, apiario_id });
+            const apiaryId = this.state.selectedApiary.id;
+            
+            this.props.deleteColmeiaById(hiveId, apiaryId);
           }
         }},
       ],
