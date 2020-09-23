@@ -50,7 +50,8 @@ export const IntervencaoReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        concluirIntervencaoSuccess: true
+        concluirIntervencaoSuccess: true,
+        countIntervencoes: state.countIntervencoes - 1
       };
 
     case INTERVENCAO_CONCLUIR_ERROR:
@@ -64,7 +65,8 @@ export const IntervencaoReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        concluirIntervencaoSuccess: true
+        concluirIntervencaoSuccess: true,
+        countIntervencoes: state.countIntervencoes - 1
       };
 
     case INTERVENCAO_COLMEIA_CONCLUIR_ERROR:

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchApiariosHasColmeiasHasIntervencoes } from "../../../redux/actions/apiarioActions";
+import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 import { concluirIntervencaoColmeia } from "../../../redux/actions/intervencaoActions";
 import { Text, Container, View } from "native-base";
 import { Image } from "react-native";
@@ -24,7 +24,7 @@ class IntervencaoColmeia extends Component {
   }
 
   handleRefresh = () => {
-    this.props.fetchApiariosHasColmeiasHasIntervencoes();
+    this.props.fetchApiariosByUser();
   };
 
   handleReturnHome = () => {
@@ -103,7 +103,7 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      fetchApiariosHasColmeiasHasIntervencoes,
+      fetchApiariosByUser,
       concluirIntervencaoColmeia
     },
     dispatch

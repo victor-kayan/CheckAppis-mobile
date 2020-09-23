@@ -44,8 +44,6 @@ export const fetchApiariosByUser = () => {
   };
 };
 
-// TODO: Filtrar oa apiário com intervenções apenas no momento de mostrar, mas não no estado.
-// Talvez criar um novo estado, por exemplo "apiariosComIntervencoesIds"
 export const fetchApiariosHasColmeiasHasIntervencoes = () => {
   return dispatch => {
     dispatch({
