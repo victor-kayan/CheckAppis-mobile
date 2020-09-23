@@ -28,7 +28,7 @@ export default {
     justifyContent: 'space-between',
   },
   containerContentApiarys: {
-    height: hp('80%'),
+    flex: 1,
     backgroundColor: 'white',
     marginTop: -35,
     alignItems: 'center',
@@ -62,10 +62,11 @@ export default {
     marginHorizontal: 20,
   },
   image: {
-    marginTop: 50,
+    marginTop: 20,
     width: 300,
     height: 280,
-    },
+    alignSelf: 'center'
+  },
   contentApiary: {
     alignItems: 'center',
     justifyContent: 'center',

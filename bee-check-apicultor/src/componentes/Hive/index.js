@@ -49,7 +49,7 @@ export default class Hive extends React.Component {
               </View>
               <View style = {styles.contentText}>
                 <Text style = {styles.hiveName}>{this.props.name}</Text>
-                <Text style = {styles.hiveDescription}>{this.props.description}</Text>
+                <Text style = {styles.hiveDescription} numberOfLines = {2}>{this.props.description}</Text>
               </View>
               <View style = {styles.contentArrow}>
                 <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>

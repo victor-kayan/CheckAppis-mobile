@@ -17,6 +17,8 @@ export default {
     flexDirection: 'row',
     marginTop: hp('18.5%'),
     marginBottom: 40,
+    justifyContent: 'center',
+    alignItems: 'stretch',
   },
   mapContainer: {
     flex: 1,

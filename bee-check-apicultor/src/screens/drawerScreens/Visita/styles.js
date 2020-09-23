@@ -1,4 +1,6 @@
 import { colors, constants } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default {
   iconImagemSelectPicker: {
@@ -29,22 +31,22 @@ export default {
     borderBottomColor: '#CCC',
     borderBottomWidth: 1
   },
-  containerContentHives: {
-    position: "absolute",
-    height: '80%',
-    width: '100%',
+  containerContentVisits: {
+    flex: 1,
     backgroundColor: 'white',
-    marginTop: constants.SCREEN_HEIGHT/3.6,
+    marginTop: -35,
     alignItems: 'center',
     borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
-    padding: 20,
+    borderTopRightRadius: 35, 
+    width: '100%',
   },
   title: {
     color: colors.theme_default,
     fontSize: 18,
     fontFamily: 'Montserrat-Bold',
     marginBottom: 5,
+    marginTop: 20,
+    marginHorizontal: 20,
   },
   description: {
     color: 'black',
@@ -52,15 +54,17 @@ export default {
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
     marginBottom: 25,
+    marginHorizontal: 20,
   },
-  contentHive: {
+  contentVisits: {
     alignItems: 'center',
     justifyContent: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     flex: 1,
     backgroundColor: colors.grey,
-    marginTop: 15,
+    width: '100%',
+    height: '100%'
   },
   triangle: {
     width: 0,

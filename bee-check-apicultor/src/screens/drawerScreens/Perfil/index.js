@@ -1,27 +1,12 @@
 import React, { Component } from "react";
 import { colors, routes, images, constants } from "../../../../assets";
-// import { connect } from "react-redux";
-// import { bindActionCreators } from "redux";
-// import ActionButton from "react-native-action-button";
-import {
-  login,
-  logout,
-  fetchDataUser
-} from "../../../redux/actions/userActions";
-
-import { TouchableOpacity, AsyncStorage } from "react-native";
-import {
-  Text,
-  Container,
-  View,
-  Separator,
-} from "native-base";
-
-import {
-  HeaderCustom,
-} from "../../../componentes";
+import { StatusBar } from "react-native";
+import { Text, Container, View, Separator, Icon } from "native-base";
+import { HeaderCustom } from "../../../componentes";
 import "moment/locale/pt-br";
 import styles from "./styles";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 
 class Perfil extends Component {
@@ -35,33 +20,48 @@ class Perfil extends Component {
     };
   }
 
-  async componentDidMount() {
-    // var token = await AsyncStorage.getItem(
-    //   `@beecheckApp:${constants.ACCESS_TOKEN}`
-    // );
-    // var email = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_EMAIL}`);
-    // var password = await AsyncStorage.getItem(`@beecheckApp:${constants.USER_PASSWORD}`);
-    // this.setState({token: token, email: email, password: password})
-  }
-
   render() {
-
     const { user, loading } = this.props;
 
     return (
       <Container>
+        <StatusBar backgroundColor={colors.theme_default} />
         <HeaderCustom
           iconLeft="menuunfold"
           typeIconLeft="AntDesign"
           handleIconLeft={() => this.props.navigation.openDrawer()}
-          title="Perfil de Usuário"
-          iconRight="sync"
-          //handleIconRight={() => this.handleRefresh()}
-          typeIconRight="AntDesign"
+          title="Meu Perfil"
         />
         <View style = {styles.container}>
+          <View style = {styles.cardInformation}>
+            <View style = {styles.viewIcon}>
+            </View>
+            <View>
+              <Text style = {styles.name}>Cláudio Rodrigo</Text>
+              <Text style = {styles.email}>claudio@gmail.com</Text>
+            </View>
+          </View>
+          <View style = {styles.viewCompleteInformations}>
+            <View style = {styles.lineInformation}>
+              <Icon type="AntDesign" name="phone" style={{color: colors.theme_second, marginRight: 16, fontSize: wp('6.1%')}} active/>
+              <Text style = {styles.textInformationLine}>(84) 9 9687-5033</Text>
+            </View>
+            <View style = {styles.lineInformation}>
+              <Icon type="AntDesign" name="enviromento" style={{color: colors.theme_second, marginRight: 16, fontSize: wp('6.1%')}} active/>
+              <Text style = {styles.textInformationLine}>Endereço aqui dessa forma</Text>
+            </View>
+          </View>
+        </View>
+      </Container>
+    );
+  }
+}
 
-          <View style = {styles.userProfile}>
+
+export default (Perfil);
+
+/* 
+<View style = {styles.userProfile}>
             <View style={styles.userProfileText}>
               <Text style = {styles.heyText}>Olá,</Text>
               <Text style = {styles.userName}>!</Text>
@@ -109,37 +109,4 @@ class Perfil extends Component {
               <Text style = {styles.textInformation}>Direcionar</Text>
           </View>
         </TouchableOpacity>
-        <Text>{this.state.token}</Text>
-        </View>
-      </Container>
-    );
-  }
-}
-
-
-export default (Perfil);
-
-// function mapStateToProps(state, props) {
-//   return {
-//     name: state.nameState.name,
-//     tell: state.tellState.tell,
-//     email: state.emailState.email,
-//     password: state.passwordState.password
-//   };
-// }
-
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators(
-//     {
-//       login,
-//       logout,
-//       fetchDataUser
-//     },
-//     dispatch
-//   );
-// }
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Perfil);
+        <Text>{this.state.token}</Text> */

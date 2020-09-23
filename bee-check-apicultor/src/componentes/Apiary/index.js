@@ -11,7 +11,7 @@ export default class Apiary extends React.Component {
             <View style = {styles.apiary}>
                 <View style = {styles.contentText}>
                   <Text style = {styles.apiaryName}>{this.props.name}</Text>
-                  <Text style = {styles.apiaryDescription}>{this.props.description}</Text>
+                  <Text style = {styles.apiaryDescription} numberOfLines = {2}>{this.props.description}</Text>
                 </View>
                 <View style = {styles.contentArrow}>
                   <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>

@@ -24,15 +24,13 @@ export default {
     marginTop: 20
   },
   containerContentForm: {
-    position: "absolute",
-    height: '80%',
+    flex: 1,
     backgroundColor: 'white',
-    marginTop: 220,
+    marginTop: -35,
     alignItems: 'center',
     borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
-    padding: 20,
-    width: '100%'
+    borderTopRightRadius: 35, 
+    width: '100%',
   },
   textForm: {
     fontFamily: 'Montserrat-Medium',

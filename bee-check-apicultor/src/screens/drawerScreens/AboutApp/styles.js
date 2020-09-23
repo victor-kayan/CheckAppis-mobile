@@ -1,4 +1,6 @@
 import { colors, constants } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default {
   viewInformations: {
@@ -16,14 +18,16 @@ export default {
   version: {
     fontFamily: 'Montserrat Regular',
     color: colors.white,
+    fontSize: wp('4%')
   },
   copyright: {
     fontFamily: 'Montserrat Regular',
     color: colors.white,
+    fontSize: wp('4%')
   },
   logo: {
-    width: '70%',
-    height: 95,
+    width: wp('61.3%'),
+    height: hp('10.5%'),
     margin: 20,
   },
   buttonPolitics: {

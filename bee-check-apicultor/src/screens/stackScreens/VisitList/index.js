@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, StatusBar, TouchableHighlight } from "react-native";
+import { ScrollView, StatusBar, TouchableHighlight, Image } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -79,25 +79,38 @@ class VisitList extends Component {
           <SpinnerCustom visible={loading} />
         <View style = {styles.containerContentVisits}>
           <Text style = {styles.title}>Aqui estão todas as visitas realizadas no apiário {this.state.selectedApiary.nome}</Text>
+          <View style = {styles.contentVisit}>
+            <ScrollView contentContainerStyle={{ width: '100%', padding: 10, }}>
+              { !visitas || visitas == '' ? 
+                (
+                  <>
+                    <Image
+                      style = {styles.image}
+                      source={require ('../../../../images/empty.png')}
+                    />
+                    <Text style = {styles.textNull}>{`Nenhuma visita foi encontrada. Recarregue a página ou realize uma visita :)`}</Text>
+                  </>
+                ) 
+                : (
+                  visitas.map (visit =>
+                    <Visit 
+                      key = {visit.id} 
+                      visitId = {visit.id} 
+                      date = {visit.created_at} 
+                      hives = {visit.visita_colmeias}
+                      hivesLength = {visit.visita_colmeias.length}  
+                      visit = {visit}
+                      sync = {visit.isSynced}
+                      fail = {visit.permanentlyFailed}
+                      openVisitList = {this.openVisitDetails}
+                    />
+                  )
+                )
+              }
+              <View style = {{height: 120}}/>
+            </ScrollView>
+          </View>
         </View>
-          <ScrollView contentContainerStyle={{ width: '100%', padding: 5, }}>
-          {
-              visitas.map (visit =>
-                <Visit 
-                  key = {visit.id} 
-                  visitId = {visit.id} 
-                  date = {visit.created_at} 
-                  hives = {visit.visita_colmeias}
-                  hivesLength = {visit.visita_colmeias.length}  
-                  visit = {visit}
-                  sync = {visit.isSynced}
-                  fail = {visit.permanentlyFailed}
-                  openVisitList = {this.openVisitDetails}
-                />
-              )
-          }
-          <View style = {{height: 120}}/>
-          </ScrollView>
         <View style = {styles.addVisitButton}>
           <TouchableHighlight
             activeOpacity={0.5}

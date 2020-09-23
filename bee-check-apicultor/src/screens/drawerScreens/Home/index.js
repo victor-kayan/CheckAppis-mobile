@@ -96,17 +96,29 @@ class Home extends Component {
           <View style = {styles.viewInfo}>
             <TouchableOpacity onPress = {() => alert('Apiários')}>
               <View style = {styles.cardInfo}>
-                <Text style = {styles.titleCard}>{countApiarios && countApiarios} Apiários</Text>
+                {
+                  countApiarios && countApiarios < 2 
+                    ? (<Text style = {styles.titleCard}>{countApiarios && countApiarios} Apiário</Text>)
+                    : (<Text style = {styles.titleCard}>{countApiarios && countApiarios} Apiários</Text>)
+                }
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress = {() => this.props.navigation.navigate(routes.ColmeiaHome)}>
               <View style = {styles.cardInfo}>
-                <Text style = {styles.titleCard}>{countColmeias && countColmeias} Colmeias</Text>
+              {
+                countColmeias && countColmeias < 2 
+                  ? (<Text style = {styles.titleCard}>{countColmeias && countColmeias} Colmeia</Text>)
+                  : (<Text style = {styles.titleCard}>{countColmeias && countColmeias} Colmeias</Text>)
+              }
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress = {() => this.props.navigation.navigate(routes.IntervencaoHome)}>
               <View style = {styles.cardInfo}>
-                <Text style = {styles.titleCard}>{coutIntervencoes && coutIntervencoes} Intervenções</Text>
+              {
+                coutIntervencoes && coutIntervencoes < 2 
+                  ? (<Text style = {styles.titleCard}>{coutIntervencoes && coutIntervencoes} Intervenção</Text>)
+                  : (<Text style = {styles.titleCard}>{coutIntervencoes && coutIntervencoes} Intervenções</Text>)
+              }
               </View>
             </TouchableOpacity>
           </View>

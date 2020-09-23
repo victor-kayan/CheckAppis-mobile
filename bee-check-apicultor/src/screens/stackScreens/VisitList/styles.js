@@ -1,4 +1,6 @@
 import { colors, constants } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default {
   iconImagemSelectPicker: {
@@ -34,23 +36,21 @@ export default {
     alignItems: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
-    padding: 20,
   },
   title: {
     color: colors.black,
     fontSize: 15,
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 25,
     marginHorizontal: 20,
+    marginBottom: 25,
   },
   contentVisit: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
     flex: 1,
-    backgroundColor: colors.grey,
+    backgroundColor: colors.white,
   },
   triangle: {
     width: 0,
@@ -198,5 +198,20 @@ plus: {
   textAlign: 'center',
   alignSelf: 'center',
   marginTop: 13,
-}
+},
+textNull: {
+  color: colors.blackgrey,
+  fontSize: wp('3.8%'),
+  fontFamily: 'Montserrat Regular',
+  textAlign: 'center',
+  marginTop: 20,
+  marginBottom: 20,
+  marginHorizontal: 20,
+},
+image: {
+  marginTop: 20,
+  width: wp('61.8%'),
+  height: hp('30%'),
+  alignSelf: 'center',
+},
 };

@@ -1,5 +1,7 @@
 import { colors } from "../../../../assets";
 import { Row } from "native-base";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default {
   iconImagemSelectPicker: {
@@ -60,5 +62,66 @@ export default {
 
   textInformation: {
     color: "gray",
+  },
+
+  viewIcon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.grey,
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+    marginRight: 20,
+  },
+
+  cardInformation: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.white,
+    width: wp('85%'),
+    height: hp('20%'),
+    borderRadius: 15,
+    marginTop: -70,
+    elevation: 10,
+    shadowColor: colors.theme_primary,
+    shadowOpacity: 0.9,
+    shadowOffset: { x: 0, y: 0 },
+    shadowRadius: 15,
+    flexDirection: 'row',
+  },
+
+  name: {
+    color: colors.theme_default,
+    fontSize: wp('4.3%'),
+    fontFamily: 'Montserrat-Bold',
+  },
+
+  email: {
+    color: 'black',
+    fontSize: wp('3.2%'),
+    fontFamily: 'Montserrat Regular',
+  },
+
+  lineInformation: {
+    flexDirection: 'row',
+    width: '100%',
+    alignSelf: 'center',
+    marginBottom: 20,
+    paddingLeft: 10,
+  },
+
+  viewCompleteInformations: {
+    width: wp('85%'),
+    alignItems: 'center',
+    alignSelf: 'center',
+    paddingTop: 50,
+  },
+
+  textInformationLine: {
+    color: 'black',
+    fontSize: wp('3.8%'),
+    fontFamily: 'Montserrat Regular',
   }
 };

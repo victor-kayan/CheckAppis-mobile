@@ -49,25 +49,26 @@ class Visita extends Component {
 
         <SpinnerCustom visible={loading} />
 
-        <View style = {styles.containerContentHives}>
+        <View style = {styles.containerContentVisits}>
           <Text style = {styles.title}>Selecione um apiário</Text>
           <Text style = {styles.description}>Selecione um apiário para ver o histórico de visitas correspondente a ele</Text>
-        </View>
-        <View style = {styles.contentHive}>
-        <View style = {[styles.triangle,styles.arrowUp]}/>
-          <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
-          {
-            apiarios.map(apiary =>
-              <Apiary 
-                key = {apiary.id} 
-                apiaryId = {apiary.id} 
-                name = {apiary.nome} 
-                description = {apiary.descricao} 
-                openList = {() => this.openVisitList(apiary)}
-                />
-            )
-          }
-          </ScrollView>
+          <View style = {styles.contentVisits}>
+            <View style = {[styles.triangle,styles.arrowUp]}/>
+              <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
+                {
+                  apiarios.map(apiary =>
+                    <Apiary 
+                      key = {apiary.id} 
+                      apiaryId = {apiary.id} 
+                      name = {apiary.nome} 
+                      description = {apiary.descricao} 
+                      openList = {() => this.openVisitList(apiary)}
+                      />
+                  )
+                }
+                <View style = {{height: 100}}/>
+              </ScrollView>
+            </View>
         </View>
       </Container>
     );

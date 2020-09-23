@@ -28,7 +28,7 @@ export default {
     justifyContent: 'space-between',
   },
   containerContentHives: {
-    height: hp('80%'),
+    flex: 1,
     backgroundColor: 'white',
     marginTop: -35,
     alignItems: 'center',
@@ -204,7 +204,7 @@ export default {
   },
   textNull: {
     color: colors.blackgrey,
-    fontSize: 15,
+    fontSize: wp('3.8%'),
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
     marginTop: 20,
@@ -212,9 +212,9 @@ export default {
     marginHorizontal: 20,
   },
   image: {
-    marginTop: 50,
-    width: 300,
-    height: 280,
-    backgroundColor: 'transparent'
+    marginTop: 20,
+    width: wp('61.8%'),
+    height: hp('30%'),
+    alignSelf: 'center',
   },
 };

@@ -88,7 +88,7 @@ class Colmeia extends Component {
                     )
                   )
                 }
-                <View style = {{height: 30}}/>
+                <View style = {{height: 100}}/>
               </ScrollView>
             </View>
           </View>
