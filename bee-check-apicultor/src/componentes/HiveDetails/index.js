@@ -1,67 +1,102 @@
 import React from 'react';
-import { Icon } from "native-base";
-import {View, Text, TouchableOpacity} from 'react-native';
+import { Image } from "native-base";
+import { View, Text } from 'react-native';
 import styles from "./styles";
-import moment from "moment";
 import "moment/locale/pt-br";
 
 
 export default class HiveDetails extends React.Component {
     render () {
         return (
-          <View>
-            <View>
-              <View>
+          <View style = {styles.hiveDetails}>
+            <View style = {styles.header}>
+              <View style = {styles.viewImage}>
               </View>
-              <View>
-                <Text>Nome da colmeia</Text>
-                <Text>Descrição da colmeia</Text>
+              <View style = {styles.viewName}>
+                <Text style = {styles.hiveName}>{this.props.name}</Text>
+                <Text style = {styles.hiveDescription}>{this.props.description}</Text>
               </View>
             </View>
-            <View>
-              <View>
-                <View>
-                  <Text>Com mel</Text>
-                  <Text>00</Text>
+            <View style = {styles.body}>
+              <View style = {styles.bodyIn}>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com mel</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.mel}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>Com pólen</Text>
-                  <Text>00</Text>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com pólen</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.polen}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>Com cria aberta</Text>
-                  <Text>00</Text>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com cria aberta</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.aberta}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>Com cria fechada</Text>
-                  <Text>00</Text>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com cria fechada</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.fechada}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>Vazios</Text>
-                  <Text>00</Text>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Vazios</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.vazio}</Text>
+                  </View>
                 </View>
               </View>
-              <View>
-                <View>
-                  <Text>Com postura?</Text>
-                  <Text>Sim</Text>
+              <View style = {styles.bodyIn}>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com postura?</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.postura ? "Sim" : "Não"}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>Com abelhas mortas?</Text>
-                  <Text>Não</Text>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com abelhas mortas?</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.mortah ? "Sim" : "Não"}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>Com zangão?</Text>
-                  <Text>Sim</Text>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com zangão?</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.zangao ? "Sim" : "Não"}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>Com realeira?</Text>
-                  <Text>Não</Text>
+                <View style = {styles.line}>
+                  <View style = {styles.size}>
+                    <Text style = {styles.textTitle}>Com realeira?</Text>
+                  </View>
+                  <View styles = {styles.sizeData}>
+                    <Text style = {styles.textData}>{this.props.realeira ? "Sim" : "Não"}</Text>
+                  </View>
                 </View>
               </View>
-              <View>
-                <Text>Observações</Text>
-                <Text>As observações serão colocadas aqui desta forma. Caso não haja, aparecerá um texto avisando.</Text>
+              <View style = {styles.bodyObs}>
+                <Text style = {styles.textObs}>Observações</Text>
+                <Text style = {styles.textDataObs}>{this.props.obs}</Text>
               </View>
             </View>
           </View>

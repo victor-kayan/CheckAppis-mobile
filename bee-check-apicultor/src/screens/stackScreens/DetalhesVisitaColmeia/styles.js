@@ -1,4 +1,4 @@
-import { colors } from "../../../../assets";
+import { colors, constants } from "../../../../assets";
 
 export default {
     cardItem : {
@@ -40,7 +40,6 @@ export default {
         color: colors.theme_default,
         fontSize: 18,
         fontFamily: 'Montserrat-Bold',
-        marginBottom: 5,
         marginVertical: 20,
         marginHorizontal: 20,
     }

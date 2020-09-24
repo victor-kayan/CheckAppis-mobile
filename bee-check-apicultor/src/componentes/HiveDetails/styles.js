@@ -1,59 +1,96 @@
-import { colors } from "../../../assets";
+import { colors, constants } from "../../../assets";
 
 export default {
-apiary: {
-  width: '90%',
-  height: 90,
-  backgroundColor: colors.white,
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: 10,
-  borderRadius: 15,
-  borderWidth: 2,
-  borderColor: colors.theme_second,
-  alignSelf: 'center',
-},
-contentText: {
-  width: '70%',
-  height: '100%',
-  justifyContent: 'center',
-  paddingLeft: 25,
-},
-contentArrow: {
-  width: '30%',
-  height: '100%',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'row',
-  alignContent: 'space-between',
-},
-arrow: {
-  fontSize: 30,
-  color: colors.theme_second,
-},
-statusIcon: {
-  fontSize: 25,
-  color: colors.theme_second,
-  marginRight: 25,
-},
-statusIconFailed: {
-  fontSize: 25,
-  color: colors.red,
-  marginRight: 25,
-},
-apiaryName: {
-  fontSize: 13,
-  fontFamily: 'Montserrat-Bold',
-  color: colors.theme_second
-},
-apiaryDescription: {
-  fontSize: 13,
-  fontFamily: 'Montserrat Regular',
-},
-touchStyle: {
-  alignItems: 'center',
-  justifyContent: 'center',
-  alignSelf: 'center',
-}
+  hiveDetails: {
+    width: '90%',
+    margin: 18,
+    borderRadius: 15,
+    borderWidth: 2,
+    borderColor: colors.theme_second,
+    alignSelf: 'center',
+    padding: 20,
+  },
+
+  header: {
+    width: '100%',
+    flexDirection: 'row',
+  },
+
+  viewImage: {
+    height: 70,
+    width: 70,
+    borderRadius: 15,
+    backgroundColor: colors.grey,
+    marginRight: 12,
+  },
+
+  viewName: {
+    justifyContent: 'center',
+    width: '65%'
+  },
+
+  hiveName: {
+    fontSize: 16,
+    fontFamily: 'Montserrat-Bold',
+  },
+
+  hiveDescription: {
+    fontSize: 13,
+    fontFamily: 'Montserrat Regular',
+    color: colors.blackgrey
+  },
+
+  body: {
+    borderLeftWidth: 2,
+    borderLeftColor: colors.theme_second,
+    marginVertical: 20,
+    marginLeft: 35,
+    padding: 10,
+  },
+
+  bodyIn: {
+    width: '100%',
+    paddingLeft: 8,
+    marginBottom: 10,
+  },
+
+  bodyObs: {
+    width: '100%',
+    paddingLeft: 8,
+  },
+
+  line: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'space-between',
+    marginVertical: 2,
+  },
+
+  textTitle: {
+    fontFamily: 'Montserrat Regular',
+    fontSize: 13,
+    textAlign: 'left'
+  },
+
+  textData: {
+    fontFamily: 'Montserrat Regular',
+    fontSize: 13,
+    textAlign: 'right'
+  },
+  textDataObs: {
+    fontFamily: 'Montserrat Regular',
+    fontSize: 13,
+  },
+
+  textObs: {
+    fontFamily: 'Montserrat-Bold'
+  },
+
+  size: {
+    width: '80%',
+  },
+
+  sizeData: {
+    width: '20%',
+  },
 };

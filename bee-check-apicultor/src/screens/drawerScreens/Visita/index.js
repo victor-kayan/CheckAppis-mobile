@@ -47,7 +47,7 @@ class Visita extends Component {
           typeIconRight="AntDesign"
         />
 
-        <SpinnerCustom visible={loading} />
+        {/* <SpinnerCustom visible={loading} /> */}
 
         <View style = {styles.containerContentVisits}>
           <Text style = {styles.title}>Selecione um apiário</Text>

@@ -156,7 +156,7 @@ export default {
   },
   detailsButton: {
     height: 50,
-    width: '85%',
+    width: '100%',
     marginTop: 20,
     marginBottom: 30,
     alignSelf: 'center',
