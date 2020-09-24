@@ -20,5 +20,29 @@ export default {
         marginTop: 15,
         flexDirection: "row",
         justifyContent: "space-between"
+    },
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        marginTop: -35,
+        alignItems: 'center',
+        borderTopLeftRadius: 35,
+        borderTopRightRadius: 35, 
+        width: '100%',
+    },
+    contentHiveDetails: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%'
+    },
+    title: {
+        color: colors.theme_default,
+        fontSize: 18,
+        fontFamily: 'Montserrat-Bold',
+        marginBottom: 5,
+        marginVertical: 20,
+        marginHorizontal: 20,
     }
+
 }

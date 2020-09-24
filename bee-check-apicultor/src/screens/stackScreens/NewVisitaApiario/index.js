@@ -38,12 +38,6 @@ class NewVisitaApiario extends Component {
     });
   };
 
-  onValueChangePickerApiario = apiario => {
-    this.setState({
-      selectedPickerApiario: apiario
-    });
-  };
-
   render() {
     const { loading } = this.props;
     const { selectedPickerApiario } = this.state;    

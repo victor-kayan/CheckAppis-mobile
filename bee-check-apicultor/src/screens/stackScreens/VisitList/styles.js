@@ -190,8 +190,8 @@ addVisitButton: {
   shadowOpacity: 0.1,
   shadowOffset: { x: 0, y: 0 },
   shadowRadius: 15,
-  marginTop: constants.SCREEN_HEIGHT/1.17,
-  marginLeft: constants.SCREEN_WIDTH/1.3,
+  marginTop: hp('85.5%'),
+  marginLeft: wp('78%'),
 },
 plus: {
   color: colors.white,

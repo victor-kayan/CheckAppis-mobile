@@ -35,170 +35,172 @@ class DetalhesVisita extends React.Component {
         />
         <View style = {styles.viewContent}>
           <Text style = {styles.apiaryName}>{apiaryName}</Text>
+          <View style = {styles.contentDetails}>
+            <ScrollView contentContainerStyle = {{ width: '100%', padding: 10}}>
+              <View style = {styles.cardInformation}>
+                <View style = {styles.lineCardInformation}>
+                  <View style = {styles.lineHeader}>
+                    <Icon type="AntDesign" name="calendar" style = {styles.icons}/>
+                    <Text style = {styles.textLineHeader}>Data</Text>
+                  </View>
+                  <View style = {styles.lineBody}>
+                    <Text style = {styles.textBodyLine}>{moment(visita.created_at).format("DD/MM/YYYY")}</Text>
+                  </View>
+                </View>
+
+                <View style = {styles.lineCardInformation}>
+                  <View style = {styles.lineHeader}>
+                    <Icon type="AntDesign" name="cloudo" style = {styles.icons}/>
+                    <Text style = {styles.textLineHeader}>Está sombreado?</Text>
+                  </View>
+                  <View style = {styles.lineBody}>
+                    <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_sombra ? "Sim" : "Não"}</Text>
+                  </View>
+                </View>
+
+                <View style = {styles.lineCardInformation}>
+                  <View style = {styles.lineHeader}>
+                    <Icon type="Ionicons" name="water-outline" style = {styles.icons}/>
+                    <Text style = {styles.textLineHeader}>Tem água?</Text>
+                  </View>
+                  <View style = {styles.lineBody}>
+                    <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_agua ? "Sim" : "Não"}</Text>
+                  </View>
+                </View>
+
+                <View style = {styles.lineCardInformation}>
+                  <View style = {styles.lineHeader}>
+                    <Icon type="AntDesign" name="apple-o" style = {styles.icons}/>
+                    <Text style = {styles.textLineHeader}>Tem comida?</Text>
+                  </View>
+                  <View style = {styles.lineBody}>
+                    <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_comida ? "Sim" : "Não"}</Text>
+                  </View>
+                </View>
+              </View>
+
+              <View style = {styles.cardInformationMore}>
+                <View style = {styles.headerInformation}>
+                  <Icon type="EvilIcons" name="archive" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
+                  <View style = {styles.titles}>
+                    <Text style = {styles.titleInformation}>Colmeias</Text>
+                    <Text style = {styles.descriptionInformation}>Total de colmeias analisadas: </Text>
+                  </View>
+                </View>
+                <View style = {styles.dataInformations}>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Com postura</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_com_postura}</Text>
+                    </View>
+                  </View>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Sem postura</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_sem_postura}</Text>
+                    </View>
+                  </View>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Com abelha morta</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_com_abelhas_mortas}</Text>
+                    </View>
+                  </View>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Sem abelha morta</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_sem_abelhas_mortas}</Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+
+              <View style = {styles.cardInformationMore}>
+                <View style = {styles.headerInformation}>
+                  <Icon type="AntDesign" name="laptop" style = {styles.icons}/>
+                  <View style = {styles.titles}>
+                    <Text style = {styles.titleInformation}>Quadros</Text>
+                    <Text style = {styles.descriptionInformation}>Total de quadros analisados: {visita.qtd_quadros_analizados}</Text>
+                  </View>
+                </View>
+                <View style = {styles.dataInformations}>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Com mel</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_quadros_mel}</Text>
+                    </View>
+                  </View>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Com pólen</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_quadros_polen}</Text>
+                    </View>
+                  </View>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Com cria aberta</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_cria_aberta}</Text>
+                    </View>
+                  </View>
+                  <View style = {styles.lineDataInformations}>
+                    <View style = {styles.size}>
+                      <Text style = {styles.textLineDataInformations}>Com cria fechada</Text>
+                    </View>
+                    <View style = {styles.sizeData}>
+                      <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_cria_fechada}</Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+
+              <View style = {styles.cardInformationMore}>
+                <View style = {styles.headerInformation}>
+                  <Icon type="EvilIcons" name="navicon" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
+                  <View style = {styles.titles}>
+                    <Text style = {styles.titleInformation}>Observações</Text>
+                    <Text style = {styles.descriptionInformation}>Observações feitas durante a visita</Text>
+                  </View>
+                </View>
+                <View style = {styles.dataInformations}>
+                  <View style = {styles.lineDataInformations}>
+                    {
+                      visita.observacao == null ? 
+                      (
+                        <Text style = {styles.textLineDataInformations}>Nenhuma observação importante foi feita.</Text>
+                      ) : (
+                        <Text style = {styles.textLineDataInformations}>{visita.observacao}</Text>
+                      )
+                    }
+                  </View>
+                </View>
+              </View>
+
+              <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})} style = {styles.detailsButton}>
+                <LinearGradient
+                  colors={[colors.theme_default, colors.theme_second]}
+                  style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
+                >
+                  <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 15}}>DETALHAR POR COLMEIA</Text>
+                </LinearGradient>
+              </TouchableOpacity>
+
+            </ScrollView>
+          </View>
         </View>
-          <ScrollView contentContainerStyle = {{ width: '100%', padding: 5,}}>
-            <View style = {styles.cardInformation}>
-              <View style = {styles.lineCardInformation}>
-                <View style = {styles.lineHeader}>
-                  <Icon type="AntDesign" name="calendar" style = {styles.icons}/>
-                  <Text style = {styles.textLineHeader}>Data</Text>
-                </View>
-                <View style = {styles.lineBody}>
-                  <Text style = {styles.textBodyLine}>{moment(visita.created_at).format("DD/MM/YYYY")}</Text>
-                </View>
-              </View>
-
-              <View style = {styles.lineCardInformation}>
-                <View style = {styles.lineHeader}>
-                  <Icon type="MaterialCommunityIcons" name="box-shadow" style = {styles.icons}/>
-                  <Text style = {styles.textLineHeader}>Está sombreado?</Text>
-                </View>
-                <View style = {styles.lineBody}>
-                  <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_sombra ? "Sim" : "Não"}</Text>
-                </View>
-              </View>
-
-              <View style = {styles.lineCardInformation}>
-                <View style = {styles.lineHeader}>
-                  <Icon type="Ionicons" name="water-outline" style = {styles.icons}/>
-                  <Text style = {styles.textLineHeader}>Tem água?</Text>
-                </View>
-                <View style = {styles.lineBody}>
-                  <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_agua ? "Sim" : "Não"}</Text>
-                </View>
-              </View>
-
-              <View style = {styles.lineCardInformation}>
-                <View style = {styles.lineHeader}>
-                  <Icon type="MaterialCommunityIcons" name="food-apple-outline" style = {styles.icons}/>
-                  <Text style = {styles.textLineHeader}>Tem comida?</Text>
-                </View>
-                <View style = {styles.lineBody}>
-                  <Text style = {styles.textBodyLine}>{visita && visita && visita.tem_comida ? "Sim" : "Não"}</Text>
-                </View>
-              </View>
-            </View>
-
-            <View style = {styles.cardInformation}>
-              <View style = {styles.headerInformation}>
-                <Icon type="EvilIcons" name="archive" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
-                <View style = {styles.titles}>
-                  <Text style = {styles.titleInformation}>Colmeias</Text>
-                  <Text style = {styles.descriptionInformation}>Total de colmeias analisadas: {visita.visita_colmeias}</Text>
-                </View>
-              </View>
-              <View style = {styles.dataInformations}>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Com postura</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_com_postura}</Text>
-                  </View>
-                </View>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Sem postura</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_sem_postura}</Text>
-                  </View>
-                </View>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Com abelha morta</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_com_abelhas_mortas}</Text>
-                  </View>
-                </View>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Sem abelha morta</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_colmeias_sem_abelhas_mortas}</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-
-            <View style = {styles.cardInformation}>
-              <View style = {styles.headerInformation}>
-                <Icon type="AntDesign" name="laptop" style = {styles.icons}/>
-                <View style = {styles.titles}>
-                  <Text style = {styles.titleInformation}>Quadros</Text>
-                  <Text style = {styles.descriptionInformation}>Total de quadros analisados: {visita.qtd_quadros_analizados}</Text>
-                </View>
-              </View>
-              <View style = {styles.dataInformations}>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Com mel</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_quadros_mel}</Text>
-                  </View>
-                </View>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Com pólen</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_quadros_polen}</Text>
-                  </View>
-                </View>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Com cria aberta</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_cria_aberta}</Text>
-                  </View>
-                </View>
-                <View style = {styles.lineDataInformations}>
-                  <View style = {styles.size}>
-                    <Text style = {styles.textLineDataInformations}>Com cria fechada</Text>
-                  </View>
-                  <View style = {styles.sizeData}>
-                    <Text style = {styles.infoLineDataInformations}>{visita && visita && visita.qtd_cria_fechada}</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-
-            <View style = {styles.cardInformation}>
-              <View style = {styles.headerInformation}>
-                <Icon type="EvilIcons" name="navicon" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
-                <View style = {styles.titles}>
-                  <Text style = {styles.titleInformation}>Observações</Text>
-                  <Text style = {styles.descriptionInformation}>Observações feitas durante a visita</Text>
-                </View>
-              </View>
-              <View style = {styles.dataInformations}>
-                <View style = {styles.lineDataInformations}>
-                  {
-                    visita.observacao == null ? 
-                    (
-                      <Text style = {styles.textLineDataInformations}>Nenhuma observação importante foi feita.</Text>
-                    ) : (
-                      <Text style = {styles.textLineDataInformations}>{visita.observacao}</Text>
-                    )
-                  }
-                </View>
-              </View>
-            </View>
-
-            <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})} style = {styles.detailsButton}>
-              <LinearGradient
-                colors={[colors.theme_default, colors.theme_second]}
-                style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
-              >
-                <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, }}>DETALHAR POR COLMEIA</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-
-          </ScrollView>
       </Container>
     );
   }

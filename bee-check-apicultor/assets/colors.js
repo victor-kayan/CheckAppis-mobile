@@ -14,6 +14,7 @@ const colors = {
     grey: '#F2F2F2',
     blackgrey: '#A7A7A7',
     colorIcons: '#ff8416',
+    red: '#FA1301'
     
 } 
 

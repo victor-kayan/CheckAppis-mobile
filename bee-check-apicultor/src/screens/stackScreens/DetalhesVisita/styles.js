@@ -29,15 +29,13 @@ export default {
     backgroundColor: colors.erorr
   },
   viewContent: {
-    position: "absolute",
-    height: '80%',
-    backgroundColor: 'white',
-    marginTop: constants.SCREEN_HEIGHT/3.6,
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
     flex: 1,
-    width: '100%',
+    backgroundColor: 'white',
+    marginTop: -35,
     alignItems: 'center',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35, 
+    width: '100%',
   },
   scroll: {
     padding: 10,
@@ -58,12 +56,25 @@ export default {
     borderColor: colors.theme_second,
     alignSelf: 'center',
   },
+  cardInformationMore: {
+    width: '85%',
+    height: 210,
+    backgroundColor: colors.white,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    margin: 10,
+    marginVertical: 15,
+    borderRadius: 15,
+    borderWidth: 2,
+    borderColor: colors.theme_second,
+    alignSelf: 'center',
+  },
   apiaryName: {
     color: colors.theme_default,
     fontSize: 18,
     fontFamily: 'Montserrat-Bold',
-    marginBottom: 5,
     margin: 30,
+    marginBottom: 20,
     alignSelf: 'center',
   },
   lineCardInformation: {
@@ -107,15 +118,15 @@ export default {
     marginLeft: 12,
   },
   headerInformation: {
-    width: '100%',
+    width: '90%',
     flexDirection: 'row',
-    alignItems: 'center',
   },
   dataInformations: {
     borderLeftWidth: 2,
     borderLeftColor: colors.theme_second,
-    width: '87%',
+    width: '83%',
     marginTop: 15,
+    marginHorizontal: 20,
     padding: 8,
   },
   lineDataInformations: {
@@ -145,9 +156,19 @@ export default {
   },
   detailsButton: {
     height: 50,
-    width: '77%',
+    width: '85%',
     marginTop: 20,
     marginBottom: 30,
     alignSelf: 'center',
+  },
+  contentDetails: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+    flex: 1,
+    backgroundColor: 'white',
+    width: '100%',
+    height: '100%'
   },
 };

@@ -1,37 +1,43 @@
 import React from "react";
-import {
-  Container,
-  Content,
-  Text,
-  Card,
-  CardItem,
-  Body,
-  Badge,
-  Left,
-  Thumbnail,
-  View,
-  Grid,
-  Col,
-  Textarea
-} from "native-base";
+import { Container, Text, View } from "native-base";
+import { Image, ScrollView, StatusBar } from "react-native";
 import styles from "./styles";
 import { images } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 class DetalhesVisitaColmeia extends React.Component {
   render() {
-    const visita_colmeias = this.props.navigation.getParam(
-      "visita_colmeias",
-      ""
-    );
+    const visita_colmeias = this.props.navigation.getParam("visita_colmeias", "");
 
     return (
       <Container>
         <HeaderCustomStack 
-          title={`Detalhes da Visita \npor Colmeia`}
+          title={`Detalhes da Visita`}
           description = "Veja as informações da visita separadas por colmeia analisada" 
         />
-        <Content padder>
+        <View style = {styles.container}>
+          <Text style = {styles.title}>Detalhamento por colmeia</Text>
+          <View style = {styles.contentHiveDetails}>
+            <ScrollView>
+              {
+                visita_colmeias && visita_colmeias.map (visit => {
+                  return (
+                    <Text>{visit.colmeia && visit.colmeia.nome}</Text>
+                  );
+                })
+              }
+            </ScrollView>
+          </View>
+        </View>
+      </Container>
+    );
+  }
+}
+
+export default DetalhesVisitaColmeia;
+
+
+{/* <Content padder>
           {visita_colmeias &&
             visita_colmeias.map(visita => {
               return (
@@ -94,7 +100,6 @@ class DetalhesVisitaColmeia extends React.Component {
                     >{`Dados das faces do quadro:`}</Text>
                   </View>
                   <Grid>
-                    {/* COLULA 1 */}
                     <Col style={{ marginHorizontal: 5 }}>
                       <View style={styles.itemContainer} >
                         <Text style={styles.text}>Com mel</Text>
@@ -155,8 +160,6 @@ class DetalhesVisitaColmeia extends React.Component {
                         </Badge>
                       </View>
                     </Col>
-                    {/* FIM COLULA 1 */}
-                    {/* COLULA 2 */}
                     <Col style={{ marginHorizontal: 5 }}>
                     <View style={styles.itemContainer} >
                         <Text style={styles.text}>Com polén</Text>
@@ -208,7 +211,6 @@ class DetalhesVisitaColmeia extends React.Component {
                           </Badge>
                         </View>
                       </Col>
-                    {/* FIM COLULA 2 */}
 
                   </Grid>
                   <View style={{ marginTop: 20 }}>
@@ -233,9 +235,4 @@ class DetalhesVisitaColmeia extends React.Component {
               );
             })}
         </Content>
-      </Container>
-    );
-  }
-}
-
-export default DetalhesVisitaColmeia;
+ */}

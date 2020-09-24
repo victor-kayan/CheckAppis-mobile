@@ -33,9 +33,14 @@ arrow: {
   color: colors.theme_second,
 },
 statusIcon: {
-  marginRight: 20,
-  fontWeight: 'bold', 
-  color: '#9F0'
+  fontSize: 25,
+  color: colors.theme_second,
+  marginRight: 25,
+},
+statusIconFailed: {
+  fontSize: 25,
+  color: colors.red,
+  marginRight: 25,
 },
 apiaryName: {
   fontSize: 13,
