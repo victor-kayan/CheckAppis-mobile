@@ -16,8 +16,8 @@ export default {
     color: colors.theme_default,
     fontSize: 16,
     fontFamily: 'Montserrat-Bold',
-    marginBottom: 10,
-    marginTop: 8,
+    marginBottom: 20,
+    marginTop: 20,
     textAlign: "center",
   },
   buttonSalveVisita: {
@@ -42,5 +42,8 @@ export default {
     marginTop: 20,
     marginBottom: 30,
     alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
 };

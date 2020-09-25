@@ -1,29 +1,13 @@
 import React, { Component } from "react";
 import { Image, TouchableOpacity } from "react-native";
-import {
-  Container,
-  Content,
-  CardItem,
-  Body,
-  Button,
-  Text,
-  Input,
-  Icon,
-  Item,
-  Toast,
-  Root,
-  View
-} from "native-base";
+import { Container, Text, Input, Icon, Item, Toast, Root, View } from "native-base";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { createColemia } from "../../../redux/actions/colmeiaActions";
 import ImagePicker from "react-native-image-picker";
 import { colors, images } from "../../../../assets";
 import styles from "./styles";
-import {
-  ButtonCustom,
-  SpinnerCustom
-} from "../../../componentes";
+import { ButtonCustom, SpinnerCustom } from "../../../componentes";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -44,6 +28,7 @@ class NewColmeia extends Component {
     foto_uri: null
   };
 
+  // adicionar a colmeia
   onAddColmeia = () => {
     const { colmeia, foto } = this.state;
     const { createColemia } = this.props;
@@ -67,11 +52,13 @@ class NewColmeia extends Component {
     }
   };
 
+  // limpar nome e descrição
   clearInputs = () => {
     this.setState({ foto: {}, foto_uri: null });
     this.setState({ colmeia: { descricao: "", nome: "" } });
   };
 
+  // selecionar imagem da colmeia
   slectPhoto = () => {
     ImagePicker.showImagePicker(options, response => {
       if (response.didCancel) {
@@ -89,7 +76,10 @@ class NewColmeia extends Component {
     return (
       <Root>
         <Container>
-          <HeaderCustomStack/>
+          <HeaderCustomStack
+            title = "Cadastro de Colmeia"
+            description = "Insira as informações solicitadas e crie uma nova colmeia"
+          />
 
           <SpinnerCustom visible={loading} />
 
@@ -100,40 +90,43 @@ class NewColmeia extends Component {
               ) : (
                 <View style = {{alignItems: 'center', justifyContent: 'center'}}>
                   <Icon
-                    type="EvilIcons"
+                    type="Entypo"
                     name="camera"
                     active
                     style={{
-                      fontSize: 40,
-                      paddingTop: 55,
+                      fontSize: 50,
                       color: "#B8B8B8",
                       alignText: 'center',
                       alignSelf: 'center',
                       marginBottom: 10,
                     }}
                   />
-                  <TouchableOpacity onPress={this.slectPhoto.bind(this)} style = {styles.addPhoto}>
-                    <Text  style={{ color: colors.theme_second, fontFamily: 'Montserrat Regular', fontSize: 15, marginHorizontal: 4}}>Tirar foto</Text>
-                  </TouchableOpacity>
                 </View>
               )}
             </View>
-            <Item style = {{marginTop: 140}}>
+
+            
+            <TouchableOpacity onPress={this.slectPhoto.bind(this)} style = {styles.addPhoto}>
+              <Icon style={{color: colors.white, fontSize: 20}} active type="Entypo" name="camera"/>
+            </TouchableOpacity>
+            
+
+            <Item style = {{marginTop: 40, marginHorizontal: 30}}>
               <Icon style={{color: colors.theme_second}} active type="Ionicons" name="md-finger-print"/>
               <Input
                 value={colmeia.nome}
                 placeholder="Nome ou identificador da colmeia"
                 onChangeText={nome => this.setState({colmeia: {...colmeia, nome}})}
-                style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
+                style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
               />
             </Item>
-            <Item style = {{marginTop: 20}}>
+            <Item style = {{marginTop: 20, marginHorizontal: 30}}>
               <Icon style={{color: colors.theme_second}} active type="MaterialIcons" name="view-headline"/>
               <Input
                 value={colmeia.descricao}
                 placeholder="Descrição"
                 onChangeText={descricao => this.setState({ colmeia: {...colmeia, descricao}})}                
-                style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
+                style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
               />
             </Item>
             <ButtonCustom

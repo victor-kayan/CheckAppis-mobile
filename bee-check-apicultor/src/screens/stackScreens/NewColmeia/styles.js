@@ -6,18 +6,22 @@ export default {
   content: {
     margin: 10
   },
+
   header: {
     marginBottom: 15
   },
+
   iconImagemSelectPicker: {
     width: 27,
     height: 27
   },
+
   container: {
     flex: 1,
     flexDirection: "column",
     backgroundColor: "black"
   },
+
   containerContent: {
     height: hp('85%'),
     backgroundColor: colors.white,
@@ -26,13 +30,14 @@ export default {
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35, 
     width: '100%',
-    paddingHorizontal: 30,
   },
+
   preview: {
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center"
   },
+
   capture: {
     flex: 0,
     backgroundColor: "#fff",
@@ -42,34 +47,37 @@ export default {
     alignSelf: "center",
     margin: 20
   },
+
   imageFormColmeia: {
-    width: 170,
-    height: 170,
-    margin: 20,
-    borderRadius: 170
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.grey,
+    width: '100%',
+    height: '100%',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
   },
+
   addPhoto: {
-    borderRadius: 15,
-    borderWidth: 2,
-    borderColor: colors.theme_second,
+    borderRadius: 25,
+    backgroundColor: colors.theme_second,
     padding: 3,
     paddingHorizontal: 4,
-    marginBottom: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    width: 50,
+    marginTop: -15,
+    marginLeft: wp('75%')
   },
+
   viewImage: {
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
-    alignSelf: 'center',
-    backgroundColor: colors.white,
-    width: 190,
-    height: 190,
-    marginTop: -90,
-    borderRadius: 190,
-    elevation: 10,
-    shadowColor: colors.theme_primary,
-    shadowOpacity: 0.9,
-    shadowOffset: { x: 0, y: 0 },
-    shadowRadius: 15,
+    backgroundColor: colors.grey,
+    width: '100%',
+    height: 150,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35, 
   },
 };

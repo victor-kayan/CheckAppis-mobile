@@ -1,4 +1,5 @@
 import { colors, constants } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
   cardItem: {
@@ -14,10 +15,21 @@ export default {
     marginHorizontal: 10,
     fontSize: 13
   },
+  viewTitle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    margin: 30,
+  },
   labelQuadros: {
     marginHorizontal: 10,
     fontSize: 13,
-    marginTop: 3
+  },
+  statusIcon: {
+    fontSize: 25,
+    color: colors.theme_default,
+    marginTop: 2,
   },
   badge_text: {
     fontSize: 14
@@ -73,8 +85,7 @@ export default {
     color: colors.theme_default,
     fontSize: 18,
     fontFamily: 'Montserrat-Bold',
-    margin: 30,
-    marginBottom: 20,
+    marginRight: 20,
     alignSelf: 'center',
   },
   lineCardInformation: {
@@ -170,5 +181,20 @@ export default {
     backgroundColor: 'white',
     width: '100%',
     height: '100%'
+  },
+  viewButtonDetails: {
+    height: 50,
+    position: 'absolute',
+    margin: 30,
+    borderRadius: 30,
+    elevation: 5,
+    shadowColor: colors.theme_primary,
+    shadowOpacity: 0.1,
+    shadowOffset: { x: 0, y: 0 },
+    shadowRadius: 15,
+    marginTop: hp('86.5%'),
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 };

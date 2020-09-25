@@ -1,19 +1,7 @@
 import React from "react";
-import { Image, TouchableOpacity, ScrollView } from "react-native";
-import {
-  Container,
-  Content,
-  View,
-  Text,
-  Grid,
-  Col,
-  Badge,
-  CardItem,
-  Textarea,
-  Icon
-} from "native-base";
-import { HeaderCustom } from "../../../componentes";
-import { images, colors, routes } from "../../../../assets";
+import { TouchableOpacity, ScrollView, Alert, TouchableHighlight } from "react-native";
+import { Container, View, Text, Icon } from "native-base";
+import { colors, routes } from "../../../../assets";
 import styles from "./styles";
 import moment from "moment";
 import "moment/locale/pt-br";
@@ -21,6 +9,96 @@ import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import LinearGradient from "react-native-linear-gradient";
 
 class DetalhesVisita extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      visit: this.props.navigation.getParam("visit", ""),
+      apiary: this.props.navigation.getParam("apiary", ""),
+    };
+  }
+
+  // mostrar status de sincronização
+  showStatus = () => {
+    {
+      this.state.visit.isSynced ? 
+      (
+        Alert.alert(
+          'Status de Sincronização',
+          'Sua visita foi sincronizada com sucesso.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        )
+      )
+      : this.state.visit.permanentlyFailed ? 
+      (
+        Alert.alert(
+          'Status de Sincronização',
+          'A sincronização da visita falhou permanentemente. Por favor, delete a visita ou realize uma nova.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        )
+      )
+      : 
+      (
+        Alert.alert(
+          'Status de Sincronização',
+          'Aguardando conexão com a internet para sincronizar a visita.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        )
+      )
+    }
+  };
+
+  // deletar visita
+  deleteVisit = () => {
+    this.setState({ dialogVisible: false });
+    Alert.alert(
+      'Excluir Visita',
+      'Tem certeza que deseja exlcuir essa Visita?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => {
+          this.props.deleteVisita({
+            visita_id: this.state.visit.id,
+            apiario_id: this.state.apiary.id,
+          });
+        }},
+      ],
+      {cancelable: false},
+    );
+  };
 
   render() {
     const visita = this.props.navigation.getParam("visit", "");
@@ -31,10 +109,26 @@ class DetalhesVisita extends React.Component {
       <Container>
         <HeaderCustomStack 
           title="Detalhes da Visita"
-          description="Veja os detalhes da visita selecionada anteriormente" 
+          description="Veja os detalhes da visita selecionada anteriormente"
+          iconRight="delete"
+          typeIconRight="AntDesign"
+          handleIconRight={() => this.deleteVisit()}
         />
         <View style = {styles.viewContent}>
-          <Text style = {styles.apiaryName}>{apiaryName}</Text>
+
+          {/* nome do apiário e status de sincronização */}
+          <TouchableOpacity onPress = {() => this.showStatus()} style = {styles.viewTitle}>
+            <Text style = {styles.apiaryName}>Visita ao {apiaryName}</Text>
+            {
+              visita.isSynced
+              ? (<Icon type="AntDesign" name="checkcircleo" style={styles.statusIcon} iconSize={5} active/>) // visita.isSynced -> TRUE; visita.permanentlyFailed -> FALSE
+              : visita.permanentlyFailed
+              ? (<Icon type="AntDesign" name="closecircleo" style={styles.statusIconFailed} iconSize={5} active/>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> TRUE 
+              : (<Icon type="AntDesign" name="clockcircleo" style={styles.statusIcon} iconSize={5} active/>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> FALSE
+            }
+          </TouchableOpacity>
+
+          {/* informações gerais sobre a visita realizada */}
           <View style = {styles.contentDetails}>
             <ScrollView contentContainerStyle = {{ width: '100%', padding: 10}}>
               <View style = {styles.cardInformation}>
@@ -60,7 +154,7 @@ class DetalhesVisita extends React.Component {
 
                 <View style = {styles.lineCardInformation}>
                   <View style = {styles.lineHeader}>
-                    <Icon type="Ionicons" name="water-outline" style = {styles.icons}/>
+                    <Icon type="AntDesign" name="staro" style = {styles.icons}/>
                     <Text style = {styles.textLineHeader}>Tem água?</Text>
                   </View>
                   <View style = {styles.lineBody}>
@@ -79,6 +173,7 @@ class DetalhesVisita extends React.Component {
                 </View>
               </View>
 
+              {/* informações sobre as colmeias analisadas */}
               <View style = {styles.cardInformationMore}>
                 <View style = {styles.headerInformation}>
                   <Icon type="EvilIcons" name="archive" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
@@ -123,6 +218,7 @@ class DetalhesVisita extends React.Component {
                 </View>
               </View>
 
+              {/* informações sobre os quadros analisados */}
               <View style = {styles.cardInformationMore}>
                 <View style = {styles.headerInformation}>
                   <Icon type="AntDesign" name="laptop" style = {styles.icons}/>
@@ -167,6 +263,7 @@ class DetalhesVisita extends React.Component {
                 </View>
               </View>
 
+              {/* observações realizadas */}
               <View style = {styles.cardInformationMore}>
                 <View style = {styles.headerInformation}>
                   <Icon type="EvilIcons" name="navicon" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
@@ -189,17 +286,36 @@ class DetalhesVisita extends React.Component {
                 </View>
               </View>
 
-              <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})} style = {styles.detailsButton}>
+              <View style = {{height: 100}}/>
+
+              {/* botão de detalhar a visita por colmeias analisadas */}
+
+              {/* <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})} style = {styles.detailsButton}>
                 <LinearGradient
                   colors={[colors.theme_default, colors.theme_second]}
                   style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
                 >
-                  <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 15}}>DETALHAR POR COLMEIA</Text>
+                  <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 60}}>DETALHAR POR COLMEIA</Text>
                 </LinearGradient>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
 
             </ScrollView>
           </View>
+        </View>
+        <View style = {styles.viewButtonDetails}>
+          <TouchableHighlight
+            activeOpacity={0.5}
+            underlayColor="#ff8500"
+            onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})}
+            style = {{borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
+          >
+            <LinearGradient
+              colors={[colors.theme_default, colors.theme_second]}
+              style={{ height: '100%', borderRadius: 30}}
+            >
+              <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 30, marginTop: 15}}>DETALHAR POR COLMEIA</Text> 
+            </LinearGradient>
+          </TouchableHighlight>
         </View>
       </Container>
     );

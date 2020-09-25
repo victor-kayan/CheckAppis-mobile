@@ -1,4 +1,5 @@
 import { colors, constants } from "../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
   hiveDetails: {

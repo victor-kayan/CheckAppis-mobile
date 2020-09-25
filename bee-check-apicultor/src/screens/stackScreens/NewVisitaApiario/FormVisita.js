@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, CardItem, Left, Text, Right, Textarea, Body } from "native-base";
+import { View, CardItem, Left, Text, Right, Textarea, Body, Icon } from "native-base";
 import { InputSwitch, ButtonCustom } from "../../../componentes";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
@@ -83,13 +83,14 @@ class FormVisita extends Component {
             placeholder="Observações"
           />
         </CardItem>
-        <CardItem style={{ alignSelf: "flex-end" }}>
+        <CardItem style={{ alignSelf: "center" }}>
           <TouchableOpacity onPress={this.handleAddVisita} style = {styles.visitButton}>
             <LinearGradient
               colors={[colors.theme_default, colors.theme_second]}
               style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
             >
               <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, }}>VISITAR COLMEIAS</Text>
+              <Icon type="AntDesign" name="rightcircleo" style={{color: colors.white}} iconSize={5} active/>
             </LinearGradient>
           </TouchableOpacity>
         </CardItem>

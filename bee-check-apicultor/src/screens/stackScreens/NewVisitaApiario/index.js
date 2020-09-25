@@ -1,22 +1,13 @@
 import React, { Component } from "react";
 import styles from "./styles";
-import {
-  Container,
-  Content,
-  Card,
-  Picker,
-  Text,
-  CardItem,
-  View
-} from "native-base";
+import { Container, Text, View } from "native-base";
 import { connect } from "react-redux";
-import { ScrollView, StatusBar, TouchableHighlight } from "react-native";
+import { ScrollView } from "react-native";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
-import { Image } from "react-native";
-import { HeaderCustom, SpinnerCustom } from "../../../componentes";
+import { SpinnerCustom } from "../../../componentes";
 import FormVisita from "./FormVisita";
-import { routes, images } from "../../../../assets";
+import { routes } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 class NewVisitaApiario extends Component {
@@ -27,6 +18,7 @@ class NewVisitaApiario extends Component {
     };
   }
 
+  // recarregar as informações da tela
   handleRefresh = () => {
     this.props.fetchApiariosByUser();
   };
@@ -41,7 +33,6 @@ class NewVisitaApiario extends Component {
   render() {
     const { loading } = this.props;
     const { selectedPickerApiario } = this.state;    
-
     const apiarios = this.props.apiarios.filter(apiario => apiario.colmeias.length > 0)
 
     return (
@@ -52,11 +43,11 @@ class NewVisitaApiario extends Component {
         />
         <View style = {styles.containerContentForm}>
           <Text style = {styles.textSubTitle}>{`Responda às questões abaixo\n sobre o apiário `} {selectedPickerApiario.nome}</Text>
+          <ScrollView contentContainerStyle={{ width: '100%', paddingHorizontal: 15, paddingVertical: 5, alignItems: 'center'}}>
+            <FormVisita handleAddVisitaApiario={this.onAddVisitaApiario} />
+          </ScrollView>
         </View>
-        <SpinnerCustom visible={loading} />
-        <ScrollView contentContainerStyle={{ width: '100%', paddingHorizontal: 15, paddingVertical: 5, }}>
-          <FormVisita handleAddVisitaApiario={this.onAddVisitaApiario} />
-        </ScrollView>   
+        <SpinnerCustom visible={loading} />   
       </Container>
     );
   }

@@ -39,14 +39,6 @@ class VisitList extends Component {
     this.props.getVisitasByApiario({ id });
   };
 
-  // handleDelete = () => {
-  //   this.setState({ dialogVisible: false });
-  //   this.props.deleteVisita({
-  //     visita_id: this.state.visita.id,
-  //     apiario_id: this.state.selectedPickerApiario.id
-  //   });
-  // };
-
   openNewVisit = () => {
     this.props.navigation.navigate(routes.NewVisitaApiario, {
       apiary: this.state.selectedApiary
