@@ -1,5 +1,5 @@
 import * as VisitaTypes from "../actions/visitaActions/actionsTypes";
-import { getKeyByValue } from "../../../helps";
+import { getKeyByValue, groupArrayItemsByEqualProperty } from "../../../utils";
 
 const initialState = {
   visitas: {}, // Objeto com arrays de visitas por apiários
@@ -107,6 +107,12 @@ export const VisitaReducer = (state = initialState, action) => {
         };
       }
       return state;
+    
+    case VisitaTypes.UPDATE_ALL_VISITAS:
+      return {
+        ...state,
+        visitas: groupArrayItemsByEqualProperty(payload.allVisitas, 'apiario_id')
+      }
     
     default:
       return state;

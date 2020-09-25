@@ -1,3 +1,5 @@
+import { Alert } from 'react-native';
+
 import {
   INTERVENCAO_LOADING,
   INTERVENCAO_GET_ALL_BY_APICULTOR,
@@ -5,12 +7,13 @@ import {
   INTERVENCAO_GET_ALL_BY_APIARIO,
   INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
   INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
-  GET_COUNT_INTERVENCOES_BY_APICULTOR
+  UPDATE_COUNT_INTERVENCOES_BY_APICULTOR,
+  UPDATE_ALL_INTERVENCOES_APIARIOS,
+  UPDATE_ALL_INTERVENCOES_COLMEIAS
 } from "./actionsType";
 import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 import { Api } from "../../../../services";
-import {Alert} from "react-native";
 
 export const fecthIntervencoesByApicultor = () => {
   return dispatch => {
@@ -89,6 +92,9 @@ export const concluirIntervencao = intervencao => {
                       ],
                       {cancelable: false},
                     );
+                    /**
+                     // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
+                     */
                     dispatch(fecthIntervencoesByApicultor());
                     dispatch({
                       type: INTERVENCAO_CONCLUIR_SUCCESS,
@@ -143,7 +149,8 @@ export const fecthIntervencoesColmeiasByApiario = apiaryId => {
         dispatch({
           type: INTERVENCAO_GET_ALL_BY_APIARIO,
           payload: {
-            intervencoesByApiario: response.data.intervencoes
+            intervencoesByApiario: response.data.intervencoes,
+            apiaryId
           }
         });
       })
@@ -195,10 +202,11 @@ export const concluirIntervencaoColmeia = intervencao => {
                       buttonText: "",
                       type: "success"
                     });
+                    /**
+                     // TODO: Atualizar lista de intervenções nas colmeias após concluir uma sem precisar fazer outra requisição.
+                     */
                     dispatch(
-                      fecthIntervencoesColmeiasByApiario({
-                        apiario_id: intervencao.colmeia.apiario_id
-                      })
+                      fecthIntervencoesColmeiasByApiario(intervencao.colmeia.apiario_id)
                     );
                     dispatch({
                       type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
@@ -224,36 +232,26 @@ export const concluirIntervencaoColmeia = intervencao => {
   };
 };
 
-export const getCountIntervencoesByApicultor = () => {
+export const updateAllIntervencoesByApicultor = (
+  intervencoesNosApiarios, 
+  intervencoesNasColmeias, 
+  countIntervencoes
+) => {
   return dispatch => {
     dispatch({
-      type: INTERVENCAO_LOADING,
-      payload: {
-        loading: true
-      }
+      type: UPDATE_COUNT_INTERVENCOES_BY_APICULTOR,
+      payload: { countIntervencoes }
     });
-    Api.instance
-      .get(URLS.GET_COUNT_INTERVENCOES_URL)
-      .then(response => {
-        dispatch({
-          type: GET_COUNT_INTERVENCOES_BY_APICULTOR,
-          payload: {
-            coutIntervencoes: response.data.count_intervencoes
-          }
-        });
-      })
-      .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "warning"
-        });
-        dispatch({
-          type: INTERVENCAO_LOADING,
-          payload: {
-            loading: false
-          }
-        });
-      });
-  };
-};
+    
+    dispatch({
+      type: UPDATE_ALL_INTERVENCOES_APIARIOS,
+      payload: { intervencoesNosApiarios }
+    });
+     
+    dispatch({
+      type: UPDATE_ALL_INTERVENCOES_COLMEIAS,
+      payload: { intervencoesNasColmeias }
+    });
+  
+  }
+}

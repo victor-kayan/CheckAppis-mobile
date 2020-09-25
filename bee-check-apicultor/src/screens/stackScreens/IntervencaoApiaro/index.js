@@ -72,7 +72,7 @@ class IntervencaoApiario extends Component {
             <Text style = {styles.text}>Aqui estão todas as intervenções dos seus apiários</Text>
             <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
               {
-                intervencoes && intervencoes.map ( (intervention, index) =>
+                intervencoes && intervencoes.map ((intervention, index) =>
                   <Intervention 
                     key = {index} 
                     interId = {intervention.id} 

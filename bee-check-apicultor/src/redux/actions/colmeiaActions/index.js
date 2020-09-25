@@ -6,7 +6,8 @@ import {
   LOADING_COLMEIA,
   GET_COLMEIA_BY_APIARIO,
   EDIT_COLMEIA,
-  GET_COUNT_COLMEIAS_BY_APIARIOS_APICULTOR
+  UPDATE_COUNT_COLMEIAS_BY_APICULTOR,
+  UPDATE_ALL_COLMEIAS,
 } from "./actionsType";
 import { Toast } from "native-base";
 
@@ -130,7 +131,7 @@ export const getColmeiasByApiario = id => {
   };
 };
 
-export const deleteColmeiaById = ({ id, apiario_id }) => {
+export const deleteColmeiaById = (id, apiario_id) => {
   return dispatch => {
     dispatch({
       type: LOADING_COLMEIA,
@@ -155,11 +156,11 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
         dispatch(getColmeiasByApiario(apiario_id));
       })
       .catch(error => {
-        // Toast.show({
-        //   text: error.response && error.response.data.message,
-        //   buttonText: "",
-        //   type: "danger"
-        // });
+        Toast.show({
+          text: error.response && error.response.data.message,
+          buttonText: "",
+          type: "danger"
+        });
         dispatch({
           type: LOADING_COLMEIA,
           payload: {
@@ -171,36 +172,16 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
   };
 };
 
-export const getCountColmeiasApiariosByApicultor = () => {
+export const updateAllColmeiasByApicultor = (allColmeias, countColmeias) => {
   return dispatch => {
     dispatch({
-      type: LOADING_COLMEIA,
-      payload: {
-        loading: true
-      }
+      type: UPDATE_COUNT_COLMEIAS_BY_APICULTOR,
+      payload: { countColmeias }
     });
-    Api.instance
-      .get(URLS.GET_COUNT_COLMEIAS_URL)
-      .then(response => {
-        dispatch({
-          type: GET_COUNT_COLMEIAS_BY_APIARIOS_APICULTOR,
-          payload: {
-            countColmeias: response.data.count_colmeias
-          }
-        });
-      })
-      .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "warning"
-        });
-        dispatch({
-          type: LOADING_COLMEIA,
-          payload: {
-            loading: false
-          }
-        });
-      });
-  };
-};
+    
+    dispatch({
+      type: UPDATE_ALL_COLMEIAS,
+      payload: { allColmeias }
+    });
+  }
+}

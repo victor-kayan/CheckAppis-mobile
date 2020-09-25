@@ -1,18 +1,31 @@
 import React, { Component } from "react";
-import { ImageBackground, AsyncStorage, ScrollView, StyleSheet, StatusBar, TouchableOpacity, Image, Animated, Dimensions } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
-import { Text, View, Icon } from "native-base";
-import { colors, images, constants, routes } from "../../../../assets";
-import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-import GooglePlacesInput from "./GooglePlacesInput";
+import { 
+  ImageBackground, 
+  ScrollView, 
+  StatusBar, 
+  TouchableOpacity, 
+  Image, 
+  Animated, 
+  Dimensions
+} from "react-native";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import {
-  getCountApiariosByApicultor,
-  fetchApiariosByUser
-} from "../../../redux/actions/apiarioActions";
-import { getCountColmeiasApiariosByApicultor } from "../../../redux/actions/colmeiaActions";
-import { getCountIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
+import { Api } from '../../../../services';
+import { updateAllIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
+import { updateAllColmeiasByApicultor } from "../../../redux/actions/colmeiaActions";
+import { updateAllApiariosByApicultor } from "../../../redux/actions/apiarioActions";
+import { updateAllVisitasByApicultor } from "../../../redux/actions/visitaActions";
+
+import LinearGradient from "react-native-linear-gradient";
+import { Text, View, Icon } from "native-base";
+<<<<<<< HEAD
+import { colors, images, constants, routes } from "../../../../assets";
+=======
+>>>>>>> master
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import { colors, images, URLS } from "../../../../assets";
+import GooglePlacesInput from "./GooglePlacesInput";
 import styles from "./styles";
 import MarkerCallOut from "../../../componentes/MarkerCallOut";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -24,7 +37,7 @@ class Home extends Component {
     super(props);
     this.state = {
       region: {
-        latitude: -7.814615,
+        latitude: -7.814615, // TODO: Pegar latitude e longitude real do usuário ao iniciar
         longitude: -39.234215,
         latitudeDelta: 8,
         longitudeDelta: 8
@@ -32,12 +45,26 @@ class Home extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.getCountApiariosByApicultor();
-    this.props.getCountColmeiasApiariosByApicultor();
-    this.props.getCountIntervencoesByApicultor();
-    this.props.fetchApiariosByUser();
+  async componentDidMount() {
+    this.fetchOfflineSyncData();
   }
+
+  fetchOfflineSyncData = () => {
+    Api.instance.get(URLS.GET_DADOS_SINCRONIZACAO_OFFLINE_URL)
+      .then(response => {
+        const { data } = response;
+
+        this.props.updateAllApiariosByApicultor(data.apiarios, data.apiarios_count);
+        this.props.updateAllColmeiasByApicultor(data.colmeias, data.colmeias_count);
+        this.props.updateAllIntervencoesByApicultor(
+          data.intervencoes_apiarios,
+          data.intervencoes_colmeias,
+          data.intervencoes_totais_count
+        );
+        this.props.updateAllVisitasByApicultor(data.visitas);
+      })
+      .catch(error => {});
+  };
 
   handleLocationSelected = (data, { geometry }) => {
     const {
@@ -57,14 +84,13 @@ class Home extends Component {
   static navigationOptions = {
     drawerLabel: 'HOME',
     headerTintColor: 'white',
-    
   };
 
   render() {
     const {
       countColmeias,
       countApiarios,
-      coutIntervencoes,
+      countIntervencoes,
       apiarios
     } = this.props;
 
@@ -74,7 +100,6 @@ class Home extends Component {
       { tile: 'Intervenções' },
     ];
     
-
     return (
       <>
         <StatusBar backgroundColor={colors.theme_default} />
@@ -452,7 +477,7 @@ export default connect(
             <View style = {styles.cardInfo}>
             <View style = {styles.viewText}>
                 <Text style = {styles.titleCard}>Intervenções</Text>
-                <Text style = {styles.qtdCard}>Quantidade: {coutIntervencoes && coutIntervencoes}</Text>
+                <Text style = {styles.qtdCard}>Quantidade: {countIntervencoes && countIntervencoes}</Text>
               </View>
               <Image
                 style = {styles.cardIcon}
@@ -479,5 +504,45 @@ export default connect(
                 );
               })}
             </View>
+<<<<<<< HEAD
           </View> */}
+=======
+          </View>
+
+          <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
+      </>
+    );
+  }
+}
+
+function mapStateToProps(state, props) {
+  return {
+    apiarios: state.apiarioState.apiarios,
+    countApiarios: state.apiarioState.countApiarios,
+    countColmeias: state.colmeiaState.countColmeias,
+    countIntervencoes: state.intervencaoState.countIntervencoes,
+    loading:
+      state.apiarioState.loading ||
+      state.colmeiaState.loading ||
+      state.intervencaoState.loading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      updateAllApiariosByApicultor,
+      updateAllColmeiasByApicultor,
+      updateAllIntervencoesByApicultor,
+      updateAllVisitasByApicultor
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
+>>>>>>> master
 

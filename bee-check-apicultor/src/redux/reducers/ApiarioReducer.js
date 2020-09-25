@@ -5,7 +5,6 @@ import {
   GET_COUNT_APIARIOS_BY_APICULTOR_SUCCESS,
   GET_APIARIOS_WITH_INTERVENCOES_IN_COLMEIAS_ERROR,
   GET_ALL_APIARIOS_BY_USER_ERROR,
-  GET_COUNT_APIARIOS_BY_APICULTOR_ERROR
 } from "../actions/apiarioActions/actionsType";
 
 const initialState = {
@@ -49,13 +48,6 @@ export const ApiarioReducer = (state = initialState, action) => {
       return {
         ...state,
         countApiarios: payload.countApiarios,
-        loading: false
-      };
-
-    case GET_COUNT_APIARIOS_BY_APICULTOR_ERROR:
-      return {
-        ...state,
-        error: payload.error,
         loading: false
       };
 

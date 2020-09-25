@@ -4,7 +4,8 @@ import {
   VISITA_APIARIO_DELETE_SUCCESS,
   INITIATE_CREATE_VISITA,
   CREATE_VISITA_COMMIT,
-  CREATE_VISITA_ROLLBACK
+  CREATE_VISITA_ROLLBACK,
+  UPDATE_ALL_VISITAS
 } from "./actionsTypes";
 import { URLS } from "../../../../assets";
 import { Api } from "../../../../services";
@@ -92,6 +93,15 @@ export const deleteVisita = ({ visita_id, apiario_id }) => { // TODO: Tornar fun
       });
   };
 };
+
+export const updateAllVisitasByApicultor = allVisitas => {
+  return dispatch => {
+    dispatch({
+      type: UPDATE_ALL_VISITAS,
+      payload: { allVisitas }
+    });
+  };
+}
 
 // Redux offline test action...
 const bearerToken = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImVlNDljZjY3NjJlZjJiYmIzNjEyNWQyODY3ZGUyMGQxMjliZmY3ZDJlMmQyYjlhZTkwMmE5ZThjNmNmYTMzZDA2MTVjNDJlOTMzMWNjMDRkIn0.eyJhdWQiOiIzIiwianRpIjoiZWU0OWNmNjc2MmVmMmJiYjM2MTI1ZDI4NjdkZTIwZDEyOWJmZjdkMmUyZDJiOWFlOTAyYTllOGM2Y2ZhMzNkMDYxNWM0MmU5MzMxY2MwNGQiLCJpYXQiOjE1ODQxNDE2MTcsIm5iZiI6MTU4NDE0MTYxNywiZXhwIjoxNjE1Njc3NjE3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.02UfcwZ9jfKMlfe2htj5vhB7DdZD1CwMoTfxLvxuKCckXvPBDf1OPAR26gmLB46yUJpni_rKlHGKwOtH-LFdQ9rLeRPXtzDS_vwZAjktpRaZUa_CnHZcpT_gEhtFV67Gr7M6pvIxtkVSSd-TusQahBU0L3hhi_ltxWQ4LqOZkz62LGHeN4TKmfJ-TENoKZClsAQmUA-ryV2Ib5bM83wCCnu_fHXwZ_HFqAuPg691LgiH-Ydm5sY5gYtygXAzpi22IxqH-COPJTVea2fn6xwn_iTq8RX5rueP8x0zATIUbsZV2LoS0UKU6TZh69c6iC6rxYw0_E0Yp1mlBosr5mii5Kr3zRtAM8O_SrrK0iBVIgSfKy5mdmiQPmDdxDYVH1dmDeXTrGUkQ77hGVV6lwvd2zzJCPmC9OauxD7Ymxd0TVdpx1w_Dw2wshvH8jwO2-4gl1EsGt6EbZY9tBdTKI6NNACBf5DVWvN15vySezT0ycgk7ea7P5xur9ULxfOlqnB_jgnA87deUBJUF-zLUMpzqf7JYj7Npyw8Gx9eYx4tOcGN1moFQ9V04yND_JskeCgeiKm87uHOzXm4Y9574Q_dETyde6jOEEgkDhon_hKroCZLm_hdKq378WnkQiiAPL9Quz9EEPv0X0-zHXuP_U2G0kRF9bpnNxJ8spwtWl7n8mQ';

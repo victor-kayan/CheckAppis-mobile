@@ -19,9 +19,8 @@ class InterventionHiveList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        apiaryId: this.props.navigation.getParam("apiaryId"),
-        apiaryName: this.props.navigation.getParam("name"),
-        selectedPickerApiario: true,
+      apiaryId: this.props.navigation.getParam("apiaryId"),
+      apiaryName: this.props.navigation.getParam("name"),
     };
   }
 
@@ -32,15 +31,6 @@ class InterventionHiveList extends Component {
   handleRefresh = () => {
     this.fecthIntervencoesColmeias(this.state.apiaryId);
   };
-
-  handleValueChangePickerApiario = apiario => {
-    this.setState({ selectedPickerApiario: apiario });
-
-    if (apiario) {
-      this.fecthIntervencoesColmeias(apiario.id);
-    }
-  };
-
 
   fecthIntervencoesColmeias = (apiaryId) => {
     this.props.fecthIntervencoesColmeiasByApiario(apiaryId);
@@ -59,9 +49,11 @@ class InterventionHiveList extends Component {
   };
 
   render() {
-    const { selectedPickerApiario } = this.state;
-    const { apiarios, loading } = this.props;
-    const { intervencoesByApiario } = selectedPickerApiario == null ? [] : this.props;
+    const { apiaryId } = this.state;
+    const { loading } = this.props;
+    const intervencoesByApiario = this.props.intervencoesByApiario[apiaryId] === undefined
+      ? []
+      : this.props.intervencoesByApiario[apiaryId] || [];
 
     return (
       <Container>
