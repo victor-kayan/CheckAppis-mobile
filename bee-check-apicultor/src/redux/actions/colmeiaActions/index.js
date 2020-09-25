@@ -79,7 +79,7 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
           buttonText: "",
           type: "success"
         });
-        dispatch(getColmeiasByApiario({ id: apiario_id }));
+        dispatch(getColmeiasByApiario(apiario_id));
         dispatch({
           type: EDIT_COLMEIA,
           payload: {
@@ -152,7 +152,7 @@ export const deleteColmeiaById = ({ id, apiario_id }) => {
             loading: false
           }
         });
-        dispatch(getColmeiasByApiario({ id: apiario_id }));
+        dispatch(getColmeiasByApiario(apiario_id));
       })
       .catch(error => {
         // Toast.show({

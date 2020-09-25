@@ -28,6 +28,8 @@ import FormVisita from "./FormVisita";
 import HeaderVisita from "./HeaderVisita";
 import styles from "./styles";
 
+import tron from '../../../config/ReactotronConfig'
+
 class NewVisitaColmeia extends Component {
   constructor(props) {
     super(props);
@@ -58,9 +60,11 @@ class NewVisitaColmeia extends Component {
   getColmeiasByApiario = () => {
     const apiarioId = this.props.navigation.getParam("apiario_id", "");
     
+    tron.log(apiarioId)
+
     NetInfo.isConnected.fetch().then(isConnected => {
       if (isConnected) {
-        this.props.getColmeiasByApiario({ id: apiarioId });
+        this.props.getColmeiasByApiario(apiarioId);
         this.setState({ doneColmeias: true })
       } else {
         this.renderItemColmeia(this.props.colmeias[apiarioId], []);

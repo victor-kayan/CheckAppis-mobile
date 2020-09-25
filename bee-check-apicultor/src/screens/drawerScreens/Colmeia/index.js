@@ -4,7 +4,6 @@ import { Image, ScrollView, StatusBar } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
-import { getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
 
 import { Container, Text, View } from "native-base";
 import { colors, routes } from "../../../../assets";
@@ -107,7 +106,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchApiariosByUser, getColmeiasByApiario },
+    { fetchApiariosByUser },
     dispatch
   );
 }
