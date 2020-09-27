@@ -18,17 +18,13 @@ import { updateAllApiariosByApicultor } from "../../../redux/actions/apiarioActi
 import { updateAllVisitasByApicultor } from "../../../redux/actions/visitaActions";
 
 import LinearGradient from "react-native-linear-gradient";
-import { Text, View, Icon } from "native-base";
-<<<<<<< HEAD
-import { colors, images, constants, routes } from "../../../../assets";
-=======
->>>>>>> master
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-import { colors, images, URLS } from "../../../../assets";
+import { Text, View, Icon } from "native-base";
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { colors, images, URLS, routes } from "../../../../assets";
+import MarkerCallOut from "../../../componentes/MarkerCallOut";
 import GooglePlacesInput from "./GooglePlacesInput";
 import styles from "./styles";
-import MarkerCallOut from "../../../componentes/MarkerCallOut";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const { width } = Dimensions.get('window');
 
@@ -94,12 +90,237 @@ class Home extends Component {
       apiarios
     } = this.props;
 
-    const cards = [
-      { tile: 'Apiários' },
-      { tile: 'Colmeias' },
-      { tile: 'Intervenções' },
+    const mapStyleConfig = [
+      {
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#f5f5f5"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#616161"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "color": "#f5f5f5"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#bdbdbd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#eeeeee"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels.text",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#757575"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.business",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#e5e5e5"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "labels.text",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#9e9e9e"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#ffffff"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#757575"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#dadada"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#616161"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#9e9e9e"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#e5e5e5"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.station",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#eeeeee"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#c9c9c9"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#9e9e9e"
+          }
+        ]
+      }
     ];
-    
+
     return (
       <>
         <StatusBar backgroundColor={colors.theme_default} />
@@ -140,9 +361,9 @@ class Home extends Component {
             <TouchableOpacity onPress = {() => this.props.navigation.navigate(routes.IntervencaoHome)}>
               <View style = {styles.cardInfo}>
               {
-                coutIntervencoes && coutIntervencoes < 2 
-                  ? (<Text style = {styles.titleCard}>{coutIntervencoes && coutIntervencoes} Intervenção</Text>)
-                  : (<Text style = {styles.titleCard}>{coutIntervencoes && coutIntervencoes} Intervenções</Text>)
+                countIntervencoes && countIntervencoes < 2 
+                  ? (<Text style = {styles.titleCard}>{countIntervencoes && countIntervencoes} Intervenção</Text>)
+                  : (<Text style = {styles.titleCard}>{countIntervencoes && countIntervencoes} Intervenções</Text>)
               }
               </View>
             </TouchableOpacity>
@@ -155,236 +376,7 @@ class Home extends Component {
             region={this.state.region}
             zoomEnabled
             loadingEnabled
-            customMapStyle = {[
-              {
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#f5f5f5"
-                  }
-                ]
-              },
-              {
-                "elementType": "labels.icon",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#616161"
-                  }
-                ]
-              },
-              {
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                  {
-                    "color": "#f5f5f5"
-                  }
-                ]
-              },
-              {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#bdbdbd"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#eeeeee"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi",
-                "elementType": "labels.text",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#757575"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi.business",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi.park",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#e5e5e5"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi.park",
-                "elementType": "labels.text",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi.park",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#9e9e9e"
-                  }
-                ]
-              },
-              {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#ffffff"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.arterial",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.arterial",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#757575"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.highway",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#dadada"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.highway",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.highway",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#616161"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.local",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.local",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.local",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#9e9e9e"
-                  }
-                ]
-              },
-              {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#e5e5e5"
-                  }
-                ]
-              },
-              {
-                "featureType": "transit.station",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#eeeeee"
-                  }
-                ]
-              },
-              {
-                "featureType": "water",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#c9c9c9"
-                  }
-                ]
-              },
-              {
-                "featureType": "water",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#9e9e9e"
-                  }
-                ]
-              }
-            ]}
+            customMapStyle = {mapStyleConfig}
           >
           {apiarios &&
             apiarios.length ?
@@ -404,112 +396,6 @@ class Home extends Component {
         </MapView>
         
         <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
-
-      </>
-    );
-  }
-}
-
-function mapStateToProps(state, props) {
-  return {
-    apiarios: state.apiarioState.apiarios,
-    countApiarios: state.apiarioState.countApiarios,
-    countColmeias: state.colmeiaState.countColmeias,
-    coutIntervencoes: state.intervencaoState.coutIntervencoes,
-    loading:
-      state.apiarioState.loading ||
-      state.colmeiaState.loading ||
-      state.intervencaoState.loading
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      getCountApiariosByApicultor,
-      fetchApiariosByUser,
-      getCountColmeiasApiariosByApicultor,
-      getCountIntervencoesByApicultor
-    },
-    dispatch
-  );
-}
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
-
-{/* <View style = {styles.scrollCard}>
-            <ScrollView horizontal={true}
-              contentContainerStyle={{ width: `${100*3}%`}}
-              showsHorizontalScrollIndicator={false}
-              scrollEventThrottle={200}
-              decelerationRate="fast"
-              pagingEnabled
-              onScroll={Animated.event( // Animated.event returns a function that takes an array where the first element...
-                [{ nativeEvent: { contentOffset: { x: this.scrollX } } }] // ... is an object that maps any nativeEvent prop to a variable
-              )} // in this case we are mapping the value of nativeEvent.contentOffset.x to this.scrollX
-              scrollEventThrottle={16} // this will ensure that this ScrollView's onScroll prop is called no faster than 16ms between each function call
-            >
-            
-            <View style = {styles.cardInfo}>
-              <View style = {styles.viewText}>
-                <Text style = {styles.titleCard}>Apiários</Text>
-                <Text style = {styles.qtdCard}>Quantidade: {countApiarios && countApiarios}</Text>
-              </View>
-              <Image
-                style = {styles.cardIcon}
-                source={require ('../../../../images/cards/apiary.png')}
-              />
-            </View>
-            <View style = {styles.cardInfo}>
-              <View style = {styles.viewText}>
-                <Text style = {styles.titleCard}>Colmeias</Text>
-                <Text style = {styles.qtdCard}>Quantidade: {countColmeias && countColmeias}</Text>
-              </View>
-              <Image
-                style = {styles.cardIcon}
-                source={require ('../../../../images/cards/hive.png')}
-              />
-            </View>
-            <View style = {styles.cardInfo}>
-            <View style = {styles.viewText}>
-                <Text style = {styles.titleCard}>Intervenções</Text>
-                <Text style = {styles.qtdCard}>Quantidade: {countIntervencoes && countIntervencoes}</Text>
-              </View>
-              <Image
-                style = {styles.cardIcon}
-                source={require ('../../../../images/cards/interventions.png')}
-              />
-            </View>
-            </ScrollView>
-            <View
-              style={{ flexDirection: 'row'}}
-              >
-              {cards.map((_, i) => { 
-              scrollX = new Animated.Value(0);
-              let position = Animated.divide(scrollX, width);
-              let opacity = position.interpolate({
-                inputRange: [i - 1, i, i + 1], 
-                outputRange: [0.3, 1, 0.3], 
-                extrapolate: 'clamp' 
-              });
-                return (
-                  <Animated.View
-                    key={i} 
-                    style={{opacity, height: 6, width: 6, backgroundColor: '#595959', margin: 8, borderRadius: 5 }}
-                  />
-                );
-              })}
-            </View>
-<<<<<<< HEAD
-          </View> */}
-=======
-          </View>
-
-          <GooglePlacesInput onLocationSelected={this.handleLocationSelected} />
       </>
     );
   }
@@ -544,5 +430,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home);
->>>>>>> master
-
