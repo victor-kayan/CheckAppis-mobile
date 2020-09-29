@@ -47,14 +47,14 @@ class Visita extends Component {
           typeIconRight="AntDesign"
         />
 
-        {/* <SpinnerCustom visible={loading} /> */}
+        <SpinnerCustom visible={loading} />
 
         <View style = {styles.containerContentVisits}>
           <Text style = {styles.title}>Selecione um apiário</Text>
           <Text style = {styles.description}>Selecione um apiário para ver o histórico de visitas correspondente a ele</Text>
           <View style = {styles.contentVisits}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
-              <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
+              <ScrollView contentContainerStyle={{ width: '100%'}}>
                 {
                   apiarios.map(apiary =>
                     <Apiary 

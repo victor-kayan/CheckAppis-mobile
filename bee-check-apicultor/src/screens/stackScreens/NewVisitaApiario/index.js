@@ -41,6 +41,7 @@ class NewVisitaApiario extends Component {
           title="Nova Visita"
           description = "Insira as informações solicitadas e cadastre numa nova visita no apiário"
         />
+        <SpinnerCustom visible={loading} />
         <View style = {styles.containerContentForm}>
           <Text style = {styles.textSubTitle}>{`Responda às questões abaixo\n sobre o apiário `} {selectedPickerApiario.nome}</Text>
           <ScrollView contentContainerStyle={{ width: '100%', paddingHorizontal: 15, paddingVertical: 5, alignItems: 'center'}}>

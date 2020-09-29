@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, NetInfo, StatusBar } from "react-native";
+import { Image, NetInfo, ScrollView, StatusBar, TouchableHighlight } from "react-native";
 import 'react-native-get-random-values';
 
 import { connect } from "react-redux";
@@ -27,6 +27,7 @@ import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
 import HeaderVisita from "./HeaderVisita";
 import styles from "./styles";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
 import tron from '../../../config/ReactotronConfig'
 
@@ -278,7 +279,6 @@ class NewVisitaColmeia extends Component {
 
   showActionSheet = () => {
     const { colmeiasNaoVisitadas } = this.state;
-
     colmeiasNaoVisitadas &&
       colmeiasNaoVisitadas.length > 0 &&
       this.ActionSheet.show();
@@ -291,53 +291,39 @@ class NewVisitaColmeia extends Component {
     return (
       <Container>
 
-        <StatusBar backgroundColor={colors.theme_second} />
+        <StatusBar backgroundColor={colors.theme_default} />
 
-        <HeaderVisita handleConcluirVisita={this.onConcluirVisita} />
-        <Content padder>
-          {/* <Root> */}
-          <SpinnerCustom visible={loading} />
-          <Card>
-            <CardItem>
-              <Button
-                style={{ width: "100%" }}
-                dark
-                transparent
-                onPress={this.showActionSheet}
-              >
-                <Image
-                  source={images.icons.colmeia}
-                  style={styles.iconImagemSelectPicker}
-                />
-                <H3
-                  style={{
-                    color: colors.black,
-                    fontSize: 16,
-                    marginLeft: 5
-                  }}
-                >
-                  Selecione uma Colmeia
-                </H3>
-                <Icon
-                  style={{
-                    alignSelf: "flex-end"
-                  }}
-                  type="Ionicons"
-                  name="md-arrow-dropdown"
-                />
-              </Button>
-              <ActionSheet
-                ref={o => (this.ActionSheet = o)}
-                title={"Selecione uma colmeia!"}
-                options={colmeiasNaoVisitadas}
-                cancelButtonIndex={0}
-                // destructiveButtonIndex={1}
-                onPress={index => {
-                  this.onChangeSelectColmeia(index);
-                }}
-              />
-            </CardItem>
-          </Card>
+        <HeaderCustomStack
+          title = "Perguntas"
+        />
+
+        <SpinnerCustom visible={loading} />
+
+        <View style = {styles.containerContent}>
+
+        <View style = {styles.selectButton}>
+          <TouchableHighlight
+            activeOpacity={0.5}
+            underlayColor = {colors.grey}
+            onPress={this.showActionSheet}
+            style = {{borderRadius: 30, height: '100%', width: '100%'}}
+          >
+            <View style = {styles.viewTextIcon}>
+              <Text style={{ color: colors.theme_second, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1}}>SELECIONAR COLMEIA</Text>
+              <Icon type="AntDesign" name="downcircleo" style={styles.iconButton} iconSize={5} active/>
+            </View>
+          </TouchableHighlight>
+          <ActionSheet
+            ref={o => (this.ActionSheet = o)}
+            title={"Selecione uma colmeia!"}
+            options={colmeiasNaoVisitadas}
+            cancelButtonIndex={0}
+            // destructiveButtonIndex={1}
+            onPress={index => {
+              this.onChangeSelectColmeia(index);
+            }}
+          />
+        </View>
           {colmeia ? (
             <View>
               <CardItem>
@@ -346,73 +332,28 @@ class NewVisitaColmeia extends Component {
                   {this.state.colmeia && this.state.colmeia.nome}
                 </Text>
               </CardItem>
-              <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.onFinishVisitaColmeia} />
+              <ScrollView>
+                <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.onFinishVisitaColmeia} />
+              </ScrollView>
             </View>
           ) : !loading && !colmeia ? (
             <>
-              <CardItem
-                style={{
-                  marginTop: 20,
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}
-              >
-                <Text>Primeiro selecione uma Colmeia</Text>
-              </CardItem>
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Image
-                  style={{ marginTop: "15%" }}
-                  source={images.home.colmeia}
-                />
+              <View style = {styles.viewWarn}>
+                <Text style = {styles.textWarn}>Selecione uma colmeia para responder às questões referentes a ela :)</Text>
               </View>
             </>
           ) : (
             !loading &&
             !colmeiasDoApiarioAtual.length && (
               <>
-                <CardItem
-                  style={{
-                    marginTop: 20,
-                    flexDirection: "column",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text>Nenhuma colmeia cadastrada</Text>
-                </CardItem>
-                <View
-                  style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Icon
-                    onPress={() =>
-                      this.props.navigation.navigate(routes.NewColmeia, {
-                        apiario_id: this.props.navigation.getParam(
-                          "apiario_id",
-                          ""
-                        )
-                      })
-                    }
-                    style={{ color: colors.btn_success, marginLeft: 130 }}
-                    active
-                    type="AntDesign"
-                    name="pluscircle"
-                  />
-                  <Image source={images.home.colmeia} />
+                <View style = {styles.viewWarn}>
+                  <Text style = {styles.textWarn}>Nenhuma colmeia cadastrada :(</Text>
                 </View>
               </>
             )
           )}
           {/* </Root> */}
-        </Content>
+        </View>
       </Container>
     );
   }
@@ -441,3 +382,34 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewVisitaColmeia);
+
+{/* <CardItem>
+              <Button
+                style={{ width: "100%" }}
+                dark
+                transparent
+                onPress={this.showActionSheet}
+              >
+                <Image
+                  source={images.icons.colmeia}
+                  style={styles.iconImagemSelectPicker}
+                />
+                <H3
+                  style={{
+                    color: colors.black,
+                    fontSize: 16,
+                    marginLeft: 5
+                  }}
+                >
+                  Selecione uma Colmeia
+                </H3>
+                <Icon
+                  style={{
+                    alignSelf: "flex-end"
+                  }}
+                  type="Ionicons"
+                  name="md-arrow-dropdown"
+                />
+              </Button>
+              
+            </CardItem> */}

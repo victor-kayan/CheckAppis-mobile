@@ -2,7 +2,7 @@ import { colors } from "../../../assets";
 
 export default {
 apiary: {
-  width: '95%',
+  width: '90%',
   height: 100,
   backgroundColor: colors.white,
   flexDirection: 'row',
@@ -10,6 +10,7 @@ apiary: {
   alignItems: 'center',
   margin: 10,
   borderRadius: 15,
+  alignSelf: 'center',
 },
 contentText: {
   width: '80%',

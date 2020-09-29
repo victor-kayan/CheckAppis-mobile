@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 import { concluirIntervencaoColmeia } from "../../../redux/actions/intervencaoActions";
 import { Text, Container, View } from "native-base";
-import { Image } from "react-native";
+import { Image, ScrollView } from "react-native";
 import { routes } from "../../../../assets";
 import { SpinnerCustom } from "../../../componentes";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
@@ -72,16 +72,20 @@ class IntervencaoColmeia extends Component {
               <View style = {styles.container}>
                 <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>
                 <View style = {styles.containerContent}>
-                  {
-                    apiarios.map (apiary =>
-                    <Apiary 
-                      key = {apiary.id} 
-                      apiaryId = {apiary.id} 
-                      name = {apiary.nome} 
-                      description = {apiary.descricao} 
-                      openList = {this.openInterventionHiveList}/>
-                    )
-                  }
+                  <View style = {[styles.triangle,styles.arrowUp]}/>
+                  <ScrollView contentContainerStyle={{ width: '100%'}}>
+                    {
+                      apiarios.map (apiary =>
+                      <Apiary 
+                        key = {apiary.id} 
+                        apiaryId = {apiary.id} 
+                        name = {apiary.nome} 
+                        description = {apiary.descricao} 
+                        openList = {this.openInterventionHiveList}/>
+                      )
+                    }
+                    <View style = {{height: 100}}/>
+                  </ScrollView>
                 </View>
               </View>
             )

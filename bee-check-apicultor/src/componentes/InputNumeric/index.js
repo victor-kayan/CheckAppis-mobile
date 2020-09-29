@@ -4,19 +4,22 @@ import { Button, Icon, Input, View } from "native-base";
 import { colors } from "../../../assets";
 
 const InputNumeric = ({ value, onChangePlus, onChangeMinus }) => (
-  <View style={{ flex: 1, flexDirection: "row" }}>
-    <Button
+  <View style={{ flex: 1, flexDirection: "row", alignItems: 'center', justifyContent: 'center', marginVertical: 6 }}>
+    <TouchableOpacity
       small
       onPress={onChangeMinus}
       style={{
-        borderTopLeftRadius: 10,
-        borderBottomLeftRadius: 10,
-        backgroundColor: colors.theme_default,
+        borderRadius: 20,
+        height: 40,
+        width: 40,
+        backgroundColor: colors.theme_second,
         marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
-      <Icon type="MaterialCommunityIcons" style={{color: colors.black}} name="minus" />
-    </Button>
+      <Icon type="AntDesign" style={{color: colors.white, fontSize: 16, alignSelf: 'center'}} name="minus" />
+    </TouchableOpacity>
     <Input
       underlineColorAndroid="transparent"
       autoCapitalize="characters"
@@ -24,18 +27,21 @@ const InputNumeric = ({ value, onChangePlus, onChangeMinus }) => (
       value={value.toString()}
       style={{ textAlign: "center"}}
     />
-    <Button
+    <TouchableOpacity
       small
       onPress={onChangePlus}
       style={{
-        borderTopRightRadius: 10,
-        borderBottomRightRadius: 10,
-        backgroundColor: colors.theme_default,
+        borderRadius: 25,
+        height: 40,
+        width: 40,
+        backgroundColor: colors.theme_second,
         marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
     }}
     >
-      <Icon type="MaterialCommunityIcons" style={{color: colors.black}} name="plus" />
-    </Button>
+      <Icon type="AntDesign" style={{color: colors.white, fontSize: 16, alignSelf: 'center'}} name="plus" />
+    </TouchableOpacity>
   </View>
 );
 

@@ -2,8 +2,8 @@ import { colors } from "../../../assets";
 
 export default {
     intervention: {
-        width: '90%',
-        height: 100,
+        width: '95%',
+        height: 90,
         backgroundColor: colors.white,
         flexDirection: 'row',
         justifyContent: 'space-between',
