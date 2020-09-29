@@ -32,8 +32,7 @@ class NewVisitaApiario extends Component {
 
   render() {
     const { loading } = this.props;
-    const { selectedPickerApiario } = this.state;    
-    const apiarios = this.props.apiarios.filter(apiario => apiario.colmeias.length > 0)
+    const { selectedPickerApiario } = this.state;
 
     return (
       <Container>

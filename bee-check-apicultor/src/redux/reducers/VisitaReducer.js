@@ -67,12 +67,13 @@ export const VisitaReducer = (state = initialState, action) => {
       };
 
     case VisitaTypes.CREATE_VISITA_COMMIT:
-      if (meta.completed && meta.success && payload.visita.isSynced) {
-        const apiarioId = payload.visita.apiario_id;
+      if (meta.completed && meta.success && payload.data.visita.isSynced) {
+        const newVisita = payload.data.visita;
+        const apiarioId = newVisita.apiario_id;
 
         const updatedVisitas = state.visitas[apiarioId].map(visita => {
-          if(visita.uuid === payload.visita.uuid) {
-            return Object.assign({}, visita, payload.visita);
+          if(visita.uuid === newVisita.uuid) {
+            return Object.assign({}, visita, newVisita);
           }
           return visita;
         });

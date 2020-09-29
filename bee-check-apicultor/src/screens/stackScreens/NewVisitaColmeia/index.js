@@ -28,7 +28,7 @@ import FormVisita from "./FormVisita";
 import HeaderVisita from "./HeaderVisita";
 import styles from "./styles";
 
-import tron from '../../../config/ReactotronConfig'
+import tron from '../../../config/reactotronConfig'
 
 class NewVisitaColmeia extends Component {
   constructor(props) {
