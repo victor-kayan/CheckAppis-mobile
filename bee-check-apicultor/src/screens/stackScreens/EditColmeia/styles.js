@@ -1,4 +1,5 @@
 import { colors } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
   header: {
@@ -12,10 +13,15 @@ export default {
     margin: 10
   },
   imageFormColmeia: {
-    height: 200,
-    width: "90%",
-    margin: 20,
-    borderRadius: 5
+    imageFormColmeia: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.grey,
+    width: '100%',
+    height: '100%',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+    },
   },
   buttonSelectFoto: {
     backgroundColor: colors.theme_second,
@@ -67,10 +73,13 @@ export default {
     margin: 20
   },
   imageFormColmeia: {
-    height: 200,
-    width: "94%",
-    margin: 20,
-    borderRadius: 25
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.grey,
+    width: '100%',
+    height: '100%',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
   },
   viewImage: {
     justifyContent: 'center',
@@ -87,5 +96,44 @@ export default {
     shadowOpacity: 0.9,
     shadowOffset: { x: 0, y: 0 },
     shadowRadius: 15,
+  },
+
+  containerContent: {
+    height: hp('85%'),
+    backgroundColor: colors.white,
+    marginTop: -45,
+    alignItems: 'center',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35, 
+    width: '100%',
+  },
+
+  viewImage: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.grey,
+    width: '100%',
+    height: 150,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35, 
+  },
+
+  changePhoto: {
+    borderRadius: 25,
+    backgroundColor: colors.theme_second,
+    padding: 3,
+    paddingHorizontal: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    width: 50,
+    marginTop: -20,
+    marginLeft: wp('73%')
+  },
+
+  viewInputs: {
+    width: '100%', 
+    paddingHorizontal: hp('3.8%'), 
+    marginTop: 40,
   },
 };

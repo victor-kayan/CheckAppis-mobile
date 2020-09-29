@@ -10,6 +10,8 @@ import styles from "./styles";
 import { ButtonCustom, SpinnerCustom } from "../../../componentes";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import LinearGradient from "react-native-linear-gradient";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 const options = {
   title: "Imagem da colmeia",
@@ -111,30 +113,32 @@ class NewColmeia extends Component {
             </TouchableOpacity>
             
 
-            <Item style = {{marginTop: 40, marginHorizontal: 30}}>
-              <Icon style={{color: colors.theme_second}} active type="Ionicons" name="md-finger-print"/>
-              <Input
-                value={colmeia.nome}
-                placeholder="Nome ou identificador da colmeia"
-                onChangeText={nome => this.setState({colmeia: {...colmeia, nome}})}
-                style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
-              />
-            </Item>
-            <Item style = {{marginTop: 20, marginHorizontal: 30}}>
-              <Icon style={{color: colors.theme_second}} active type="MaterialIcons" name="view-headline"/>
-              <Input
-                value={colmeia.descricao}
-                placeholder="Descrição"
-                onChangeText={descricao => this.setState({ colmeia: {...colmeia, descricao}})}                
-                style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
-              />
-            </Item>
+            <View style = {styles.viewInputs}>
+              <Item>
+                <Icon style={{color: colors.theme_second}} active type="Ionicons" name="md-finger-print"/>
+                <Input
+                  value={colmeia.nome}
+                  placeholder="Nome ou identificador da colmeia"
+                  onChangeText={nome => this.setState({colmeia: {...colmeia, nome}})}
+                  style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
+                />
+              </Item>
+              <Item style = {{marginTop: 20}}>
+                <Icon style={{color: colors.theme_second}} active type="MaterialIcons" name="view-headline"/>
+                <Input
+                  value={colmeia.descricao}
+                  placeholder="Descrição"
+                  onChangeText={descricao => this.setState({ colmeia: {...colmeia, descricao}})}                
+                  style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
+                />
+              </Item>
+            </View>
             <ButtonCustom
               onPress={() => this.onAddColmeia()}
               iconRight="check"
               typeIconRight="AntDesign"
               title="CADASTRAR"
-              style={{ alignSelf: 'center', marginEnd: 10, marginTop: 30 }}
+              style={{ alignSelf: 'center', marginEnd: 10, marginTop: 40 }}
               />
           </View>
         </Container>

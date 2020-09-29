@@ -10,6 +10,7 @@ import {
   UPDATE_ALL_COLMEIAS,
 } from "./actionsType";
 import { Toast } from "native-base";
+import { Alert } from "react-native";
 
 export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
   return dispatch => {
@@ -28,11 +29,21 @@ export const createColemia = ({ descricao, nome, foto, apiario_id }) => {
         foto
       })
       .then(response => {
-        Toast.show({
-          text: "Colmeia criada com sucesso.",
-          buttonText: "",
-          type: "success"
-        });
+        Alert.alert(
+          'Colmeia Criada',
+          'Colmeia cadastrada com sucesso.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK',
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        );
         dispatch({
           type: CREATE_COLMEIA,
           payload: {
@@ -75,11 +86,21 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
         foto
       })
       .then(response => {
-        Toast.show({
-          text: "Edição realizada com sucesso.",
-          buttonText: "",
-          type: "success"
-        });
+        Alert.alert(
+          'Edição Concluída',
+          'Colmeia editada com sucesso.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK',
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        );
         dispatch(getColmeiasByApiario(apiario_id));
         dispatch({
           type: EDIT_COLMEIA,
@@ -142,11 +163,21 @@ export const deleteColmeiaById = (id, apiario_id) => {
     Api.instance
       .delete(URLS.formattedURL(URLS.DELETE_COLMEIA_URL, { colmeia_id: id }))
       .then(response => {
-        Toast.show({
-          text: "Colmeia deletada com sucesso.",
-          buttonText: "",
-          type: "success"
-        });
+        Alert.alert(
+          'Colmeia Excluída',
+          'Colmeia excluída com sucesso.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK',
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        );
         dispatch({
           type: DELETE_COLMEIA,
           payload: {

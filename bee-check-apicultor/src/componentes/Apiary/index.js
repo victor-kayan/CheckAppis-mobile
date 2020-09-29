@@ -10,7 +10,7 @@ export default class Apiary extends React.Component {
           <TouchableOpacity style = {styles.touchStyle} onPress = {() => this.props.openList(this.props.apiaryId, this.props.name)}>
             <View style = {styles.apiary}>
                 <View style = {styles.contentText}>
-                  <Text style = {styles.apiaryName}>{this.props.name}</Text>
+                  <Text style = {styles.apiaryName} numberOfLines = {1}>{this.props.name}</Text>
                   <Text style = {styles.apiaryDescription} numberOfLines = {2}>{this.props.description}</Text>
                 </View>
                 <View style = {styles.contentArrow}>

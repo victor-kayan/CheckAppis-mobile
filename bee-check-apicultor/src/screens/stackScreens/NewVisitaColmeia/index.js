@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, NetInfo } from "react-native";
+import { Image, NetInfo, StatusBar } from "react-native";
 import 'react-native-get-random-values';
 
 import { connect } from "react-redux";
@@ -290,6 +290,9 @@ class NewVisitaColmeia extends Component {
 
     return (
       <Container>
+
+        <StatusBar backgroundColor={colors.theme_second} />
+
         <HeaderVisita handleConcluirVisita={this.onConcluirVisita} />
         <Content padder>
           {/* <Root> */}

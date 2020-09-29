@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\debug\jniLibs"/></dataSet></merger>

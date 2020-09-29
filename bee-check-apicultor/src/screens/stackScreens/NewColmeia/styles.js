@@ -67,8 +67,8 @@ export default {
     justifyContent: 'center',
     height: 50,
     width: 50,
-    marginTop: -15,
-    marginLeft: wp('75%')
+    marginTop: -20,
+    marginLeft: wp('73%')
   },
 
   viewImage: {
@@ -79,5 +79,11 @@ export default {
     height: 150,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35, 
+  },
+
+  viewInputs: {
+    width: '100%', 
+    paddingHorizontal: hp('3.8%'), 
+    marginTop: 40,
   },
 };

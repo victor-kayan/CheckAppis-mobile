@@ -288,17 +288,6 @@ class DetalhesVisita extends React.Component {
 
               <View style = {{height: 100}}/>
 
-              {/* botão de detalhar a visita por colmeias analisadas */}
-
-              {/* <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})} style = {styles.detailsButton}>
-                <LinearGradient
-                  colors={[colors.theme_default, colors.theme_second]}
-                  style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
-                >
-                  <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 60}}>DETALHAR POR COLMEIA</Text>
-                </LinearGradient>
-              </TouchableOpacity> */}
-
             </ScrollView>
           </View>
         </View>

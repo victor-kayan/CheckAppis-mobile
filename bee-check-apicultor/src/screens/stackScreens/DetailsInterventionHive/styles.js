@@ -74,11 +74,11 @@ export default {
     marginBottom: 20,
   },
   cardInformation: {
-    width: '100%',
+    width: '80%',
     height: 70,
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
   },
   icons: {
     fontSize: 30,

@@ -48,7 +48,7 @@ export default class Hive extends React.Component {
                 <Image source = {{uri: this.props.image}} style = {styles.image}/>
               </View>
               <View style = {styles.contentText}>
-                <Text style = {styles.hiveName}>{this.props.name}</Text>
+                <Text style = {styles.hiveName} numberOfLines = {1}>{this.props.name}</Text>
                 <Text style = {styles.hiveDescription} numberOfLines = {2}>{this.props.description}</Text>
               </View>
               <View style = {styles.contentArrow}>

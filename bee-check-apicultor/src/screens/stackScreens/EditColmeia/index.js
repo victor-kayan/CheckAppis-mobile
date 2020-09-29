@@ -10,17 +10,14 @@ import {
   Button,
   Text,
 } from "native-base";
-import { Image, Alert, View} from "react-native";
+import { Image, Alert, View, TouchableOpacity} from "react-native";
 import ImagePicker from "react-native-image-picker";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { editColmeia } from "../../../redux/actions/colmeiaActions";
 import { colors } from "../../../../assets";
 import styles from "./styles";
-import {
-  ButtonCustom,
-  SpinnerCustom
-} from "../../../componentes";
+import { ButtonCustom, SpinnerCustom } from "../../../componentes";
 import LinearGradient from "react-native-linear-gradient";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 
@@ -34,25 +31,25 @@ const options = {
 
 class EditColmeia extends Component {
 
-  componentDidMount() {
-    this.setState({ colmeia: this.props.navigation.getParam("hive", "") });
-  }
-
   state = {
     colmeia: {},
     foto: null,
     foto_uri: null
   };
+  
+  componentDidMount() {
+    this.setState({ colmeia: this.props.navigation.getParam("hive", "") });
+  }
 
   onEditColmeia = () => {
     const { id, descricao, nome, apiario_id } = this.state.colmeia;
     const { foto } = this.state;
-
     if (nome == "" || descricao == "") {
       Alert.alert("Erro de validação", "Preencha todos os campos");
     } else {
       this.props.editColmeia({ id, descricao, nome, apiario_id, foto });
     }
+    this.props.navigation.goBack();
   };
 
   slectPhoto = () => {
@@ -71,109 +68,58 @@ class EditColmeia extends Component {
     const { loading } = this.props;
 
     return (
-      <View style = {{flex: 1, width: '100%', height: '100%', backgroundColor: 'white'}}>
-      <Container style = {{position: 'absolute', alignSelf: 'center', flex: 1, width: '100%'}}>
+      <Container>
         <HeaderCustomStack 
           title="Edição"
           description="Altere as informações dessa colmeia inserindo novos dados"
         />
-        <Content padder>
-        <SpinnerCustom visible={loading} />
-            <CardItem>
-              <Body>
-                <Item style={{ marginTop: 130}}>
-                  <Icon
-                    style={{
-                      color: colors.theme_second
-                    }}
-                    active
-                    type="Ionicons"
-                    name="md-finger-print"
-                  />
-                  <Input
-                    value={colmeia.nome}
-                    placeholder="Nome ou identificador da colmeia"
-                    onChangeText={nome =>
-                      this.setState({
-                        colmeia: { ...colmeia, nome }
-                      })
-                    }
-                    style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
-                  />
-                </Item>
-                <Item style={{ marginTop: 20 }}>
-                  <Icon
-                    active
-                    style={{
-                      color: colors.colorIcons
-                    }}
-                    type="MaterialIcons"
-                    name="view-headline"
-                  />
-                  <Input
-                    value={colmeia.descricao}
-                    placeholder="Descrição"
-                    onChangeText={descricao =>
-                      this.setState({
-                        colmeia: { ...colmeia, descricao }
-                      })
-                    }
-                    style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
-                  />
-                </Item>
-                
-                <ButtonCustom
-                  onPress={() => this.onEditColmeia()}
-                  iconRight="check"
-                  typeIconRight="AntDesign"
-                  title="SALVAR ALTERAÇÕES"
-                  style={{
-                    alignSelf: 'center',
-                    marginEnd: 10,
-                    marginTop: 40, 
-                  }}
-                />
-              </Body>
-            </CardItem>
-        </Content>
 
-        <Item style = {styles.viewImage}>
+        <SpinnerCustom visible={loading} />
+
+        <View style = {styles.containerContent}>
+          <View style = {styles.viewImage}>
             {foto_uri ? (
               <Image style={styles.imageFormColmeia} source={foto_uri} />
             ) : (
-              <Image
-                style={styles.imageFormColmeia}
-                source={{
-                  uri: colmeia.foto
-                }}
-              />
+              <Image style={styles.imageFormColmeia} source={{ uri: colmeia.foto}}/>
             )}
-          </Item>
-      </Container>
+          </View>
 
-      <Button
-      full
-      rounded
-      onPress={this.slectPhoto.bind(this)}
-      style={{
-        backgroundColor: colors.theme_second,
-        marginTop: 385,
-        position: 'absolute',
-        alignSelf: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 0,
-        paddingBottom: 0,
-      }}
-      >
-      <LinearGradient
-        colors={[colors.theme_default, colors.theme_second]}
-        style={{ height: '100%', borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
-      >
-        <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 12 }}>ALTERAR IMAGEM</Text>
-      </LinearGradient>
-      </Button>
-      </View>
+          
+          <TouchableOpacity onPress={this.slectPhoto.bind(this)} style = {styles.changePhoto}>
+            <Icon style={{color: colors.white, fontSize: 20}} active type="Entypo" name="camera"/>
+          </TouchableOpacity>
+          
+
+          <View style = {styles.viewInputs}>
+            <Item>
+              <Icon style={{color: colors.theme_second}} active type="Ionicons" name="md-finger-print"/>
+              <Input
+                value={colmeia.nome}
+                placeholder="Nome ou identificador da colmeia"
+                onChangeText={nome => this.setState({colmeia: {...colmeia, nome}})}
+                style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
+              />
+            </Item>
+            <Item style = {{marginTop: 20}}>
+              <Icon style={{color: colors.theme_second}} active type="MaterialIcons" name="view-headline"/>
+              <Input
+                value={colmeia.descricao}
+                placeholder="Descrição"
+                onChangeText={descricao => this.setState({ colmeia: {...colmeia, descricao}})}                
+                style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
+              />
+            </Item>
+          </View>
+          <ButtonCustom
+            onPress={() => this.onEditColmeia()}
+            iconRight="check"
+            typeIconRight="AntDesign"
+            title="SALVAR EDIÇÃO"
+            style={{ alignSelf: 'center', marginEnd: 10, marginTop: 40 }}
+            />
+        </View>
+      </Container>
     );
   }
 }
@@ -277,3 +223,99 @@ export default connect(
 //           </CardItem>
 //         </Content>
 //       </Container> */}
+
+{/* <Content padder>
+        <SpinnerCustom visible={loading} />
+            <CardItem>
+              <Body>
+                <Item style={{ marginTop: 130}}>
+                  <Icon
+                    style={{
+                      color: colors.theme_second
+                    }}
+                    active
+                    type="Ionicons"
+                    name="md-finger-print"
+                  />
+                  <Input
+                    value={colmeia.nome}
+                    placeholder="Nome ou identificador da colmeia"
+                    onChangeText={nome =>
+                      this.setState({
+                        colmeia: { ...colmeia, nome }
+                      })
+                    }
+                    style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
+                  />
+                </Item>
+                <Item style={{ marginTop: 20 }}>
+                  <Icon
+                    active
+                    style={{
+                      color: colors.colorIcons
+                    }}
+                    type="MaterialIcons"
+                    name="view-headline"
+                  />
+                  <Input
+                    value={colmeia.descricao}
+                    placeholder="Descrição"
+                    onChangeText={descricao =>
+                      this.setState({
+                        colmeia: { ...colmeia, descricao }
+                      })
+                    }
+                    style = {{fontFamily: 'Montserrat Regular', fontSize: 13}}
+                  />
+                </Item>
+                
+                <ButtonCustom
+                  onPress={() => this.onEditColmeia()}
+                  iconRight="check"
+                  typeIconRight="AntDesign"
+                  title="SALVAR ALTERAÇÕES"
+                  style={{
+                    alignSelf: 'center',
+                    marginEnd: 10,
+                    marginTop: 40, 
+                  }}
+                />
+              </Body>
+            </CardItem>
+        </Content>
+
+        <Item style = {styles.viewImage}>
+            {foto_uri ? (
+              <Image style={styles.imageFormColmeia} source={foto_uri} />
+            ) : (
+              <Image
+                style={styles.imageFormColmeia}
+                source={{
+                  uri: colmeia.foto
+                }}
+              />
+            )}
+          </Item> */}
+
+{/* <Button
+        full
+        rounded
+        onPress={this.slectPhoto.bind(this)}
+        style={{
+          backgroundColor: colors.theme_second,
+          marginTop: 385,
+          position: 'absolute',
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: 0,
+          paddingBottom: 0,
+      }}
+      >
+      <LinearGradient
+        colors={[colors.theme_default, colors.theme_second]}
+        style={{ height: '100%', borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
+      >
+        <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 12 }}>ALTERAR IMAGEM</Text>
+      </LinearGradient>
+      </Button> */}
