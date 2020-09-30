@@ -34,7 +34,7 @@ export default {
   containerContent: {
     flex: 1,
     backgroundColor: 'white',
-    marginTop: -80,
+    marginTop: -85,
     alignItems: 'center', 
     width: '100%',
   },
@@ -87,4 +87,15 @@ export default {
     alignItems: "center",
     flex: 1,
   },
+
+  question: {
+    fontFamily: 'Montserrat-Medium',
+    marginRight: 15,
+    fontSize: 14,
+  },
+  
+  number: {
+    fontFamily: 'Montserrat Regular',
+    marginRight: 15,
+  }
 };

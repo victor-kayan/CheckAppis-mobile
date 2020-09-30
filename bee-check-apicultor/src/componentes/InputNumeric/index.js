@@ -25,7 +25,7 @@ const InputNumeric = ({ value, onChangePlus, onChangeMinus }) => (
       autoCapitalize="characters"
       placeholder="0"
       value={value.toString()}
-      style={{ textAlign: "center"}}
+      style={{ textAlign: "center", fontFamily: 'Montserrat Regular'}}
     />
     <TouchableOpacity
       small

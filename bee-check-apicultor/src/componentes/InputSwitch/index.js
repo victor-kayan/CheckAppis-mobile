@@ -15,7 +15,7 @@ const InputSwitch = ({ value, onValueChange, ...rest }) => (
     switchBorderColor="#d4d4d4"
     switchBackgroundColor="#fff"
     btnBorderColor="transparent"
-    btnBackgroundColor={colors.theme_default}
+    btnBackgroundColor={colors.theme_second}
     fontColor="#b1b1b1"
     fontFamily='Montserrat-Medium'
     activeFontColor="#fff"

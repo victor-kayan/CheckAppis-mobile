@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, NetInfo, ScrollView, StatusBar, TouchableHighlight } from "react-native";
+import { Image, NetInfo, ScrollView, StatusBar, TouchableHighlight, Alert } from "react-native";
 import 'react-native-get-random-values';
 
 import { connect } from "react-redux";
@@ -84,7 +84,7 @@ class NewVisitaColmeia extends Component {
       colmeias.length &&
       colmeiasVisitadas.length !== colmeias.length
     ) {
-      colmeiasAux.push("Cancelar Seleção");
+      colmeiasAux.push(<Text style = {{fontFamily: 'Montserrat-Bold', color: colors.blackgrey, fontSize: 13}}>CANCELAR SELEÇÃO</Text>);
     } else if (colmeiasVisitadas.length === colmeias.length) {
       colmeiasAux.push(
         <Button
@@ -105,7 +105,7 @@ class NewVisitaColmeia extends Component {
       color =
         colmeiasVisitadas &&
         colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id) >= 0
-          ? colors.btn_success
+          ? colors.theme_second
           : "#FAFAFA";
 
       colmeia &&
@@ -145,12 +145,39 @@ class NewVisitaColmeia extends Component {
     }
     
     Toast.show({
-      text: "Visita adicionada",
+      text: "Visita adicionada com sucesso.",
       buttonText: "",
-      type: "success"
+      type: "success",
+      style: {
+        backgroundColor: colors.theme_second,
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontFamily: 'Montserrat-Medium'
+      },
     });
 
     this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
+  };
+
+  
+  handleFinishVisitaColmeia = () => {
+    Alert.alert(
+      'Concluir Visita',
+      'Tem certeza que deseja concluir esta visita agora?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => {
+          this.onFinishVisitaColmeia();
+        }},
+      ],
+      {
+        cancelable: false
+      },
+    );
   };
 
   onFinishVisitaColmeia = values => {
@@ -209,6 +236,8 @@ class NewVisitaColmeia extends Component {
       type: "success"
     });
   };
+
+
 
   /**
   * Função para calcular e adicionar novas propriedades (metadados) ao objeto da visita
@@ -295,6 +324,9 @@ class NewVisitaColmeia extends Component {
 
         <HeaderCustomStack
           title = "Perguntas"
+          iconRight="check"
+          typeIconRight="AntDesign"
+          handleIconRight={() => this.onFinishVisitaColmeia()}
         />
 
         <SpinnerCustom visible={loading} />
@@ -315,7 +347,7 @@ class NewVisitaColmeia extends Component {
           </TouchableHighlight>
           <ActionSheet
             ref={o => (this.ActionSheet = o)}
-            title={"Selecione uma colmeia!"}
+            title={<Text style={{fontFamily: 'Montserrat-Bold', color: colors.theme_second, fontSize: 14}}>SELECIONAR COLMEIA</Text>}
             options={colmeiasNaoVisitadas}
             cancelButtonIndex={0}
             // destructiveButtonIndex={1}
@@ -332,8 +364,9 @@ class NewVisitaColmeia extends Component {
                   {this.state.colmeia && this.state.colmeia.nome}
                 </Text>
               </CardItem>
-              <ScrollView>
+              <ScrollView contentContainerStyle = {{paddingHorizontal: 10}}>
                 <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.onFinishVisitaColmeia} />
+                <View style = {{height: 80}}/>
               </ScrollView>
             </View>
           ) : !loading && !colmeia ? (
@@ -413,3 +446,30 @@ export default connect(
               </Button>
               
             </CardItem> */}
+
+            /* onConcluirVisita = () => {
+              Alert.alert(
+                'Concluir Visita',
+                'Tem certeza que deseja concluir esta visita agora?',
+                [
+                  {
+                    text: 'Cancelar',
+                    style: 'cancel',
+                  },
+                  {text: 'OK', onPress: () => {
+                    const { colmeiasVisitadas } = this.state;
+                    this.setState({ done: true});
+                    data = {
+                      visitas_colmeias: colmeiasVisitadas,
+                      visita_apiario: this.props.navigation.getParam("visita_apiario", ""),
+                      apiario_id: this.props.navigation.getParam("apiario_id", "")
+                    };
+                    const serializedData = this.serializeVisitData(data);
+                    this.props.createVisita(serializedData);
+                    this.props.navigation.navigate(routes.VisitasHome);
+                  }},
+                ],
+                {cancelable: false},
+              );
+              // TODO: Navegar para a tela de listagem de visitas do apiário que acabou de ser visitado
+            }; */

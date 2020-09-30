@@ -20,8 +20,8 @@ const ColmeiaItem = ({ colmeia, colorIcon }) => (
         justifyContent: "center"
       }}
     >
-      <Thumbnail square small source={{ uri: colmeia.foto }} />
-      <Text style={{ paddingHorizontal: 15 }}>
+      <Thumbnail style = {{borderRadius: 6}} quare small source={{ uri: colmeia.foto }} />
+      <Text style={{ paddingHorizontal: 14, fontFamily: 'Montserrat Regular' }}>
         {colmeia.nome ? colmeia.nome : `Colmeia ${index}`}
       </Text>
     </View>
@@ -29,8 +29,8 @@ const ColmeiaItem = ({ colmeia, colorIcon }) => (
       style={{
         color: colorIcon
       }}
-      name="check-square-o"
-      type="FontAwesome"
+      name="checksquareo"
+      type="AntDesign"
     />
   </View>
 );

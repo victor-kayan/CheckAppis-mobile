@@ -122,7 +122,7 @@ class FormVisita extends Component {
       <View>
         <CardItem>
           <Left>
-            <Text>Há quantas faces de mel?</Text>
+            <Text style = {styles.question}>Há quantas faces de mel?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -142,7 +142,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantas faces de pólen?</Text>
+            <Text style = {styles.question}>Há quantas faces de pólen?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -166,7 +166,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantas faces de crias abertas?</Text>
+            <Text style = {styles.question}>Há quantas faces de crias abertas?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -186,7 +186,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantas faces de crias fechadas?</Text>
+            <Text style = {styles.question}>Há quantas faces de crias fechadas?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -210,7 +210,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há quantas faces vazias?</Text>
+            <Text style = {styles.question}>Há quantas faces vazias?</Text>
           </Left>
           <Right>
             <InputNumeric
@@ -234,7 +234,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há abelhas mortas no alvado?</Text>
+            <Text style = {styles.question}>Há abelhas mortas no alvado?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -248,7 +248,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há presença de postura?</Text>
+            <Text style = {styles.question}>Há presença de postura?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -260,7 +260,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há presença de zangão?</Text>
+            <Text style = {styles.question}>Há presença de zangão?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -272,7 +272,7 @@ class FormVisita extends Component {
 
         <CardItem>
           <Left>
-            <Text>Há presença de realeira?</Text>
+            <Text style = {styles.question}>Há presença de realeira?</Text>
           </Left>
           <Right>
             <InputSwitch
@@ -287,29 +287,29 @@ class FormVisita extends Component {
             rowSpan={4}
             value={observacao}
             onChangeText={observacao => this.setState({ observacao })}
-            style={{ width: "100%", borderRadius: 5 }}
+            style={{ width: "100%", borderRadius: 5, fontFamily: 'Montserrat Regular', marginRight: 15, fontSize: 15,}}
             bordered
             placeholder="Observações"
           />
         </CardItem>
-        <CardItem style={{ alignSelf: "flex-end" }}>
+        {/* <CardItem style={{ alignSelf: "flex-end" }}>
           <ButtonCustom
             style={styles.buttonFinishVisita}
             onPress={this.handleFinishVisita}
-            title="Concluir Visita"
-            iconRight="arrowright"
+            iconRight="check"
             typeIconRight="AntDesign"
           />
-        </CardItem>
-        <CardItem style={{ alignSelf: "flex-end" }}>
+        </CardItem> */}
+        <CardItem style={{ alignSelf: 'center' }}>
           <ButtonCustom
             style={styles.buttonSalveVisita}
             onPress={this.handleAddVisita}
-            title="Próxima Colmeia"
+            title="PRÓXIMA COLMEIA"
             iconRight="arrowright"
             typeIconRight="AntDesign"
           />
         </CardItem>
+        <View style = {{height: 70,}}/>
       </View>
     );
   }
