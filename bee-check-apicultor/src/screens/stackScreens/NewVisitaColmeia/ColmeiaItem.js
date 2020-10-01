@@ -20,6 +20,9 @@ const ColmeiaItem = ({ colmeia, colorIcon }) => (
         justifyContent: "center"
       }}
     >
+      {/* 
+      //  TODO: Se a colmeia ainda não estiver cadastrada, mostrar o arquivo estático, salvo no redux
+      */}
       <Thumbnail square small source={{ uri: colmeia.foto }} />
       <Text style={{ paddingHorizontal: 15 }}>
         {colmeia.nome ? colmeia.nome : `Colmeia ${index}`}

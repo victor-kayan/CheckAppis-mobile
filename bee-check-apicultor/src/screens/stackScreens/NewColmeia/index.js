@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import { Image, TouchableOpacity } from "react-native";
-import { Container, Text, Input, Icon, Item, Toast, Root, View } from "native-base";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { createColemia } from "../../../redux/actions/colmeiaActions";
-import ImagePicker from "react-native-image-picker";
-import { colors, images } from "../../../../assets";
-import styles from "./styles";
+import { createColmeia } from "../../../redux/actions/colmeiaActions";
+
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
+
+import { colors, images, routes } from "../../../../assets";
 import { ButtonCustom, SpinnerCustom } from "../../../componentes";
-import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
+import { Container, Text, Input, Icon, Item, Toast, Root, View } from "native-base";
+import ImagePicker from "react-native-image-picker";
 import LinearGradient from "react-native-linear-gradient";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
+import styles from "./styles";
 
 const options = {
   title: "Imagem da colmeia",
@@ -31,7 +36,7 @@ class NewColmeia extends Component {
   // adicionar a colmeia
   onAddColmeia = () => {
     const { colmeia, foto } = this.state;
-    const { createColemia } = this.props;
+    const { createColmeia } = this.props;
 
     if (colmeia.nome == "" || colmeia.descricao == "") {
       Toast.show({
@@ -41,14 +46,23 @@ class NewColmeia extends Component {
         type: "danger"
       });
     } else {
-      createColemia({
-        descricao: colmeia.descricao,
+      const uploadedPhoto = foto.fileName !== undefined && foto.data !== undefined 
+        ? { fileName: foto.fileName, data: foto.data }
+        : {};
+
+      const newHiveData = {
+        uuid: uuidv4(),   // Identificador universal único para diferenciar cada colmeia mesmo antes de ser sincronizada.
+        isSynced: false,  // Propriedade que define se a colmeia está sincronizada ou não. Por padrão é definida como "false" pois inicialmente será salvo localmente.
         nome: colmeia.nome,
-        foto,
+        descricao: colmeia.descricao,
+        foto: uploadedPhoto,
         apiario_id: this.props.navigation.getParam("apiaryId")
-      });
+      }
+
+      createColmeia(newHiveData);
+
       this.clearInputs();
-      // this.props.navigation.navigate(routes.ColmeiaHome);
+      this.props.navigation.navigate(routes.HiveList);
     }
   };
 
@@ -86,6 +100,7 @@ class NewColmeia extends Component {
           <View style = {styles.containerContent}>
             <View style = {styles.viewImage}>
               {foto_uri ? (
+                // TODO: Adicionar a imagem padrão quando não houver foto estaticamente enquanto offline e não sincronizado
                 <Image style={styles.imageFormColmeia} source={foto_uri} />
               ) : (
                 <View style = {{alignItems: 'center', justifyContent: 'center'}}>
@@ -150,7 +165,7 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ createColemia }, dispatch);
+  return bindActionCreators({ createColmeia }, dispatch);
 }
 
 export default connect(

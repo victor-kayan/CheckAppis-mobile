@@ -56,6 +56,15 @@ export const VisitaReducer = (state = initialState, action) => {
         visitaIsLoading: payload.visitaIsLoading
       };
 
+    // TODO: Adicionar verificação se state.visitas[payload.apiarioId] é undefined ou não
+    // const hivesListWithNewItem = {
+    //   [payload.apiaryId]: state.colmeias[payload.apiaryId] 
+    //     ? [ 
+    //         payload.newHiveData,
+    //         ...state.colmeias[payload.apiaryId]
+    //       ]
+    //     : [ payload.newHiveData ]
+    // };
     case VisitaTypes.INITIATE_CREATE_VISITA:
       const newVisitasListFromCurrentApiario = {
         [payload.apiarioId]: [payload.newVisitaData, ...state.visitas[payload.apiarioId]]

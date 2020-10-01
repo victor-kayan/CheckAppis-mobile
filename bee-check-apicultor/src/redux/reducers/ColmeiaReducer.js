@@ -1,11 +1,13 @@
 import {
   DELETE_COLMEIA,
-  CREATE_COLMEIA,
   LOADING_COLMEIA,
   GET_COLMEIA_BY_APIARIO,
   EDIT_COLMEIA,
   UPDATE_COUNT_COLMEIAS_BY_APICULTOR,
-  UPDATE_ALL_COLMEIAS
+  UPDATE_ALL_COLMEIAS,
+  INITIATE_CREATE_COLMEIA,
+  CREATE_COLMEIA_COMMIT,
+  CREATE_COLMEIA_ROLLBACK
 } from "../actions/colmeiaActions/actionsType";
 import { groupArrayItemsByEqualProperty } from '../../../utils';
 
@@ -26,20 +28,6 @@ export const ColmeiaReducer = (state = initialState, action) => {
         loading: payload.loading
       };
       
-    case CREATE_COLMEIA:
-      const colmeiasListWithNewColmeia = {
-        [payload.apiarioId]: [
-          payload.colmeia,
-          ...state.colmeias[payload.apiarioId]
-        ]
-      };
-
-      return {
-        ...state,
-        loading: false,
-        colmeias: Object.assign({}, state.colmeias, colmeiasListWithNewColmeia)
-      };
-
     case LOADING_COLMEIA:
       return {
         ...state,
@@ -77,7 +65,51 @@ export const ColmeiaReducer = (state = initialState, action) => {
         colmeias: groupArrayItemsByEqualProperty(
           payload.allColmeias, 'apiario_id'
         )
-      }
+      };
+
+    // case CREATE_COLMEIA:
+    //   const colmeiasListWithNewColmeia = {
+    //     [payload.apiarioId]: [
+    //       payload.colmeia,
+    //       ...state.colmeias[payload.apiarioId]
+    //     ]
+    //   };
+    // 
+    // return {
+    //   ...state,
+    //   loading: false,
+    //   countColmeias: state.countColmeias + 1,
+    //   colmeias: Object.assign({}, state.colmeias, colmeiasListWithNewColmeia)
+    // };
+
+    case INITIATE_CREATE_COLMEIA:
+      const hivesListWithNewItem = state.colmeias[payload.apiaryId] 
+        ? {
+            [payload.apiaryId]: [ 
+              payload.newHiveData,
+              ...state.colmeias[payload.apiaryId]
+            ]
+          }
+        : {
+            [payload.apiaryId]: [ payload.newHiveData ]
+          };
+      
+      return {
+        ...state,
+        loading: false,
+        countColmeias: state.countColmeias + 1,
+        colmeias: Object.assign({}, state.colmeias, hivesListWithNewItem)
+      };
+
+    case CREATE_COLMEIA_COMMIT:
+      return {
+        ...state,
+      };
+
+    case CREATE_COLMEIA_ROLLBACK:
+      return {
+        ...state,
+      };
       
     default:
       return state;
