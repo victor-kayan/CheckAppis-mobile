@@ -61,8 +61,6 @@ class NewVisitaColmeia extends Component {
   getColmeiasByApiario = () => {
     const apiarioId = this.props.navigation.getParam("apiario_id", "");
     
-    tron.log(apiarioId)
-
     NetInfo.isConnected.fetch().then(isConnected => {
       if (isConnected) {
         this.props.getColmeiasByApiario(apiarioId);
@@ -161,7 +159,7 @@ class NewVisitaColmeia extends Component {
   };
 
   
-  handleFinishVisitaColmeia = () => {
+  handleConcluirVisita = () => {
     Alert.alert(
       'Concluir Visita',
       'Tem certeza que deseja concluir esta visita agora?',
@@ -171,7 +169,7 @@ class NewVisitaColmeia extends Component {
           style: 'cancel',
         },
         {text: 'OK', onPress: () => {
-          this.onFinishVisitaColmeia();
+          this.onConcluirVisita();
         }},
       ],
       {
@@ -182,6 +180,7 @@ class NewVisitaColmeia extends Component {
 
   onFinishVisitaColmeia = values => {
     const { colmeia, colmeiasVisitadas } = this.state;
+
     let index = -1;
     let visita = {
       ...values,
@@ -326,7 +325,7 @@ class NewVisitaColmeia extends Component {
           title = "Perguntas"
           iconRight="check"
           typeIconRight="AntDesign"
-          handleIconRight={() => this.onFinishVisitaColmeia()}
+          handleIconRight={this.handleConcluirVisita}
         />
 
         <SpinnerCustom visible={loading} />
