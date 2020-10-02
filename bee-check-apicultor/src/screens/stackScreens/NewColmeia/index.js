@@ -100,7 +100,6 @@ class NewColmeia extends Component {
           <View style = {styles.containerContent}>
             <View style = {styles.viewImage}>
               {foto_uri ? (
-                // TODO: Adicionar a imagem padrão quando não houver foto estaticamente enquanto offline e não sincronizado
                 <Image style={styles.imageFormColmeia} source={foto_uri} />
               ) : (
                 <View style = {{alignItems: 'center', justifyContent: 'center'}}>

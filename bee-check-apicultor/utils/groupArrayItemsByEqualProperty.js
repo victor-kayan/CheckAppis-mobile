@@ -1,7 +1,7 @@
 /** Agrupar itens de um array, composto por objetos, em um novo objeto.
  * Os itens são agrupados de acordo com uma propriedade específica, passada via parâmetro.
  * Note que a propriedade pode ser aninhada, desde que siga a notação de pontos (".").
- * @param {array} completeArray O array com todos os items
+ * @param {array} completeArray O array com todos os itens
  * @param {string} prop A propriedade ou cadeia de propriedades (ex.: "prop_escolhida" ou "foo.bar.id")
  */
 function groupArrayItemsByEqualProperty(completeArray, prop) {

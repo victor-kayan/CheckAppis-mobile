@@ -109,7 +109,7 @@ export const createVisita = data => {
       type: INITIATE_CREATE_VISITA,
       payload: {
         newVisitaData: data,
-        apiarioId: data.apiario_id
+        apiaryId: data.apiario_id
       },
       meta: {
         offline: {
@@ -125,7 +125,7 @@ export const createVisita = data => {
             type: CREATE_VISITA_ROLLBACK,
             meta: { 
               visitUuid: data.uuid,
-              apiarioId: data.apiario_id
+              apiaryId: data.apiario_id
             }
           },
         }

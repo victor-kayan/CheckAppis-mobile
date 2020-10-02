@@ -35,7 +35,7 @@ export const createColmeia = data => {
             type: CREATE_COLMEIA_ROLLBACK,
             meta: { 
               hiveUuid: data.uuid,
-              // apiarioId: data.apiario_id
+              apiaryId: data.apiario_id
             }
           },
         }
@@ -43,40 +43,6 @@ export const createColmeia = data => {
     });
   };
 };
-
-// export const createColmeia = ({ descricao, nome, foto, apiario_id }) => {
-//   return dispatch => {
-//     Api.instance
-//       .post(URLS.CREATE_COLMEIA_URL, {
-//         nome,
-//         descricao,
-//         apiario_id,
-//         foto
-//       })
-//       .then(response => {
-//         Toast.show({
-//           text: "Colmeia criada com sucesso.",
-//           buttonText: "",
-//           type: "success"
-//         });
-//         dispatch({
-//           type: CREATE_COLMEIA,
-//           payload: {
-//             colmeia: response.data.colmeia,
-//             apiarioId: apiario_id
-//           }
-//         });
-//       })
-//       .catch(error => {
-//         Toast.show({
-//           text: error.response && error.response.data.message,
-//           buttonText: "",
-//           type: "danger"
-//         });
-//         // throw error;
-//       });
-//   };
-// };
 
 export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
   return dispatch => {

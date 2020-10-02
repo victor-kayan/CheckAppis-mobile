@@ -9,7 +9,12 @@ import {
   CREATE_COLMEIA_COMMIT,
   CREATE_COLMEIA_ROLLBACK
 } from "../actions/colmeiaActions/actionsType";
-import { groupArrayItemsByEqualProperty } from '../../../utils';
+import { 
+  groupArrayItemsByEqualProperty,
+  updateObjectOnInitiateItemCreation,
+  updateObjectOnCreationCommit,
+  updateObjectOnCreationRollback
+} from '../../../utils';
 
 const initialState = {
   colmeias: {}, // Objeto com arrays de colmeias por apiários
@@ -19,6 +24,16 @@ const initialState = {
 
 export const ColmeiaReducer = (state = initialState, action) => {
   const { payload, meta } = action;
+
+  function getFailedHivesByApiary(apiaryId) {
+    const failedHives = state.colmeias[apiaryId]
+      ? state.colmeias[apiaryId].filter(hive => {
+          return hive.permanentlyFailed && !hive.isSynced;
+        })
+      : [];
+
+    return failedHives;
+  }
 
   switch (action.type) {
     case DELETE_COLMEIA:
@@ -35,14 +50,16 @@ export const ColmeiaReducer = (state = initialState, action) => {
       };
 
     case GET_COLMEIA_BY_APIARIO:
-      const updatedApiarioColmeiasList = {
-        [payload.apiarioId]: payload.colmeias
+      const updatedHivesFromCurrentApiary = {
+        [payload.apiarioId]: [
+          ...payload.colmeias, ...getFailedHivesByApiary(payload.apiarioId)
+        ]
       };
 
       return {
         ...state,
         loading: false,
-        colmeias: Object.assign({}, state.colmeias, updatedApiarioColmeiasList)
+        colmeias: Object.assign({}, state.colmeias, updatedHivesFromCurrentApiary)
       };
 
     case UPDATE_COUNT_COLMEIAS_BY_APICULTOR:
@@ -60,74 +77,56 @@ export const ColmeiaReducer = (state = initialState, action) => {
       };
 
     case UPDATE_ALL_COLMEIAS:
+      let allFailedHives = [];
+
+      Object.entries(state.colmeias)[0].forEach(apiaryId =>
+        allFailedHives.push(...getFailedHivesByApiary(apiaryId))
+      );
+
+      const allHives = [...payload.allColmeias, ...allFailedHives];
+
       return {
         ...state,
-        colmeias: groupArrayItemsByEqualProperty(
-          payload.allColmeias, 'apiario_id'
-        )
+        colmeias: groupArrayItemsByEqualProperty(allHives, 'apiario_id')
       };
 
-    // case CREATE_COLMEIA:
-    //   const colmeiasListWithNewColmeia = {
-    //     [payload.apiarioId]: [
-    //       payload.colmeia,
-    //       ...state.colmeias[payload.apiarioId]
-    //     ]
-    //   };
-    // 
-    // return {
-    //   ...state,
-    //   loading: false,
-    //   countColmeias: state.countColmeias + 1,
-    //   colmeias: Object.assign({}, state.colmeias, colmeiasListWithNewColmeia)
-    // };
-
     case INITIATE_CREATE_COLMEIA:
-      const hivesListWithNewItem = state.colmeias[payload.apiaryId] 
-        ? {
-            [payload.apiaryId]: [ 
-              payload.newHiveData, ...state.colmeias[payload.apiaryId]
-            ]
-          }
-        : {
-            [payload.apiaryId]: [ payload.newHiveData ]
-          };
-      
+      const { newHiveData, apiaryId } = payload;
+
       return {
         ...state,
         loading: false,
         countColmeias: state.countColmeias + 1,
-        colmeias: Object.assign({}, state.colmeias, hivesListWithNewItem)
+        colmeias: updateObjectOnInitiateItemCreation(
+          newHiveData, apiaryId, state.colmeias
+        )
       };
 
     case CREATE_COLMEIA_COMMIT:
       if (meta.completed && meta.success && payload.data.colmeia.isSynced) {
-        // TODO: Criar função de ação padrão commit (em utils)
         const newHive = payload.data.colmeia;
         const apiaryId = newHive.apiario_id;
 
-        const updatedHives = state.colmeias[apiaryId].map(hive => {
-          if(hive.uuid === newHive.uuid) {
-            return Object.assign({}, hive, newHive);
-          }
-          return hive;
-        });
-
-        const updatedHivesListFromCurrentApiary = {
-          [apiaryId]: updatedHives
-        };
-
         return {
           ...state,
-          colmeias: Object.assign({}, state.colmeias, updatedHivesListFromCurrentApiary)
+          colmeias: updateObjectOnCreationCommit(newHive, apiaryId, state.colmeias),
         };
       }
       return state;
 
     case CREATE_COLMEIA_ROLLBACK:
-      return {
-        ...state,
-      };
+      if (meta.completed && !meta.success) {
+        const { hiveUuid, apiaryId } = meta;
+
+        return { 
+          ...state,
+          countColmeias: state.countColmeias - 1,
+          colmeias: updateObjectOnCreationRollback(
+            hiveUuid, apiaryId, state.colmeias
+          )
+        };
+      }
+      return state;
       
     default:
       return state;

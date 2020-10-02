@@ -62,8 +62,10 @@ export default class Hive extends React.Component {
           <View style = {styles.contentText}>
             { hive.isSynced ? ( // Colmeia SINCRONIZADA
                 <Text style={{ color: 'darkgreen', fontWeight: 'bold' }}>SINCRONIZADO</Text>
-              ) : hive.isSynced === false && (  // Colmeia AINDA NÃO SINCRONIZADA
-                <Text style={{ color: 'red', fontWeight: 'bold' }}>NÃO SINCRONIZADO</Text>
+              ) : hive.permanentlyFailed ? (  // Colmeia FALHOU PERMANENTEMENTE
+                <Text style={{ color: 'red', fontWeight: 'bold' }}>FALHOU PERMANENTEMENTE</Text>
+              ) : hive.isSynced === false && ( // Colmeia AINDA NÃO SINCRONIZADA
+                <Text style={{ color: 'darkorange', fontWeight: 'bold' }}>AINDA NÃO SINCRONIZADA</Text>
               )
             }
 

@@ -97,14 +97,16 @@ class NewVisitaColmeia extends Component {
     }
 
     colmeias.forEach(colmeia => {
-      color =
-        colmeiasVisitadas &&
-        colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id) >= 0
-          ? colors.btn_success
-          : "#FAFAFA";
-
-      colmeia &&
-        colmeiasAux.push(<ColmeiaItem colorIcon={color} colmeia={colmeia} />);
+      if (!colmeia.permanentlyFailed) {
+        color =
+          colmeiasVisitadas &&
+          colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id) >= 0
+            ? colors.btn_success
+            : "#FAFAFA";
+  
+        colmeia &&
+          colmeiasAux.push(<ColmeiaItem colorIcon={color} colmeia={colmeia} />);
+      }
     });
 
     this.setState({ colmeiasNaoVisitadas: colmeiasAux });
