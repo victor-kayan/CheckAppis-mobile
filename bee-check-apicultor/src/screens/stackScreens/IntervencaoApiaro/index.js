@@ -58,37 +58,37 @@ class IntervencaoApiario extends Component {
           typeIconRight="AntDesign"
         />
         <SpinnerCustom visible={loading} />
-      {!intervencoes || intervencoes == '' ? 
-        (
-          <View style = {styles.container}>
-            <Image
-                style = {styles.image}
-                source={require ('../../../../images/empty.png')}
-              />
-            <Text style = {styles.textNull}>Nenhuma intervenção para ser concluída no momento :)</Text>
-          </View>
-        ) : (
-          <View style = {styles.container}>
-            <Text style = {styles.text}>Aqui estão todas as intervenções dos seus apiários</Text>
-            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
-              {
-                intervencoes && intervencoes.map ((intervention, index) =>
-                  <Intervention 
-                    key = {index} 
-                    interId = {intervention.id} 
-                    intervention = {intervention}
-                    apiaryName = {intervention.apiario.nome}
-                    openInterventionApiary = {this.onDetalharIntervencao}
-                    datein = {intervention.criated_at} 
-                  />
-                )
-              }
-              <View style = {{height: 60}}/>
-            </ScrollView>
-          </View>
-        )
-      
-      }
+        {!intervencoes || intervencoes == '' ? 
+          (
+            <View style = {styles.container}>
+              <Image
+                  style = {styles.image}
+                  source={require ('../../../../images/empty.png')}
+                />
+              <Text style = {styles.textNull}>Nenhuma intervenção para ser concluída no momento :)</Text>
+            </View>
+          ) : (
+            <View style = {styles.container}>
+              <Text style = {styles.text}>Aqui estão todas as intervenções dos seus apiários</Text>
+              <ScrollView contentContainerStyle={{ width: '90%', paddingHorizontal: 20 }}>
+                {
+                  intervencoes && intervencoes.map ((intervention, index) =>
+                    <Intervention 
+                      key = {index} 
+                      interId = {intervention.id} 
+                      intervention = {intervention}
+                      apiaryName = {intervention.apiario.nome}
+                      openInterventionApiary = {this.onDetalharIntervencao}
+                      datein = {intervention.criated_at} 
+                    />
+                  )
+                }
+                <View style = {{height: 100}}/>
+              </ScrollView>
+            </View>
+          )
+        
+        }
       </Container>
     );
   }

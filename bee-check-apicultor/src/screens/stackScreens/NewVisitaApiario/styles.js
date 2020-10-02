@@ -1,17 +1,21 @@
 import { colors } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
   header: {
     marginBottom: 15
   },
+
   iconImagemSelectPicker: {
     width: 30,
     height: 30
   },
+
   pikerLisitApiario: {
     height: 40,
     width: "90%"
   },
+
   textSubTitle: {
     color: colors.theme_default,
     fontSize: 16,
@@ -20,9 +24,11 @@ export default {
     marginTop: 20,
     textAlign: "center",
   },
+
   buttonSalveVisita: {
     marginTop: 20
   },
+
   containerContentForm: {
     flex: 1,
     backgroundColor: 'white',
@@ -32,18 +38,20 @@ export default {
     borderTopRightRadius: 35, 
     width: '100%',
   },
+
   textForm: {
     fontFamily: 'Montserrat-Medium',
     fontSize: 14,
   },
+
   visitButton: {
     height: 50,
-    width: '77%',
+    margin: 30,
+    borderRadius: 30,
     marginTop: 20,
-    marginBottom: 30,
     alignSelf: 'center',
-    justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
+    justifyContent: 'center',
+    flexDirection: 'row'
   },
 };

@@ -1,31 +1,21 @@
 import React, { Component } from "react";
-import { Image, NetInfo } from "react-native";
-import 'react-native-get-random-values';
+import { NetInfo, ScrollView, StatusBar, TouchableHighlight, Alert } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { v4 as uuidv4 } from 'uuid';
-import { ActionSheetCustom as ActionSheet } from "react-native-actionsheet";
-import {
-  Container,
-  Content,
-  Card,
-  Icon,
-  CardItem,
-  Text,
-  View,
-  Button,
-  H3,
-  Toast
-} from "native-base";
-
 import { getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
 import { createVisita } from "../../../redux/actions/visitaActions";
+
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
+
+import { Container, Icon, CardItem, Text, View, Button, Toast } from "native-base";
+import { colors, routes } from "../../../../assets";
 import { SpinnerCustom } from "../../../componentes";
-import { colors, routes, images } from "../../../../assets";
+import { ActionSheetCustom as ActionSheet } from "react-native-actionsheet";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
-import HeaderVisita from "./HeaderVisita";
 import styles from "./styles";
 
 class NewVisitaColmeia extends Component {
@@ -79,7 +69,7 @@ class NewVisitaColmeia extends Component {
       colmeias.length &&
       colmeiasVisitadas.length !== colmeias.length
     ) {
-      colmeiasAux.push("Cancelar Seleção");
+      colmeiasAux.push(<Text style = {{fontFamily: 'Montserrat-Bold', color: colors.blackgrey, fontSize: 13}}>CANCELAR SELEÇÃO</Text>);
     } else if (colmeiasVisitadas.length === colmeias.length) {
       colmeiasAux.push(
         <Button
@@ -101,12 +91,12 @@ class NewVisitaColmeia extends Component {
         color =
           colmeiasVisitadas &&
           colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id) >= 0
-            ? colors.btn_success
+            ? colors.theme_second
             : "#FAFAFA";
-  
+
         colmeia &&
           colmeiasAux.push(<ColmeiaItem colorIcon={color} colmeia={colmeia} />);
-      }
+        }
     });
 
     this.setState({ colmeiasNaoVisitadas: colmeiasAux });
@@ -142,46 +132,76 @@ class NewVisitaColmeia extends Component {
     }
     
     Toast.show({
-      text: "Visita adicionada",
+      text: "Visita adicionada com sucesso.",
       buttonText: "",
-      type: "success"
+      type: "success",
+      style: {
+        backgroundColor: colors.theme_second,
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontFamily: 'Montserrat-Medium'
+      },
     });
 
     this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
   };
 
-  onFinishVisitaColmeia = values => {
-    const { colmeia, colmeiasVisitadas } = this.state;
-    let index = -1;
-    let visita = {
-      ...values,
-      colmeia_id: colmeia.id
-    };
-
-    index =
-      colmeiasVisitadas &&
-      colmeiasVisitadas.length &&
-      colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
-
-    if (index >= 0) {
-      this.setState({
-        colmeiasVisitadas: [
-          ...this.state.colmeiasVisitadas.slice(0, index),
-          Object.assign({}, this.state.colmeiasVisitadas[index], visita),
-          ...this.state.colmeiasVisitadas.slice(index + 1)
-        ],
-        colmeia: null
-      });
-    } else {
-      this.setState({
-        colmeiasVisitadas: [...colmeiasVisitadas, visita],
-        colmeia: null
-      });
-    }
-    
-    this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
-    this.onConcluirVisita();
+  
+  handleConcluirVisita = () => {
+    Alert.alert(
+      'Concluir Visita',
+      'Tem certeza que deseja concluir esta visita agora?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => {
+          this.onConcluirVisita();
+        }},
+      ],
+      {
+        cancelable: false
+      },
+    );
   };
+
+  // TODO: Corrigir bug ao concluir visita. Incluir colmeia que está sendo visitada nos dados da visita. 
+  // * Método onFinishVisitaColmeia não funciona.
+  // onFinishVisitaColmeia = values => {
+  //   const { colmeia, colmeiasVisitadas } = this.state;
+
+  //   let index = -1;
+  //   let visita = {
+  //     ...values,
+  //     colmeia_id: colmeia.id
+  //   };
+
+  //   index =
+  //     colmeiasVisitadas &&
+  //     colmeiasVisitadas.length &&
+  //     colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
+
+  //   if (index >= 0) {
+  //     this.setState({
+  //       colmeiasVisitadas: [
+  //         ...this.state.colmeiasVisitadas.slice(0, index),
+  //         Object.assign({}, this.state.colmeiasVisitadas[index], visita),
+  //         ...this.state.colmeiasVisitadas.slice(index + 1)
+  //       ],
+  //       colmeia: null
+  //     });
+  //   } else {
+  //     this.setState({
+  //       colmeiasVisitadas: [...colmeiasVisitadas, visita],
+  //       colmeia: null
+  //     });
+  //   }
+    
+  //   this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
+  //   this.onConcluirVisita();
+  // };
 
   onConcluirVisita = () => {
     const { colmeiasVisitadas } = this.state;
@@ -276,7 +296,6 @@ class NewVisitaColmeia extends Component {
 
   showActionSheet = () => {
     const { colmeiasNaoVisitadas } = this.state;
-
     colmeiasNaoVisitadas &&
       colmeiasNaoVisitadas.length > 0 &&
       this.ActionSheet.show();
@@ -288,51 +307,43 @@ class NewVisitaColmeia extends Component {
 
     return (
       <Container>
-        <HeaderVisita handleConcluirVisita={this.onConcluirVisita} />
-        <Content padder>
-          {/* <Root> */}
-          <SpinnerCustom visible={loading} />
-          <Card>
-            <CardItem>
-              <Button
-                style={{ width: "100%" }}
-                dark
-                transparent
-                onPress={this.showActionSheet}
-              >
-                <Image
-                  source={images.icons.colmeia}
-                  style={styles.iconImagemSelectPicker}
-                />
-                <H3
-                  style={{
-                    color: colors.black,
-                    fontSize: 16,
-                    marginLeft: 5
-                  }}
-                >
-                  Selecione uma Colmeia
-                </H3>
-                <Icon
-                  style={{
-                    alignSelf: "flex-end"
-                  }}
-                  type="Ionicons"
-                  name="md-arrow-dropdown"
-                />
-              </Button>
-              <ActionSheet
-                ref={o => (this.ActionSheet = o)}
-                title={"Selecione uma colmeia!"}
-                options={colmeiasNaoVisitadas}
-                cancelButtonIndex={0}
-                // destructiveButtonIndex={1}
-                onPress={index => {
-                  this.onChangeSelectColmeia(index);
-                }}
-              />
-            </CardItem>
-          </Card>
+
+        <StatusBar backgroundColor={colors.theme_default} />
+
+        <HeaderCustomStack
+          title = "Perguntas"
+          iconRight="check"
+          typeIconRight="AntDesign"
+          handleIconRight={this.handleConcluirVisita}
+        />
+
+        <SpinnerCustom visible={loading} />
+
+        <View style = {styles.containerContent}>
+
+        <View style = {styles.selectButton}>
+          <TouchableHighlight
+            activeOpacity={0.5}
+            underlayColor = {colors.grey}
+            onPress={this.showActionSheet}
+            style = {{borderRadius: 30, height: '100%', width: '100%'}}
+          >
+            <View style = {styles.viewTextIcon}>
+              <Text style={{ color: colors.theme_second, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1}}>SELECIONAR COLMEIA</Text>
+              <Icon type="AntDesign" name="downcircleo" style={styles.iconButton} iconSize={5} active/>
+            </View>
+          </TouchableHighlight>
+          <ActionSheet
+            ref={o => (this.ActionSheet = o)}
+            title={<Text style={{fontFamily: 'Montserrat-Bold', color: colors.theme_second, fontSize: 14}}>SELECIONAR COLMEIA</Text>}
+            options={colmeiasNaoVisitadas}
+            cancelButtonIndex={0}
+            // destructiveButtonIndex={1}
+            onPress={index => {
+              this.onChangeSelectColmeia(index);
+            }}
+          />
+        </View>
           {colmeia ? (
             <View>
               <CardItem>
@@ -341,79 +352,33 @@ class NewVisitaColmeia extends Component {
                   {this.state.colmeia && this.state.colmeia.nome}
                 </Text>
               </CardItem>
-              <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.onFinishVisitaColmeia} />
+              <ScrollView contentContainerStyle = {{paddingHorizontal: 10}}>
+                <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.handleConcluirVisita} />
+                <View style = {{height: 80}}/>
+              </ScrollView>
             </View>
           ) : !loading && !colmeia ? (
             <>
-              <CardItem
-                style={{
-                  marginTop: 20,
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}
-              >
-                <Text>Primeiro selecione uma Colmeia</Text>
-              </CardItem>
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Image
-                  style={{ marginTop: "15%" }}
-                  source={images.home.colmeia}
-                />
+              <View style = {styles.viewWarn}>
+                <Text style = {styles.textWarn}>{'Selecione uma colmeia para responder às questões referentes a ela :)'}</Text>
               </View>
             </>
           ) : (
             !loading &&
             !colmeiasDoApiarioAtual.length && (
               <>
-                <CardItem
-                  style={{
-                    marginTop: 20,
-                    flexDirection: "column",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text>Nenhuma colmeia cadastrada</Text>
-                </CardItem>
-                <View
-                  style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Icon
-                    onPress={() =>
-                      this.props.navigation.navigate(routes.NewColmeia, {
-                        apiario_id: this.props.navigation.getParam(
-                          "apiario_id",
-                          ""
-                        )
-                      })
-                    }
-                    style={{ color: colors.btn_success, marginLeft: 130 }}
-                    active
-                    type="AntDesign"
-                    name="pluscircle"
-                  />
-                  <Image source={images.home.colmeia} />
+                <View style = {styles.viewWarn}>
+                  <Text style = {styles.textWarn}>{'Nenhuma colmeia cadastrada :('}</Text>
                 </View>
               </>
             )
           )}
-          {/* </Root> */}
-        </Content>
+        </View>
       </Container>
     );
   }
 }
 
-// export default Visita;
 function mapStateToProps(state) {
   return {
     loading: state.colmeiaState.loading || state.visitaState.visitaIsLoading,

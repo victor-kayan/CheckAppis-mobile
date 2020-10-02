@@ -51,9 +51,7 @@ class InterventionHiveList extends Component {
   render() {
     const { apiaryId } = this.state;
     const { loading } = this.props;
-    const intervencoesByApiario = this.props.intervencoesByApiario[apiaryId] === undefined
-      ? []
-      : this.props.intervencoesByApiario[apiaryId] || [];
+    const intervencoesByApiario = this.props.intervencoesByApiario[apiaryId] === undefined ? [] : this.props.intervencoesByApiario[apiaryId] || [];
 
     return (
       <Container>
@@ -66,33 +64,33 @@ class InterventionHiveList extends Component {
         />
         <SpinnerCustom visible={loading} />
           
-            <View style = {styles.container}>
-            <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
-            <ScrollView contentContainerStyle={{ width: '90%', padding: 5 }}>
-                {!loading &&
-                  intervencoesByApiario &&
-                  intervencoesByApiario.length > 0
-                  ? intervencoesByApiario.map (hive =>
-                    <InterventionHIve 
-                        key = {hive.id} 
-                        hiveId = {hive.id} 
-                        name = {hive.colmeia.nome}
-                        interventionHive = {hive}
-                        date = {hive.created_at} 
-                        openInterventionHive = {this.onDetalharIntervencao}/>
-                    ) : (
-                      <View style = {styles.container}>
-                        <Image
-                          style = {styles.image}
-                          source={require ('../../../../images/empty.png')}
-                        />
-                        <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada :(`}</Text>
-                      </View>
-                    )
-                }
-                <View style = {{height: 60}}/>
-            </ScrollView>
-            </View>
+        <View style = {styles.container}>
+          <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
+          <ScrollView contentContainerStyle={{ width: '90%', paddingHorizontal: 20}}>
+            {!loading &&
+              intervencoesByApiario &&
+              intervencoesByApiario.length > 0
+              ? intervencoesByApiario.map (hive =>
+                <InterventionHIve 
+                    key = {hive.id} 
+                    hiveId = {hive.id} 
+                    name = {hive.colmeia.nome}
+                    interventionHive = {hive}
+                    date = {hive.created_at} 
+                    openInterventionHive = {this.onDetalharIntervencao}/>
+                ) : (
+                  <View style = {styles.container}>
+                    <Image
+                      style = {styles.image}
+                      source={require ('../../../../images/empty.png')}
+                    />
+                    <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada :(`}</Text>
+                  </View>
+                )
+            }
+            <View style = {{height: 100}}/>
+          </ScrollView>
+        </View>
 
       </Container>
     );

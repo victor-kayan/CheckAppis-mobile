@@ -66,7 +66,7 @@ class Colmeia extends Component {
           <Text style = {styles.description}>Selecione um apiário para ver suas colmeias</Text>
           <View style = {styles.contentApiary}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
-              <ScrollView contentContainerStyle={{ width: '90%'}}>
+              <ScrollView contentContainerStyle={{ width: '100%'}}>
                 { !apiarios || apiarios == '' ?
                   (
                     <View style = {styles.container}>

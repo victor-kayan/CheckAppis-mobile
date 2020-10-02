@@ -22,18 +22,19 @@ const ColmeiaItem = ({ colmeia, colorIcon }) => (
         justifyContent: "center"
       }}
     >
-      { typeof(colmeia.foto) === 'string'  // Colmeia já sincronizada. 'image' é o link da imagem no Amazon AWS.
+      { typeof(colmeia.foto) === 'string'  // Colmeia já sincronizada. 'colmeia.foto' é o link da imagem no Amazon AWS.
           ? (
-            <Thumbnail square small source={{uri: colmeia.foto}}/>
-          ) : colmeia.foto.data ? (  // Colmeia ainda não sincronizada e possui imagem. 'image.data' é a imagem em Base64.
-              <Thumbnail square small
-                source={{uri: `data:image/png;base64,${colmeia.foto.data}`}}
-              />
-            ) : ( // Colmeia ainda não cadastra e não possui imagem.
-                <Thumbnail square small source={images.fotoDefault}/>
-              )
+            <Thumbnail square small source={{uri: colmeia.foto}} style={{borderRadius: 6}}/>
+          ) : colmeia.foto.data ? (  // Colmeia ainda não sincronizada e possui imagem. 'colmeia.foto.datacolmeia.foto' é a imagem em Base64.
+            <Thumbnail square small
+              source={{uri: `data:image/png;base64,${colmeia.foto.data}`}}
+              style={{borderRadius: 6}}
+            />
+          ) : ( // Colmeia ainda não cadastra e não possui imagem.
+            <Thumbnail square small source={images.fotoDefault} style={{borderRadius: 6}}/>
+          )
       }
-      <Text style={{ paddingHorizontal: 15 }}>
+      <Text style={{ paddingHorizontal: 14, fontFamily: 'Montserrat Regular' }}>
         {colmeia.nome ? colmeia.nome : `Colmeia ${index}`}
       </Text>
     </View>
@@ -41,8 +42,8 @@ const ColmeiaItem = ({ colmeia, colorIcon }) => (
       style={{
         color: colorIcon
       }}
-      name="check-square-o"
-      type="FontAwesome"
+      name="checksquareo"
+      type="AntDesign"
     />
   </View>
 );

@@ -14,14 +14,19 @@ import { colors } from "../../../../assets";
 
 const HeaderVisita = ({ handleConcluirVisita }) => (
   <Header
-    style={{ backgroundColor: colors.theme_default }}
+    style={{ backgroundColor: colors.theme_second}}
     androidStatusBarColor={colors.colorAndroidBarraStatus}
   >
     <Left />
     <Body>
-      <Title style={{ color: colors.black }}>Visita</Title>
+      <Title style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 18 }}>Visitar Colmeias</Title>
     </Body>
-    <Right>
+  </Header>
+);
+
+export default HeaderVisita;
+
+{/* <Right>
       <Button
         rounded
         style={{ backgroundColor: colors.btn_success }}
@@ -32,8 +37,4 @@ const HeaderVisita = ({ handleConcluirVisita }) => (
         <Text>Concluir visita</Text>
         <Icon type="FontAwesome" name="save" />
       </Button>
-    </Right>
-  </Header>
-);
-
-export default HeaderVisita;
+    </Right> */}

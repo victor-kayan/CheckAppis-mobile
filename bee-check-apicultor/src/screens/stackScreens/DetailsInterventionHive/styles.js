@@ -1,4 +1,5 @@
 import { colors, constants } from "../../../../assets";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
   iconImagemSelectPicker: {
@@ -13,13 +14,13 @@ export default {
     width: "90%"
   },
   button: {
-    width: '95%',
+    width: '80%',
     height: 60,
     backgroundColor: colors.white,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 40,
     borderRadius: 15,
     borderWidth: 2,
     borderColor: colors.theme_second,
@@ -33,20 +34,19 @@ export default {
     marginRight: 20,
   },
   container: {
-    backgroundColor: colors.white,
-    alignItems: 'flex-start',
-    paddingHorizontal: 45,
+    flex: 1,
+    backgroundColor: 'white',
+    marginTop: -35,
+    alignItems: 'center',
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35, 
     width: '100%',
   },
   containerContent: {
-    position: "absolute",
-    height: '80%',
-    backgroundColor: colors.white,
-    marginTop: constants.SCREEN_HEIGHT/3.6,
-    alignItems: 'center',
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
+    justifyContent: 'center',
+    flex: 1,
     width: '100%',
+    height: '100%'
   },
   text: {
     color: colors.black,
@@ -63,7 +63,7 @@ export default {
     fontFamily: 'Montserrat-Bold',
   },
   viewInformations: {
-    width: '100%',
+    width: '80%',
     height: 70,
     backgroundColor: colors.white,
     flexDirection: 'row',
@@ -72,13 +72,17 @@ export default {
     borderBottomWidth: 1,
     borderBottomColor: colors.theme_second,
     marginBottom: 20,
+    marginTop: 20,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
   },
   cardInformation: {
-    width: '100%',
+    width: '80%',
     height: 70,
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
+    marginLeft: hp('6%')
   },
   icons: {
     fontSize: 30,

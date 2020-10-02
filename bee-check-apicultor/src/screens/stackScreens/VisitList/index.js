@@ -9,12 +9,7 @@ import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import LinearGradient from "react-native-linear-gradient";
 import { SpinnerCustom } from "../../../componentes";
 import { colors, routes } from "../../../../assets";
-import {
-  Icon,
-  Container,
-  Text,
-  View,
-} from "native-base";
+import { Icon, Container, Text, View } from "native-base";
 import Visit from "../../../componentes/Visit";
 import styles from "./styles";
 
@@ -31,20 +26,24 @@ class VisitList extends Component {
     this.fecthVisita(this.state.selectedApiary.id);
   };
 
+  // recarregar informações da tela
   handleRefresh = () => {
     this.fecthVisita(this.state.selectedApiary.id);
   };
 
+  // carregar visitas pelo apiário selecionado
   fecthVisita(id) {
     this.props.getVisitasByApiario({ id });
   };
 
+  // abrir tela para criar nova visita
   openNewVisit = () => {
     this.props.navigation.navigate(routes.NewVisitaApiario, {
       apiary: this.state.selectedApiary
     });
   };
 
+  // abrir tela de detalhes da visita
   openVisitDetails = visit => {
     this.props.navigation.navigate(routes.DetalhesVisita, {
       visit, apiary: this.state.selectedApiary
@@ -54,9 +53,7 @@ class VisitList extends Component {
   render() {
     const { selectedApiary } = this.state;
     const { loading } = this.props;
-    const visitas = selectedApiary !== null
-      ? this.props.visitas[selectedApiary.id] || []
-      : [];
+    const visitas = selectedApiary !== null ? this.props.visitas[selectedApiary.id] || [] : [];
 
     return (
       <Container>
@@ -69,55 +66,55 @@ class VisitList extends Component {
             typeIconRight="AntDesign"
           />
           <SpinnerCustom visible={loading} />
-        <View style = {styles.containerContentVisits}>
-          <Text style = {styles.title}>Aqui estão todas as visitas realizadas no apiário {this.state.selectedApiary.nome}</Text>
-          <View style = {styles.contentVisit}>
-            <ScrollView contentContainerStyle={{ width: '100%', padding: 10, }}>
-              { !visitas || visitas == '' ? 
-                (
-                  <>
-                    <Image
-                      style = {styles.image}
-                      source={require ('../../../../images/empty.png')}
-                    />
-                    <Text style = {styles.textNull}>{`Nenhuma visita foi encontrada. Recarregue a página ou realize uma visita :)`}</Text>
-                  </>
-                ) 
-                : (
-                  visitas.map (visit =>
-                    <Visit 
-                      key = {visit.id} 
-                      visitId = {visit.id} 
-                      date = {visit.created_at} 
-                      hives = {visit.visita_colmeias}
-                      hivesLength = {visit.visita_colmeias.length}  
-                      visit = {visit}
-                      sync = {visit.isSynced}
-                      fail = {visit.permanentlyFailed}
-                      openVisitList = {this.openVisitDetails}
-                    />
+          <View style = {styles.containerContentVisits}>
+            <Text style = {styles.title}>Aqui estão todas as visitas realizadas no apiário {this.state.selectedApiary.nome}</Text>
+            <View style = {styles.contentVisit}>
+              <ScrollView contentContainerStyle={{ width: '100%', padding: 10, }}>
+                { !visitas || visitas == '' ? 
+                  (
+                    <>
+                      <Image
+                        style = {styles.image}
+                        source={require ('../../../../images/empty.png')}
+                      />
+                      <Text style = {styles.textNull}>{`Nenhuma visita foi encontrada. Recarregue a página ou realize uma visita :)`}</Text>
+                    </>
+                  ) 
+                  : (
+                    visitas.map (visit =>
+                      <Visit 
+                        key = {visit.id} 
+                        visitId = {visit.id} 
+                        date = {visit.created_at} 
+                        hives = {visit.visita_colmeias}
+                        hivesLength = {visit.visita_colmeias.length}  
+                        visit = {visit}
+                        sync = {visit.isSynced}
+                        fail = {visit.permanentlyFailed}
+                        openVisitList = {this.openVisitDetails}
+                      />
+                    )
                   )
-                )
-              }
-              <View style = {{height: 120}}/>
-            </ScrollView>
+                }
+                <View style = {{height: 120}}/>
+              </ScrollView>
+            </View>
           </View>
-        </View>
-        <View style = {styles.addVisitButton}>
-          <TouchableHighlight
-            activeOpacity={0.5}
-            underlayColor="#ff8500"
-            onPress={this.openNewVisit}
-            style = {{borderRadius: 30}}
-          >
-            <LinearGradient
-              colors={[colors.theme_default, colors.theme_second]}
-              style={{ height: '100%', borderRadius: 30}}
+          <View style = {styles.addVisitButton}>
+            <TouchableHighlight
+              activeOpacity={0.5}
+              underlayColor="#ff8500"
+              onPress={this.openNewVisit}
+              style = {{borderRadius: 30}}
             >
-              <Icon type="FontAwesome5" name="plus" style={styles.plus} iconSize={5} active/>
-            </LinearGradient>
-          </TouchableHighlight>
-        </View>
+              <LinearGradient
+                colors={[colors.theme_default, colors.theme_second]}
+                style={{ height: '100%', borderRadius: 30}}
+              >
+                <Icon type="FontAwesome5" name="plus" style={styles.plus} iconSize={5} active/>
+              </LinearGradient>
+            </TouchableHighlight>
+          </View>
         
       </Container>
     );
@@ -142,11 +139,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(VisitList);
-
-//  { // Mostrar se a visita está sincronizada ou não
-//    visita.isSynced
-//      ? (<Text style={{ fontWeight: 'bold', color: '#9F0' }}>SINCRONIZADO</Text>) // visita.isSynced -> TRUE; visita.permanentlyFailed -> FALSE
-//      : visita.permanentlyFailed
-//        ? (<Text style={{ fontWeight: 'bold', color: '#F00' }}>FALHOU PERMANENTEMENTE</Text>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> TRUE 
-//        : (<Text style={{ fontWeight: 'bold', color: '#F60' }}>AINDA NÃO SINCRONIZADO</Text>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> FALSE
-//  }

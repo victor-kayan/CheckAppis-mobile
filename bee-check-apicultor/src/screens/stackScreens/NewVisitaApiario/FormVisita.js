@@ -3,8 +3,9 @@ import { View, CardItem, Left, Text, Right, Textarea, Body, Icon } from "native-
 import { InputSwitch, ButtonCustom } from "../../../componentes";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, TouchableHighlight } from "react-native";
 import { colors } from "../../../../assets";
+
 
 class FormVisita extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class FormVisita extends Component {
 
     return (
       <View>
+        
         <CardItem>
           <Left>
             <Text style = {styles.textForm}>Há água?</Text>
@@ -49,6 +51,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
             <Text style = {styles.textForm}>Está sombreado?</Text>
@@ -61,6 +64,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Left>
             <Text style = {styles.textForm}>Há comida?</Text>
@@ -73,6 +77,7 @@ class FormVisita extends Component {
             />
           </Right>
         </CardItem>
+
         <CardItem>
           <Textarea
             rowSpan={4}
@@ -83,17 +88,23 @@ class FormVisita extends Component {
             placeholder="Observações"
           />
         </CardItem>
-        <CardItem style={{ alignSelf: "center" }}>
-          <TouchableOpacity onPress={this.handleAddVisita} style = {styles.visitButton}>
+
+        <View style = {styles.visitButton}>
+          <TouchableHighlight
+            activeOpacity={0.5}
+            underlayColor="#ff8500"
+            onPress={() => this.handleAddVisita()}
+            style = {{borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
+          >
             <LinearGradient
               colors={[colors.theme_default, colors.theme_second]}
-              style={{ height: '100%', borderRadius: 10, alignItems: 'center', justifyContent: 'center'}}
+              style={{ height: '100%', borderRadius: 30}}
             >
-              <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, }}>VISITAR COLMEIAS</Text>
-              <Icon type="AntDesign" name="rightcircleo" style={{color: colors.white}} iconSize={5} active/>
+              <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 30, marginTop: 15}}>VISITAR COLMEIAS</Text>
             </LinearGradient>
-          </TouchableOpacity>
-        </CardItem>
+          </TouchableHighlight>
+        </View>
+
       </View>
     );
   }
