@@ -1,7 +1,7 @@
 import { colors } from "../../../assets";
 
 export default {
-apiary: {
+visit: {
   width: '90%',
   height: 90,
   backgroundColor: colors.white,
@@ -9,6 +9,7 @@ apiary: {
   justifyContent: 'center',
   alignItems: 'center',
   margin: 10,
+  marginHorizontal: 20,
   borderRadius: 15,
   borderWidth: 2,
   borderColor: colors.theme_second,

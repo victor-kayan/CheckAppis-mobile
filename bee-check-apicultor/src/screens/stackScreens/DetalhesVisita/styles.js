@@ -61,7 +61,7 @@ export default {
     alignItems: 'center',
     paddingVertical: 15,
     paddingHorizontal: 20,
-    margin: 10,
+    marginHorizontal: 30,
     marginVertical: 15,
     borderRadius: 15,
     borderWidth: 2,
@@ -70,7 +70,6 @@ export default {
   },
   cardInformationMore: {
     width: '85%',
-    height: 210,
     backgroundColor: colors.white,
     paddingVertical: 15,
     paddingHorizontal: 20,
@@ -139,6 +138,7 @@ export default {
     marginTop: 15,
     marginHorizontal: 20,
     padding: 8,
+    marginBottom: 10,
   },
   lineDataInformations: {
     flexDirection: 'row',
@@ -152,6 +152,12 @@ export default {
     fontSize: 13,
     color: colors.black,
     alignSelf: 'flex-start'
+  },
+  textLineDataInformationsObs: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 13,
+    color: colors.black,
+    alignSelf: 'flex-start',
   },
   infoLineDataInformations: {
     fontFamily: 'Montserrat-Regular',
@@ -178,7 +184,7 @@ export default {
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     width: '100%',
     height: '100%'
   },

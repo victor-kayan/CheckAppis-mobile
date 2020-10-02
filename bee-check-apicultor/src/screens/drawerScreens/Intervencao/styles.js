@@ -80,4 +80,10 @@ export default {
     justifyContent: 'center',
     paddingLeft: 25,
   },
+  apiaryIcon: {
+    height: '100%',
+    width: '100%',
+    borderRadius: 15,
+    resizeMode: 'cover',  
+  },
 };

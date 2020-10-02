@@ -2,13 +2,14 @@ import { colors } from "../../../assets";
 
 export default {
 hive: {
-  width: '97%',
+  width: '90%',
   height: 100,
   backgroundColor: colors.white,
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
   margin: 10,
+  marginHorizontal: 20,
   borderRadius: 15,
   alignSelf: 'center',
 },
@@ -16,8 +17,9 @@ swiperBackContent: {
   flexDirection: 'row',
   alignItems: 'center',
   flex: 1,
-  justifyContent: 'space-between',
   margin: 10,
+  marginHorizontal: 21,
+  justifyContent: 'space-between',
   borderRadius: 15,
 },
 contentText: {

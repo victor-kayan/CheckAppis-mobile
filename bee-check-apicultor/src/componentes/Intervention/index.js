@@ -12,7 +12,7 @@ export default class Intervention extends React.Component {
         return (
           <View style = {styles.intervention}>
             <View>
-                <Text style = {styles.apiaryName}>{this.props.apiaryName}</Text>
+                <Text style = {styles.apiaryName} numberOfLines = {1}>{this.props.apiaryName}</Text>
                 <Text style = {styles.date}>{`${moment(this.props.datein).format("DD")} de`} {`${moment(this.props.datein).format("MMMM")} de`} {`${moment(this.props.datein).format("YYYY")}`}</Text>
             </View>
             

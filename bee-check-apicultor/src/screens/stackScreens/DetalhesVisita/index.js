@@ -130,7 +130,7 @@ class DetalhesVisita extends React.Component {
 
           {/* informações gerais sobre a visita realizada */}
           <View style = {styles.contentDetails}>
-            <ScrollView contentContainerStyle = {{ width: '100%', padding: 10}}>
+            <ScrollView contentContainerStyle = {{ width: '100%'}}>
               <View style = {styles.cardInformation}>
                 <View style = {styles.lineCardInformation}>
                   <View style = {styles.lineHeader}>
@@ -277,9 +277,9 @@ class DetalhesVisita extends React.Component {
                     {
                       visita.observacao == null ? 
                       (
-                        <Text style = {styles.textLineDataInformations}>Nenhuma observação importante foi feita.</Text>
+                        <Text style = {styles.textLineDataInformations}>Nenhuma observação importante foi feita durante a visita.</Text>
                       ) : (
-                        <Text style = {styles.textLineDataInformations}>{visita.observacao}</Text>
+                        <Text style = {styles.textLineDataInformations}>{visita.observacao + `                                                            `}</Text>
                       )
                     }
                   </View>

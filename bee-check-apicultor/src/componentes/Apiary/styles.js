@@ -9,6 +9,7 @@ apiary: {
   justifyContent: 'center',
   alignItems: 'center',
   margin: 10,
+  marginHorizontal: 20,
   borderRadius: 15,
   alignSelf: 'center',
 },

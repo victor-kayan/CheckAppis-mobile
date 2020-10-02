@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image } from "native-base";
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import styles from "./styles";
 import "moment/locale/pt-br";
+import { images } from '../../../assets';
 
 
 export default class HiveDetails extends React.Component {
@@ -11,10 +11,11 @@ export default class HiveDetails extends React.Component {
           <View style = {styles.hiveDetails}>
             <View style = {styles.header}>
               <View style = {styles.viewImage}>
+                <Image source = {this.props.image ? {uri: this.props.image} : images.fotoDefault} style = {styles.image}/>
               </View>
               <View style = {styles.viewName}>
-                <Text style = {styles.hiveName}>{this.props.name}</Text>
-                <Text style = {styles.hiveDescription}>{this.props.description}</Text>
+                <Text style = {styles.hiveName} numberOfLines = {1}>{this.props.name}</Text>
+                <Text style = {styles.hiveDescription} numberOfLines = {2}>{this.props.description}</Text>
               </View>
             </View>
             <View style = {styles.body}>

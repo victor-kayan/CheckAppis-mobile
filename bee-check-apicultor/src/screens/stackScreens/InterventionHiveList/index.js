@@ -72,12 +72,13 @@ class InterventionHiveList extends Component {
               intervencoesByApiario.length > 0
               ? intervencoesByApiario.map (hive =>
                 <InterventionHIve 
-                    key = {hive.id} 
-                    hiveId = {hive.id} 
-                    name = {hive.colmeia.nome}
-                    interventionHive = {hive}
-                    date = {hive.created_at} 
-                    openInterventionHive = {this.onDetalharIntervencao}/>
+                  key = {hive.id} 
+                  hiveId = {hive.id} 
+                  name = {hive.colmeia.nome}
+                  interventionHive = {hive}
+                  dateCreate = {hive.created_at}
+                  hive = {hive} 
+                  openInterventionHive = {this.onDetalharIntervencao}/>
                 ) : (
                   <View style = {styles.container}>
                     <Image

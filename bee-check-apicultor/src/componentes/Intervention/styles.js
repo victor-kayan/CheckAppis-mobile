@@ -3,7 +3,7 @@ import { colors } from "../../../assets";
 export default {
     intervention: {
         width: '95%',
-        height: 100,
+        height: 90,
         backgroundColor: colors.white,
         flexDirection: 'row',
         justifyContent: 'space-between',

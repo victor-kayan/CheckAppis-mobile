@@ -40,7 +40,7 @@ class Intervencao extends Component {
           <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.IntervencaoApiario)}>  
             <View style = {styles.option}>
               <View style = {styles.contentIcon}>
-                <Icon type="EvilIcons" name="archive" style={styles.apiary} iconSize={5} active/>
+                <Icon type="EvilIcons" name="image" style={styles.apiary} iconSize={5} active/>
               </View>
               <View style = {styles.contentText}>
                 <Text style = {styles.name}>Nos apiários</Text>

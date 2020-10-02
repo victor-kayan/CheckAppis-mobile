@@ -70,7 +70,7 @@ class IntervencaoApiario extends Component {
           ) : (
             <View style = {styles.container}>
               <Text style = {styles.text}>Aqui estão todas as intervenções dos seus apiários</Text>
-              <ScrollView contentContainerStyle={{ width: '90%', paddingHorizontal: 20 }}>
+              <ScrollView contentContainerStyle={{width: '90%', paddingHorizontal: 20}}>
                 {
                   intervencoes && intervencoes.map ((intervention, index) =>
                     <Intervention 

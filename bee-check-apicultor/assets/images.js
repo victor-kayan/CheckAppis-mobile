@@ -7,6 +7,7 @@ export default images = {
     clock_success: require("../images/icons/clock-success.png"),
     clock_danger: require("../images/icons/clock-danger.png"),
     checkappis: require("../images/sider/checkappis.png"),
+    apiaryIcon: require ("../images/apiaryIcon.jpg")
   },
 
   gif: {

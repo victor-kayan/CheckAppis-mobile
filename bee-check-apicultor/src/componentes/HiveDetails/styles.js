@@ -10,6 +10,7 @@ export default {
     borderColor: colors.theme_second,
     alignSelf: 'center',
     padding: 20,
+    marginHorizontal: 35,
   },
 
   header: {
@@ -21,8 +22,16 @@ export default {
     height: 70,
     width: 70,
     borderRadius: 15,
-    backgroundColor: colors.grey,
     marginRight: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  image: {
+    height: '100%',
+    width: '100%',
+    borderRadius: 15,
+    resizeMode: 'cover',
   },
 
   viewName: {
