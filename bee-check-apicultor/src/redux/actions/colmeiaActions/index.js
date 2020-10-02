@@ -24,9 +24,9 @@ export const createColmeia = data => {
       meta: {
         offline: {
           effect: {
-            // method: 'POST',
-            // url: URLS.CREATE_VISITA_URL,
-            // data
+            method: 'POST',
+            url: URLS.CREATE_COLMEIA_URL,
+            data
           },
           commit: { 
             type: CREATE_COLMEIA_COMMIT,

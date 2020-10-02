@@ -86,8 +86,7 @@ export const ColmeiaReducer = (state = initialState, action) => {
       const hivesListWithNewItem = state.colmeias[payload.apiaryId] 
         ? {
             [payload.apiaryId]: [ 
-              payload.newHiveData,
-              ...state.colmeias[payload.apiaryId]
+              payload.newHiveData, ...state.colmeias[payload.apiaryId]
             ]
           }
         : {
@@ -102,9 +101,28 @@ export const ColmeiaReducer = (state = initialState, action) => {
       };
 
     case CREATE_COLMEIA_COMMIT:
-      return {
-        ...state,
-      };
+      if (meta.completed && meta.success && payload.data.colmeia.isSynced) {
+        // TODO: Criar função de ação padrão commit (em utils)
+        const newHive = payload.data.colmeia;
+        const apiaryId = newHive.apiario_id;
+
+        const updatedHives = state.colmeias[apiaryId].map(hive => {
+          if(hive.uuid === newHive.uuid) {
+            return Object.assign({}, hive, newHive);
+          }
+          return hive;
+        });
+
+        const updatedHivesListFromCurrentApiary = {
+          [apiaryId]: updatedHives
+        };
+
+        return {
+          ...state,
+          colmeias: Object.assign({}, state.colmeias, updatedHivesListFromCurrentApiary)
+        };
+      }
+      return state;
 
     case CREATE_COLMEIA_ROLLBACK:
       return {
