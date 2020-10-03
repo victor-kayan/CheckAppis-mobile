@@ -1,35 +1,22 @@
 import React, { Component } from "react";
-import { Image, NetInfo, ScrollView, StatusBar, TouchableHighlight, Alert } from "react-native";
-import 'react-native-get-random-values';
+import { NetInfo, ScrollView, StatusBar, TouchableHighlight, Alert } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { v4 as uuidv4 } from 'uuid';
-import { ActionSheetCustom as ActionSheet } from "react-native-actionsheet";
-import {
-  Container,
-  Content,
-  Card,
-  Icon,
-  CardItem,
-  Text,
-  View,
-  Button,
-  H3,
-  Toast
-} from "native-base";
-
 import { getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
 import { createVisita } from "../../../redux/actions/visitaActions";
+
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
+
+import { Container, Icon, CardItem, Text, View, Button, Toast } from "native-base";
+import { colors, routes } from "../../../../assets";
 import { SpinnerCustom } from "../../../componentes";
-import { colors, routes, images } from "../../../../assets";
+import { ActionSheetCustom as ActionSheet } from "react-native-actionsheet";
+import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
-import HeaderVisita from "./HeaderVisita";
 import styles from "./styles";
-import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
-
-import tron from '../../../config/ReactotronConfig'
 
 class NewVisitaColmeia extends Component {
   constructor(props) {
@@ -100,14 +87,16 @@ class NewVisitaColmeia extends Component {
     }
 
     colmeias.forEach(colmeia => {
-      color =
-        colmeiasVisitadas &&
-        colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id) >= 0
-          ? colors.theme_second
-          : "#FAFAFA";
+      if (!colmeia.permanentlyFailed) {
+        color =
+          colmeiasVisitadas &&
+          colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id) >= 0
+            ? colors.theme_second
+            : "#FAFAFA";
 
-      colmeia &&
-        colmeiasAux.push(<ColmeiaItem colorIcon={color} colmeia={colmeia} />);
+        colmeia &&
+          colmeiasAux.push(<ColmeiaItem colorIcon={color} colmeia={colmeia} />);
+        }
     });
 
     this.setState({ colmeiasNaoVisitadas: colmeiasAux });
@@ -178,39 +167,41 @@ class NewVisitaColmeia extends Component {
     );
   };
 
-  onFinishVisitaColmeia = values => {
-    const { colmeia, colmeiasVisitadas } = this.state;
+  // TODO: Corrigir bug ao concluir visita. Incluir colmeia que está sendo visitada nos dados da visita. 
+  // * Método onFinishVisitaColmeia não funciona.
+  // onFinishVisitaColmeia = values => {
+  //   const { colmeia, colmeiasVisitadas } = this.state;
 
-    let index = -1;
-    let visita = {
-      ...values,
-      colmeia_id: colmeia.id
-    };
+  //   let index = -1;
+  //   let visita = {
+  //     ...values,
+  //     colmeia_id: colmeia.id
+  //   };
 
-    index =
-      colmeiasVisitadas &&
-      colmeiasVisitadas.length &&
-      colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
+  //   index =
+  //     colmeiasVisitadas &&
+  //     colmeiasVisitadas.length &&
+  //     colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
 
-    if (index >= 0) {
-      this.setState({
-        colmeiasVisitadas: [
-          ...this.state.colmeiasVisitadas.slice(0, index),
-          Object.assign({}, this.state.colmeiasVisitadas[index], visita),
-          ...this.state.colmeiasVisitadas.slice(index + 1)
-        ],
-        colmeia: null
-      });
-    } else {
-      this.setState({
-        colmeiasVisitadas: [...colmeiasVisitadas, visita],
-        colmeia: null
-      });
-    }
+  //   if (index >= 0) {
+  //     this.setState({
+  //       colmeiasVisitadas: [
+  //         ...this.state.colmeiasVisitadas.slice(0, index),
+  //         Object.assign({}, this.state.colmeiasVisitadas[index], visita),
+  //         ...this.state.colmeiasVisitadas.slice(index + 1)
+  //       ],
+  //       colmeia: null
+  //     });
+  //   } else {
+  //     this.setState({
+  //       colmeiasVisitadas: [...colmeiasVisitadas, visita],
+  //       colmeia: null
+  //     });
+  //   }
     
-    this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
-    this.onConcluirVisita();
-  };
+  //   this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
+  //   this.onConcluirVisita();
+  // };
 
   onConcluirVisita = () => {
     const { colmeiasVisitadas } = this.state;
@@ -235,8 +226,6 @@ class NewVisitaColmeia extends Component {
       type: "success"
     });
   };
-
-
 
   /**
   * Função para calcular e adicionar novas propriedades (metadados) ao objeto da visita
@@ -364,14 +353,14 @@ class NewVisitaColmeia extends Component {
                 </Text>
               </CardItem>
               <ScrollView contentContainerStyle = {{paddingHorizontal: 10}}>
-                <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.onFinishVisitaColmeia} />
+                <FormVisita handleAddVisitaColmeia={this.onAddVisitaColmeia} handleFinishVisitaColmeia={this.handleConcluirVisita} />
                 <View style = {{height: 80}}/>
               </ScrollView>
             </View>
           ) : !loading && !colmeia ? (
             <>
               <View style = {styles.viewWarn}>
-                <Text style = {styles.textWarn}>Selecione uma colmeia para responder às questões referentes a ela :)</Text>
+                <Text style = {styles.textWarn}>{'Selecione uma colmeia para responder às questões referentes a ela :)'}</Text>
               </View>
             </>
           ) : (
@@ -379,19 +368,17 @@ class NewVisitaColmeia extends Component {
             !colmeiasDoApiarioAtual.length && (
               <>
                 <View style = {styles.viewWarn}>
-                  <Text style = {styles.textWarn}>Nenhuma colmeia cadastrada :(</Text>
+                  <Text style = {styles.textWarn}>{'Nenhuma colmeia cadastrada :('}</Text>
                 </View>
               </>
             )
           )}
-          {/* </Root> */}
         </View>
       </Container>
     );
   }
 }
 
-// export default Visita;
 function mapStateToProps(state) {
   return {
     loading: state.colmeiaState.loading || state.visitaState.visitaIsLoading,
@@ -414,61 +401,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewVisitaColmeia);
-
-{/* <CardItem>
-              <Button
-                style={{ width: "100%" }}
-                dark
-                transparent
-                onPress={this.showActionSheet}
-              >
-                <Image
-                  source={images.icons.colmeia}
-                  style={styles.iconImagemSelectPicker}
-                />
-                <H3
-                  style={{
-                    color: colors.black,
-                    fontSize: 16,
-                    marginLeft: 5
-                  }}
-                >
-                  Selecione uma Colmeia
-                </H3>
-                <Icon
-                  style={{
-                    alignSelf: "flex-end"
-                  }}
-                  type="Ionicons"
-                  name="md-arrow-dropdown"
-                />
-              </Button>
-              
-            </CardItem> */}
-
-            /* onConcluirVisita = () => {
-              Alert.alert(
-                'Concluir Visita',
-                'Tem certeza que deseja concluir esta visita agora?',
-                [
-                  {
-                    text: 'Cancelar',
-                    style: 'cancel',
-                  },
-                  {text: 'OK', onPress: () => {
-                    const { colmeiasVisitadas } = this.state;
-                    this.setState({ done: true});
-                    data = {
-                      visitas_colmeias: colmeiasVisitadas,
-                      visita_apiario: this.props.navigation.getParam("visita_apiario", ""),
-                      apiario_id: this.props.navigation.getParam("apiario_id", "")
-                    };
-                    const serializedData = this.serializeVisitData(data);
-                    this.props.createVisita(serializedData);
-                    this.props.navigation.navigate(routes.VisitasHome);
-                  }},
-                ],
-                {cancelable: false},
-              );
-              // TODO: Navegar para a tela de listagem de visitas do apiário que acabou de ser visitado
-            }; */

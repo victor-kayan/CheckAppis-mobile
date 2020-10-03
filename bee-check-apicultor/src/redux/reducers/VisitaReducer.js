@@ -1,5 +1,11 @@
 import * as VisitaTypes from "../actions/visitaActions/actionsTypes";
-import { getKeyByValue, groupArrayItemsByEqualProperty } from "../../../utils";
+import { 
+  getKeyByValue, 
+  groupArrayItemsByEqualProperty,
+  updateObjectOnInitiateItemCreation,
+  updateObjectOnCreationCommit,
+  updateObjectOnCreationRollback
+} from "../../../utils";
 
 const initialState = {
   visitas: {}, // Objeto com arrays de visitas por apiários
@@ -57,53 +63,36 @@ export const VisitaReducer = (state = initialState, action) => {
       };
 
     case VisitaTypes.INITIATE_CREATE_VISITA:
-      const newVisitasListFromCurrentApiario = {
-        [payload.apiarioId]: [payload.newVisitaData, ...state.visitas[payload.apiarioId]]
-      };
+      const { newVisitaData, apiaryId } = payload;
 
       return {
         ...state,
-        visitas: Object.assign({}, state.visitas, newVisitasListFromCurrentApiario)
+        visitas: updateObjectOnInitiateItemCreation(
+          newVisitaData, apiaryId, state.visitas
+        )
       };
 
     case VisitaTypes.CREATE_VISITA_COMMIT:
-      if (meta.completed && meta.success && payload.visita.isSynced) {
-        const apiarioId = payload.visita.apiario_id;
-
-        const updatedVisitas = state.visitas[apiarioId].map(visita => {
-          if(visita.uuid === payload.visita.uuid) {
-            return Object.assign({}, visita, payload.visita);
-          }
-          return visita;
-        });
-
-        const updatedVisitasListFromCurrentApiario = {
-          [apiarioId]: updatedVisitas
-        };
+      if (meta.completed && meta.success && payload.data.visita.isSynced) {
+        const newVisit = payload.data.visita;
+        const apiaryId = newVisit.apiario_id;
 
         return {
           ...state,
-          visitas: Object.assign({}, state.visitas, updatedVisitasListFromCurrentApiario)
+          visitas: updateObjectOnCreationCommit(newVisit, apiaryId, state.visitas),
         };
       }
       return state;
 
     case VisitaTypes.CREATE_VISITA_ROLLBACK:
       if (meta.completed && !meta.success) {
-        const updatedVisitas = state.visitas[meta.apiarioId].map(visita => {
-          if(visita.uuid === meta.visitUuid) {
-            return Object.assign({}, visita, { permanentlyFailed: true })
-          }
-          return visita;
-        });
-
-        const updatedVisitasListFromCurrentApiario = {
-          [apiarioId]: updatedVisitas
-        };
+        const { visitUuid, apiaryId } = meta;
 
         return { 
           ...state,
-          visitas: Object.assign({}, state.visitas, updatedVisitasListFromCurrentApiario)
+          visitas: updateObjectOnCreationRollback(
+            visitUuid, apiaryId, state.visitas
+          )
         };
       }
       return state;

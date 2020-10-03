@@ -35,7 +35,7 @@ import { SideBar } from "./src/componentes";
 import { Root } from "native-base";
 
 if (__DEV__) {
-  import('./src/config/ReactotronConfig');
+  import('./src/config/reactotronConfig');
 }
 
 export default class App extends React.Component {

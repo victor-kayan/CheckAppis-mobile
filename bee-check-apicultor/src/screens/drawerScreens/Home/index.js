@@ -50,6 +50,7 @@ class Home extends Component {
       .then(response => {
         const { data } = response;
 
+        // TODO: Fazer um object.assign com todos os dados para evitar perda de dados (não sincronizados) no redux.
         this.props.updateAllApiariosByApicultor(data.apiarios, data.apiarios_count);
         this.props.updateAllColmeiasByApicultor(data.colmeias, data.colmeias_count);
         this.props.updateAllIntervencoesByApicultor(

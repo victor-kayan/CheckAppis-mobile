@@ -13,8 +13,6 @@ import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import Hive from "../../../componentes/Hive";
 import styles from "./styles";
 
-import tron from '../../../config/ReactotronConfig'
-
 class HiveList extends Component {
   constructor(props) {
     super(props);
