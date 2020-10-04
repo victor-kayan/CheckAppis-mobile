@@ -54,7 +54,7 @@ class Visita extends Component {
           <Text style = {styles.description}>Selecione um apiário para ver o histórico de visitas correspondente a ele</Text>
           <View style = {styles.contentVisits}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
-              <ScrollView contentContainerStyle={{ width: '100%'}}>
+              <ScrollView contentContainerStyle={{ width: '100%'}} showsVerticalScrollIndicator = {false}>
                 {
                   apiarios.map(apiary =>
                     <Apiary 

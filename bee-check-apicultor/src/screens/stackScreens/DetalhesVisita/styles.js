@@ -198,7 +198,7 @@ export default {
     shadowOpacity: 0.1,
     shadowOffset: { x: 0, y: 0 },
     shadowRadius: 15,
-    marginTop: hp('86.5%'),
+    bottom: 10,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',

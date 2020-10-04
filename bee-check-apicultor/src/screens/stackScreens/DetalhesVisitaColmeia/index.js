@@ -19,7 +19,7 @@ class DetalhesVisitaColmeia extends React.Component {
         <View style = {styles.container}>
           <Text style = {styles.title}>Detalhamento por colmeia</Text>
           <View style = {styles.contentHiveDetails}>
-            <ScrollView contentContainerStyle = {{width: '100%'}}>
+            <ScrollView contentContainerStyle = {{width: '100%'}} showsVerticalScrollIndicator = {false}>
               {
                 visita_colmeias && visita_colmeias.map (visitHive => {
                   return (

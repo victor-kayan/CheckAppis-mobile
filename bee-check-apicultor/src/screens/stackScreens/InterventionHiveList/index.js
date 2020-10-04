@@ -66,7 +66,7 @@ class InterventionHiveList extends Component {
           
         <View style = {styles.container}>
           <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
-          <ScrollView contentContainerStyle={{ width: '90%', paddingHorizontal: 20}}>
+          <ScrollView contentContainerStyle={{ width: '90%', paddingHorizontal: 20}} showsVerticalScrollIndicator = {false}>
             {!loading &&
               intervencoesByApiario &&
               intervencoesByApiario.length > 0

@@ -10,7 +10,6 @@ export default {
     borderColor: colors.theme_second,
     alignSelf: 'center',
     padding: 20,
-    marginHorizontal: 35,
   },
 
   header: {

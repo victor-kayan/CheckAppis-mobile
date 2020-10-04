@@ -69,7 +69,7 @@ class VisitList extends Component {
           <View style = {styles.containerContentVisits}>
             <Text style = {styles.title}>Aqui estão todas as visitas realizadas no apiário {this.state.selectedApiary.nome}</Text>
             <View style = {styles.contentVisit}>
-              <ScrollView contentContainerStyle={{ width: '100%', padding: 10, }}>
+              <ScrollView contentContainerStyle={{ width: '100%', padding: 10, }} showsVerticalScrollIndicator = {false}>
                 { !visitas || visitas == '' ? 
                   (
                     <>

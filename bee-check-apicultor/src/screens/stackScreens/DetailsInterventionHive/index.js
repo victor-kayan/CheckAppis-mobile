@@ -47,7 +47,7 @@ class DetailsInterventionHive extends Component {
           </View>
 
           <View style = {styles.containerContent}>
-            <ScrollView contentContainerStyle={{width: '100%'}}>
+            <ScrollView contentContainerStyle={{width: '100%'}} showsVerticalScrollIndicator = {false}>
 
               <View style = {styles.cardInformation}>
                 <Icon type="AntDesign" name="calendar" style={styles.icons}/>

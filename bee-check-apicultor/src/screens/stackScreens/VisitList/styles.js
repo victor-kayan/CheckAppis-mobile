@@ -190,8 +190,8 @@ addVisitButton: {
   shadowOpacity: 0.1,
   shadowOffset: { x: 0, y: 0 },
   shadowRadius: 15,
-  marginTop: hp('85.5%'),
-  marginLeft: wp('78%'),
+  bottom: 10,
+  right: 10,
 },
 plus: {
   color: colors.white,

@@ -2,14 +2,13 @@ import { colors } from "../../../assets";
 
 export default {
 hive: {
-  width: '90%',
+  width: '93%',
   height: 100,
   backgroundColor: colors.white,
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
   margin: 10,
-  marginHorizontal: 20,
   borderRadius: 15,
   alignSelf: 'center',
 },

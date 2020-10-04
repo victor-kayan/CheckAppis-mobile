@@ -2,15 +2,13 @@ import { colors } from "../../../assets";
 
 export default {
     intervention: {
-        width: '95%',
+        width: '100%',
         height: 90,
         backgroundColor: colors.white,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginHorizontal: 20,
-        marginBottom: 10,
-        marginTop: 5,
+        marginVertical: 5,
         alignSelf: 'center',
         borderBottomWidth: 1,
         borderBottomColor: colors.theme_second,

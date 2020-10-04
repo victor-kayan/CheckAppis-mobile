@@ -105,7 +105,7 @@ class HiveList extends Component {
           <Text style = {styles.title}>Aqui estão todas as colmeias do apiário {this.state.selectedApiary.nome}</Text>
           <View style = {styles.contentHive}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
-            <ScrollView contentContainerStyle={{ width: '100%'}}>
+            <ScrollView contentContainerStyle={{ width: '100%'}} showsVerticalScrollIndicator = {false}>
               { !colmeias || colmeias == '' ?
                 (
                   <>

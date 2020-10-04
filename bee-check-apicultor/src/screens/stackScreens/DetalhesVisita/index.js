@@ -130,7 +130,7 @@ class DetalhesVisita extends React.Component {
 
           {/* informações gerais sobre a visita realizada */}
           <View style = {styles.contentDetails}>
-            <ScrollView contentContainerStyle = {{ width: '100%'}}>
+            <ScrollView contentContainerStyle = {{ width: '100%'}} showsVerticalScrollIndicator = {false}>
               <View style = {styles.cardInformation}>
                 <View style = {styles.lineCardInformation}>
                   <View style = {styles.lineHeader}>
