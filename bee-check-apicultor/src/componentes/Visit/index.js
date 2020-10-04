@@ -13,7 +13,11 @@ export default class Visit extends React.Component {
             <View style = {styles.visit}>
                 <View style = {styles.contentText}>
                   <Text style = {styles.apiaryName}>{`${moment(this.props.date).format("DD")} de `} {`${moment(this.props.date).format("MMMM")} de `} {`${moment(this.props.date).format("YYYY")}`}</Text>
-                  <Text style = {styles.apiaryDescription}>Colmeias visitadas: {this.props.hives && this.props.hivesLength}</Text>
+                  {
+                    this.props.hives && this.props.hivesLength == 0 
+                    ? (<Text style = {styles.apiaryDescription}>Visita geral ao apiário</Text>)
+                    : (<Text style = {styles.apiaryDescription}>Colmeia(s) visitada(s): {this.props.hives && this.props.hivesLength}</Text>)
+                  }
                 </View>
                 <View style = {styles.contentArrow}>
                   {

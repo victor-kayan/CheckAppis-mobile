@@ -38,6 +38,11 @@ arrow: {
   fontSize: 30,
   color: colors.blackgrey,
 },
+statusIcon: {
+  fontSize: 20,
+  color: colors.blackgrey,
+  marginLeft: 10,
+},
 hiveName: {
   fontSize: 13,
   fontFamily: 'Montserrat-Bold',

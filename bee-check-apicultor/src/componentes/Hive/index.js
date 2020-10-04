@@ -11,7 +11,47 @@ export default class Hive extends React.Component {
     const { hive, image } = this.props;
 
     return (
-      <SwipeRow
+
+        <TouchableOpacity onPress = {() => this.props.openHiveDetails(this.props.hive, this.props.apiary)}>
+          <View style = {styles.hive}>
+            <View style = {styles.hiveImage}>
+              { typeof(image) === 'string' ? (  // Colmeia já sincronizada. 'image' é o link da imagem no Amazon AWS.
+                  <Image source = {{uri: image}} style = {styles.image}/>
+                ) : image.data ? (  // Colmeia ainda não sincronizada e possui imagem. 'image.data' é a imagem em Base64.
+                  <Image
+                    source = {{uri: `data:image/png;base64,${image.data}`}}
+                    style = {styles.image}
+                  />
+                ) : ( // Colmeia ainda não cadastra e não possui imagem.
+                  <Image source = {images.fotoDefault} style = {styles.image}/>
+                )
+              }
+            </View>
+            <View style = {styles.contentText}>
+              <View style = {{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
+                <Text style = {styles.hiveName} numberOfLines = {1}>{this.props.name}</Text>
+                { hive.isSynced ? ( // Colmeia SINCRONIZADA
+                    <Icon type="AntDesign" name="checkcircleo" style={styles.statusIcon} iconSize={5} active/>
+                  ) : hive.permanentlyFailed ? (  // Criação da colmeia FALHOU PERMANENTEMENTE
+                    <Icon type="AntDesign" name="closecircleo" style={styles.statusIcon} iconSize={5} active/>
+                  ) : hive.isSynced === false && ( // Colmeia AINDA NÃO SINCRONIZADA
+                    <Icon type="AntDesign" name="clockcircleo" style={styles.statusIcon} iconSize={5} active/>
+                  )
+                }
+              </View>
+              <Text style = {styles.hiveDescription} numberOfLines = {2}>{this.props.description}</Text>
+            </View>
+            <View style = {styles.contentArrow}>
+              <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+    );
+  }
+}
+
+{/* <SwipeRow
         key={(this.props.hiveId)}
         leftOpenValue={65}
         rightOpenValue={-65}
@@ -43,39 +83,4 @@ export default class Hive extends React.Component {
               </View>
             </TouchableOpacity>
         </View>
-
-        <View style = {styles.hive}>
-          <View style = {styles.hiveImage}>
-            { typeof(image) === 'string' ? (  // Colmeia já sincronizada. 'image' é o link da imagem no Amazon AWS.
-                <Image source = {{uri: image}} style = {styles.image}/>
-              ) : image.data ? (  // Colmeia ainda não sincronizada e possui imagem. 'image.data' é a imagem em Base64.
-                <Image
-                  source = {{uri: `data:image/png;base64,${image.data}`}}
-                  style = {styles.image}
-                />
-              ) : ( // Colmeia ainda não cadastra e não possui imagem.
-                <Image source = {images.fotoDefault} style = {styles.image}/>
-              )
-            }
-          </View>
-          <View style = {styles.contentText}>
-            { hive.isSynced ? ( // Colmeia SINCRONIZADA
-                <Text style={{ color: 'darkgreen', fontWeight: 'bold' }}>SINCRONIZADO</Text>
-              ) : hive.permanentlyFailed ? (  // Criação da colmeia FALHOU PERMANENTEMENTE
-                <Text style={{ color: 'red', fontWeight: 'bold' }}>FALHOU PERMANENTEMENTE</Text>
-              ) : hive.isSynced === false && ( // Colmeia AINDA NÃO SINCRONIZADA
-                <Text style={{ color: 'darkorange', fontWeight: 'bold' }}>AINDA NÃO SINCRONIZADA</Text>
-              )
-            }
-            <Text style = {styles.hiveName} numberOfLines = {1}>{this.props.name}</Text>
-            <Text style = {styles.hiveDescription} numberOfLines = {2}>{this.props.description}</Text>
-          </View>
-          <View style = {styles.contentArrow}>
-            <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>
-          </View>
-        </View>
-
-      </SwipeRow>
-    );
-  }
-}
+        </SwipeRow> */}

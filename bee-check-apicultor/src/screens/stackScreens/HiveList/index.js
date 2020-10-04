@@ -8,7 +8,7 @@ import { deleteColmeiaById, getColmeiasByApiario } from "../../../redux/actions/
 import LinearGradient from "react-native-linear-gradient";
 import { SpinnerCustom } from "../../../componentes";
 import { colors, routes } from "../../../../assets";
-import { Icon, Container, Text, View } from "native-base";
+import { Icon, Container, Text, View, Fab, Button } from "native-base";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import Hive from "../../../componentes/Hive";
 import styles from "./styles";
@@ -48,6 +48,10 @@ class HiveList extends Component {
   openEditHive = hive => {
     this.props.navigation.navigate(routes.EditColmeia, {hive});
   };
+
+  openHiveDetails = (hive, apiary) => {
+    this.props.navigation.navigate(routes.HiveDetails, {hive, apiary});
+  }
 
   // deletar uma colmeia
   deleteColmeia = hiveId => {
@@ -94,8 +98,10 @@ class HiveList extends Component {
         />
 
         <SpinnerCustom visible={loading} />
+        
 
         <View style = {styles.containerContentHives}>
+
           <Text style = {styles.title}>Aqui estão todas as colmeias do apiário {this.state.selectedApiary.nome}</Text>
           <View style = {styles.contentHive}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
@@ -132,14 +138,14 @@ class HiveList extends Component {
                       name = {hive.nome} 
                       description = {hive.descricao} 
                       image = {hive.foto} 
-                      hive = {hive} 
-                      openEditHive = {this.openEditHive}
-                      deleteHive = {this.deleteColmeia}
+                      hive = {hive}
+                      apiary = {selectedApiary} 
+                      openHiveDetails = {this.openHiveDetails}
                     />
                   )
                 )
               }
-              <View style = {{height: 200}}/>
+              <View style = {{height: 120}}/>
             </ScrollView>
           </View>
         </View>

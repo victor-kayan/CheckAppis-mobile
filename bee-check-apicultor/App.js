@@ -28,7 +28,8 @@ import {
   HiveList,
   VisitList,
   InterventionHiveList,
-  DetailsInterventionHive
+  DetailsInterventionHive,
+  HiveDetails
 } from "./src/screens/stackScreens";
 import colors from "./assets/colors";
 import { SideBar } from "./src/componentes";
@@ -85,6 +86,7 @@ const StackNavigator = createStackNavigator(
     VisitList,
     InterventionHiveList,
     DetailsInterventionHive,
+    HiveDetails
   },
   {
     initialRouteName: "DrawerNavigator",

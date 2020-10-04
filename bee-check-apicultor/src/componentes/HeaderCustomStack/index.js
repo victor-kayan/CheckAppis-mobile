@@ -6,8 +6,11 @@ import LinearGradient from "react-native-linear-gradient";
 
 const HeaderCustomStack = ({
   iconRight,
+  iconRight2,
   typeIconRight,
+  typeIconRight2,
   handleIconRight,
+  handleIconRight2,
   title,
   description,
   typeIconLeft,
@@ -34,6 +37,13 @@ const HeaderCustomStack = ({
             style={{color: colors.white}}
             type={typeIconRight}
             name={iconRight}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleIconRight2}>
+          <Icon
+            style={{color: colors.white, marginLeft: 10}}
+            type={typeIconRight}
+            name={iconRight2}
           />
         </TouchableOpacity>
     </View>

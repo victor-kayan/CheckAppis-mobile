@@ -6,9 +6,10 @@ export default {
   viewInformations: {
     position: "absolute",
     alignSelf: 'center',
-    marginTop: constants.SCREEN_HEIGHT/3.7,
+    marginTop: constants.SCREEN_HEIGHT/4.2,
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
+    height: '100%',
   },
   checkappis: {
     fontSize: 20,
@@ -23,7 +24,13 @@ export default {
   copyright: {
     fontFamily: 'Montserrat Regular',
     color: colors.white,
-    fontSize: wp('4%')
+    fontSize: wp('4%'),
+  },
+  ifrn: {
+    fontFamily: 'Montserrat-Medium',
+    color: colors.white,
+    fontSize: wp('3.5%'),
+    marginBottom: 30,
   },
   logo: {
     width: wp('61.3%'),
@@ -36,7 +43,7 @@ export default {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 15,
     borderRadius: 15,
     borderWidth: 2,
     borderColor: colors.white,

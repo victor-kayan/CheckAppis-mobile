@@ -11,7 +11,7 @@ export default class HiveDetails extends React.Component {
           <View style = {styles.hiveDetails}>
             <View style = {styles.header}>
               <View style = {styles.viewImage}>
-                <Image source = {this.props.image ? {uri: this.props.image} : images.fotoDefault} style = {styles.image}/>
+                <Image source = {this.props.image ? images.fotoDefault : {uri: this.props.image}} style = {styles.image}/>
               </View>
               <View style = {styles.viewName}>
                 <Text style = {styles.hiveName} numberOfLines = {1}>{this.props.name}</Text>
@@ -97,7 +97,14 @@ export default class HiveDetails extends React.Component {
               </View>
               <View style = {styles.bodyObs}>
                 <Text style = {styles.textObs}>Observações</Text>
-                <Text style = {styles.textDataObs}>{this.props.obs}</Text>
+                {
+                  this.props.obs == null ? 
+                  (
+                    <Text style = {styles.textDataObs}>Nenhuma observação importante sobre esta colmeia.</Text>
+                  ) : (
+                    <Text style = {styles.textDataObs}>{this.props.obs}</Text>                                                          
+                  )
+                }
               </View>
             </View>
           </View>

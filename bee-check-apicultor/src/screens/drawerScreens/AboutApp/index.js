@@ -28,8 +28,12 @@ class AboutApp extends Component {
           <Image source={images.sider.logo} style = {styles.logo}/>
           <Text style = {styles.version}>Version 1.10.197.20</Text>
           <Text style = {styles.copyright}>© 2017-2020 CheckAppis</Text>
+          <Text style = {styles.ifrn}>IFRN - Campus Pau dos Ferros</Text>
           <TouchableOpacity onPress = {() => alert('Direcionar para a página')} style = {styles.buttonPolitics}>
             <Text style = {styles.textButton}>POLÍTICA DE PRIVACIDADE</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress = {() => alert('Direcionar para a página')} style = {styles.buttonPolitics}>
+            <Text style = {styles.textButton}>MANUAL DO APLICATIVO</Text>
           </TouchableOpacity>
         </View>
         

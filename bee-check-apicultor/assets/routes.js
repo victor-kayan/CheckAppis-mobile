@@ -24,6 +24,7 @@ const routes = {
   InterventionHiveList: "InterventionHiveList",
   AboutApp: "AboutApp",
   DetailsInterventionHive: "DetailsInterventionHive", 
+  HiveDetails: "HiveDetails",
 };
 
 export default routes;

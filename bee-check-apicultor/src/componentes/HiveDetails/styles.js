@@ -65,7 +65,7 @@ export default {
   },
 
   bodyObs: {
-    width: '100%',
+    width: '90%',
     paddingLeft: 8,
   },
 

@@ -96,7 +96,7 @@ class VisitList extends Component {
                     )
                   )
                 }
-                <View style = {{height: 120}}/>
+                <View style = {{height: 170}}/>
               </ScrollView>
             </View>
           </View>

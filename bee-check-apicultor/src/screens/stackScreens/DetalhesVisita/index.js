@@ -179,7 +179,7 @@ class DetalhesVisita extends React.Component {
                   <Icon type="EvilIcons" name="archive" style = {styles.icons, {fontSize: 40, color: colors.theme_second}}/>
                   <View style = {styles.titles}>
                     <Text style = {styles.titleInformation}>Colmeias</Text>
-                    <Text style = {styles.descriptionInformation}>Total de colmeias analisadas: </Text>
+                    <Text style = {styles.descriptionInformation}>Total de colmeias analisadas: {visita.visita_colmeias.length}</Text>
                   </View>
                 </View>
                 <View style = {styles.dataInformations}>
@@ -291,21 +291,27 @@ class DetalhesVisita extends React.Component {
             </ScrollView>
           </View>
         </View>
-        <View style = {styles.viewButtonDetails}>
-          <TouchableHighlight
-            activeOpacity={0.5}
-            underlayColor="#ff8500"
-            onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})}
-            style = {{borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
-          >
-            <LinearGradient
-              colors={[colors.theme_default, colors.theme_second]}
-              style={{ height: '100%', borderRadius: 30}}
-            >
-              <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 30, marginTop: 15}}>DETALHAR POR COLMEIA</Text> 
-            </LinearGradient>
-          </TouchableHighlight>
-        </View>
+        {
+          visita.visita_colmeias.length == 0
+          ? (<View/>)
+          : (
+            <View style = {styles.viewButtonDetails}>
+              <TouchableHighlight
+                activeOpacity={0.5}
+                underlayColor="#ff8500"
+                onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})}
+                style = {{borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
+              >
+                <LinearGradient
+                  colors={[colors.theme_default, colors.theme_second]}
+                  style={{ height: '100%', borderRadius: 30}}
+                >
+                  <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: 13, letterSpacing: 1, marginHorizontal: 30, marginTop: 15}}>DETALHAR POR COLMEIA</Text> 
+                </LinearGradient>
+              </TouchableHighlight>
+            </View>
+          )
+        }
       </Container>
     );
   }
