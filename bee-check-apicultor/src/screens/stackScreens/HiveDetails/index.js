@@ -2,13 +2,12 @@ import React from "react";
 import { TouchableOpacity, ScrollView, Alert, TouchableHighlight, Image } from "react-native";
 import { Container, View, Text, Icon, Item } from "native-base";
 import { colors, routes } from "../../../../assets";
+import { bindActionCreators } from "redux";
 import styles from "./styles";
-import moment from "moment";
 import "moment/locale/pt-br";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
-import LinearGradient from "react-native-linear-gradient";
-import { deleteColmeiaById, getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
-import { SpinnerCustom } from "../../../componentes";
+import { deleteColmeiaById } from "../../../redux/actions/colmeiaActions";
+import { connect } from "react-redux";
 
 class HiveDetails extends React.Component {
 
@@ -84,7 +83,7 @@ class HiveDetails extends React.Component {
     this.props.navigation.navigate(routes.EditColmeia, {hive});
   };
 
-  // deletar colmeia
+  // mostrar status de sincronização
   deleteHive = hiveId => {
     Alert.alert(
       'Excluir Colmeia',
@@ -95,15 +94,73 @@ class HiveDetails extends React.Component {
           style: 'cancel',
         },
         {text: 'OK', onPress: () => {
-          if (this.state.colmeia) {
-            const apiaryId = this.state.selectedApiary.id;
-            
+          if (this.state.hive) {
+            const apiaryId = this.state.apiary.id;
             this.props.deleteColmeiaById(hiveId, apiaryId);
           }
         }},
       ],
       {cancelable: false},
     );
+  };
+
+  showStatus = () => {
+    {
+      this.state.hive.isSynced ? 
+      (
+        Alert.alert(
+          'Status de Sincronização',
+          'Sua colmeia está sincronizada.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        )
+      )
+      : this.state.hive.permanentlyFailed ? 
+      (
+        Alert.alert(
+          'Status de Sincronização',
+          'A sincronização da colmeia falhou permanentemente. Por favor, delete a visita ou realize uma nova.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        )
+      )
+      : 
+      (
+        Alert.alert(
+          'Status de Sincronização',
+          'Aguardando conexão com a internet para sincronizar a colmeia.',
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'OK', 
+              style: 'ok',
+            },
+          ],
+          {cancelable: false},
+        )
+      )
+    }
   };
 
   render() {
@@ -119,10 +176,10 @@ class HiveDetails extends React.Component {
           description="Aqui, você pode editar os dados da sua colmeia ou excluí-los"
           typeIconRight = "AntDesign"
           iconRight = "delete"
-          handleIconRight
+          handleIconRight = {() => this.deleteHive(hiveId)}
           typeIconRight2 = "AntDesign"
           iconRight2 = "edit"
-          handleIconRight2
+          handleIconRight2 = {() => this.openEditHive(hive)}
         />
 
         <View style = {styles.containerContent}>
@@ -131,20 +188,21 @@ class HiveDetails extends React.Component {
           </View>
 
           
-          <TouchableOpacity onPress={() => alert('oiii')} style = {styles.changePhoto}>
-            <Icon style={{color: colors.white, fontSize: 20}} active type="Entypo" name="camera"/>
+          <TouchableOpacity onPress={() => this.showStatus()} style = {styles.changePhoto}>
+            { hive.isSynced ? ( // Colmeia SINCRONIZADA
+                <Icon style={{color: colors.white, fontSize: 25}} active type="AntDesign" name="check"/>
+              ) : hive.permanentlyFailed ? (  // Criação da colmeia FALHOU PERMANENTEMENTE
+                <Icon style={{color: colors.white, fontSize: 25}} active type="AntDesign" name="close"/>
+              ) : hive.isSynced === false && ( // Colmeia AINDA NÃO SINCRONIZADA
+                <Icon style={{color: colors.white, fontSize: 25}} active type="AntDesign" name="exclamation"/>
+              )
+            }
           </TouchableOpacity> 
           
 
-          <View style = {styles.viewInputs}>
-            <Item>
-              <Icon style={{color: colors.theme_second}} active type="Ionicons" name="md-finger-print"/>
-              <Text style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}>{hiveName}</Text>
-            </Item>
-            <Item style = {{marginTop: 20}}>
-              <Icon style={{color: colors.theme_second}} active type="MaterialIcons" name="view-headline"/>
-              <Text style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}>{hiveDescription}</Text>
-            </Item>
+          <View style = {styles.viewInformations}>
+            <Text style = {{fontFamily: 'Montserrat-Bold', fontSize: 17, textAlign: 'center' }}>{hiveName}</Text>
+            <Text style = {{fontFamily: 'Montserrat-Medium', fontSize: 14, textAlign: 'center' }}>{hiveDescription}</Text>
           </View>
         </View>
       </Container>
@@ -152,4 +210,17 @@ class HiveDetails extends React.Component {
   }
 }
 
-export default HiveDetails;
+function mapStateToProps(state, props) {
+  return {
+    
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ deleteColmeiaById }, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HiveDetails);

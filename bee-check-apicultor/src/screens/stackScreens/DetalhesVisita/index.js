@@ -286,7 +286,7 @@ class DetalhesVisita extends React.Component {
                 </View>
               </View>
 
-              <View style = {{height: 100}}/>
+              <View style = {{height: 120}}/>
 
             </ScrollView>
           </View>

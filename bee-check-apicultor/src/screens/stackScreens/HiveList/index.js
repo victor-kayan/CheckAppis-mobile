@@ -3,7 +3,7 @@ import { Image, ScrollView, StatusBar, Alert, TouchableHighlight } from "react-n
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { deleteColmeiaById, getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
+import { getColmeiasByApiario } from "../../../redux/actions/colmeiaActions";
 
 import LinearGradient from "react-native-linear-gradient";
 import { SpinnerCustom } from "../../../componentes";
@@ -180,7 +180,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { deleteColmeiaById, getColmeiasByApiario },
+    { getColmeiasByApiario },
     dispatch
   );
 }
