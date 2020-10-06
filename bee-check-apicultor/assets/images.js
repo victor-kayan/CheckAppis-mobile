@@ -11,7 +11,8 @@ export default images = {
   },
 
   gif: {
-    loading: require("../images/loading.gif")
+    loading: require("../images/loading.gif"),
+    check: require("../images/gifs/check.json")
   },
 
   login: {

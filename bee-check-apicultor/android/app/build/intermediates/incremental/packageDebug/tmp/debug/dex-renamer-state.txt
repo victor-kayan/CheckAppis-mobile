@@ -1,4 +1,4 @@
-#Thu Oct 01 18:32:00 GFT 2020
+#Mon Oct 05 23:09:44 GFT 2020
 base.0=E\:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

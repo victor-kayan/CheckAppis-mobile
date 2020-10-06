@@ -14,6 +14,7 @@ import { colors, routes } from "../../../../assets";
 import ImagePicker from "react-native-image-picker";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
+import ModalCheck from "../../../componentes/ModalCheck";
 
 const options = {
   title: "Imagem da colmeia",
@@ -23,13 +24,24 @@ const options = {
 };
 
 class NewColmeia extends Component {
+
   state = {
     colmeia: {
       descricao: "",
       nome: ""
     },
     foto: {},
-    foto_uri: null
+    foto_uri: null,
+    modalVisible: false,
+  };
+
+  openModal = () => {
+    this.setState({modalVisible: true});
+  };
+
+  closeModal = () => {
+    this.setState({modalVisible: false});
+    this.props.navigation.navigate(routes.HiveList);
   };
 
   // adicionar a colmeia
@@ -61,7 +73,7 @@ class NewColmeia extends Component {
       createColmeia(newHiveData);
 
       this.clearInputs();
-      this.props.navigation.navigate(routes.HiveList);
+      this.openModal();
     }
   };
 
@@ -150,7 +162,15 @@ class NewColmeia extends Component {
               typeIconRight="AntDesign"
               title="CADASTRAR"
               style={{ alignSelf: 'center', marginEnd: 10, marginTop: 40 }}
-              />
+            />
+
+            <ModalCheck
+              modalVisible = {this.state.modalVisible}
+              onCancel = {this.closeModal}
+              title = 'Colmeia criada com Sucesso!'
+              text = 'Sua colmeia foi criada com sucesso. Agora, é só ir para a lista de colmeias para visualizá-la.'
+            />
+
           </View>
         </Container>
       </Root>

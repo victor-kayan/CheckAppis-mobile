@@ -14,6 +14,7 @@
     "@redux-offline/redux-offline": "^2.6.0",
     "axios": "^0.18.0",
     "lodash": "^4.17.13",
+    "lottie-react-native": "^2.5.11",
     "moment": "^2.24.0",
     "native-base": "^2.12.0",
     "react": "16.6.0-alpha.8af6728",
