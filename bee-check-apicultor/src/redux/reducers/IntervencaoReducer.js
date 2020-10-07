@@ -19,11 +19,12 @@ const initialState = {
   intervencoesByApiario: null, // Lista de intervenções nas colmeias por apiários
   loading: false,
   concluirIntervencaoSuccess: false,
-  countIntervencoes: 0
+  countIntervencoes: 0,  // Número de intervenções gerais (aos apiários e às colmeias) pendentes
+  interventionConclusionFailed: false
 };
 
 export const IntervencaoReducer = (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type, payload, meta } = action;
 
   switch (type) {
     case INTERVENCAO_GET_ALL_BY_APICULTOR:
@@ -49,18 +50,52 @@ export const IntervencaoReducer = (state = initialState, action) => {
       };
 
     case INITIATE_CONCLUIR_INTERVENCAO_APIARIO:
-      return state;
+      const apiariesInterventionsWithNewConclusion = state.intervencoes.map(intervention => {
+        if (intervention.id === payload.interventionData.id) {
+          return Object.assign({}, intervention, { 
+            is_concluido: true, // Determina se a intervenção foi concluída.
+            isConclusionSynced: false // Determina se a solicitação de conclusão da intervenção foi bem sucedida. Por padrão, inicialmente, será false, pois será salvo apenas localmente.
+          });
+        }
+        return intervention;
+      });  
+    
+      return {
+        ...state,
+        intervencoes: apiariesInterventionsWithNewConclusion
+        // countIntervencoes: state.countIntervencoes - 1,
+      };
 
     case CONCLUIR_INTERVENCAO_APIARIO_COMMIT:
-      // return {
-      //   ...state,
-      //   loading: false,
-      //   concluirIntervencaoSuccess: true,
-      //   countIntervencoes: state.countIntervencoes - 1
-      // };
+      if (meta.completed && meta.success) {
+        const apiariesInterventionsWithConclusionSynced = state.intervencoes.map(intervention =>
+          intervention.id === meta.interventionId
+            ? Object.assign({}, intervention, { isConclusionSynced: true })
+            : intervention
+        );
+
+        return {
+          ...state,
+          intervencoes: apiariesInterventionsWithConclusionSynced
+        }
+      }
       return state;
 
     case CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK:
+      if (meta.completed && !meta.success) {
+        const apiariesInterventionsRollbacked = state.intervencoes.map(intervention =>
+          intervention.id === meta.interventionId
+            ? Object.assign({}, intervention, { is_concluido: false })
+            : intervention
+        );
+
+        return {
+          ...state,
+          intervencoes: apiariesInterventionsRollbacked,
+          interventionConclusionFailed: true
+          // countIntervencoes: state.countIntervencoes + 1
+        }
+      }
       return state;
 
 
@@ -76,7 +111,6 @@ export const IntervencaoReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         concluirIntervencaoSuccess: true,
-        countIntervencoes: state.countIntervencoes - 1
       };
 
     case INTERVENCAO_COLMEIA_CONCLUIR_ERROR:

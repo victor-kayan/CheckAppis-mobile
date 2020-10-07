@@ -5,32 +5,31 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { concluirIntervencao } from "../../../redux/actions/intervencaoActions";
 
-import { Container, View, Text, Icon } from "native-base";
 import moment from "moment";
 import "moment/locale/pt-br";
+
+import { Container, View, Text, Icon } from "native-base";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
+
+import tron from '../../../config/reactotronConfig'
 
 class DetalhesIntervencao extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      concluindoIntervencao: false
+      isConcludingIntervention: false,
     };
   }
 
+  // ! Não está sendo disparado...
   componentWillReceiveProps(nextProps) {
-    if (
-      this.state.concluindoIntervencao &&
-      nextProps.concluirIntervencaoSuccess
-    ) {
-      const route = this.props.navigation.getParam(
-        "routeOnSuccessConcluir",
-        ""
-      );
+    tron.log('componentWillReceiveProps', nextProps)
 
-      this.setState({ concluindoIntervencao: false });
-      this.props.navigation.navigate(route);
+    if (this.isConcludingIntervention && nextProps.interventionConclusionFailed) {
+      this.setState({ isConcludingIntervention: false });
+      
+      tron.log(this.isConcludingIntervention, this.props.navigation.getParam("intervencao", ""))
     }
   }
 
@@ -42,7 +41,7 @@ class DetalhesIntervencao extends Component {
         { text: 'Cancelar', style: 'cancel' },
         { text: 'OK',  onPress: () => {
           this.props.concluirIntervencao(intervention);
-          this.setState({ concluindoIntervencao: true });
+          this.setState({ isConcludingIntervention: true });
         }},
       ],
       {cancelable: false},
@@ -101,7 +100,7 @@ class DetalhesIntervencao extends Component {
                 </View>
               </View>
 
-              { intervencao.is_concluido ? (
+              { intervencao.is_concluido || this.state.isConcludingIntervention ? (
                   <Text style={{ fontWeight: 'bold', color: 'darkgreen', textAlign: 'center' }}>
                     INTERVENÇÃO JÁ CONCLUÍDA
                   </Text>
@@ -123,8 +122,7 @@ class DetalhesIntervencao extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    concluirIntervencaoSuccess:
-      state.intervencaoState.concluirIntervencaoSuccess
+    interventionConclusionFailed: state.intervencaoState.interventionConclusionFailed
   };
 }
 

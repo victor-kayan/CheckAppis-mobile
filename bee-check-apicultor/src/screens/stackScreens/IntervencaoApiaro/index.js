@@ -75,7 +75,8 @@ class IntervencaoApiario extends Component {
                       apiaryName = {intervention.apiario.nome}
                       openInterventionApiary = {this.onDetalharIntervencao}
                       deadline = {intervention.data_fim}
-                      isDone = {intervention.is_concluido}
+                      isConcluded = {intervention.is_concluido}
+                      isConclusionSynced = {intervention.isConclusionSynced}
                     />
                   )
                 }

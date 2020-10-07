@@ -17,6 +17,8 @@ import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 import { Api } from "../../../../services";
 
+// TODO: Possibilitar a exclusão local de uma intervenção já concluída e sincronizada.
+
 export const fecthIntervencoesByApicultor = () => {
   return dispatch => {
     dispatch({
@@ -64,116 +66,27 @@ export const concluirIntervencao = intervencao => {
         offline: {
           effect: {
             method: 'GET',
-            // url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
-            //       intervencao_id: intervencao.id
-            //     })
+            url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
+                  intervencao_id: intervencao.id
+                })
           },
           commit: { 
             type: CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
-            /**
-             // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
-              
-            //! dispatch(fecthIntervencoesByApicultor());
-            dispatch({
-              type: INTERVENCAO_CONCLUIR_SUCCESS,
-              payload: {}
-            });
-            */
+            meta: {
+              interventionId: intervencao.id
+            }
           },
           rollback: {
             type: CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
-            /**
-            //! dispatch({
-            //!   type: INTERVENCAO_CONCLUIR_SUCCESS,
-            //! payload: {}
-            });
-            */
+            meta: {
+              interventionId: intervencao.id
+            }
           }
         }
       }
     });
   };
 };
-
-// export const concluirIntervencao = intervencao => {
-//   return dispatch => {
-//     Alert.alert(
-//       'Concluir Intervenção',
-//           'Tem certeza que deseja concluir esta intervenção?',
-//           [
-//             {
-//               text: 'Cancelar',
-//               style: 'cancel',
-//             },
-//             {
-//               text: 'OK', 
-//               onPress: () => {
-//                 dispatch({
-//                   type: INTERVENCAO_LOADING,
-//                   payload: {
-//                     loading: true
-//                   }
-//                 });
-//                 Api.instance
-//                   .get(
-//                     URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
-//                       intervencao_id: intervencao.id
-//                     })
-//                   )
-//                   .then(response => {
-//                     Alert.alert(
-//                       'Intervenção Concluída',
-//                       'Intervenção concluída com sucesso.',
-//                       [
-//                         {
-//                           text: 'Cancelar',
-//                           style: 'cancel',
-//                         },
-//                         {
-//                           text: 'OK', 
-//                           style: 'cancel'
-//                         },
-//                       ],
-//                       {cancelable: false},
-//                     );
-//                     /**
-//                      // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
-//                      */
-//                     dispatch(fecthIntervencoesByApicultor());
-//                     dispatch({
-//                       type: INTERVENCAO_CONCLUIR_SUCCESS,
-//                       payload: {}
-//                     });
-//                   })
-//                   .catch(error => {
-//                     Alert.alert(
-//                       'Erro',
-//                       error.response && error.response.data.message,
-//                       [
-//                         {
-//                           text: 'Cancelar',
-//                           style: 'cancel',
-//                         },
-//                         {
-//                           text: 'OK', 
-//                           style: 'cancel'
-//                         },
-//                       ],
-//                       {cancelable: false},
-//                     );
-//                     dispatch({
-//                       type: INTERVENCAO_CONCLUIR_SUCCESS,
-//                       payload: {}
-//                     });
-//                     throw error;
-//                   });
-//               }
-//             },
-//           ],
-//           {cancelable: false},
-//     )
-//   };
-// };
 
 export const fecthIntervencoesColmeiasByApiario = apiaryId => {
   return dispatch => {

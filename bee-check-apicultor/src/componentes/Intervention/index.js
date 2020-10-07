@@ -11,7 +11,10 @@ export default class Intervention extends React.Component {
     formatDateToString = date => {
         // TODO: Fazer cálculos com base na data atual e mostrar informação com base no dia de hoje.
         // TODO: Decidir, com base na data atual, se será mostrado a data de conclusão ou de início.
-        //       Ex. de output: "Até amanhã", "Até ontem", "Inicie em três dias" etc.
+        //       Ex.: "Até amanhã", "Até ontem", "Inicia sexta-feira" etc.
+        // TODO: Só mostrar ano caso for diferente do ano atual.
+        // TODO: Mostrar nome do mês abreviado (menos abril)
+        // TODO: Adicionar dia da semana no padrão. Ex.: quarta-feira, 07 de out.
         // TODO: Adicionar função a utils/ para ser utilizada também em outros componentes da aplicação.
 
         const day = moment(date).format('DD');
@@ -27,8 +30,11 @@ export default class Intervention extends React.Component {
             <View>
                 <Text style = {styles.apiaryName}>{this.props.apiaryName}</Text>
                 <Text style = {styles.date}>{this.formatDateToString(this.props.deadline)}</Text>
-                {this.props.isDone ? (
-                    <Text style={{ fontWeight: 'bold', color: 'darkgreen' }}>CONCLUÍDO</Text>
+
+                {this.props.isConcluded && this.props.isConclusionSynced ? (
+                    <Text style={{ fontWeight: 'bold', color: 'darkgreen' }}>CONCLUÍDO E SINCRONIZADO</Text>
+                ) : this.props.isConcluded && !this.props.isConclusionSynced ? (
+                    <Text style={{ fontWeight: 'bold', color: 'darkblue' }}>CONCLUÍDO MAS NÃO SINCRONIZADO</Text>
                 ) : (
                     <Text style={{ fontWeight: 'bold', color: 'red' }}>PENDENTE</Text>
                 )}
