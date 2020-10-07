@@ -1,14 +1,13 @@
-import { Alert } from 'react-native';
-
 import {
   INTERVENCAO_LOADING,
   INTERVENCAO_GET_ALL_BY_APICULTOR,
   INTERVENCAO_GET_ALL_BY_APIARIO,
-  INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-  INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
   INITIATE_CONCLUIR_INTERVENCAO_APIARIO,
   CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
   CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
+  INITIATE_CONCLUIR_INTERVENCAO_COLMEIA,
+  CONCLUIR_INTERVENCAO_COLMEIA_COMMIT,
+  CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK,
   UPDATE_COUNT_INTERVENCOES_BY_APICULTOR,
   UPDATE_ALL_INTERVENCOES_APIARIOS,
   UPDATE_ALL_INTERVENCOES_COLMEIAS
@@ -130,64 +129,79 @@ export const fecthIntervencoesColmeiasByApiario = apiaryId => {
 
 export const concluirIntervencaoColmeia = intervencao => {
   return dispatch => {
-    Alert.alert(
-      'Concluir Intervenção',
-          'Tem certeza que deseja concluir esta intervenção?',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK', 
-              onPress: () => {
-                dispatch({
-                  type: INTERVENCAO_LOADING,
-                  payload: {
-                    loading: true
-                  }
-                });
-                Api.instance
-                  .get(
-                    URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
-                      intervencao_id: intervencao.id
-                    })
-                  )
-                  .then(response => {
-                    Toast.show({
-                      text: response.data.message,
-                      buttonText: "",
-                      type: "success"
-                    });
-                    /**
-                     // TODO: Atualizar lista de intervenções nas colmeias após concluir uma sem precisar fazer outra requisição.
-                     */
-                    dispatch(
-                      fecthIntervencoesColmeiasByApiario(intervencao.colmeia.apiario_id)
-                    );
-                    dispatch({
-                      type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-                      payload: {}
-                    });
-                  })
-                  .catch(error => {
-                    Toast.show({
-                      text: error.response && error.response.data.message,
-                      buttonText: "",
-                      type: "danger"
-                    });
-                    dispatch({
-                      type: INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
-                      payload: {}
-                    });
-                    throw error;
-                  });
-              }
-            },
-          ],
-          {cancelable: false},)
+    dispatch({
+      type: INITIATE_CONCLUIR_INTERVENCAO_COLMEIA,
+      payload: {
+        interventionData: intervencao,
+        apiaryId: intervencao.colmeia.apiario_id
+      },
+      meta: {
+        offline: {
+          effect: {
+            method: 'GET',
+          //   url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
+          //         intervencao_id: intervencao.id
+          //       })
+          },
+          commit: { 
+            type: CONCLUIR_INTERVENCAO_COLMEIA_COMMIT,
+            // meta: {
+            //   interventionId: intervencao.id
+            // }
+          },
+          rollback: {
+            type: CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK,
+            // meta: {
+            //   interventionId: intervencao.id
+            // }
+          }
+        }
+      }
+    });
   };
 };
+
+    // dispatch({
+    //   type: INTERVENCAO_LOADING,
+    //   payload: {
+    //     loading: true
+    //   }
+    // });
+    // Api.instance
+    //   .get(
+    //     URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
+    //       intervencao_id: intervencao.id
+    //     })
+    //   )
+    //   .then(response => {
+    //     Toast.show({
+    //       text: response.data.message,
+    //       buttonText: "",
+    //       type: "success"
+    //     });
+    //     /**
+    //      // TODO: Atualizar lista de intervenções nas colmeias após concluir uma sem precisar fazer outra requisição.
+    //       */
+    //     dispatch(
+    //       fecthIntervencoesColmeiasByApiario(intervencao.colmeia.apiario_id)
+    //     );
+    //     dispatch({
+    //       type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
+    //       payload: {}
+    //     });
+    //   })
+    //   .catch(error => {
+    //     Toast.show({
+    //       text: error.response && error.response.data.message,
+    //       buttonText: "",
+    //       type: "danger"
+    //     });
+    //     dispatch({
+    //       type: INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+    //       payload: {}
+    //     });
+    //     throw error;
+    //   });
 
 export const updateAllIntervencoesByApicultor = (
   intervencoesNosApiarios, 

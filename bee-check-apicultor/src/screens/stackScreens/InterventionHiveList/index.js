@@ -1,19 +1,17 @@
 import React, { Component } from "react";
+import { Image, ScrollView } from "react-native";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchApiariosHasColmeiasHasIntervencoes } from "../../../redux/actions/apiarioActions";
-import {
-  fecthIntervencoesColmeiasByApiario,
-  concluirIntervencaoColmeia
-} from "../../../redux/actions/intervencaoActions";
+import { fecthIntervencoesColmeiasByApiario } from "../../../redux/actions/intervencaoActions";
+
 import { Text, Container, Content, Card, CardItem, View } from "native-base";
-import { Image, ScrollView } from "react-native";
-import { images, routes } from "../../../../assets";
 import { HeaderCustom, SpinnerCustom } from "../../../componentes";
+import { images, routes } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
-import styles from "./styles";
+import InterventionHive from "../../../componentes/InterventionHive";
 import Apiary from "../../../componentes/Apiary";
-import InterventionHIve from "../../../componentes/InterventionHive";
+import styles from "./styles";
 
 class InterventionHiveList extends Component {
   constructor(props) {
@@ -43,8 +41,6 @@ class InterventionHiveList extends Component {
   onDetalharIntervencao = interventionHive => {
     this.props.navigation.navigate(routes.DetailsInterventionHive, {
       intervencao: interventionHive,
-      routeOnSuccessConcluir: routes.IntervencaoColmeia,
-      onConcluirIntervencao: this.props.concluirIntervencaoColmeia
     });
   };
 
@@ -70,14 +66,17 @@ class InterventionHiveList extends Component {
             {!loading &&
               intervencoesByApiario &&
               intervencoesByApiario.length > 0
-              ? intervencoesByApiario.map (hive =>
-                <InterventionHIve 
-                    key = {hive.id} 
-                    hiveId = {hive.id} 
-                    name = {hive.colmeia.nome}
-                    interventionHive = {hive}
-                    date = {hive.created_at} 
-                    openInterventionHive = {this.onDetalharIntervencao}/>
+              ? intervencoesByApiario.map (hiveIntervention =>
+                <InterventionHive 
+                  key = {hiveIntervention.id} 
+                  hiveId = {hiveIntervention.id} 
+                  name = {hiveIntervention.colmeia.nome}
+                  interventionHive = {hiveIntervention}
+                  deadline = {hiveIntervention.data_fim} 
+                  openInterventionHive = {this.onDetalharIntervencao}
+                  isConcluded = {hiveIntervention.is_concluido}
+                  isConclusionSynced = {hiveIntervention.isConclusionSynced}
+                />
                 ) : (
                   <View style = {styles.container}>
                     <Image
@@ -99,7 +98,6 @@ class InterventionHiveList extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    apiarios: state.apiarioState.apiarios,
     intervencoesByApiario: state.intervencaoState.intervencoesByApiario,
     loading: state.apiarioState.loading || state.intervencaoState.loading
   };
@@ -107,11 +105,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    {
-      fetchApiariosHasColmeiasHasIntervencoes,
-      fecthIntervencoesColmeiasByApiario,
-      concluirIntervencaoColmeia
-    },
+    { fecthIntervencoesColmeiasByApiario },
     dispatch
   );
 }
@@ -120,59 +114,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(InterventionHiveList);
-
-
-// {!apiarios ? (
-//   <ColmeiasSemIntervencao onReturnHome={this.handleReturnHome} />
-// ) : (
-//   <Content padder scrollEnabled={true}>
-//     <Card>
-//       <CardItem>
-//         <RenderSelectApiario
-//           apiarios={apiarios}
-//           onValueChangePickerApiario={
-//             this.handleValueChangePickerApiario
-//           }
-//           selectedPickerApiario={selectedPickerApiario}
-//         />
-//       </CardItem>
-//     </Card>
-//     {!loading &&
-//     intervencoesByApiario &&
-//     intervencoesByApiario.length > 0
-//       ? intervencoesByApiario.map((intervencao, index) => (
-//           <ItemLista
-//             handleOnPressDetalhar={this.onDetalharIntervencao}
-//             key={index}
-//             intervencao={intervencao}
-//           />
-//         ))
-//       : !loading &&
-//         !selectedPickerApiario &&
-//         !selectedPickerApiario > 0 && (
-//           <>
-//             <CardItem
-//               style={{
-//                 marginTop: 20,
-//                 flexDirection: "column",
-//                 alignItems: "center"
-//               }}
-//             >
-//               <Text>Nenhuma colmeia</Text>
-//             </CardItem>
-//             <View
-//               style={{
-//                 flex: 1,
-//                 justifyContent: "center",
-//                 alignItems: "center"
-//               }}
-//             >
-//               <Image
-//                 style={{ marginTop: "15%" }}
-//                 source={images.home.apiario}
-//               />
-//             </View>
-//           </>
-//         )}
-//   </Content>
-// )}

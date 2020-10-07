@@ -31,7 +31,7 @@ export default class Intervention extends React.Component {
                 <Text style = {styles.apiaryName}>{this.props.apiaryName}</Text>
                 <Text style = {styles.date}>{this.formatDateToString(this.props.deadline)}</Text>
 
-                {this.props.isConcluded && this.props.isConclusionSynced ? (
+                { this.props.isConcluded && this.props.isConclusionSynced ? (
                     <Text style={{ fontWeight: 'bold', color: 'darkgreen' }}>CONCLUÍDO E SINCRONIZADO</Text>
                 ) : this.props.isConcluded && !this.props.isConclusionSynced ? (
                     <Text style={{ fontWeight: 'bold', color: 'darkblue' }}>CONCLUÍDO MAS NÃO SINCRONIZADO</Text>

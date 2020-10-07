@@ -56,7 +56,7 @@ class Home extends Component {
         this.props.updateAllIntervencoesByApicultor(
           data.intervencoes_apiarios,
           data.intervencoes_colmeias,
-          data.intervencoes_totais_count
+          data.intervencoes_pendentes_totais_count
         );
         this.props.updateAllVisitasByApicultor(data.visitas);
       })

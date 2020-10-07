@@ -1,13 +1,13 @@
 import {
   INTERVENCAO_GET_ALL_BY_APICULTOR,
   INTERVENCAO_LOADING,
-  INTERVENCAO_CONCLUIR_ERROR,
   INTERVENCAO_GET_ALL_BY_APIARIO,
-  INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-  INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
   INITIATE_CONCLUIR_INTERVENCAO_APIARIO,
   CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
   CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
+  INITIATE_CONCLUIR_INTERVENCAO_COLMEIA,
+  CONCLUIR_INTERVENCAO_COLMEIA_COMMIT,
+  CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK,
   UPDATE_COUNT_INTERVENCOES_BY_APICULTOR,
   UPDATE_ALL_INTERVENCOES_APIARIOS,
   UPDATE_ALL_INTERVENCOES_COLMEIAS
@@ -98,27 +98,35 @@ export const IntervencaoReducer = (state = initialState, action) => {
       }
       return state;
 
+    case INITIATE_CONCLUIR_INTERVENCAO_COLMEIA:
+      const updatedInterventionsFromCurrentApiary = 
+        state.intervencoesByApiario[payload.apiaryId].map(intervention =>
+          intervention.id === payload.interventionData.id
+            ? Object.assign({}, intervention, { 
+                is_concluido: true,
+                isConclusionSynced: false
+              })
+            : intervention
+        );
 
-    case INTERVENCAO_CONCLUIR_ERROR:
+        const newHivesInterventionsFromCurrentApiaryObject = {
+          [payload.apiaryId]: updatedInterventionsFromCurrentApiary
+        };
+                
       return {
         ...state,
-        loading: false,
-        concluirIntervencaoSuccess: false
+        intervencoesByApiario: Object.assign(
+          {}, state.intervencoesByApiario, newHivesInterventionsFromCurrentApiaryObject
+        )
+        // countIntervencoes: state.countIntervencoes - 1,
       };
-
-    case INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        concluirIntervencaoSuccess: true,
-      };
-
-    case INTERVENCAO_COLMEIA_CONCLUIR_ERROR:
-      return {
-        ...state,
-        loading: false,
-        concluirIntervencaoSuccess: false
-      };
+      
+    case CONCLUIR_INTERVENCAO_COLMEIA_COMMIT:
+      return state;
+      
+    case CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK:
+      return state;
+      
 
     case INTERVENCAO_LOADING:
       return {

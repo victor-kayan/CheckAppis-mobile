@@ -36,7 +36,6 @@ class IntervencaoApiario extends Component {
   onDetalharIntervencao = intervention => {
     this.props.navigation.navigate(routes.DetalhesIntervencao, {
       intervencao: intervention,
-      routeOnSuccessConcluir: routes.IntervencaoApiario
     });
   };
 

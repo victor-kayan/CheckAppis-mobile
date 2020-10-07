@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import { ScrollView, TouchableOpacity } from "react-native";
-import { Container, View, Text, Icon } from "native-base";
+import { ScrollView, TouchableOpacity, Alert } from "react-native";
+
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { concluirIntervencaoColmeia } from "../../../redux/actions/intervencaoActions";
+
 import moment from "moment";
 import "moment/locale/pt-br";
+
+import { Container, View, Text, Icon } from "native-base";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
 
@@ -11,7 +16,8 @@ class DetailsInterventionHive extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      concluindoIntervencao: false
+      concluindoIntervencao: false,
+      isConcludingIntervention: false
     };
   }
 
@@ -30,9 +36,23 @@ class DetailsInterventionHive extends Component {
     }
   }
 
+  handleConcludeIntervention = intervention => {
+    Alert.alert(
+      'Concluir Intervenção',
+      'Tem certeza que deseja concluir esta intervenção?',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        { text: 'OK',  onPress: () => {
+          this.props.concluirIntervencaoColmeia(intervention);
+          this.setState({ isConcludingIntervention: true });
+        }},
+      ],
+      {cancelable: false},
+    );
+  }
+
   render() {
     const intervencao = this.props.navigation.getParam("intervencao", "");
-    const onConcluirIntervencao = this.props.navigation.getParam("onConcluirIntervencao", "");
 
     return (
       <Container>
@@ -85,16 +105,21 @@ class DetailsInterventionHive extends Component {
                 </View>
               </View>
 
-              <TouchableOpacity onPress = {() => {onConcluirIntervencao(intervencao); this.setState({ concluindoIntervencao: true });}} style = {styles.button}>
-                <Text style = {styles.textButton}>Marcar como concluída</Text>
-                <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
-              </TouchableOpacity>
+              { intervencao.is_concluido || this.state.isConcludingIntervention ? (
+                  <Text style={{ fontWeight: 'bold', color: 'darkgreen', textAlign: 'center' }}>
+                    INTERVENÇÃO JÁ CONCLUÍDA
+                  </Text>
+                ) : (
+                  <TouchableOpacity onPress = {() => this.handleConcludeIntervention(intervencao)} style = {styles.button}>
+                    <Text style = {styles.textButton}>Marcar como concluída</Text>
+                    <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
+                  </TouchableOpacity>
+                )
+              }
 
               <View style = {{height: 70}}/>
-
             </ScrollView>
           </View>
-
         </View>
       </Container>
     );
@@ -108,9 +133,16 @@ function mapStateToProps(state, props) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { concluirIntervencaoColmeia },
+    dispatch
+  );
+}
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(DetailsInterventionHive);
 
 
