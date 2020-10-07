@@ -130,30 +130,9 @@ export const getColmeiasByApiario = id => {
 
 export const deleteColmeiaById = (id, apiario_id) => {
   return dispatch => {
-    dispatch({
-      type: LOADING_COLMEIA,
-      payload: {
-        loading: true
-      }
-    });
     Api.instance
       .delete(URLS.formattedURL(URLS.DELETE_COLMEIA_URL, { colmeia_id: id }))
       .then(response => {
-        Alert.alert(
-          'Colmeia Excluída',
-          'Colmeia excluída com sucesso.',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK',
-              style: 'ok',
-            },
-          ],
-          {cancelable: false},
-        );
         dispatch({
           type: DELETE_COLMEIA,
           payload: {

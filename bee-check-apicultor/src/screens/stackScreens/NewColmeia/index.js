@@ -10,11 +10,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { Container, Input, Icon, Item, Toast, Root, View } from "native-base";
 import { ButtonCustom, SpinnerCustom } from "../../../componentes";
-import { colors, routes } from "../../../../assets";
+import { colors, images, routes } from "../../../../assets";
 import ImagePicker from "react-native-image-picker";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
-import ModalCheck from "../../../componentes/ModalCheck";
+import ModalCheck from "../../../componentes/ModalFeedback";
 
 const options = {
   title: "Imagem da colmeia",
@@ -35,10 +35,12 @@ class NewColmeia extends Component {
     modalVisible: false,
   };
 
+  // abrir modal de feedback 
   openModal = () => {
     this.setState({modalVisible: true});
   };
 
+  // fechar modal de feedback
   closeModal = () => {
     this.setState({modalVisible: false});
     this.props.navigation.navigate(routes.HiveList);
@@ -52,7 +54,7 @@ class NewColmeia extends Component {
     if (colmeia.nome == "" || colmeia.descricao == "") {
       Toast.show({
         text: "Preencha todos os campos!",
-        textStyle: { marginLeft: 40 },
+        textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
         position: "bottom",
         type: "danger"
       });
@@ -144,6 +146,7 @@ class NewColmeia extends Component {
                   placeholder="Nome ou identificador da colmeia"
                   onChangeText={nome => this.setState({colmeia: {...colmeia, nome}})}
                   style = {{fontFamily: 'Montserrat Regular', fontSize: 13 }}
+                  maxLength = {14}
                 />
               </Item>
               <Item style = {{marginTop: 20}}>
@@ -169,6 +172,7 @@ class NewColmeia extends Component {
               onCancel = {this.closeModal}
               title = 'Colmeia criada com Sucesso!'
               text = 'Sua colmeia foi criada com sucesso. Agora, é só ir para a lista de colmeias para visualizá-la.'
+              gif = {images.gif.check}
             />
 
           </View>
