@@ -72,7 +72,7 @@ class InterventionHiveList extends Component {
                   hiveId = {hiveIntervention.id} 
                   name = {hiveIntervention.colmeia.nome}
                   interventionHive = {hiveIntervention}
-                  deadline = {hiveIntervention.data_fim} 
+                  creationDate = {hiveIntervention.created_at} 
                   openInterventionHive = {this.onDetalharIntervencao}
                   isConcluded = {hiveIntervention.is_concluido}
                   isConclusionSynced = {hiveIntervention.isConclusionSynced}

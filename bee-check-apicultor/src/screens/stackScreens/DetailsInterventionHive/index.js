@@ -16,24 +16,8 @@ class DetailsInterventionHive extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      concluindoIntervencao: false,
       isConcludingIntervention: false
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (
-      this.state.concluindoIntervencao &&
-      nextProps.concluirIntervencaoSuccess
-    ) {
-      const route = this.props.navigation.getParam(
-        "routeOnSuccessConcluir",
-        ""
-      );
-
-      this.setState({ concluindoIntervencao: false });
-      this.props.navigation.navigate(route);
-    }
   }
 
   handleConcludeIntervention = intervention => {
@@ -127,10 +111,7 @@ class DetailsInterventionHive extends Component {
 }
 
 function mapStateToProps(state, props) {
-  return {
-    concluirIntervencaoSuccess:
-      state.intervencaoState.concluirIntervencaoSuccess
-  };
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {

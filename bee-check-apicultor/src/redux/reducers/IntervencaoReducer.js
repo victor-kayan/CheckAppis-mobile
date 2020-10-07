@@ -18,9 +18,7 @@ const initialState = {
   intervencoes: null, // Lista de intervenções por apiários
   intervencoesByApiario: null, // Lista de intervenções nas colmeias por apiários
   loading: false,
-  concluirIntervencaoSuccess: false,
   countIntervencoes: 0,  // Número de intervenções gerais (aos apiários e às colmeias) pendentes
-  interventionConclusionFailed: false
 };
 
 export const IntervencaoReducer = (state = initialState, action) => {
@@ -92,7 +90,6 @@ export const IntervencaoReducer = (state = initialState, action) => {
         return {
           ...state,
           intervencoes: apiariesInterventionsRollbacked,
-          interventionConclusionFailed: true
           // countIntervencoes: state.countIntervencoes + 1
         }
       }
@@ -122,9 +119,47 @@ export const IntervencaoReducer = (state = initialState, action) => {
       };
       
     case CONCLUIR_INTERVENCAO_COLMEIA_COMMIT:
+      if (meta.completed && meta.success) {
+        const updatedInterventionsFromCurrentApiary = 
+          state.intervencoesByApiario[meta.apiaryId].map(intervention =>
+            intervention.id === meta.interventionId
+              ? Object.assign({}, intervention, { isConclusionSynced: true })
+              : intervention
+        );
+
+        const newHivesInterventionsFromCurrentApiaryObject = {
+          [meta.apiaryId]: updatedInterventionsFromCurrentApiary
+        };
+        
+        return {
+          ...state,
+          intervencoesByApiario: Object.assign(
+            {}, state.intervencoesByApiario, newHivesInterventionsFromCurrentApiaryObject
+          )
+        };
+      }
       return state;
       
     case CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK:
+      if (meta.completed && !meta.success) {
+        const updatedInterventionsFromCurrentApiary = 
+          state.intervencoesByApiario[meta.apiaryId].map(intervention =>
+            intervention.id === meta.interventionId
+              ? Object.assign({}, intervention, { is_concluido: false })
+              : intervention
+        );
+
+        const newHivesInterventionsFromCurrentApiaryObject = {
+          [meta.apiaryId]: updatedInterventionsFromCurrentApiary
+        };
+        
+        return {
+          ...state,
+          intervencoesByApiario: Object.assign(
+            {}, state.intervencoesByApiario, newHivesInterventionsFromCurrentApiaryObject
+          )
+        };
+      }
       return state;
       
 
@@ -132,7 +167,6 @@ export const IntervencaoReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: payload.loading,
-        concluirIntervencaoSuccess: false
       };
 
     case UPDATE_COUNT_INTERVENCOES_BY_APICULTOR:

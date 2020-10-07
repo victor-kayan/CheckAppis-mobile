@@ -21,7 +21,7 @@ export default class Intervention extends React.Component {
         const month = moment(date).format('MMMM');
         const year = moment(date).format('YYYY');
     
-        return `Até ${day} de ${month} de ${year}`;
+        return `${day} de ${month} de ${year}`;
     }
 
     render () {
@@ -29,7 +29,7 @@ export default class Intervention extends React.Component {
           <View style = {styles.intervention}>
             <View>
                 <Text style = {styles.apiaryName}>{this.props.apiaryName}</Text>
-                <Text style = {styles.date}>{this.formatDateToString(this.props.deadline)}</Text>
+                <Text style = {styles.date}>{this.formatDateToString(this.props.creationDate)}</Text>
 
                 { this.props.isConcluded && this.props.isConclusionSynced ? (
                     <Text style={{ fontWeight: 'bold', color: 'darkgreen' }}>CONCLUÍDO E SINCRONIZADO</Text>

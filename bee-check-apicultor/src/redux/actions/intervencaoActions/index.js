@@ -139,21 +139,23 @@ export const concluirIntervencaoColmeia = intervencao => {
         offline: {
           effect: {
             method: 'GET',
-          //   url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
-          //         intervencao_id: intervencao.id
-          //       })
+            url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
+                  intervencao_id: intervencao.id
+                })
           },
           commit: { 
             type: CONCLUIR_INTERVENCAO_COLMEIA_COMMIT,
-            // meta: {
-            //   interventionId: intervencao.id
-            // }
+            meta: {
+              interventionId: intervencao.id,
+              apiaryId: intervencao.colmeia.apiario_id
+            }
           },
           rollback: {
             type: CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK,
-            // meta: {
-            //   interventionId: intervencao.id
-            // }
+            meta: {
+              interventionId: intervencao.id,
+              apiaryId: intervencao.colmeia.apiario_id
+            }
           }
         }
       }

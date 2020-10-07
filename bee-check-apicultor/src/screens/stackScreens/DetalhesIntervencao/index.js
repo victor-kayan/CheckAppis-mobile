@@ -22,17 +22,6 @@ class DetalhesIntervencao extends Component {
     };
   }
 
-  // ! Não está sendo disparado...
-  componentWillReceiveProps(nextProps) {
-    tron.log('componentWillReceiveProps', nextProps)
-
-    if (this.isConcludingIntervention && nextProps.interventionConclusionFailed) {
-      this.setState({ isConcludingIntervention: false });
-      
-      tron.log(this.isConcludingIntervention, this.props.navigation.getParam("intervencao", ""))
-    }
-  }
-
   handleConcludeIntervention = intervention => {
     Alert.alert(
       'Concluir Intervenção',
@@ -121,9 +110,7 @@ class DetalhesIntervencao extends Component {
 }
 
 function mapStateToProps(state, props) {
-  return {
-    interventionConclusionFailed: state.intervencaoState.interventionConclusionFailed
-  };
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {
