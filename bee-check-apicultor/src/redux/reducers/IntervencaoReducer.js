@@ -1,11 +1,13 @@
 import {
   INTERVENCAO_GET_ALL_BY_APICULTOR,
   INTERVENCAO_LOADING,
-  INTERVENCAO_CONCLUIR_SUCCESS,
   INTERVENCAO_CONCLUIR_ERROR,
   INTERVENCAO_GET_ALL_BY_APIARIO,
   INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
   INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+  INITIATE_CONCLUIR_INTERVENCAO_APIARIO,
+  CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
+  CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
   UPDATE_COUNT_INTERVENCOES_BY_APICULTOR,
   UPDATE_ALL_INTERVENCOES_APIARIOS,
   UPDATE_ALL_INTERVENCOES_COLMEIAS
@@ -46,13 +48,21 @@ export const IntervencaoReducer = (state = initialState, action) => {
         )
       };
 
-    case INTERVENCAO_CONCLUIR_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        concluirIntervencaoSuccess: true,
-        countIntervencoes: state.countIntervencoes - 1
-      };
+    case INITIATE_CONCLUIR_INTERVENCAO_APIARIO:
+      return state;
+
+    case CONCLUIR_INTERVENCAO_APIARIO_COMMIT:
+      // return {
+      //   ...state,
+      //   loading: false,
+      //   concluirIntervencaoSuccess: true,
+      //   countIntervencoes: state.countIntervencoes - 1
+      // };
+      return state;
+
+    case CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK:
+      return state;
+
 
     case INTERVENCAO_CONCLUIR_ERROR:
       return {

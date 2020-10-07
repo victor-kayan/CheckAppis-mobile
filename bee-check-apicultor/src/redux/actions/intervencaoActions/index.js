@@ -3,10 +3,12 @@ import { Alert } from 'react-native';
 import {
   INTERVENCAO_LOADING,
   INTERVENCAO_GET_ALL_BY_APICULTOR,
-  INTERVENCAO_CONCLUIR_SUCCESS,
   INTERVENCAO_GET_ALL_BY_APIARIO,
   INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
   INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+  INITIATE_CONCLUIR_INTERVENCAO_APIARIO,
+  CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
+  CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
   UPDATE_COUNT_INTERVENCOES_BY_APICULTOR,
   UPDATE_ALL_INTERVENCOES_APIARIOS,
   UPDATE_ALL_INTERVENCOES_COLMEIAS
@@ -53,83 +55,125 @@ export const fecthIntervencoesByApicultor = () => {
 
 export const concluirIntervencao = intervencao => {
   return dispatch => {
-    Alert.alert(
-      'Concluir Intervenção',
-          'Tem certeza que deseja concluir esta intervenção?',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK', 
-              onPress: () => {
-                dispatch({
-                  type: INTERVENCAO_LOADING,
-                  payload: {
-                    loading: true
-                  }
-                });
-                Api.instance
-                  .get(
-                    URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
-                      intervencao_id: intervencao.id
-                    })
-                  )
-                  .then(response => {
-                    Alert.alert(
-                      'Intervenção Concluída',
-                      'Intervenção concluída com sucesso.',
-                      [
-                        {
-                          text: 'Cancelar',
-                          style: 'cancel',
-                        },
-                        {
-                          text: 'OK', 
-                          style: 'cancel'
-                        },
-                      ],
-                      {cancelable: false},
-                    );
-                    /**
-                     // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
-                     */
-                    dispatch(fecthIntervencoesByApicultor());
-                    dispatch({
-                      type: INTERVENCAO_CONCLUIR_SUCCESS,
-                      payload: {}
-                    });
-                  })
-                  .catch(error => {
-                    Alert.alert(
-                      'Erro',
-                      error.response && error.response.data.message,
-                      [
-                        {
-                          text: 'Cancelar',
-                          style: 'cancel',
-                        },
-                        {
-                          text: 'OK', 
-                          style: 'cancel'
-                        },
-                      ],
-                      {cancelable: false},
-                    );
-                    dispatch({
-                      type: INTERVENCAO_CONCLUIR_SUCCESS,
-                      payload: {}
-                    });
-                    throw error;
-                  });
-              }
-            },
-          ],
-          {cancelable: false},
-    )
+    dispatch({
+      type: INITIATE_CONCLUIR_INTERVENCAO_APIARIO,
+      payload: {
+        interventionData: intervencao
+      },
+      meta: {
+        offline: {
+          effect: {
+            method: 'GET',
+            // url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
+            //       intervencao_id: intervencao.id
+            //     })
+          },
+          commit: { 
+            type: CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
+            /**
+             // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
+              
+            //! dispatch(fecthIntervencoesByApicultor());
+            dispatch({
+              type: INTERVENCAO_CONCLUIR_SUCCESS,
+              payload: {}
+            });
+            */
+          },
+          rollback: {
+            type: CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
+            /**
+            //! dispatch({
+            //!   type: INTERVENCAO_CONCLUIR_SUCCESS,
+            //! payload: {}
+            });
+            */
+          }
+        }
+      }
+    });
   };
 };
+
+// export const concluirIntervencao = intervencao => {
+//   return dispatch => {
+//     Alert.alert(
+//       'Concluir Intervenção',
+//           'Tem certeza que deseja concluir esta intervenção?',
+//           [
+//             {
+//               text: 'Cancelar',
+//               style: 'cancel',
+//             },
+//             {
+//               text: 'OK', 
+//               onPress: () => {
+//                 dispatch({
+//                   type: INTERVENCAO_LOADING,
+//                   payload: {
+//                     loading: true
+//                   }
+//                 });
+//                 Api.instance
+//                   .get(
+//                     URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
+//                       intervencao_id: intervencao.id
+//                     })
+//                   )
+//                   .then(response => {
+//                     Alert.alert(
+//                       'Intervenção Concluída',
+//                       'Intervenção concluída com sucesso.',
+//                       [
+//                         {
+//                           text: 'Cancelar',
+//                           style: 'cancel',
+//                         },
+//                         {
+//                           text: 'OK', 
+//                           style: 'cancel'
+//                         },
+//                       ],
+//                       {cancelable: false},
+//                     );
+//                     /**
+//                      // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
+//                      */
+//                     dispatch(fecthIntervencoesByApicultor());
+//                     dispatch({
+//                       type: INTERVENCAO_CONCLUIR_SUCCESS,
+//                       payload: {}
+//                     });
+//                   })
+//                   .catch(error => {
+//                     Alert.alert(
+//                       'Erro',
+//                       error.response && error.response.data.message,
+//                       [
+//                         {
+//                           text: 'Cancelar',
+//                           style: 'cancel',
+//                         },
+//                         {
+//                           text: 'OK', 
+//                           style: 'cancel'
+//                         },
+//                       ],
+//                       {cancelable: false},
+//                     );
+//                     dispatch({
+//                       type: INTERVENCAO_CONCLUIR_SUCCESS,
+//                       payload: {}
+//                     });
+//                     throw error;
+//                   });
+//               }
+//             },
+//           ],
+//           {cancelable: false},
+//     )
+//   };
+// };
 
 export const fecthIntervencoesColmeiasByApiario = apiaryId => {
   return dispatch => {

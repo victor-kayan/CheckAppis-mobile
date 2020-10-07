@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { ScrollView, TouchableOpacity } from "react-native";
-import { Container, View, Text, Icon } from "native-base";
+import { ScrollView, TouchableOpacity, Alert } from "react-native";
+
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { concluirIntervencao } from "../../../redux/actions/intervencaoActions";
+
+import { Container, View, Text, Icon } from "native-base";
 import moment from "moment";
 import "moment/locale/pt-br";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
@@ -30,9 +34,23 @@ class DetalhesIntervencao extends Component {
     }
   }
 
+  handleConcludeIntervention = intervention => {
+    Alert.alert(
+      'Concluir Intervenção',
+      'Tem certeza que deseja concluir esta intervenção?',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        { text: 'OK',  onPress: () => {
+          this.props.concluirIntervencao(intervention);
+          this.setState({ concluindoIntervencao: true });
+        }},
+      ],
+      {cancelable: false},
+    );
+  }
+
   render() {
     const intervencao = this.props.navigation.getParam("intervencao", "");
-    const onConcluirIntervencao = this.props.navigation.getParam("onConcluirIntervencao", "");
 
     return (
       <Container>
@@ -83,10 +101,17 @@ class DetalhesIntervencao extends Component {
                 </View>
               </View>
 
-              <TouchableOpacity onPress = {() => {onConcluirIntervencao(intervencao); this.setState({ concluindoIntervencao: true });}} style = {styles.button}>
-                <Text style = {styles.textButton}>Marcar como concluída</Text>
-                <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
-              </TouchableOpacity>
+              { intervencao.is_concluido ? (
+                  <Text style={{ fontWeight: 'bold', color: 'darkgreen', textAlign: 'center' }}>
+                    INTERVENÇÃO JÁ CONCLUÍDA
+                  </Text>
+                ) : (
+                  <TouchableOpacity onPress = {() => this.handleConcludeIntervention(intervencao)} style = {styles.button}>
+                    <Text style = {styles.textButton}>Marcar como concluída</Text>
+                    <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
+                  </TouchableOpacity>
+                )
+              }
               <View style = {{height: 70}}/>
             </ScrollView>
           </View>
@@ -103,7 +128,14 @@ function mapStateToProps(state, props) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { concluirIntervencao },
+    dispatch
+  );
+}
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(DetalhesIntervencao);
