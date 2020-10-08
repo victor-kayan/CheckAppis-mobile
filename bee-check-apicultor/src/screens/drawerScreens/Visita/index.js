@@ -63,7 +63,7 @@ class Visita extends Component {
                       name = {apiary.nome} 
                       description = {apiary.descricao} 
                       openList = {() => this.openVisitList(apiary)}
-                      />
+                    />
                   )
                 }
                 <View style = {{height: 100}}/>

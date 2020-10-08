@@ -53,81 +53,32 @@ export const fecthIntervencoesByApicultor = () => {
 
 export const concluirIntervencao = intervencao => {
   return dispatch => {
-    Alert.alert(
-      'Concluir Intervenção',
-          'Tem certeza que deseja concluir esta intervenção?',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK', 
-              onPress: () => {
-                dispatch({
-                  type: INTERVENCAO_LOADING,
-                  payload: {
-                    loading: true
-                  }
-                });
-                Api.instance
-                  .get(
-                    URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
-                      intervencao_id: intervencao.id
-                    })
-                  )
-                  .then(response => {
-                    Alert.alert(
-                      'Intervenção Concluída',
-                      'Intervenção concluída com sucesso.',
-                      [
-                        {
-                          text: 'Cancelar',
-                          style: 'cancel',
-                        },
-                        {
-                          text: 'OK', 
-                          style: 'cancel'
-                        },
-                      ],
-                      {cancelable: false},
-                    );
-                    /**
-                     // TODO: Atualizar lista de intervenções após concluir uma sem precisar fazer outra requisição.
-                     */
-                    dispatch(fecthIntervencoesByApicultor());
-                    dispatch({
-                      type: INTERVENCAO_CONCLUIR_SUCCESS,
-                      payload: {}
-                    });
-                  })
-                  .catch(error => {
-                    Alert.alert(
-                      'Erro',
-                      error.response && error.response.data.message,
-                      [
-                        {
-                          text: 'Cancelar',
-                          style: 'cancel',
-                        },
-                        {
-                          text: 'OK', 
-                          style: 'cancel'
-                        },
-                      ],
-                      {cancelable: false},
-                    );
-                    dispatch({
-                      type: INTERVENCAO_CONCLUIR_SUCCESS,
-                      payload: {}
-                    });
-                    throw error;
-                  });
-              }
-            },
-          ],
-          {cancelable: false},
-    )
+    Api.instance
+      .get(
+        URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
+          intervencao_id: intervencao.id
+        })
+      )
+      .then(response => {
+        dispatch(fecthIntervencoesByApicultor());
+        dispatch({
+          type: INTERVENCAO_CONCLUIR_SUCCESS,
+          payload: {}
+        });
+      })
+      .catch(error => {
+        Toast.show({
+          text: error.response && error.response.data.message,
+          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+          type: "danger"
+        });
+        dispatch({
+          type: INTERVENCAO_CONCLUIR_SUCCESS,
+          payload: {}
+        });
+        throw error;
+      });
+              
   };
 };
 
@@ -173,62 +124,34 @@ export const fecthIntervencoesColmeiasByApiario = apiaryId => {
 
 export const concluirIntervencaoColmeia = intervencao => {
   return dispatch => {
-    Alert.alert(
-      'Concluir Intervenção',
-          'Tem certeza que deseja concluir esta intervenção?',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK', 
-              onPress: () => {
-                dispatch({
-                  type: INTERVENCAO_LOADING,
-                  payload: {
-                    loading: true
-                  }
-                });
-                Api.instance
-                  .get(
-                    URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
-                      intervencao_id: intervencao.id
-                    })
-                  )
-                  .then(response => {
-                    Toast.show({
-                      text: response.data.message,
-                      buttonText: "",
-                      type: "success"
-                    });
-                    /**
-                     // TODO: Atualizar lista de intervenções nas colmeias após concluir uma sem precisar fazer outra requisição.
-                     */
-                    dispatch(
-                      fecthIntervencoesColmeiasByApiario(intervencao.colmeia.apiario_id)
-                    );
-                    dispatch({
-                      type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-                      payload: {}
-                    });
-                  })
-                  .catch(error => {
-                    Toast.show({
-                      text: error.response && error.response.data.message,
-                      buttonText: "",
-                      type: "danger"
-                    });
-                    dispatch({
-                      type: INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
-                      payload: {}
-                    });
-                    throw error;
-                  });
-              }
-            },
-          ],
-          {cancelable: false},)
+    Api.instance
+      .get(
+        URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
+          intervencao_id: intervencao.id
+        })
+      )
+      .then(response => {
+        dispatch(
+          fecthIntervencoesColmeiasByApiario(intervencao.colmeia.apiario_id)
+        );
+        dispatch({
+          type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
+          payload: {}
+        });
+      })
+      .catch(error => {
+        Toast.show({
+          text: error.response && error.response.data.message,
+          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+          type: "danger"
+        });
+        dispatch({
+          type: INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+          payload: {}
+        });
+        throw error;
+      });
+             
   };
 };
 

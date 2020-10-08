@@ -28,7 +28,7 @@ export default {
   },
   statusIcon: {
     fontSize: 25,
-    color: colors.theme_default,
+    color: colors.theme_second,
     marginTop: 2,
   },
   badge_text: {
@@ -81,7 +81,7 @@ export default {
     alignSelf: 'center',
   },
   apiaryName: {
-    color: colors.theme_default,
+    color: colors.theme_second,
     fontSize: 18,
     fontFamily: 'Montserrat-Bold',
     marginRight: 20,

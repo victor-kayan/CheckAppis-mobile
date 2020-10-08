@@ -6,14 +6,40 @@ import moment from "moment";
 import "moment/locale/pt-br";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
+import ModalConfirm from "../../../componentes/ModalConfirm";
+import ModalFeedback from "../../../componentes/ModalFeedback";
+import { images } from "../../../../assets";
 
 class DetailsInterventionHive extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      concluindoIntervencao: false
+      concluindoIntervencao: false,
+      modalConfirm: false,
+      modalFeedback: false,
     };
   }
+
+  // abrir modal de confirmação 
+  openModalConfirm = () => {
+    this.setState({modalConfirm: true});
+  };
+
+  // fechar modal de confirmação
+  closeModalConfirm = () => {
+    this.setState({modalConfirm: false});
+  };
+
+  // abrir modal de feedback de exlcusão 
+  openModalFeedback = () => {
+    this.setState({modalFeedback: true});
+  };
+
+  // fechar modal de feedback de exlcusão
+  closeModalFeedback = () => {
+    this.setState({modalFeedback: false});
+    this.props.navigation.goBack();
+  };
 
   componentWillReceiveProps(nextProps) {
     if (
@@ -26,9 +52,16 @@ class DetailsInterventionHive extends Component {
       );
 
       this.setState({ concluindoIntervencao: false });
-      this.props.navigation.navigate(route);
     }
   }
+
+  handleOnConcluir = () => {
+    const intervencao = this.props.navigation.getParam("intervencao", "");
+    const onConcluirIntervencao = this.props.navigation.getParam("onConcluirIntervencao", "");
+    onConcluirIntervencao(intervencao);
+    this.closeModalConfirm();
+    this.openModalFeedback();
+  };
 
   render() {
     const intervencao = this.props.navigation.getParam("intervencao", "");
@@ -44,6 +77,7 @@ class DetailsInterventionHive extends Component {
         <View style = {styles.container}>
           <View style = {styles.viewInformations}>
             <Text style = {styles.informations}>Informações</Text>
+            <Text style = {styles.hiveName}>{intervencao.colmeia.nome}</Text>
           </View>
 
           <View style = {styles.containerContent}>
@@ -79,13 +113,21 @@ class DetailsInterventionHive extends Component {
 
               <View style = {styles.cardInformation}>
                 <Icon type="MaterialIcons" name="view-headline" style={styles.icons}/>
-                <View>
+                <View style = {styles.viewPrescription}>
                   <Text style = {styles.title}>Prescrição</Text>
                   <Text style = {styles.description}>{intervencao.descricao}</Text>
                 </View>
               </View>
 
-              <TouchableOpacity onPress = {() => {onConcluirIntervencao(intervencao); this.setState({ concluindoIntervencao: true });}} style = {styles.button}>
+              <View style = {styles.cardInformation}>
+                <Icon type="AntDesign" name="sync" style={styles.icons}/>
+                <View>
+                  <Text style = {styles.title}>Status de sincronização</Text>
+                  <Text style = {styles.description}>Intervenção sincronizada</Text>
+                </View>
+              </View>
+
+              <TouchableOpacity onPress = {() => {this.openModalConfirm(); this.setState({ concluindoIntervencao: true });}} style = {styles.button}>
                 <Text style = {styles.textButton}>Marcar como concluída</Text>
                 <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
               </TouchableOpacity>
@@ -96,6 +138,24 @@ class DetailsInterventionHive extends Component {
           </View>
 
         </View>
+
+          <ModalConfirm
+            modalVisible = {this.state.modalConfirm}
+            onCancel = {this.closeModalConfirm}
+            onConfirm = {() => this.handleOnConcluir()}
+            title = 'Concluir Intervenção'
+            text = 'Tem certeza que deseja concluir esta intervenção?'
+            button = 'Concluir'
+          />
+
+          <ModalFeedback
+            modalVisible = {this.state.modalFeedback}
+            onCancel = {this.closeModalFeedback}
+            gif = {images.gif.intervention}
+            title = 'Intervenção concluída com sucesso'
+            text = 'Você resolveu a intervenção prescrita para esta colmeia e ela foi concluída com sucesso.'
+          />
+
       </Container>
     );
   }

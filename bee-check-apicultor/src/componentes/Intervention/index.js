@@ -15,6 +15,8 @@ export default class Intervention extends React.Component {
                 <Text style = {styles.apiaryName} numberOfLines = {1}>{this.props.apiaryName}</Text>
                 <Text style = {styles.date}>{`${moment(this.props.datein).format("DD")} de`} {`${moment(this.props.datein).format("MMMM")} de`} {`${moment(this.props.datein).format("YYYY")}`}</Text>
             </View>
+
+            <Icon type="AntDesign" name="closecircleo" style={styles.statusIcon} iconSize={5} active/>
             
             <TouchableOpacity onPress={() => this.props.openInterventionApiary(this.props.intervention)}>
                 <View style = {styles.button}>

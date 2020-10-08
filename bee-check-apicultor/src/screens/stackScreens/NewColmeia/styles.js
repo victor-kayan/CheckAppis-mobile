@@ -67,7 +67,7 @@ export default {
     justifyContent: 'center',
     height: 50,
     width: 50,
-    marginTop: -20,
+    marginTop: -25,
     marginLeft: wp('73%')
   },
 

@@ -17,7 +17,7 @@ export default {
   },
 
   textSubTitle: {
-    color: colors.theme_default,
+    color: colors.theme_second,
     fontSize: 16,
     fontFamily: 'Montserrat-Bold',
     marginBottom: 20,

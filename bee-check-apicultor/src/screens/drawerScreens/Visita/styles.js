@@ -41,7 +41,7 @@ export default {
     width: '100%',
   },
   title: {
-    color: colors.theme_default,
+    color: colors.theme_second,
     fontSize: 18,
     fontFamily: 'Montserrat-Bold',
     marginBottom: 5,

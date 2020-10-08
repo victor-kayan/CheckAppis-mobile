@@ -113,7 +113,7 @@ export default {
     justifyContent: 'center',
     height: 50,
     width: 50,
-    top: -20,
+    top: -25,
     alignSelf: 'center',
   },
 

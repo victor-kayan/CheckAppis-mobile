@@ -45,28 +45,3 @@ class AboutApp extends Component {
 
 
 export default (AboutApp);
-
-// function mapStateToProps(state, props) {
-//   return {
-//     name: state.nameState.name,
-//     tell: state.tellState.tell,
-//     email: state.emailState.email,
-//     password: state.passwordState.password
-//   };
-// }
-
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators(
-//     {
-//       login,
-//       logout,
-//       fetchDataUser
-//     },
-//     dispatch
-//   );
-// }
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Perfil);

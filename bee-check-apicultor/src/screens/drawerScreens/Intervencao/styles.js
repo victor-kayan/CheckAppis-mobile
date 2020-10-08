@@ -63,7 +63,7 @@ export default {
     margin: 10,
     borderRadius: 15,
     alignSelf: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: colors.theme_second,
   },
   name: {

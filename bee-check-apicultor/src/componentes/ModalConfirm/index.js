@@ -8,6 +8,7 @@ const ModalConfirm = ({
   onCancel,
   onConfirm,
   modalVisible,
+  button,
   ...rest
 }) => (
     <Modal 
@@ -27,7 +28,7 @@ const ModalConfirm = ({
                         <Text style = {styles.textButtonCancel}>Cancelar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress = {onConfirm} style = {styles.okButton}>
-                        <Text style = {styles.textButton}>Excluir</Text>
+                        <Text style = {styles.textButton}>{button}</Text>
                     </TouchableOpacity>
                 </View>
             </View>

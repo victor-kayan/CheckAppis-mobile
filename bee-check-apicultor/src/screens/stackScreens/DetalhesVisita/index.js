@@ -5,8 +5,13 @@ import { colors, routes } from "../../../../assets";
 import styles from "./styles";
 import moment from "moment";
 import "moment/locale/pt-br";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { deleteVisita } from "../../../redux/actions/visitaActions";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import LinearGradient from "react-native-linear-gradient";
+import ModalSync from "../../../componentes/ModalFeedback";
+import ModalConfirm from "../../../componentes/ModalConfirm";
 
 class DetalhesVisita extends React.Component {
 
@@ -15,89 +20,38 @@ class DetalhesVisita extends React.Component {
     this.state = {
       visit: this.props.navigation.getParam("visit", ""),
       apiary: this.props.navigation.getParam("apiary", ""),
+      modalVisibleSync: false,
+      modalVisibleConfirm: false,
     };
   }
 
-  // mostrar status de sincronização
-  showStatus = () => {
-    {
-      this.state.visit.isSynced ? 
-      (
-        Alert.alert(
-          'Status de Sincronização',
-          'Sua visita foi sincronizada com sucesso.',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK', 
-              style: 'ok',
-            },
-          ],
-          {cancelable: false},
-        )
-      )
-      : this.state.visit.permanentlyFailed ? 
-      (
-        Alert.alert(
-          'Status de Sincronização',
-          'A sincronização da visita falhou permanentemente. Por favor, delete a visita ou realize uma nova.',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK', 
-              style: 'ok',
-            },
-          ],
-          {cancelable: false},
-        )
-      )
-      : 
-      (
-        Alert.alert(
-          'Status de Sincronização',
-          'Aguardando conexão com a internet para sincronizar a visita.',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK', 
-              style: 'ok',
-            },
-          ],
-          {cancelable: false},
-        )
-      )
-    }
+  // abrir modal de sincronização 
+  openModalSync = () => {
+    this.setState({modalVisibleSync: true});
+  };
+
+  // fechar modal de sincronização
+  closeModalSync = () => {
+    this.setState({modalVisibleSync: false});
+  };
+
+  // abrir modal de feedback de exlcusão 
+  openModalConfirm = () => {
+    this.setState({modalVisibleConfirm: true});
+  };
+
+  // fechar modal de feedback de exlcusão
+  closeModalConfirm = () => {
+    this.setState({modalVisibleConfirm: false});
+    //this.props.navigation.navigate(routes.VisitList);
   };
 
   // deletar visita
   deleteVisit = () => {
-    this.setState({ dialogVisible: false });
-    Alert.alert(
-      'Excluir Visita',
-      'Tem certeza que deseja exlcuir essa Visita?',
-      [
-        {
-          text: 'Cancelar',
-          style: 'cancel',
-        },
-        {text: 'OK', onPress: () => {
-          this.props.deleteVisita({
-            visita_id: this.state.visit.id,
-            apiario_id: this.state.apiary.id,
-          });
-        }},
-      ],
-      {cancelable: false},
-    );
+    this.props.deleteVisita({
+      visita_id: this.state.visit.id,
+      apiario_id: this.state.apiary.id,
+    });
   };
 
   render() {
@@ -112,18 +66,18 @@ class DetalhesVisita extends React.Component {
           description="Veja os detalhes da visita selecionada anteriormente"
           iconRight="delete"
           typeIconRight="AntDesign"
-          handleIconRight={() => this.deleteVisit()}
+          handleIconRight={() => this.openModalConfirm()}
         />
         <View style = {styles.viewContent}>
 
           {/* nome do apiário e status de sincronização */}
-          <TouchableOpacity onPress = {() => this.showStatus()} style = {styles.viewTitle}>
+          <TouchableOpacity onPress = {() => this.openModalSync()} style = {styles.viewTitle}>
             <Text style = {styles.apiaryName}>Visita ao {apiaryName}</Text>
             {
               visita.isSynced
               ? (<Icon type="AntDesign" name="checkcircleo" style={styles.statusIcon} iconSize={5} active/>) // visita.isSynced -> TRUE; visita.permanentlyFailed -> FALSE
               : visita.permanentlyFailed
-              ? (<Icon type="AntDesign" name="closecircleo" style={styles.statusIconFailed} iconSize={5} active/>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> TRUE 
+              ? (<Icon type="AntDesign" name="closecircleo" style={styles.statusIcon} iconSize={5} active/>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> TRUE 
               : (<Icon type="AntDesign" name="clockcircleo" style={styles.statusIcon} iconSize={5} active/>) // visita.isSynced -> FALSE; visita.permanentlyFailed -> FALSE
             }
           </TouchableOpacity>
@@ -312,361 +266,42 @@ class DetalhesVisita extends React.Component {
             </View>
           )
         }
+
+          <ModalSync
+            modalVisible = {this.state.modalVisibleSync}
+            onCancel = {this.closeModalSync}
+            gif = {images.gif.sync}
+            title = 'Status de Sincronização'
+            text = {visita.isSynced ? ('Sua visita está sincronizada. Todos os dados estão guardados de forma segura.') : visita.permanentlyFailed ? ('A sincronização dessa visita falhou permanentemente.') : visita.isSynced === false && ('Aguardando conexão com a internet para sincronizar essa visita.')}
+          />
+
+          <ModalConfirm
+            modalVisible = {this.state.modalVisibleConfirm}
+            onCancel = {this.closeModalConfirm}
+            onConfirm = {() => this.deleteVisit()}
+            title = 'Excluir Visita'
+            text = 'Tem certeza que deseja excluir esta visita permanentemente?'
+            button = 'Excluir'
+          />
       </Container>
     );
   }
 }
 
-export default DetalhesVisita;
-/* 
- <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              paddingHorizontal: 10,
-              marginHorizontal: 10,
-              alignItems: "center",
-              paddingTop: 10
-            }}
-          >
-            <Image
-              style={{ marginHorizontal: 10, width: 40, height: 40 }}
-              source={images.home.apiario64}
-            />
-            <Text
-              adjustsFontSizeToFit={true}
-              numberOfLines={5}
-              style={{
-                color: "rgba(0, 0, 0, 0.59)",
-                marginHorizontal: 20,
-                fontWeight: "bold",
-                fontSize: 17
-              }}
-            >
-              {`Apiario ${apiaryName}`}
-            </Text>
-          </View>
-          <Grid style={{ marginTop: 30 }}>
-            {/* COLULA 1 }
-            <Col style={{ marginHorizontal: 5 }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.label}>Data: </Text>
-                <Text>{moment(visita.created_at).format("DD/MM/YYYY")}</Text>
-              </View>
-              <View
-                style={{
-                  marginTop: 15,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.label}>Está sombreado: </Text>
-                <Badge
-                  style={
-                    visita && visita && visita.tem_sombra
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.tem_sombra ? "SIM" : "NÃO"}
-                  </Text>
-                </Badge>
-              </View>
-            </Col>
+function mapStateToProps(state, props) {
+  return {
+    
+  };
+}
 
-            {/* COLULA 1 }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { deleteVisita },
+    dispatch
+  );
+}
 
-            {/* COLULA 2 }
-
-            <Col style={{ marginHorizontal: 10 }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.label}>Há Água: </Text>
-                <Badge
-                  style={
-                    visita && visita && visita.tem_agua
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.tem_agua ? "SIM" : "NÃO"}
-                  </Text>
-                </Badge>
-              </View>
-              <View
-                style={{
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.label}>Há comida: </Text>
-                <Badge
-                  style={
-                    visita && visita && visita.tem_comida
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.tem_comida ? "SIM" : "NÃO"}
-                  </Text>
-                </Badge>
-              </View>
-            </Col>
-            {/* COLULA 2 }
-          </Grid>
-          <View style={{ marginTop: 30, backgroundColor: "#E6E4E4" }}>
-            <Text style={{ marginHorizontal: 10 }}>Dados das colmeias</Text>
-          </View>
-          <View style={{ marginTop: 20 }}>
-            <Text
-              style={{ marginHorizontal: 10, fontWeight: "bold" }}
-            >{`Colmeias visitadas:   ${visita.visita_colmeias}`}</Text>
-          </View>
-          <Grid style={{ marginTop: 20 }}>
-            <Col style={{ marginHorizontal: 5 }}>
-              <View
-                style={{
-                  marginRight: 20,
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelColmeias}>Colmeias com postura: </Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_colmeias_com_postura
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_colmeias_com_postura}
-                  </Text>
-                </Badge>
-              </View>
-              <View
-                style={{
-                  marginRight: 20,
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelColmeias}>
-                  Colmeias com abelhas mortas:
-                </Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_colmeias_com_abelhas_mortas
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_colmeias_com_abelhas_mortas}
-                  </Text>
-                </Badge>
-              </View>
-            </Col>
-            <Col style={{ marginHorizontal: 10 }}>
-              <View
-                style={{
-                  marginRight: 30,
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelColmeias}>Colmeias sem postura: </Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_colmeias_sem_postura
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_colmeias_sem_postura}
-                  </Text>
-                </Badge>
-              </View>
-              <View
-                style={{
-                  marginRight: 30,
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelColmeias}>
-                  Colmeias sem abelhas mortas:
-                </Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_colmeias_sem_abelhas_mortas
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_colmeias_sem_abelhas_mortas}
-                  </Text>
-                </Badge>
-              </View>
-            </Col>
-          </Grid>
-          <View style={{ marginTop: 20 }}>
-            <Text
-              style={{ marginHorizontal: 10, fontWeight: "bold" }}
-            >{`Quadros analizados:   ${visita.qtd_quadros_analizados}`}</Text>
-          </View>
-          <Grid style={{ marginTop: 20 }}>
-            <Col style={{ marginHorizontal: 5 }}>
-              <View
-                style={{
-                  marginLeft: 30,
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelQuadros}>Com Mel:</Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_quadros_mel
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_quadros_mel}
-                  </Text>
-                </Badge>
-              </View>
-              <View
-                style={{
-                  marginLeft: 30,
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelQuadros}>Cria Aberta:</Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_cria_aberta
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_cria_aberta}
-                  </Text>
-                </Badge>
-              </View>
-            </Col>
-            <Col style={{ marginHorizontal: 10 }}>
-              <View
-                style={{
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelQuadros}>Com Polén:</Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_quadros_polen
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_quadros_polen}
-                  </Text>
-                </Badge>
-              </View>
-              <View
-                style={{
-                  marginTop: 10,
-                  flexDirection: "row",
-                  justifyContent: "space-between"
-                }}
-              >
-                <Text style={styles.labelQuadros}>Cria Fechada:</Text>
-                <Badge
-                  style={
-                    visita && visita && visita.qtd_cria_fechada
-                      ? styles.badge_success
-                      : styles.badge_error
-                  }
-                >
-                  <Text style={styles.badge_text}>
-                    {visita && visita && visita.qtd_cria_fechada}
-                  </Text>
-                </Badge>
-              </View>
-            </Col>
-          </Grid>
-          <View style={{ marginTop: 30, backgroundColor: "#E6E4E4" }}>
-            <Text style={{ marginHorizontal: 10 }}>Observações</Text>
-          </View>
-          <CardItem>
-            <Textarea
-              rowSpan={4}
-              value={visita.observacao}
-              editable={false}
-              style={{ width: "100%", borderRadius: 5 }}
-              bordered
-            />
-          </CardItem>
-          <View
-            style={{
-              alignItems: "flex-end",
-              flexDirection: "column-reverse",
-              flex: 1,
-              paddingEnd: 20,
-              paddingBottom: 20,
-              marginTop: 30
-            }}
-          >
-            <View
-              style={{
-                backgroundColor: colors.theme_primary,
-                width: 220,
-                height: 45,
-                borderRadius: 7
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  paddingHorizontal: 20,
-                  paddingTop: 10
-                }}
-                onPress={() => this.props.navigation.navigate(routes.DetalhesVisitaColmeia,{visita_colmeias: visita.visita_colmeias})}
-              >
-                <Image
-                  source={images.icons.colmeia}
-                  style={{ width: 22, height: 22 }}
-                />
-                <Text>Detalhar por Colmeia</Text>
-              </TouchableOpacity>
-            </View>
-          </View> 
- */
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DetalhesVisita);

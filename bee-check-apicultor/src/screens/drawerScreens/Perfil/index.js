@@ -7,8 +7,6 @@ import "moment/locale/pt-br";
 import styles from "./styles";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-
-
 class Perfil extends Component {
 
   constructor(props) {
@@ -60,54 +58,3 @@ class Perfil extends Component {
 
 
 export default (Perfil);
-
-/* 
-<View style = {styles.userProfile}>
-            <View style={styles.userProfileText}>
-              <Text style = {styles.heyText}>Olá,</Text>
-              <Text style = {styles.userName}>!</Text>
-            </View>
-          </View>
-
-        <Separator bordered>
-          <Text style={styles.textDivider}>DADOS PESSOAIS</Text>
-        </Separator>
-        <View style = {styles.cardInformation}>
-          <Text>Nome</Text>
-          <Text style = {styles.textInformation}>Nome aqui</Text>
-        </View>
-        <View style = {styles.cardInformation}>
-          <Text>Telefone</Text>
-          <Text style = {styles.textInformation}>(84) 9 9895-2768</Text>
-        </View>
-        <Separator bordered>
-          <Text style={styles.textDivider}>DADOS DE CADASTRO</Text>
-        </Separator>
-        <View style = {styles.cardInformation}>
-          <Text>E-mail do usuário</Text>
-          <Text style = {styles.textInformation}>{this.state.email}</Text>
-        </View>
-        <View style = {styles.cardInformation}>
-          <Text>Senha</Text>
-          <Text style = {styles.textInformation}>{this.state.password}</Text>
-        </View>
-        <Separator bordered>
-          <Text style={styles.textDivider}>SOBRE O APLICATIVO</Text>
-        </Separator>
-        <View style = {styles.cardInformation}>
-          <Text>Versão do aplicativo</Text>
-          <Text style = {styles.textInformation}>Beta 1.0.0</Text>
-        </View>
-        <TouchableOpacity>
-          <View style = {styles.cardInformation}>
-              <Text>Desenvolvedores</Text>
-              <Text style = {styles.textInformation}>Direcionar</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style = {styles.cardInformation}>
-              <Text>Política de privacidade</Text>
-              <Text style = {styles.textInformation}>Direcionar</Text>
-          </View>
-        </TouchableOpacity>
-        <Text>{this.state.token}</Text> */

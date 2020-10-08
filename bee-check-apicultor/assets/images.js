@@ -13,7 +13,10 @@ export default images = {
   gif: {
     loading: require("../images/loading.gif"),
     check: require("../images/gifs/check.gif"),
-    trash: require("../images/gifs/trash.gif")
+    trash: require("../images/gifs/trash.gif"),
+    sync: require("../images/gifs/sync.gif"),
+    visit: require("../images/gifs/visit.gif"),
+    intervention: require("../images/gifs/intervention.gif")
   },
 
   login: {

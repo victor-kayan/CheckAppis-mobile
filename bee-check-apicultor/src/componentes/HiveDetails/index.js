@@ -11,7 +11,18 @@ export default class HiveDetails extends React.Component {
           <View style = {styles.hiveDetails}>
             <View style = {styles.header}>
               <View style = {styles.viewImage}>
-                <Image source = {this.props.image ? images.fotoDefault : {uri: this.props.image}} style = {styles.image}/>
+                { typeof(this.props.image) === 'string' ? (  // Colmeia já sincronizada. 'image' é o link da imagem no Amazon AWS.
+                    <Image source = {{uri: this.props.image}} style = {styles.image}/>
+                  ) : this.props.image.data ? (  // Colmeia ainda não sincronizada e possui imagem. 'image.data' é a imagem em Base64.
+                    <Image
+                      source = {{uri: `data:image/png;base64,${this.props.image.data}`}}
+                      style = {styles.image}
+                    />
+                  ) : ( // Colmeia ainda não cadastra e não possui imagem.
+                    <Image source = {images.fotoDefault} style = {styles.image}/>
+                  )
+                }
+                {/* <Image source = {this.props.image && this.props.image ? {uri: this.props.image} : images.fotoDefault}  style = {styles.image}/> */}
               </View>
               <View style = {styles.viewName}>
                 <Text style = {styles.hiveName} numberOfLines = {1}>{this.props.name}</Text>

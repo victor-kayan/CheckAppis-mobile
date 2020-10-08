@@ -47,13 +47,6 @@ export const createColmeia = data => {
 
 export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
   return dispatch => {
-    dispatch({
-      type: LOADING_COLMEIA,
-      payload: {
-        loading: true
-      }
-    });
-
     Api.instance
       .put(URLS.formattedURL(URLS.UPDATE_COLMEIA_URL, { colmeia_id: id }), {
         nome,
@@ -62,21 +55,6 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
         foto
       })
       .then(response => {
-        Alert.alert(
-          'Edição Concluída',
-          'Colmeia editada com sucesso.',
-          [
-            {
-              text: 'Cancelar',
-              style: 'cancel',
-            },
-            {
-              text: 'OK',
-              style: 'ok',
-            },
-          ],
-          {cancelable: false},
-        );
         dispatch(getColmeiasByApiario(apiario_id));
         dispatch({
           type: EDIT_COLMEIA,
@@ -88,7 +66,7 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
       .catch(error => {
         Toast.show({
           text: error.response && error.response.data.message,
-          buttonText: "",
+          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
           type: "danger"
         });
         dispatch({

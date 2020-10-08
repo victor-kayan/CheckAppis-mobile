@@ -47,7 +47,7 @@ const HeaderCustomStack = ({
           />
         </TouchableOpacity>
     </View>
-     <View style = {{width: '70%', position: 'absolute', marginTop: 70}}>
+     <View style = {{width: '70%', position: 'absolute', marginTop: 55}}>
       <Text style={{
         color: colors.white, 
         fontFamily: "Montserrat-Bold", 

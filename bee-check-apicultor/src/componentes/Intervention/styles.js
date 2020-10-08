@@ -9,26 +9,31 @@ export default {
         justifyContent: 'space-between',
         alignItems: 'center',
         marginVertical: 5,
+        paddingHorizontal: 5,
         alignSelf: 'center',
         borderBottomWidth: 1,
         borderBottomColor: colors.theme_second,
     },
+
     textContent: {
         width: '60%',
         height: '100%',
         justifyContent: 'center',
         paddingLeft: 25,
     },
+
     apiaryName: {
         fontSize: 15,
         fontFamily: 'Montserrat-Bold',
         color: colors.theme_second,
     },
+
     date: {
         fontSize: 13,
         fontFamily: 'Montserrat Regular',
         color: colors.black,
     },
+
     button: {
         width: '67%',
         height: '40%',
@@ -41,9 +46,16 @@ export default {
         borderWidth: 1,
         borderColor: colors.theme_second,    
     },
+    
     textButton: {
         fontSize: 13,
         fontFamily: 'Montserrat-Bold',
         color: colors.theme_second,
+    },
+
+    statusIcon: {
+        fontSize: 25,
+        color: colors.theme_second,
+        marginLeft: '12%',
     },
 };

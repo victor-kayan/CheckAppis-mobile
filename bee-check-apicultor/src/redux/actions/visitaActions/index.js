@@ -51,12 +51,6 @@ export const getVisitasByApiario = ({ id }) => {
 
 export const deleteVisita = ({ visita_id, apiario_id }) => { // TODO: Tornar função de deletar visita offline-first
   return dispatch => {
-    dispatch({
-      type: VISITA_LOADING,
-      payload: {
-        visitaIsLoading: true
-      }
-    });
     Api.instance
       .delete(
         URLS.formattedURL(URLS.DELETE_VISITA_URL, { visita_id: visita_id })
@@ -79,7 +73,7 @@ export const deleteVisita = ({ visita_id, apiario_id }) => { // TODO: Tornar fun
       .catch(error => {
         Toast.show({
           text: error.response && error.response.data.message,
-          buttonText: "",
+          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
           type: "danger"
         });
         dispatch({

@@ -37,7 +37,7 @@ export default {
         height: '100%'
     },
     title: {
-        color: colors.theme_default,
+        color: colors.theme_second,
         fontSize: 18,
         fontFamily: 'Montserrat-Bold',
         marginVertical: 20,

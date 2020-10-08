@@ -63,17 +63,21 @@ export default {
     fontSize: 19,
     fontFamily: 'Montserrat-Bold',
   },
+  apiaryName: {
+    color: colors.black,
+    fontSize: 15,
+    fontFamily: 'Montserrat Regular',
+  },
   viewInformations: {
     width: '80%',
     height: 70,
     backgroundColor: colors.white,
-    flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     alignSelf: 'center',
     borderBottomWidth: 1,
     borderBottomColor: colors.theme_second,
     marginBottom: 20,
-    marginTop: 20,
+    marginTop: 25,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35, 
   },
@@ -103,5 +107,8 @@ export default {
     color: colors.black,
     fontSize: 13,
     fontFamily: 'Montserrat Regular',
+  },
+  viewPrescription: {
+    width: '70%',
   },
 };

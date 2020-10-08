@@ -10,13 +10,15 @@ import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Container, Icon, CardItem, Text, View, Button, Toast } from "native-base";
-import { colors, routes } from "../../../../assets";
+import { colors, routes, images } from "../../../../assets";
 import { SpinnerCustom } from "../../../componentes";
 import { ActionSheetCustom as ActionSheet } from "react-native-actionsheet";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import ColmeiaItem from "./ColmeiaItem";
 import FormVisita from "./FormVisita";
 import styles from "./styles";
+import ModalFeedback from "../../../componentes/ModalFeedback";
+import ModalConfirm from "../../../componentes/ModalConfirm";
 
 class NewVisitaColmeia extends Component {
   constructor(props) {
@@ -27,9 +29,33 @@ class NewVisitaColmeia extends Component {
       colmeiasVisitadas: [],
       colmeiasDoApiarioAtual: [],
       done: false,
-      doneColmeias: false
+      doneColmeias: false,
+      modalVisible: false,
+      modalVisibleConfirm: false,
     };
   }
+
+  // abrir modal de conclusão de visitas
+  openModalFeedback = () => {
+    this.setState({modalVisible: true});
+  };
+
+  // fechar modal de conclusão de visitas
+  closeModalFeedback = () => {
+    const apiarioId = this.props.navigation.getParam("apiario_id", "");
+    this.setState({modalVisible: false});
+    this.props.navigation.navigate(routes.VisitList, {apiarioId});
+  };
+
+  // abrir modal de conclusão de visitas
+  openModalConfirm = () => {
+    this.setState({modalVisibleConfirm: true});
+  };
+
+  // fechar modal de conclusão de visitas
+  closeModalConfirm = () => {
+    this.setState({modalVisibleConfirm: false});
+  };
 
   componentWillReceiveProps(nextProps) {
     const apiarioId = this.props.navigation.getParam("apiario_id", "");
@@ -133,7 +159,7 @@ class NewVisitaColmeia extends Component {
     
     Toast.show({
       text: "Visita adicionada com sucesso.",
-      buttonText: "",
+      textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
       type: "success",
       style: {
         backgroundColor: colors.theme_second,
@@ -167,43 +193,8 @@ class NewVisitaColmeia extends Component {
     );
   };
 
-  // TODO: Corrigir bug ao concluir visita. Incluir colmeia que está sendo visitada nos dados da visita. 
-  // * Método onFinishVisitaColmeia não funciona.
-  // onFinishVisitaColmeia = values => {
-  //   const { colmeia, colmeiasVisitadas } = this.state;
-
-  //   let index = -1;
-  //   let visita = {
-  //     ...values,
-  //     colmeia_id: colmeia.id
-  //   };
-
-  //   index =
-  //     colmeiasVisitadas &&
-  //     colmeiasVisitadas.length &&
-  //     colmeiasVisitadas.findIndex(c => c.colmeia_id === colmeia.id);
-
-  //   if (index >= 0) {
-  //     this.setState({
-  //       colmeiasVisitadas: [
-  //         ...this.state.colmeiasVisitadas.slice(0, index),
-  //         Object.assign({}, this.state.colmeiasVisitadas[index], visita),
-  //         ...this.state.colmeiasVisitadas.slice(index + 1)
-  //       ],
-  //       colmeia: null
-  //     });
-  //   } else {
-  //     this.setState({
-  //       colmeiasVisitadas: [...colmeiasVisitadas, visita],
-  //       colmeia: null
-  //     });
-  //   }
-    
-  //   this.renderItemColmeia(this.state.colmeiasDoApiarioAtual, [...colmeiasVisitadas, visita]);
-  //   this.onConcluirVisita();
-  // };
-
   onConcluirVisita = () => {
+    this.closeModalConfirm();
     const { colmeiasVisitadas } = this.state;
 
     this.setState({ done: true});
@@ -217,14 +208,7 @@ class NewVisitaColmeia extends Component {
     const serializedData = this.serializeVisitData(data);
     
     this.props.createVisita(serializedData);
-    this.props.navigation.navigate(routes.VisitasHome);
-    // TODO: Navegar para a tela de listagem de visitas do apiário que acabou de ser visitado
-    
-    Toast.show({
-      text: "Visita adicionada!",
-      buttonText: "",
-      type: "success"
-    });
+    this.openModalFeedback();
   };
 
   /**
@@ -314,7 +298,7 @@ class NewVisitaColmeia extends Component {
           title = "Perguntas"
           iconRight="check"
           typeIconRight="AntDesign"
-          handleIconRight={this.handleConcluirVisita}
+          handleIconRight={() => this.openModalConfirm()}
         />
 
         <SpinnerCustom visible={loading} />
@@ -373,6 +357,25 @@ class NewVisitaColmeia extends Component {
               </>
             )
           )}
+
+          <ModalFeedback
+            modalVisible = {this.state.modalVisible}
+            onCancel = {this.closeModalFeedback}
+            gif = {images.gif.visit}
+            title = 'Visita concluída com sucesso'
+            text = 'Sua visita foi concluída com sucesso. Agora, é só esperar para ver se há alguma intervenção para ser feita.'
+          />
+
+          <ModalConfirm
+            modalVisible = {this.state.modalVisibleConfirm}
+            onCancel = {this.closeModalConfirm}
+            onConfirm = {() => this.onConcluirVisita()}
+            title = 'Concluir Visita'
+            text = 'Tem certeza que deseja concluir esta visita?'
+            button = 'Concluir'
+          />
+
+
         </View>
       </Container>
     );

@@ -37,13 +37,13 @@ export default {
     width: '100%',
   },
   title: {
-    color: colors.theme_default,
+    color: colors.theme_second,
     fontSize: 15,
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
     marginTop: 20,
     marginBottom: 25,
-    marginHorizontal: 30,
+    marginHorizontal: 40,
   },
   contentHive: {
     alignItems: 'center',

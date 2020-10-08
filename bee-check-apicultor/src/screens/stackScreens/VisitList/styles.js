@@ -38,12 +38,11 @@ export default {
     borderTopRightRadius: 35,
   },
   title: {
-    color: colors.black,
     fontSize: 15,
     fontFamily: 'Montserrat Regular',
     textAlign: 'center',
     marginTop: 25,
-    marginHorizontal: 20,
+    marginHorizontal: 40,
     marginBottom: 25,
   },
   contentVisit: {
