@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import { ScrollView, TouchableOpacity } from "react-native";
-import { Container, View, Text, Icon } from "native-base";
+import { ScrollView, TouchableOpacity, Alert } from "react-native";
+
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { concluirIntervencaoColmeia } from "../../../redux/actions/intervencaoActions";
+
 import moment from "moment";
 import "moment/locale/pt-br";
+
+import { Container, View, Text, Icon } from "native-base";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import styles from "./styles";
 import ModalConfirm from "../../../componentes/ModalConfirm";
@@ -41,31 +46,15 @@ class DetailsInterventionHive extends Component {
     this.props.navigation.goBack();
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (
-      this.state.concluindoIntervencao &&
-      nextProps.concluirIntervencaoSuccess
-    ) {
-      const route = this.props.navigation.getParam(
-        "routeOnSuccessConcluir",
-        ""
-      );
-
-      this.setState({ concluindoIntervencao: false });
-    }
-  }
-
-  handleOnConcluir = () => {
-    const intervencao = this.props.navigation.getParam("intervencao", "");
-    const onConcluirIntervencao = this.props.navigation.getParam("onConcluirIntervencao", "");
-    onConcluirIntervencao(intervencao);
+  handleConcludeIntervention = intervention => {
+    this.props.concluirIntervencaoColmeia(intervention);
+    this.setState({ isConcludingIntervention: true });
     this.closeModalConfirm();
-    this.openModalFeedback();
-  };
+    this.openModalFeedback();  
+  }
 
   render() {
     const intervencao = this.props.navigation.getParam("intervencao", "");
-    const onConcluirIntervencao = this.props.navigation.getParam("onConcluirIntervencao", "");
 
     return (
       <Container>
@@ -119,30 +108,43 @@ class DetailsInterventionHive extends Component {
                 </View>
               </View>
 
+
               <View style = {styles.cardInformation}>
                 <Icon type="AntDesign" name="sync" style={styles.icons}/>
                 <View>
                   <Text style = {styles.title}>Status de sincronização</Text>
-                  <Text style = {styles.description}>Intervenção sincronizada</Text>
+                  {
+                    this.props.isConcluded && this.props.isConclusionSynced ? (
+                      <Text style = {styles.description}>Intervenção sincronizada</Text>
+                    ) : this.props.isConcluded && !this.props.isConclusionSynced && (
+                      <Text style = {styles.description}>Intervenção ainda não sincronizada</Text>
+                    )
+                  }
                 </View>
               </View>
 
-              <TouchableOpacity onPress = {() => {this.openModalConfirm(); this.setState({ concluindoIntervencao: true });}} style = {styles.button}>
-                <Text style = {styles.textButton}>Marcar como concluída</Text>
-                <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
-              </TouchableOpacity>
+              { intervencao.is_concluido || this.state.isConcludingIntervention ? (
+                  <TouchableOpacity onPress = {() => this.openModalFeedback()} style = {styles.button}>
+                    <Text style = {styles.textButton}>Intervenção concluída</Text>
+                    <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity onPress = {() => this.openModalConfirm()} style = {styles.button}>
+                    <Text style = {styles.textButton}>Marcar como concluída</Text>
+                    <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
+                  </TouchableOpacity>
+                )
+              }
 
               <View style = {{height: 70}}/>
-
             </ScrollView>
           </View>
-
         </View>
 
           <ModalConfirm
             modalVisible = {this.state.modalConfirm}
             onCancel = {this.closeModalConfirm}
-            onConfirm = {() => this.handleOnConcluir()}
+            onConfirm = {() => this.handleConcludeIntervention(intervencao)}
             title = 'Concluir Intervenção'
             text = 'Tem certeza que deseja concluir esta intervenção?'
             button = 'Concluir'
@@ -162,15 +164,19 @@ class DetailsInterventionHive extends Component {
 }
 
 function mapStateToProps(state, props) {
-  return {
-    concluirIntervencaoSuccess:
-      state.intervencaoState.concluirIntervencaoSuccess
-  };
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { concluirIntervencaoColmeia },
+    dispatch
+  );
 }
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(DetailsInterventionHive);
 
 

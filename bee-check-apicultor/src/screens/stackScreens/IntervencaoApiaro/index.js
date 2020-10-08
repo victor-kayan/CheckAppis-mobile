@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import { Image, ScrollView } from "react-native";
-import { Container, Content, Text, View, Icon} from "native-base";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import {
-  fecthIntervencoesByApicultor,
-  concluirIntervencao
-} from "../../../redux/actions/intervencaoActions";
-import {
-  SpinnerCustom,
-  ButtonCustom
-} from "../../../componentes";
+import { fecthIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
+
+import { Container, Content, Text, View, Icon} from "native-base";
+import { SpinnerCustom, ButtonCustom } from "../../../componentes";
 import { images, routes } from "../../../../assets";
 import { ItemLista } from "./ItemLista";
-import styles from "./styles";
-import Intervention from "../../../componentes/Intervention";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
+import Intervention from "../../../componentes/Intervention";
+import styles from "./styles";
 
 class IntervencaoApiario extends Component {
   constructor(props) {
@@ -40,8 +36,6 @@ class IntervencaoApiario extends Component {
   onDetalharIntervencao = intervention => {
     this.props.navigation.navigate(routes.DetalhesIntervencao, {
       intervencao: intervention,
-      routeOnSuccessConcluir: routes.IntervencaoApiario,
-      onConcluirIntervencao: this.props.concluirIntervencao
     });
   };
 
@@ -65,7 +59,7 @@ class IntervencaoApiario extends Component {
                   style = {styles.image}
                   source={require ('../../../../images/empty.png')}
                 />
-              <Text style = {styles.textNull}>Nenhuma intervenção para ser concluída no momento :)</Text>
+              <Text style = {styles.textNull}>{'Nenhuma intervenção para ser concluída no momento :)'}</Text>
             </View>
           ) : (
             <View style = {styles.container}>
@@ -79,7 +73,9 @@ class IntervencaoApiario extends Component {
                       intervention = {intervention}
                       apiaryName = {intervention.apiario.nome}
                       openInterventionApiary = {this.onDetalharIntervencao}
-                      datein = {intervention.criated_at} 
+                      creationDate = {intervention.created_at}
+                      isConcluded = {intervention.is_concluido}
+                      isConclusionSynced = {intervention.isConclusionSynced}
                     />
                   )
                 }
@@ -104,7 +100,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fecthIntervencoesByApicultor, concluirIntervencao },
+    { fecthIntervencoesByApicultor },
     dispatch
   );
 }

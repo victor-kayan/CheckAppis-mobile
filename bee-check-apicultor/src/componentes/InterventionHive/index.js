@@ -5,16 +5,31 @@ import moment from "moment";
 import { Icon, Button } from "native-base";
 
 
-export default class InterventionHIve extends React.Component {
+
+export default class InterventionHive extends React.Component {
+    formatDateToString = date => {
+        const day = moment(date).format('DD');
+        const month = moment(date).format('MMMM');
+        const year = moment(date).format('YYYY');
+    
+        return `${day} de ${month} de ${year}`;
+    }
+    
     render () {
         return (
           <View style = {styles.intervention}>
             <View>
-                <Text style = {styles.apiaryName}>{this.props.name}</Text>
-                <Text style = {styles.date}>{moment(this.props.hive.created_at).format("DD")} de {moment(this.props.hive.created_at).format("MMMM")} de {moment(this.props.hive.created_at).format("YYYY")}</Text>
+                <Text style = {styles.apiaryName} numberOfLines={1}>{this.props.name}</Text>
+                <Text style = {styles.date}>{this.formatDateToString(this.props.creationDate)}</Text>
             </View>
 
-            <Icon type="AntDesign" name="closecircleo" style={styles.statusIcon} iconSize={5} active/>
+            { 
+                this.props.isConcluded && this.props.isConclusionSynced ? (
+                    <Icon type="AntDesign" name="checkcircleo" style={styles.statusIcon} iconSize={5} active/>
+                ) : this.props.isConcluded && !this.props.isConclusionSynced && (
+                    <Icon type="AntDesign" name="clockcircleo" style={styles.statusIcon} iconSize={5} active/>
+                )
+            }
 
             <TouchableOpacity onPress={() => this.props.openInterventionHive(this.props.interventionHive)}>
                 <View style = {styles.button}>

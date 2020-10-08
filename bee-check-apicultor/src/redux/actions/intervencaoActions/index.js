@@ -1,12 +1,13 @@
-import { Alert } from 'react-native';
-
 import {
   INTERVENCAO_LOADING,
   INTERVENCAO_GET_ALL_BY_APICULTOR,
-  INTERVENCAO_CONCLUIR_SUCCESS,
   INTERVENCAO_GET_ALL_BY_APIARIO,
-  INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-  INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
+  INITIATE_CONCLUIR_INTERVENCAO_APIARIO,
+  CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
+  CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
+  INITIATE_CONCLUIR_INTERVENCAO_COLMEIA,
+  CONCLUIR_INTERVENCAO_COLMEIA_COMMIT,
+  CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK,
   UPDATE_COUNT_INTERVENCOES_BY_APICULTOR,
   UPDATE_ALL_INTERVENCOES_APIARIOS,
   UPDATE_ALL_INTERVENCOES_COLMEIAS
@@ -14,6 +15,8 @@ import {
 import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 import { Api } from "../../../../services";
+
+// TODO: Possibilitar a exclusão local de uma intervenção já concluída e sincronizada.
 
 export const fecthIntervencoesByApicultor = () => {
   return dispatch => {
@@ -53,32 +56,34 @@ export const fecthIntervencoesByApicultor = () => {
 
 export const concluirIntervencao = intervencao => {
   return dispatch => {
-    Api.instance
-      .get(
-        URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
-          intervencao_id: intervencao.id
-        })
-      )
-      .then(response => {
-        dispatch(fecthIntervencoesByApicultor());
-        dispatch({
-          type: INTERVENCAO_CONCLUIR_SUCCESS,
-          payload: {}
-        });
-      })
-      .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
-          type: "danger"
-        });
-        dispatch({
-          type: INTERVENCAO_CONCLUIR_SUCCESS,
-          payload: {}
-        });
-        throw error;
-      });
-              
+    dispatch({
+      type: INITIATE_CONCLUIR_INTERVENCAO_APIARIO,
+      payload: {
+        interventionData: intervencao
+      },
+      meta: {
+        offline: {
+          effect: {
+            method: 'GET',
+            url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_APIARIO_URL, {
+                  intervencao_id: intervencao.id
+                })
+          },
+          commit: { 
+            type: CONCLUIR_INTERVENCAO_APIARIO_COMMIT,
+            meta: {
+              interventionId: intervencao.id
+            }
+          },
+          rollback: {
+            type: CONCLUIR_INTERVENCAO_APIARIO_ROLLBACK,
+            meta: {
+              interventionId: intervencao.id
+            }
+          }
+        }
+      }
+    });
   };
 };
 
@@ -124,34 +129,37 @@ export const fecthIntervencoesColmeiasByApiario = apiaryId => {
 
 export const concluirIntervencaoColmeia = intervencao => {
   return dispatch => {
-    Api.instance
-      .get(
-        URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
-          intervencao_id: intervencao.id
-        })
-      )
-      .then(response => {
-        dispatch(
-          fecthIntervencoesColmeiasByApiario(intervencao.colmeia.apiario_id)
-        );
-        dispatch({
-          type: INTERVENCAO_COLMEIA_CONCLUIR_SUCCESS,
-          payload: {}
-        });
-      })
-      .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
-          type: "danger"
-        });
-        dispatch({
-          type: INTERVENCAO_COLMEIA_CONCLUIR_ERROR,
-          payload: {}
-        });
-        throw error;
-      });
-             
+    dispatch({
+      type: INITIATE_CONCLUIR_INTERVENCAO_COLMEIA,
+      payload: {
+        interventionData: intervencao,
+        apiaryId: intervencao.colmeia.apiario_id
+      },
+      meta: {
+        offline: {
+          effect: {
+            method: 'GET',
+            url: URLS.formattedURL(URLS.CONCLUIR_INTERVENCAO_COLMEIA_URL, {
+                  intervencao_id: intervencao.id
+                })
+          },
+          commit: { 
+            type: CONCLUIR_INTERVENCAO_COLMEIA_COMMIT,
+            meta: {
+              interventionId: intervencao.id,
+              apiaryId: intervencao.colmeia.apiario_id
+            }
+          },
+          rollback: {
+            type: CONCLUIR_INTERVENCAO_COLMEIA_ROLLBACK,
+            meta: {
+              interventionId: intervencao.id,
+              apiaryId: intervencao.colmeia.apiario_id
+            }
+          }
+        }
+      }
+    });
   };
 };
 

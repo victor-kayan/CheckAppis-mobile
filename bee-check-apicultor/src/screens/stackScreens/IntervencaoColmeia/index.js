@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
-import { concluirIntervencaoColmeia } from "../../../redux/actions/intervencaoActions";
 import { Text, Container, View } from "native-base";
 import { Image, ScrollView } from "react-native";
 import { routes } from "../../../../assets";
@@ -14,9 +13,7 @@ import Apiary from "../../../componentes/Apiary";
 class IntervencaoColmeia extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedPickerApiario: null
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -34,8 +31,6 @@ class IntervencaoColmeia extends Component {
   onDetalharIntervencao = intervencao => {
     this.props.navigation.navigate(routes.DetalhesIntervencao, {
       intervencao: intervencao,
-      routeOnSuccessConcluir: routes.IntervencaoColmeia,
-      onConcluirIntervencao: this.props.concluirIntervencaoColmeia
     });
   };
 
@@ -44,10 +39,7 @@ class IntervencaoColmeia extends Component {
   };
 
   render() {
-    const { selectedPickerApiario } = this.state;
     const { apiarios, loading } = this.props;
-    const { intervencoesByApiario } =
-      selectedPickerApiario == null ? [] : this.props;
 
     return (
       <Container>
@@ -95,21 +87,16 @@ class IntervencaoColmeia extends Component {
   }
 }
 
-// export default Visita;
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
-    intervencoesByApiario: state.intervencaoState.intervencoesByApiario,
     loading: state.apiarioState.loading || state.intervencaoState.loading
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    {
-      fetchApiariosByUser,
-      concluirIntervencaoColmeia
-    },
+    { fetchApiariosByUser },
     dispatch
   );
 }
