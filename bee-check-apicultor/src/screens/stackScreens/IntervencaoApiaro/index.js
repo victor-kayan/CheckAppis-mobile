@@ -5,10 +5,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fecthIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
 
-import { Container, Content, Text, View, Icon} from "native-base";
-import { SpinnerCustom, ButtonCustom } from "../../../componentes";
-import { images, routes } from "../../../../assets";
-import { ItemLista } from "./ItemLista";
+import { Container, Text, View} from "native-base";
+import { routes } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import Intervention from "../../../componentes/Intervention";
 import styles from "./styles";
@@ -16,21 +14,15 @@ import styles from "./styles";
 class IntervencaoApiario extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   componentDidMount() {
-    this.fetchIntervencoes();
+    this.props.fecthIntervencoesByApicultor();
   }
 
   handleRefresh() {
-    this.fetchIntervencoes();
-  }
-
-  fetchIntervencoes() {
-    this.props.fecthIntervencoesByApicultor();
+    this.props.fecthIntervencoesByApicultor(true);
   }
 
   onDetalharIntervencao = intervention => {
@@ -40,7 +32,7 @@ class IntervencaoApiario extends Component {
   };
 
   render() {
-    const { loading, intervencoes } = this.props;
+    const { intervencoes } = this.props;
 
     return (
       <Container>
@@ -51,7 +43,7 @@ class IntervencaoApiario extends Component {
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-        <SpinnerCustom visible={loading} />
+
         {!intervencoes || intervencoes == '' ? 
           (
             <View style = {styles.container}>
@@ -93,7 +85,6 @@ class IntervencaoApiario extends Component {
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
-    loading: state.apiarioState.loading || state.intervencaoState.loading,
     intervencoes: state.intervencaoState.intervencoes
   };
 }

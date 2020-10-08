@@ -23,17 +23,13 @@ class VisitList extends Component {
   }
 
   componentDidMount() {
-    this.fecthVisita(this.state.selectedApiary.id);
+    // carregar visitas pelo apiário selecionado
+    this.props.getVisitasByApiario(this.state.selectedApiary.id);
   };
 
   // recarregar informações da tela
   handleRefresh = () => {
-    this.fecthVisita(this.state.selectedApiary.id);
-  };
-
-  // carregar visitas pelo apiário selecionado
-  fecthVisita(id) {
-    this.props.getVisitasByApiario({ id });
+    this.props.getVisitasByApiario(this.state.selectedApiary.id, true);
   };
 
   // abrir tela para criar nova visita
@@ -52,8 +48,9 @@ class VisitList extends Component {
 
   render() {
     const { selectedApiary } = this.state;
-    const { loading } = this.props;
-    const visitas = selectedApiary !== null ? this.props.visitas[selectedApiary.id] || [] : [];
+    const visitas = selectedApiary !== null 
+      ? this.props.visitas[selectedApiary.id] || [] 
+      : [];
 
     return (
       <Container>
@@ -65,7 +62,7 @@ class VisitList extends Component {
             handleIconRight={() => this.handleRefresh()}
             typeIconRight="AntDesign"
           />
-          <SpinnerCustom visible={loading} />
+
           <View style = {styles.containerContentVisits}>
             <Text style = {styles.title}>Aqui estão todas as visitas realizadas no apiário {this.state.selectedApiary.nome}</Text>
             <View style = {styles.contentVisit}>
@@ -124,7 +121,6 @@ class VisitList extends Component {
 function mapStateToProps(state, props) {
   return {
     visitas: state.visitaState.visitas,
-    loading: state.apiarioState.loading || state.visitaState.visitaIsLoading
   };
 }
 

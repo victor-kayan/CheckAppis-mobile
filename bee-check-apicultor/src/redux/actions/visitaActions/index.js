@@ -11,7 +11,7 @@ import { URLS } from "../../../../assets";
 import { Api } from "../../../../services";
 import { Toast } from "native-base";
 
-export const getVisitasByApiario = ({ id }) => {
+export const getVisitasByApiario = (id, showToast = false) => {
   return dispatch => {
     dispatch({
       type: VISITA_LOADING,
@@ -32,11 +32,13 @@ export const getVisitasByApiario = ({ id }) => {
         });
       })
       .catch(function(error) {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "danger"
-        });
+        if (showToast) {
+          Toast.show({
+            text: "Verifique sua conexão com a internet",
+            textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+            type: "warning"
+          });
+        }
         dispatch({
           type: VISITA_LOADING,
           payload: {
@@ -49,14 +51,15 @@ export const getVisitasByApiario = ({ id }) => {
   };
 };
 
-export const deleteVisita = ({ visita_id, apiario_id }) => { // TODO: Tornar função de deletar visita offline-first
+// TODO: Tornar função de deletar visita offline-first
+export const deleteVisita = ({ visita_id, apiario_id }) => {
   return dispatch => {
     Api.instance
       .delete(
         URLS.formattedURL(URLS.DELETE_VISITA_URL, { visita_id: visita_id })
       )
       .then(response => {
-        dispatch(getVisitasByApiario({ apiario_id }));
+        dispatch(getVisitasByApiario(apiario_id));
         Toast.show({
           text: "Visita deletada com sucesso",
           buttonText: "",

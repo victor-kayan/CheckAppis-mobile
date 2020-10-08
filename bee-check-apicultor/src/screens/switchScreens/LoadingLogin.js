@@ -18,7 +18,6 @@ class LoadingLogin extends React.Component {
           return response;
         },
         function(error) {
-
           if (
             error.response &&
             error.response.status &&
@@ -47,12 +46,8 @@ class LoadingLogin extends React.Component {
               "Serviço não encontrado",
               "Serviço temporariamente indisponível."
             );
-          } else {
-            Alert.alert(
-              "Serviço indisponível",
-              "Contate o admistrador do sistema."
-            );
           }
+          
           // Do something with response error
           return Promise.reject(error);
         }

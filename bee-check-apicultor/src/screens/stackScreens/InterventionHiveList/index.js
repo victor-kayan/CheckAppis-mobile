@@ -3,14 +3,12 @@ import { Image, ScrollView } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fecthIntervencoesColmeiasByApiario } from "../../../redux/actions/intervencaoActions";
+import { fetchIntervencoesColmeiasByApiario } from "../../../redux/actions/intervencaoActions";
 
-import { Text, Container, Content, Card, CardItem, View } from "native-base";
-import { HeaderCustom, SpinnerCustom } from "../../../componentes";
-import { images, routes } from "../../../../assets";
+import { Text, Container, View } from "native-base";
+import { routes } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import InterventionHive from "../../../componentes/InterventionHive";
-import Apiary from "../../../componentes/Apiary";
 import styles from "./styles";
 
 class InterventionHiveList extends Component {
@@ -23,15 +21,11 @@ class InterventionHiveList extends Component {
   }
 
   componentDidMount() {
-    this.handleRefresh();
+    this.props.fetchIntervencoesColmeiasByApiario(this.state.apiaryId);
   }
 
   handleRefresh = () => {
-    this.fecthIntervencoesColmeias(this.state.apiaryId);
-  };
-
-  fecthIntervencoesColmeias = (apiaryId) => {
-    this.props.fecthIntervencoesColmeiasByApiario(apiaryId);
+    this.props.fetchIntervencoesColmeiasByApiario(this.state.apiaryId, true);
   };
 
   handleReturnHome = () => {
@@ -46,8 +40,9 @@ class InterventionHiveList extends Component {
 
   render() {
     const { apiaryId } = this.state;
-    const { loading } = this.props;
-    const intervencoesByApiario = this.props.intervencoesByApiario[apiaryId] === undefined ? [] : this.props.intervencoesByApiario[apiaryId] || [];
+    const intervencoesByApiario = this.props.intervencoesByApiario[apiaryId] !== undefined
+      ? this.props.intervencoesByApiario[apiaryId] || []
+      : [];
 
     return (
       <Container>
@@ -58,13 +53,11 @@ class InterventionHiveList extends Component {
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-        <SpinnerCustom visible={loading} />
-          
+        
         <View style = {styles.container}>
           <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
           <ScrollView contentContainerStyle={{ width: '90%', paddingHorizontal: 20}} showsVerticalScrollIndicator = {false}>
-            {!loading &&
-              intervencoesByApiario &&
+            { intervencoesByApiario &&
               intervencoesByApiario.length > 0
               ? intervencoesByApiario.map (hiveIntervention =>
                 <InterventionHive 
@@ -99,13 +92,12 @@ class InterventionHiveList extends Component {
 function mapStateToProps(state, props) {
   return {
     intervencoesByApiario: state.intervencaoState.intervencoesByApiario,
-    loading: state.apiarioState.loading || state.intervencaoState.loading
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fecthIntervencoesColmeiasByApiario },
+    { fetchIntervencoesColmeiasByApiario },
     dispatch
   );
 }

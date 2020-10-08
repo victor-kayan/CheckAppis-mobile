@@ -7,7 +7,7 @@ import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 
 import { Container, View, Text } from "native-base";
 import { colors, routes } from "../../../../assets";
-import { HeaderCustom, SpinnerCustom, Apiary } from "../../../componentes";
+import { HeaderCustom, Apiary } from "../../../componentes";
 import styles from './styles';
 
 class Visita extends Component {
@@ -17,11 +17,11 @@ class Visita extends Component {
   }
 
   componentDidMount() {
-    this.handleRefresh();    
+    this.props.fetchApiariosByUser();
   }
 
   handleRefresh = () => {
-    this.props.fetchApiariosByUser();
+    this.props.fetchApiariosByUser(true);
   };
 
   openVisitList = selectedApiary => {
@@ -29,7 +29,7 @@ class Visita extends Component {
   };
 
   render() {
-    const { apiarios, loading } = this.props;
+    const { apiarios } = this.props;
 
     return (
       <Container>
@@ -46,8 +46,6 @@ class Visita extends Component {
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-
-        <SpinnerCustom visible={loading} />
 
         <View style = {styles.containerContentVisits}>
           <Text style = {styles.title}>Selecione um apiário</Text>
@@ -79,15 +77,12 @@ class Visita extends Component {
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
-    loading: state.apiarioState.loading || state.visitaState.visitaIsLoading
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    {
-      fetchApiariosByUser,
-    },
+    { fetchApiariosByUser },
     dispatch
   );
 }

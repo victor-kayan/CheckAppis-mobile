@@ -7,32 +7,23 @@ import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 
 import { Container, Text, View } from "native-base";
 import { colors, routes } from "../../../../assets";
-import { HeaderCustom, SpinnerCustom } from "../../../componentes";
+import { HeaderCustom } from "../../../componentes";
 import Apiary from "../../../componentes/Apiary";
 import styles from "./styles";
 
 class Colmeia extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      colmeia: {},
-      selectedPickerApiario: null,
-    };
+    this.state = {};
   }
 
   componentDidMount() {
-    this.fetchApiarios();
+    this.props.fetchApiariosByUser(); // pegar todos os apiários do usuário
   }
   
   // regarregar a página
   handleRefresh() {
-    this.fetchApiarios();
-    this.setState({ selectedPickerApiario: null });
-  }
-  
-  // pegar todos os apiários do usuário
-  fetchApiarios() {
-    this.props.fetchApiariosByUser();
+    this.props.fetchApiariosByUser(true); // pegar todos os apiários do usuário
   }
 
   // abrir tela que mostra a lista de colmeias de determinado apiário
@@ -41,7 +32,7 @@ class Colmeia extends Component {
   };
 
   render() {
-    const { apiarios, loading } = this.props;
+    const { apiarios } = this.props;
 
     return (
       <Container>
@@ -58,8 +49,6 @@ class Colmeia extends Component {
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-
-        <SpinnerCustom visible={loading} />
 
         <View style = {styles.containerContentApiarys}>
           <Text style = {styles.title}>Selecione um apiário</Text>
@@ -100,7 +89,6 @@ class Colmeia extends Component {
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
-    loading: state.apiarioState.loading || state.colmeiaState.loading,
   };
 }
 

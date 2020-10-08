@@ -1,23 +1,9 @@
 import React, { Component } from "react";
-import { Image, TouchableOpacity, StatusBar } from "react-native";
-import {
-  Container,
-  Content,
-  Text,
-  View,
-  Card,
-  CardItem,
-  Body,
-  Icon
-} from "native-base";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import {
-  fecthIntervencoesByApicultor,
-  concluirIntervencao
-} from "../../../redux/actions/intervencaoActions";
+import { TouchableOpacity, StatusBar } from "react-native";
+
+import { Container, Text, View, Icon } from "native-base";
 import { HeaderCustom } from "../../../componentes";
-import { images, routes, colors } from "../../../../assets";
+import { routes, colors } from "../../../../assets";
 import styles from "./styles";
 
 class Intervencao extends Component {
@@ -74,18 +60,4 @@ class Intervencao extends Component {
   }
 }
 
-function mapStateToProps(state, props) {
-  return {};
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { fecthIntervencoesByApicultor, concluirIntervencao },
-    dispatch
-  );
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Intervencao);
+export default Intervencao;
