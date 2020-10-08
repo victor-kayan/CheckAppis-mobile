@@ -8,35 +8,11 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componentes/HiveDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/HiveDetails/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/Intervention/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Intervention/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componentes/Intervention/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Intervention/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/InterventionHive/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/InterventionHive/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/InterventionHive/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/InterventionHive/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componentes/ModalConfirm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/ModalConfirm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/colmeiaActions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/colmeiaActions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/visitaActions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/visitaActions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/drawerScreens/Colmeia/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/drawerScreens/Colmeia/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/drawerScreens/Intervencao/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/drawerScreens/Intervencao/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/drawerScreens/Visita/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/drawerScreens/Visita/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisita/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisita/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisita/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisita/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisitaColmeia/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisitaColmeia/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisitaColmeia/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesVisitaColmeia/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/EditColmeia/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/EditColmeia/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/EditColmeia/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/EditColmeia/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/HiveDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/HiveDetails/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/HiveDetails/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/HiveDetails/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/HiveList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/HiveList/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/NewColmeia/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/NewColmeia/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaApiario/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaApiario/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaColmeia/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaColmeia/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/VisitList/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/VisitList/styles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,10 +56,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-13" y="113" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602106594004">
+    <state x="-13" y="113" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602120484245">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="-13" y="113" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.768@0.0.1366.768" timestamp="1602106594004" />
+    <state x="-13" y="113" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.768@0.0.1366.768" timestamp="1602120484245" />
     <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1599449575019">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

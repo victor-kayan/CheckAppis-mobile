@@ -58,4 +58,10 @@ export default {
         color: colors.theme_second,
         marginLeft: '12%',
     },
+
+    statusIconWhite: {
+        fontSize: 25,
+        color: colors.white,
+        marginLeft: '12%',
+    },
 };

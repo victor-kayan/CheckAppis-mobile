@@ -43,7 +43,6 @@ class DetailsInterventionHive extends Component {
   // fechar modal de feedback de exlcusão
   closeModalFeedback = () => {
     this.setState({modalFeedback: false});
-    this.props.navigation.goBack();
   };
 
   handleConcludeIntervention = intervention => {
@@ -108,25 +107,9 @@ class DetailsInterventionHive extends Component {
                 </View>
               </View>
 
-
-              <View style = {styles.cardInformation}>
-                <Icon type="AntDesign" name="sync" style={styles.icons}/>
-                <View>
-                  <Text style = {styles.title}>Status de sincronização</Text>
-                  {
-                    this.props.isConcluded && this.props.isConclusionSynced ? (
-                      <Text style = {styles.description}>Intervenção sincronizada</Text>
-                    ) : this.props.isConcluded && !this.props.isConclusionSynced && (
-                      <Text style = {styles.description}>Intervenção ainda não sincronizada</Text>
-                    )
-                  }
-                </View>
-              </View>
-
               { intervencao.is_concluido || this.state.isConcludingIntervention ? (
                   <TouchableOpacity onPress = {() => this.openModalFeedback()} style = {styles.button}>
                     <Text style = {styles.textButton}>Intervenção concluída</Text>
-                    <Icon type="AntDesign" name="check" style={styles.iconsCheck}/>
                   </TouchableOpacity>
                 ) : (
                   <TouchableOpacity onPress = {() => this.openModalConfirm()} style = {styles.button}>

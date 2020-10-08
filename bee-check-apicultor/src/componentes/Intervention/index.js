@@ -35,8 +35,10 @@ export default class Intervention extends React.Component {
             { 
                 this.props.isConcluded && this.props.isConclusionSynced ? (
                     <Icon type="AntDesign" name="checkcircleo" style={styles.statusIcon} iconSize={5} active/>
-                ) : this.props.isConcluded && !this.props.isConclusionSynced && (
+                ) : this.props.isConcluded && !this.props.isConclusionSynced ? (
                     <Icon type="AntDesign" name="clockcircleo" style={styles.statusIcon} iconSize={5} active/>
+                ) : (
+                    <View style = {{height: 25, width: 25, marginLeft: '12%'}}/>
                 )
             }
             
