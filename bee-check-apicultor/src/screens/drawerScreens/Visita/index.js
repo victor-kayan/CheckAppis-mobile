@@ -73,7 +73,6 @@ class Visita extends Component {
   }
 }
 
-// export default Visita;
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,

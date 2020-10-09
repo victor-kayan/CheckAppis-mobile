@@ -1,8 +1,10 @@
 import React from "react";
 import { AsyncStorage, NetInfo, StatusBar } from "react-native";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { login } from "../../../redux/actions/userActions";
+
 import { constants, routes } from "../../../../assets";
 import ViewLogin from "./ViewLogin";
 
@@ -39,7 +41,9 @@ class Login extends React.Component {
     if (this.state.connect) {
       const { email, password } = this.state;
       const { login } = this.props;
+
       this.setState({ error: false });
+
       if (email == "" || password == "") {
         this.setState({ error: true, message: "Preencha todos os campos" });
       } else if (!email.includes("@")) {

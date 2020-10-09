@@ -14,6 +14,7 @@ export const UserReducer = (state = initialState, action) => {
         loading: action.payload.loading,
         logged: action.payload.logged,
         token: action.payload.token,
+        user: action.payload.user
       };
     case LOGOUT:
       return {
