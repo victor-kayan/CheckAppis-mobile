@@ -91,7 +91,7 @@ class HiveList extends Component {
 
         <HeaderCustomStack
           title="Colmeias"
-          description="Aqui, você pode visualizar, cadastrar e gerenciar qualquer colmeia no apiário selecionado"
+          description="Aqui, você pode visualizar, cadastrar e gerenciar qualquer colmeia do apiário selecionado"
           iconRight="sync"
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"

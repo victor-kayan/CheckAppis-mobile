@@ -15,6 +15,10 @@ export default {
         borderBottomColor: colors.theme_second,
     },
 
+    viewTexts: {
+        width: '50%',
+    },
+
     textContent: {
         width: '60%',
         height: '100%',

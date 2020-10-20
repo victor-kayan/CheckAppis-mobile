@@ -8,11 +8,27 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/HeaderCustom/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/HeaderCustom/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/HeaderCustomStack/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/HeaderCustomStack/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/Intervention/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Intervention/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/Intervention/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Intervention/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/InterventionHive/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/InterventionHive/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/InterventionHive/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/InterventionHive/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetailsInterventionHive/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/DetalhesIntervencao/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/HiveList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/HiveList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaApiario/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaApiario/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaColmeia/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/stackScreens/NewVisitaColmeia/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +72,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-13" y="113" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602120484245">
+    <state x="145" y="115" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1603154628762">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="-13" y="113" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.768@0.0.1366.768" timestamp="1602120484245" />
+    <state x="145" y="115" width="1166" height="568" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.768@0.0.1366.768" timestamp="1603154628762" />
     <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1599449575019">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

@@ -39,8 +39,6 @@ export default {
     backgroundColor: 'white',
     marginTop: -35,
     alignItems: 'center',
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35, 
     width: '100%',
   },
   containerContent: {

@@ -114,7 +114,7 @@ MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\sadra\.gra
 	android:label
 		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:11:7-39
 	android:icon
-		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:12:7-41
+		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:12:7-36
 	android:allowBackup
 		ADDED from E:\checkappis\bee-check-mobile\bee-check-apicultor\android\app\src\main\AndroidManifest.xml:13:7-34
 	android:theme

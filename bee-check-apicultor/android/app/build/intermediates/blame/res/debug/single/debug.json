@@ -32,12 +32,12 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_amu_info_window.xml.flat",
-        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\f7dc0c21a4b2712114585b14ae5c8bda\\res\\layout\\amu_info_window.xml"
-    },
-    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-xxhdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_amu_info_window.xml.flat",
+        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\f7dc0c21a4b2712114585b14ae5c8bda\\res\\layout\\amu_info_window.xml"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_design_ic_visibility.png.flat",
@@ -80,12 +80,12 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\react-native-0.57.4.aar\\56dbe1f0493251b6b3b7e74ee77d2314\\res\\anim\\catalyst_fade_out.xml"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
-        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
-    },
-    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-watch-v20_abc_dialog_material_background.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-watch-v20\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
+        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
@@ -128,12 +128,12 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.1.0.aar\\4bedf79be73732449f14efc5b592dfee\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
-    },
-    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.1.0.aar\\4bedf79be73732449f14efc5b592dfee\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar.xml.flat",
@@ -172,16 +172,12 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
+        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
-    },
-    {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
-        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
@@ -288,20 +284,16 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable\\tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
@@ -380,16 +372,16 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",
-        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\color\\abc_hint_foreground_material_light.xml"
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_support_simple_spinner_dropdown_item.xml.flat",
+        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_support_simple_spinner_dropdown_item.xml.flat",
-        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",
+        "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\color\\abc_hint_foreground_material_light.xml"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
@@ -510,10 +502,6 @@
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
-    },
-    {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_secondary_text_material_dark.xml.flat",
@@ -724,10 +712,6 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw_amu_ground_overlay_color.kml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\f7dc0c21a4b2712114585b14ae5c8bda\\res\\raw\\amu_ground_overlay_color.kml"
     },
@@ -866,10 +850,6 @@
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_track_material.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable\\abc_seekbar_track_material.xml"
-    },
-    {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility.png.flat",
@@ -1132,6 +1112,10 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\f7dc0c21a4b2712114585b14ae5c8bda\\res\\raw\\amu_multiple_placemarks.kml"
     },
     {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
+        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_password_eye.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9f204df53d99268ced8fe2a935a8e296\\res\\drawable\\design_password_eye.xml"
     },
@@ -1180,6 +1164,10 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon.png.flat",
+        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
+    },
+    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -1206,6 +1194,10 @@
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_dark.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_icon.png.flat",
+        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\drawable-mdpi\\icon.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_fade_out.xml.flat",
@@ -1238,10 +1230,6 @@
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw_amu_visibility_ground_overlay.kml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\f7dc0c21a4b2712114585b14ae5c8bda\\res\\raw\\amu_visibility_ground_overlay.kml"
-    },
-    {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -1288,8 +1276,8 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_icon.png.flat",
+        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\drawable-xxhdpi\\icon.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_text_material.xml.flat",
@@ -1420,14 +1408,6 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-mdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_48dp.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
@@ -1504,6 +1484,10 @@
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.1.0.aar\\4bedf79be73732449f14efc5b592dfee\\res\\color\\common_google_signin_btn_text_dark.xml"
     },
     {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_icon.png.flat",
+        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\drawable-xxxhdpi\\icon.png"
+    },
+    {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.1.0.aar\\4bedf79be73732449f14efc5b592dfee\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
@@ -1530,10 +1514,6 @@
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\c20ae87a95eff6886038c2999facc6d9\\res\\layout-v21\\notification_action_tombstone.xml"
-    },
-    {
-        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -1718,6 +1698,10 @@
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action.xml.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\c20ae87a95eff6886038c2999facc6d9\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_icon.png.flat",
+        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\drawable-xhdpi\\icon.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_popup_menu_item_layout.xml.flat",
@@ -1966,6 +1950,10 @@
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon.png.flat",
+        "source": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\src\\main\\res\\drawable\\icon.png"
     },
     {
         "merged": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
