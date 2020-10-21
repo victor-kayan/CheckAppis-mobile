@@ -4,7 +4,7 @@ import constants from '../../../assets/constants';
 export default {
   container: {
     backgroundColor: "#FFF",
-    borderRadius: 5,
+    borderRadius: 10,
     elevation: 5,
     marginBottom: 8,
     width: constants.SCREEN_WIDTH / 2,
@@ -12,8 +12,8 @@ export default {
   header: {
     backgroundColor: colors.theme_second,
     padding: 8,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     alignItems: 'center',
     justifyContent: 'center'
   },

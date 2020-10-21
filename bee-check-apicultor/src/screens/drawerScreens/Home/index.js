@@ -3,7 +3,9 @@ import {
   ImageBackground, 
   StatusBar, 
   TouchableOpacity, 
-  Image, 
+  Image,
+  Platform,
+  Linking
 } from "react-native";
 
 import { connect } from "react-redux";
@@ -71,6 +73,19 @@ class Home extends Component {
       }
     });
   };
+
+  openExternalMap = (lat, lng) => {
+    const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
+    const latLng = `${lat},${lng}`;
+    const label = 'Custom Label';
+
+    const url = Platform.select({
+      ios: `${scheme}${label}@${latLng}`,
+      android: `${scheme}${latLng}(${label})`
+    });
+
+    Linking.openURL(url);
+  }
 
   formatUserName = () => {
     const { name } = this.props.user; 
@@ -313,7 +328,7 @@ class Home extends Component {
             apiarios.map(apiario => (
               <Marker
                 key = {apiario.id}
-                // onCalloutPress={ () => {this.onMarkerInfoPressed(apiario) } }
+                onCalloutPress={() => {this.openExternalMap(apiario.latitude, apiario.longitude) }}
                 coordinate={{
                   latitude: parseFloat(apiario.latitude),
                   longitude: parseFloat(apiario.longitude)
