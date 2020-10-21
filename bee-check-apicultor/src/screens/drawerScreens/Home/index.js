@@ -82,11 +82,6 @@ class Home extends Component {
     return 'usuário';
   }
 
-  static navigationOptions = {
-    drawerLabel: 'HOME',
-    headerTintColor: 'white',
-  };
-
   render() {
     const {
       countColmeias,
@@ -313,19 +308,19 @@ class Home extends Component {
             loadingEnabled
             customMapStyle = {mapStyleConfig}
           >
-          {apiarios &&
+          { apiarios &&
             apiarios.length ?
             apiarios.map(apiario => (
               <Marker
                 key = {apiario.id}
-                onCalloutPress={ () => {this.onMarkerInfoPressed(pothole) } }
+                // onCalloutPress={ () => {this.onMarkerInfoPressed(apiario) } }
                 coordinate={{
                   latitude: parseFloat(apiario.latitude),
                   longitude: parseFloat(apiario.longitude)
                 }}
               >
                 <Image source={images.icons.checkappis} style={{ width: 30, height: 30 }} />
-                <MarkerCallOut title={ apiario.nome } />
+                <MarkerCallOut apiario={apiario} />
               </Marker>
             )): null}
         </MapView>
