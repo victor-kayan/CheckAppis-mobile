@@ -10,7 +10,7 @@ import { Api } from "../../../../services";
 import { URLS } from "../../../../assets";
 import { Toast } from "native-base";
 
-export const fetchApiariosByUser = () => {
+export const fetchApiariosByUser = (showToast = false) => {
   return dispatch => {
     dispatch({
       type: LOADING_APIARIO,
@@ -29,11 +29,13 @@ export const fetchApiariosByUser = () => {
         });
       })
       .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "warning"
-        });
+        if (showToast) {
+          Toast.show({
+            text: "Verifique sua conexão com a internet",
+            textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+            type: "warning"
+          });
+        }
         dispatch({
           type: GET_ALL_APIARIOS_BY_USER_ERROR,
           payload: {

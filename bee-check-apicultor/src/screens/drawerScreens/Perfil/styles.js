@@ -75,6 +75,11 @@ export default {
     marginRight: 20,
   },
 
+  userImage: {
+    width: 50,
+    height: 50
+  },
+
   cardInformation: {
     justifyContent: 'center',
     alignItems: 'center',

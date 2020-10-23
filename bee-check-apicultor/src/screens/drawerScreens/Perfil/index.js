@@ -1,25 +1,29 @@
 import React, { Component } from "react";
-import { colors, routes, images, constants } from "../../../../assets";
-import { StatusBar} from "react-native";
-import { Text, Container, View, Separator, Icon } from "native-base";
+import { StatusBar, Image } from "react-native";
+
+import { connect } from "react-redux";
+
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { Text, Container, View, Icon } from "native-base";
 import { HeaderCustom } from "../../../componentes";
-import "moment/locale/pt-br";
+import { colors } from "../../../../assets";
 import styles from "./styles";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class Perfil extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-      token: '',
-      email: '',
-      password: ''
-    };
+    this.state = {};
+  }
+
+  formatAddress = () => {
+    const { endereco } = this.props.user;
+    const { cidade } = endereco;
+
+    return `${endereco.logradouro}, ${cidade.nome}/${cidade.uf}`;
   }
 
   render() {
-    const { user, loading } = this.props;
+    const { user } = this.props;
 
     return (
       <Container>
@@ -33,21 +37,26 @@ class Perfil extends Component {
         <View style = {styles.container}>
           <View style = {styles.cardInformation}>
             <View style = {styles.viewIcon}>
-              <Icon type="AntDesign" name="user" style={{color: colors.blackgrey, fontSize: 50,}} active/>
+              { typeof(user.foto) === 'string' ? (
+                  <Image source={{ uri: user.foto }} style={styles.userImage} />
+                ) : (
+                  <Icon type="AntDesign" name="user" style={{color: colors.blackgrey, fontSize: 50,}} active/>
+                )
+              }
             </View>
             <View>
-              <Text style = {styles.name}>Cláudio Rodrigo</Text>
-              <Text style = {styles.email}>claudio@gmail.com</Text>
+              <Text style = {styles.name}>{user.name}</Text>
+              <Text style = {styles.email}>{user.email}</Text>
             </View>
           </View>
           <View style = {styles.viewCompleteInformations}>
             <View style = {styles.lineInformation}>
               <Icon type="AntDesign" name="phone" style={{color: colors.theme_second, marginRight: 16, fontSize: wp('6.1%')}} active/>
-              <Text style = {styles.textInformationLine}>(84) 9 9687-5033</Text>
+              <Text style = {styles.textInformationLine}>{user.telefone}</Text>
             </View>
             <View style = {styles.lineInformation}>
               <Icon type="AntDesign" name="enviromento" style={{color: colors.theme_second, marginRight: 16, fontSize: wp('6.1%')}} active/>
-              <Text style = {styles.textInformationLine}>Endereço aqui dessa forma</Text>
+              <Text style = {styles.textInformationLine}>{this.formatAddress()}</Text>
             </View>
           </View>
         </View>
@@ -56,5 +65,13 @@ class Perfil extends Component {
   }
 }
 
+function mapStateToProps(state, props) {
+  return {
+    user: state.userState.user,
+  };
+}
 
-export default (Perfil);
+export default connect(
+  mapStateToProps,
+  null
+)(Perfil);

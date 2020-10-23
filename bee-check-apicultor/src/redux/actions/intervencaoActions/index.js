@@ -18,7 +18,7 @@ import { Api } from "../../../../services";
 
 // TODO: Possibilitar a exclusão local de uma intervenção já concluída e sincronizada.
 
-export const fecthIntervencoesByApicultor = () => {
+export const fecthIntervencoesByApicultor = (showToast = false) => {
   return dispatch => {
     dispatch({
       type: INTERVENCAO_LOADING,
@@ -38,11 +38,13 @@ export const fecthIntervencoesByApicultor = () => {
         });
       })
       .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "danger"
-        });
+        if (showToast) {
+          Toast.show({
+            text: "Verifique sua conexão com a internet",
+            textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+            type: "warning"
+          });
+        }
         dispatch({
           type: INTERVENCAO_LOADING,
           payload: {
@@ -87,7 +89,7 @@ export const concluirIntervencao = intervencao => {
   };
 };
 
-export const fecthIntervencoesColmeiasByApiario = apiaryId => {
+export const fetchIntervencoesColmeiasByApiario = (apiaryId, showToast = false) => {
   return dispatch => {
     dispatch({
       type: INTERVENCAO_LOADING,
@@ -111,11 +113,13 @@ export const fecthIntervencoesColmeiasByApiario = apiaryId => {
         });
       })
       .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "danger"
-        });
+        if (showToast) {
+          Toast.show({
+            text: "Verifique sua conexão com a internet",
+            textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+            type: "warning"
+          });
+        }
         dispatch({
           type: INTERVENCAO_LOADING,
           payload: {

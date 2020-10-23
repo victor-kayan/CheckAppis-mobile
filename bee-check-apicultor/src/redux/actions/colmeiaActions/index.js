@@ -12,7 +12,6 @@ import {
   CREATE_COLMEIA_ROLLBACK
 } from "./actionsType";
 import { Toast } from "native-base";
-import { Alert } from "react-native";
 
 export const createColmeia = data => {
   return dispatch => {
@@ -80,7 +79,7 @@ export const editColmeia = ({ id, descricao, nome, foto, apiario_id }) => {
   };
 };
 
-export const getColmeiasByApiario = id => {
+export const getColmeiasByApiario = (id, showToast = false) => {
   return dispatch => {
     Api.instance
       .get(
@@ -96,11 +95,13 @@ export const getColmeiasByApiario = id => {
         });
       })
       .catch(error => {
-        Toast.show({
-          text: error.response && error.response.data.message,
-          buttonText: "",
-          type: "danger"
-        });
+        if (showToast) {
+          Toast.show({
+            text: "Verifique sua conexão com a internet",
+            textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+            type: "warning"
+          });
+        }
         throw error;
       });
   };

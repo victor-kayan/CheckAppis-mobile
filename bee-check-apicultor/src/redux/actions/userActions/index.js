@@ -22,6 +22,7 @@ export const login = ({ email, password }) => {
             loading: false,
             logged: true,
             token: response.data.token,
+            user: response.data.user
           }
         });
       })

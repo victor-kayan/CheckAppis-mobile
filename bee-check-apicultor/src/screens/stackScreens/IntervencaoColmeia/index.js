@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import { Image, ScrollView } from "react-native";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
+
 import { Text, Container, View } from "native-base";
-import { Image, ScrollView } from "react-native";
 import { routes } from "../../../../assets";
-import { SpinnerCustom } from "../../../componentes";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
-import styles from "./styles";
 import Apiary from "../../../componentes/Apiary";
+import styles from "./styles";
 
 class IntervencaoColmeia extends Component {
   constructor(props) {
@@ -17,11 +18,11 @@ class IntervencaoColmeia extends Component {
   }
 
   componentDidMount() {
-    this.handleRefresh();
+    this.props.fetchApiariosByUser();
   }
 
   handleRefresh = () => {
-    this.props.fetchApiariosByUser();
+    this.props.fetchApiariosByUser(true);
   };
 
   handleReturnHome = () => {
@@ -39,7 +40,7 @@ class IntervencaoColmeia extends Component {
   };
 
   render() {
-    const { apiarios, loading } = this.props;
+    const { apiarios } = this.props;
 
     return (
       <Container>
@@ -50,38 +51,38 @@ class IntervencaoColmeia extends Component {
           handleIconRight={() => this.handleRefresh()}
           typeIconRight="AntDesign"
         />
-        <SpinnerCustom visible={loading} />
-          { !apiarios || apiarios == '' ?
-            (
-              <View style = {styles.container}>
-                <Image
-                  style = {styles.image}
-                  source={require ('../../../../images/empty.png')}
-                />
-                <Text style = {styles.textNull}>{`Nã há intervenções nas colmeias dos seus apiários :)`}</Text>
+        
+        { !apiarios || apiarios == '' ?
+          (
+            <View style = {styles.container}>
+              <Image
+                style = {styles.image}
+                source={require ('../../../../images/empty.png')}
+              />
+              <Text style = {styles.textNull}>{`Nã há intervenções nas colmeias dos seus apiários :)`}</Text>
+            </View>
+          ) : (
+            <View style = {styles.container}>
+              <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>
+              <View style = {styles.containerContent}>
+                <View style = {[styles.triangle,styles.arrowUp]}/>
+                <ScrollView contentContainerStyle={{ width: '100%'}}>
+                  {
+                    apiarios.map (apiary =>
+                    <Apiary 
+                      key = {apiary.id} 
+                      apiaryId = {apiary.id} 
+                      name = {apiary.nome} 
+                      description = {apiary.descricao} 
+                      openList = {this.openInterventionHiveList}/>
+                    )
+                  }
+                  <View style = {{height: 100}}/>
+                </ScrollView>
               </View>
-            ) : (
-              <View style = {styles.container}>
-                <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>
-                <View style = {styles.containerContent}>
-                  <View style = {[styles.triangle,styles.arrowUp]}/>
-                  <ScrollView contentContainerStyle={{ width: '100%'}}>
-                    {
-                      apiarios.map (apiary =>
-                      <Apiary 
-                        key = {apiary.id} 
-                        apiaryId = {apiary.id} 
-                        name = {apiary.nome} 
-                        description = {apiary.descricao} 
-                        openList = {this.openInterventionHiveList}/>
-                      )
-                    }
-                    <View style = {{height: 100}}/>
-                  </ScrollView>
-                </View>
-              </View>
-            )
-            }
+            </View>
+          )
+        }
       </Container>
     );
   }
@@ -90,7 +91,6 @@ class IntervencaoColmeia extends Component {
 function mapStateToProps(state, props) {
   return {
     apiarios: state.apiarioState.apiarios,
-    loading: state.apiarioState.loading || state.intervencaoState.loading
   };
 }
 

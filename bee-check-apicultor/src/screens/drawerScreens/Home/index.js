@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { 
   ImageBackground, 
-  ScrollView, 
   StatusBar, 
   TouchableOpacity, 
   Image, 
-  Animated, 
-  Dimensions
 } from "react-native";
 
 import { connect } from "react-redux";
@@ -25,8 +22,6 @@ import { colors, images, URLS, routes } from "../../../../assets";
 import MarkerCallOut from "../../../componentes/MarkerCallOut";
 import GooglePlacesInput from "./GooglePlacesInput";
 import styles from "./styles";
-
-const { width } = Dimensions.get('window');
 
 class Home extends Component {
   constructor(props) {
@@ -50,7 +45,6 @@ class Home extends Component {
       .then(response => {
         const { data } = response;
 
-        // TODO: Fazer um object.assign com todos os dados para evitar perda de dados (não sincronizados) no redux.
         this.props.updateAllApiariosByApicultor(data.apiarios, data.apiarios_count);
         this.props.updateAllColmeiasByApicultor(data.colmeias, data.colmeias_count);
         this.props.updateAllIntervencoesByApicultor(
@@ -78,6 +72,16 @@ class Home extends Component {
     });
   };
 
+  formatUserName = () => {
+    const { name } = this.props.user; 
+
+    if (name) {
+      return name.split(' ')[0]; // Apenas o primeiro nome
+    }
+
+    return 'usuário';
+  }
+
   static navigationOptions = {
     drawerLabel: 'HOME',
     headerTintColor: 'white',
@@ -88,7 +92,7 @@ class Home extends Component {
       countColmeias,
       countApiarios,
       countIntervencoes,
-      apiarios
+      apiarios,
     } = this.props;
 
     const mapStyleConfig = [
@@ -267,8 +271,8 @@ class Home extends Component {
             </TouchableOpacity>
           </View>
           <View style = {styles.welcomeView}>
-            <Text style = {styles.welcomeName}>Olá, Abreu!</Text>
-            <Text style = {styles.welcomeDay}>O que vamos fazer hoje? </Text>
+            <Text style = {styles.welcomeName}>{`Olá, ${this.formatUserName()}!`}</Text>
+            <Text style = {styles.welcomeDay}>O que vamos fazer hoje?</Text>
           </View>
           <View style = {styles.viewInfo}>
             <TouchableOpacity onPress = {() => alert('Apiários')}>
@@ -334,6 +338,7 @@ class Home extends Component {
 
 function mapStateToProps(state, props) {
   return {
+    user: state.userState.user,
     apiarios: state.apiarioState.apiarios,
     countApiarios: state.apiarioState.countApiarios,
     countColmeias: state.colmeiaState.countColmeias,
