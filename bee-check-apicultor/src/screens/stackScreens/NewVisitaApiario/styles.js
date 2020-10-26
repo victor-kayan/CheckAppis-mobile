@@ -32,10 +32,8 @@ export default {
   containerContentForm: {
     flex: 1,
     backgroundColor: 'white',
-    marginTop: -35,
+    marginTop: -60,
     alignItems: 'center',
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35, 
     width: '100%',
   },
 

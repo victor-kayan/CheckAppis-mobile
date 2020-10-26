@@ -163,10 +163,6 @@ class NewVisitaColmeia extends Component {
       type: "success",
       style: {
         backgroundColor: colors.theme_second,
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        fontFamily: 'Montserrat-Medium'
       },
     });
 

@@ -22,7 +22,7 @@ const HeaderCustomStack = ({
   {... rest}
     style={{ 
       backgroundColor: colors.theme_default, 
-      height: '35%',
+      height: '30%',
      }}
     androidStatusBarColor={colors.colorAndroidBarraStatus}
   >

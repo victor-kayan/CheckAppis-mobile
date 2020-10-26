@@ -27,7 +27,7 @@ export default class Intervention extends React.Component {
     render () {
         return (
           <View style = {styles.intervention}>
-            <View>
+            <View style = {styles.viewTexts}>
                 <Text style = {styles.apiaryName} numberOfLines = {1}>{this.props.apiaryName}</Text>
                 <Text style = {styles.date}>{this.formatDateToString(this.props.creationDate)}</Text>
             </View>
