@@ -108,7 +108,7 @@ class DetalhesVisita extends React.Component {
 
                 <View style = {styles.lineCardInformation}>
                   <View style = {styles.lineHeader}>
-                    <Icon type="AntDesign" name="staro" style = {styles.icons}/>
+                    <Icon type="MaterialIcons" name="grain" style = {styles.icons}/>
                     <Text style = {styles.textLineHeader}>Tem água?</Text>
                   </View>
                   <View style = {styles.lineBody}>

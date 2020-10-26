@@ -82,7 +82,7 @@ class HiveList extends Component {
                       style = {styles.image}
                       source={require ('../../../../images/empty.png')}
                     />
-                    <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada. Recarregue a página ou cadastre uma nova colmeia :)`}</Text>
+                    <Text style = {styles.textNull}>{`Nenhuma colmeia encontrada. Recarregue os dados ou cadastre uma nova colmeia :)`}</Text>
                     <View style = {styles.addHiveButton}>
                       <TouchableHighlight
                         activeOpacity={0.5}

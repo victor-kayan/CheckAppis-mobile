@@ -285,7 +285,7 @@ class Home extends Component {
             <Text style = {styles.welcomeDay}>O que vamos fazer hoje?</Text>
           </View>
           <View style = {styles.viewInfo}>
-            <TouchableOpacity onPress = {() => alert('Apiários')}>
+            <TouchableOpacity>
               <View style = {styles.cardInfo}>
                 {
                   countApiarios && countApiarios < 2 

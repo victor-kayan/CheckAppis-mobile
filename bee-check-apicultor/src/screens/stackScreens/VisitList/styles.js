@@ -29,10 +29,9 @@ export default {
     justifyContent: 'space-between',
   },
   containerContentVisits: {
-    position: "absolute",
     height: '80%',
     backgroundColor: 'white',
-    marginTop: constants.SCREEN_HEIGHT/3.6,
+    marginTop: -35,
     alignItems: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
