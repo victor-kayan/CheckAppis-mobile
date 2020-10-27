@@ -42,7 +42,7 @@ export const login = ({ email, password }) => {
 };
 
 function cleanPersistedStore() {
-  AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
+  AsyncStorage.removeItem(`@checkAppisApp:${constants.ACCESS_TOKEN}`);
   
   // Remover (manualmente) todos os estados salvos no AsyncStorage pelo reduxPersist
   AsyncStorage.removeItem('reduxPersist:intervencaoState');

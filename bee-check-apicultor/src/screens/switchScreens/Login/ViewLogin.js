@@ -2,27 +2,22 @@ import React from "react";
 import { 
   ImageBackground, 
   TextInput, 
-  Dimensions, 
   TouchableOpacity, 
   StatusBar,
   Image
 } from "react-native";
+
 import {
-  Input,
   Icon,
   Container,
   Text,
   View,
   Spinner
 } from "native-base";
-import { Alert, HeaderCustom } from "../../../componentes";
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import LinearGradient from "react-native-linear-gradient";
 import { colors, images } from "../../../../assets";
 import styles from "./styles";
-import LinearGradient from "react-native-linear-gradient";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
-
-let { height } = Dimensions.get("window");
 
 const ViewLogin = ({
   error,
@@ -33,6 +28,7 @@ const ViewLogin = ({
   handlePassword,
   handleLogin,
   loading,
+  goToOnboarding,
   ...rest
 }) => (
   <Container style = {{flex: 1, height: '100%'}}>
@@ -98,6 +94,9 @@ const ViewLogin = ({
     <View style = {styles.content}>
       <Text style = {styles.forgotText}>Esqueci minha senha</Text>
       <Text style = {styles.notText}>{`Não está cadastrado?\nEntre em contato com um técnico.`}</Text>
+      <TouchableOpacity onPress={goToOnboarding}>
+        <Text style = {styles.notText}>Ver apresentação do CheckAppis novamente.</Text>
+      </TouchableOpacity>
     </View>
   </Container>
 );

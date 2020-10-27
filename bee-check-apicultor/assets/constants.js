@@ -4,7 +4,7 @@ const { height, width } = Dimensions.get("window");
 const constants = {
     // AsyncStorage keys
     ACCESS_TOKEN: 'token',
-    FIRST_ACCESS_FLAG: 'firstAccessFlag',
+    HAS_ACCESSED_BEFORE: 'hasAccessedBefore',
     
     SCREEN_HEIGHT: height,
     SCREEN_WIDTH: width,

@@ -60,7 +60,7 @@ class Login extends React.Component {
     if (nextProps.logged == true) {
       try {
         await AsyncStorage.setItem(
-          `@beecheckApp:${constants.ACCESS_TOKEN}`,
+          `@checkAppisApp:${constants.ACCESS_TOKEN}`,
           nextProps.token
         );
       } catch (error) {
@@ -75,6 +75,11 @@ class Login extends React.Component {
       this.setState({ error: true, message: "Email ou senha inválidos." });
     }
   };
+
+  navigateToOnboarding = () => {
+    AsyncStorage.removeItem(`@checkAppisApp:${constants.HAS_ACCESSED_BEFORE}`);
+    this.props.navigation.navigate(routes.Onboarding);
+  }
 
   render() {
     const { loading } = this.props;
@@ -92,6 +97,7 @@ class Login extends React.Component {
           handlePassword={password => this.setState({ password })}
           handleLogin={this.login}
           loading={loading}
+          goToOnboarding={this.navigateToOnboarding}
         />
       </>
     );

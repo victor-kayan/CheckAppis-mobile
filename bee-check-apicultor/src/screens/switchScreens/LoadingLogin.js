@@ -6,14 +6,16 @@ import { Spinner, Text } from "native-base";
 import { colors, constants, routes } from "../../../assets";
 import { Api } from "../../../services";
 
+import tron from '../../config/reactotronConfig'
+
 class LoadingLogin extends React.Component {
   async componentDidMount() {
     const token = await AsyncStorage.getItem(
-      `@beecheckApp:${constants.ACCCESS_TOKEN}`
+      `@checkAppisApp:${constants.ACCCESS_TOKEN}`
     );
-    const hasAccessedBefore = await AsyncStorage.getItem(
-      `@beecheckApp:${constants.FIRST_ACCESS_FLAG}`
-    );
+    const hasAccessedBefore = JSON.parse(await AsyncStorage.getItem(
+      `@checkAppisApp:${constants.HAS_ACCESSED_BEFORE}`
+    ));
     
     if (!hasAccessedBefore) {
       this.props.navigation.navigate(routes.Onboarding);
@@ -29,7 +31,7 @@ class LoadingLogin extends React.Component {
             error.response.status &&
             error.response.status === 401
           ) {
-            AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
+            AsyncStorage.removeItem(`@checkAppisApp:${constants.ACCESS_TOKEN}`);
             Alert.alert(
               "Erro na autenticação",
               "Efetue login novamente."
