@@ -1,7 +1,9 @@
+import { RESET_STATE } from "@redux-offline/redux-offline/lib/constants";
+
 import { LOGIN, LOGOUT, LOADING_LOGIN, GET_INFORMATIONS_USER } from "./actionsType";
 import { Api } from "../../../../services";
 import { URLS, constants } from "../../../../assets";
-import { AsyncStorage } from "react-native";
+import { AsyncStorage, Alert } from "react-native";
 
 export const login = ({ email, password }) => {
   return dispatch => {
@@ -39,8 +41,18 @@ export const login = ({ email, password }) => {
   };
 };
 
-export const logout = () => {
+function cleanPersistedStore() {
+  AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
+  
+  // Remover (manualmente) todos os estados salvos no AsyncStorage pelo reduxPersist
+  AsyncStorage.removeItem('reduxPersist:intervencaoState');
+  AsyncStorage.removeItem('reduxPersist:apiarioState');
+  AsyncStorage.removeItem('reduxPersist:colmeiaState');
+  AsyncStorage.removeItem('reduxPersist:visitaState');
+  AsyncStorage.removeItem('reduxPersist:userState');
+}
 
+export const logout = user => {
   return dispatch => {
     dispatch({
       type: LOADING_LOGIN,
@@ -49,9 +61,11 @@ export const logout = () => {
       }
     });
 
-    Api.instance.post(URLS.LOGOUT_URL)
+    Api.instance.post(URLS.LOGOUT_URL, { user })
       .then(response => {
-        AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
+        cleanPersistedStore();
+
+        dispatch({ type: RESET_STATE });
         dispatch({
           type: LOGOUT,
           payload: {
@@ -63,6 +77,11 @@ export const logout = () => {
         });
       })
       .catch(error => {
+        Alert.alert(
+          'Erro ao sair da conta',
+          'Você precisa de internet para concluir essa ação. Por favor, verifique sua conexão e tente novamente.'
+        );
+
         dispatch({
           type: LOADING_LOGIN,
           payload: {

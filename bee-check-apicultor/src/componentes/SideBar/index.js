@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageBackground, Platform, Dimensions, StyleSheet, Image } from "react-native";
+import { ImageBackground, Image } from "react-native";
 
 import {
   Content,
@@ -19,7 +19,7 @@ import { routes, images, colors } from "../../../assets";
 import LinearGradient from "react-native-linear-gradient";
 import styles from "./styles";
 
-const datas = [
+const routesData = [
   {
     name: "Início",
     route: routes.Home,
@@ -51,10 +51,16 @@ class SideBar extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    // Navegar para a tela de Login ao efetuar logout
+    if(nextProps.user && nextProps.user.id === undefined) {
+      this.props.navigation.navigate(routes.Login);
+    }
+  }
+
   // sair da conta
-  logout = () => {
+  logout = async () => {
     this.props.logout();
-    this.props.navigation.navigate(routes.Login);
   };
 
   render() {
@@ -72,8 +78,8 @@ class SideBar extends Component {
 
           <View>
 
-            {datas && Object.keys(datas).length
-              ? datas.map(data => (
+            {routesData && Object.keys(routesData).length
+              ? routesData.map(data => (
                   <CardItem
                     key={data.name}
                     button
@@ -134,11 +140,17 @@ class SideBar extends Component {
   }
 }
 
+function mapStateToProps(state, props) {
+  return {
+    user: state.userState.user,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ logout }, dispatch);
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SideBar);
