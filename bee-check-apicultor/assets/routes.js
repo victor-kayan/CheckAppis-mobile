@@ -1,4 +1,6 @@
 const routes = {
+  Onboarding: "Onboarding",
+
   Login: "Login",
 
   Home: "Home",

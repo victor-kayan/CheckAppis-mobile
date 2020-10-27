@@ -1,11 +1,15 @@
 import React from "react";
+
 import { Provider } from "react-redux";
 import { Store } from "./src/redux/store";
+
 import {
   createStackNavigator,
   createDrawerNavigator,
   createSwitchNavigator
 } from "react-navigation";
+
+import { LoadingLogin, Onboarding, Login } from "./src/screens/switchScreens";
 import {
   Home,
   Visita,
@@ -14,7 +18,6 @@ import {
   Perfil,
   AboutApp
 } from "./src/screens/drawerScreens";
-import { Login, LoadingLogin } from "./src/screens/switchScreens";
 import {
   NewColmeia,
   EditColmeia,
@@ -31,9 +34,10 @@ import {
   DetailsInterventionHive,
   HiveDetails
 } from "./src/screens/stackScreens";
-import colors from "./assets/colors";
-import { SideBar } from "./src/componentes";
+
 import { Root } from "native-base";
+import { SideBar } from "./src/componentes";
+import colors from "./assets/colors";
 
 if (__DEV__) {
   import('./src/config/reactotronConfig');
@@ -99,8 +103,9 @@ const StackNavigator = createStackNavigator(
 
 const SwitchNavigator = createSwitchNavigator(
   {
-    LoadingLogin,
     StackNavigator,
+    LoadingLogin,
+    Onboarding,
     Login
   },
   {

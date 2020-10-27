@@ -1,17 +1,23 @@
 import React from "react";
-import { View, AsyncStorage, StyleSheet, Image, Alert, StatusBar } from "react-native";
-import { Spinner, Text } from "native-base";
-import { colors, constants, routes, images } from "../../../assets";
-import { Api } from "../../../services";
+import { View, AsyncStorage, StyleSheet, Alert, StatusBar } from "react-native";
+
 import LinearGradient from "react-native-linear-gradient";
+import { Spinner, Text } from "native-base";
+import { colors, constants, routes } from "../../../assets";
+import { Api } from "../../../services";
 
 class LoadingLogin extends React.Component {
   async componentDidMount() {
-    var token = await AsyncStorage.getItem(
-      `@beecheckApp:${constants.ACCESS_TOKEN}`
+    const token = await AsyncStorage.getItem(
+      `@beecheckApp:${constants.ACCCESS_TOKEN}`
     );
-
-    if (token) {
+    const hasAccessedBefore = await AsyncStorage.getItem(
+      `@beecheckApp:${constants.FIRST_ACCESS_FLAG}`
+    );
+    
+    if (!hasAccessedBefore) {
+      this.props.navigation.navigate(routes.Onboarding);
+    } else if (token) {
       Api.instance.defaults.headers.Authorization = `Bearer ${token}`;
       Api.instance.interceptors.response.use(
         function(response) {

@@ -49,8 +49,6 @@ class Login extends React.Component {
       } else if (!email.includes("@")) {
         this.setState({ error: true, message: "Email inválido." });
       } else {
-        await AsyncStorage.setItem(`@beecheckApp:${constants.USER_EMAIL}`, email);
-        await AsyncStorage.setItem(`@beecheckApp:${constants.USER_PASSWORD}`, password);
         await login({ email, password });
       }
     } else {
