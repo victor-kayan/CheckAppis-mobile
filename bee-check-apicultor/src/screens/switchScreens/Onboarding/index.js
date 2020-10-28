@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   SafeAreaView,
   View,
@@ -6,7 +6,7 @@ import {
   Image,
   Animated,
   AsyncStorage,
-  Button
+  TouchableOpacity,
 } from 'react-native';
 
 import { routes, constants, images } from '../../../../assets';
@@ -31,10 +31,25 @@ const onboardingPagesData = [
   },
 ];
 
-const Onboarding = (props) => {
-  const scrollX = new Animated.Value(0);
+class Onboarding extends Component {
+  state = {
+    scrollX: new Animated.Value(0),
+    completed: false
+  };
 
-  async function goToLogin() {
+  componentDidMount() {
+    const { scrollX } = this.state;
+
+    scrollX.addListener(({ value }) => {
+      if (Math.floor(value / SCREEN_WIDTH) === onboardingPagesData.length - 2) {
+        this.setState({ completed: true })   
+      }
+    });
+
+    return () => scrollX.removeListener();
+  }
+
+  goToLogin = async () => {
     try {
       await AsyncStorage.setItem(
         `@checkAppisApp:${constants.HAS_ACCESSED_BEFORE}`,
@@ -44,41 +59,39 @@ const Onboarding = (props) => {
       throw error;
     }
     
-    props.navigation.navigate(routes.Login);
+    this.props.navigation.navigate(routes.Login);
   }
 
-  function renderContent() {
-    return (
-      <Animated.ScrollView
-        horizontal
-        pagingEnabled
-        scrollEnabled
-        snapToAlignment='center'
-        showsHorizontalScrollIndicator={false}
-        onScroll={ Animated.event([
-          { nativeEvent: { contentOffset: { x: scrollX } } },
-        ], { useNativeDriver: false })}
-      >
-        { onboardingPagesData.map(page => (
-          <View key={page.title} style={styles.pageContainer}>
-            {/* Imagem */}
-            <View style={styles.imageContainer}>
-              <Image style={styles.pageImage} source={page.img} resizeMode='cover'/>
-            </View>
-
-            {/* Textos */}
-            <View style={styles.textContainer}>
-              <Text style={styles.title}>{page.title}</Text>
-              <Text style={styles.description}>{page.description}</Text>
-            </View>
+  renderContent = () => (
+    <Animated.ScrollView
+      horizontal
+      pagingEnabled
+      scrollEnabled
+      snapToAlignment='center'
+      showsHorizontalScrollIndicator={false}
+      onScroll={ Animated.event([
+        { nativeEvent: { contentOffset: { x: this.state.scrollX } } },
+      ], { useNativeDriver: false })}
+    >
+      { onboardingPagesData.map(page => (
+        <View key={page.title} style={styles.pageContainer}>
+          {/* Imagem */}
+          <View style={styles.imageContainer}>
+            <Image style={styles.pageImage} source={page.img} resizeMode='cover'/>
           </View>
-        ))}
-      </Animated.ScrollView>
-    );
-  }
+
+          {/* Textos */}
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>{page.title}</Text>
+            <Text style={styles.description}>{page.description}</Text>
+          </View>
+        </View>
+      ))}
+    </Animated.ScrollView>
+  );
   
-  function renderDots() {
-    const dotPosition = Animated.divide(scrollX, SCREEN_WIDTH);
+  renderDots = () => {
+    const dotPosition = Animated.divide(this.state.scrollX, SCREEN_WIDTH);
 
     return (
       <View style={styles.dotsContainer}>
@@ -107,19 +120,32 @@ const Onboarding = (props) => {
     );
   }
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        { renderContent() }
-      </View>
-      <View style={styles.dotsRootContainer}>
-        { renderDots() }
-      </View>
-
-      {/* <Text>Onboarding</Text>
-      <Button title='Continuar para o login' onPress={() => { goToLogin() }}/> */}
-    </SafeAreaView>
+  renderNextButton = () => (
+    <TouchableOpacity
+      style={styles.nextButton}
+      onPress={() => { this.goToLogin() }}
+    >
+      <Text style={styles.nextButtonText}>
+        { this.state.completed ? 'Entrar' : 'Pular' }
+      </Text>
+    </TouchableOpacity>
   );
+
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <>
+          { this.renderContent() }
+        </>
+        <View style={styles.dotsRootContainer}>
+          { this.renderDots() }
+        </View>
+        <>
+          { this.renderNextButton() }
+        </>
+      </SafeAreaView>
+    );
+  }
 }
 
 export default Onboarding;

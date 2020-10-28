@@ -3,8 +3,11 @@ import { StyleSheet } from 'react-native';
 import { constants, colors } from '../../../../assets';
 const { SCREEN_WIDTH, SCREEN_HEIGHT } = constants;
 
-const defaultPadding = 24;
+const defaultPadding = SCREEN_WIDTH*0.05;
+const defaultBottomPosition = SCREEN_HEIGHT*0.06;
+const smallScreenBottomPosition = SCREEN_HEIGHT*0.04;
 const defaultRadius = 12;
+const nextButtonHeight = 60;
 
 const styles = StyleSheet.create({
   container: {
@@ -20,8 +23,8 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingRight: SCREEN_WIDTH * 0.05, // Distânciamento de 10% das
-    paddingLeft: SCREEN_WIDTH * 0.05,  // margens laterais da tela
+    paddingRight: defaultPadding, // Distânciamento de 10% das
+    paddingLeft: defaultPadding,  // margens laterais da tela
   },
   imageContainer: {
 
@@ -31,6 +34,7 @@ const styles = StyleSheet.create({
     height: SCREEN_WIDTH * 0.9
   },
   textContainer: {
+    marginTop: SCREEN_HEIGHT * 0.1
   },
   title: {
     textAlign: 'center'
@@ -42,20 +46,39 @@ const styles = StyleSheet.create({
   // Pontos de paginação
   dotsRootContainer: {
     position: 'absolute',
-    bottom: SCREEN_HEIGHT > 700 ? '-5%' : '-3%',
+    bottom: SCREEN_HEIGHT > 700 ? defaultBottomPosition : smallScreenBottomPosition,
   },
   dotsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: defaultPadding / 2,
-    marginBottom: defaultPadding * 3,
-    height: defaultPadding,
+    height: 17,
   },
   dot: {
     borderRadius: defaultRadius,
     backgroundColor: colors.theme_second,
     marginHorizontal: defaultRadius / 2
+  },
+
+  // Botão de pular/entrar
+  nextButton: {
+    position: 'absolute',
+    right: 0,
+    bottom: SCREEN_HEIGHT > 700 
+      ? defaultBottomPosition - nextButtonHeight/4
+      : smallScreenBottomPosition - nextButtonHeight/4,
+    height: nextButtonHeight,
+    paddingLeft: defaultPadding,
+    paddingRight: defaultPadding,
+    justifyContent: 'center',
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
+    backgroundColor: colors.theme_second
+  },
+  nextButtonText: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 18,
+    color: colors.white
   }
 });
 
