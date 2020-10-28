@@ -12,6 +12,7 @@ import {
 import { routes, constants, images } from '../../../../assets';
 import styles from './styles';
 
+const { SCREEN_WIDTH } = constants;
 const onboardingPagesData = [
   {
     title: 'TÍTULO DA PÁGINA 01',
@@ -31,6 +32,8 @@ const onboardingPagesData = [
 ];
 
 const Onboarding = (props) => {
+  const scrollX = new Animated.Value(0);
+
   async function goToLogin() {
     try {
       await AsyncStorage.setItem(
@@ -52,6 +55,9 @@ const Onboarding = (props) => {
         scrollEnabled
         snapToAlignment='center'
         showsHorizontalScrollIndicator={false}
+        onScroll={ Animated.event([
+          { nativeEvent: { contentOffset: { x: scrollX } } },
+        ], { useNativeDriver: false })}
       >
         { onboardingPagesData.map(page => (
           <View key={page.title} style={styles.pageContainer}>
@@ -72,10 +78,30 @@ const Onboarding = (props) => {
   }
   
   function renderDots() {
+    const dotPosition = Animated.divide(scrollX, SCREEN_WIDTH);
+
     return (
-      <View>
+      <View style={styles.dotsContainer}>
         { onboardingPagesData.map((page, index) => {
-          
+          const opacity = dotPosition.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: [0.3, 1, 0.3],
+            extrapolate: "clamp"
+          });
+
+          const dotSize = dotPosition.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: [8, 17, 8],
+            extrapolate: "clamp"
+          });
+
+          return (
+            <Animated.View
+              key={index}
+              opacity={opacity}
+              style={[styles.dot, { width: dotSize, height: dotSize }]}
+            />
+          );
         })}
       </View>
     );
@@ -83,12 +109,12 @@ const Onboarding = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <>
+      <View>
         { renderContent() }
-      </>
-      {/* <>
+      </View>
+      <View style={styles.dotsRootContainer}>
         { renderDots() }
-      </> */}
+      </View>
 
       {/* <Text>Onboarding</Text>
       <Button title='Continuar para o login' onPress={() => { goToLogin() }}/> */}
