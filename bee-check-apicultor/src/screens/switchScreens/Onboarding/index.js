@@ -7,27 +7,33 @@ import {
   Animated,
   AsyncStorage,
   TouchableOpacity,
+  StatusBar
 } from 'react-native';
 
-import { routes, constants, images } from '../../../../assets';
+import { routes, constants, images, colors } from '../../../../assets';
 import styles from './styles';
 
 const { SCREEN_WIDTH } = constants;
 const onboardingPagesData = [
   {
-    title: 'TÍTULO DA PÁGINA 01',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque cum asperiores expedita vel.',
-    img: images.cards.apiary
+    title: 'Olá. Seja bem vindo(a) ao CheckAppis!',
+    description: 'O CheckAppis é o seu aplicativo para gerenciamento de colmeias, colônias e apiários. Ele é completo e pode te ajudar de maneira fácil e rápida a realizar os processos diários da sua criação de abelhas.',
+    img: images.onboarding.welcome
   },
   {
-    title: 'TÍTULO 02',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates quo cumque earum? Maxime sint assumenda omnis tempore, nemo ipsum repellendus quaerat nostrum cumque nisi iusto pariatur earum harum expedita!', 
-    img: images.cards.hive
+    title: 'Armazene as informações de maneira segura',
+    description: 'Com o CheckAppis, você pode armazenar todas as informações dos seus apiários de forma segura, consultando-as sempre que necessário. Todas as informações são armazenadas no nosso banco de dados e estarão sempre disponíveis para te atender.',
+    img: images.onboarding.security
   },
   {
-    title: 'PÁGINA 03',
-    description: ' Maxime sint assumenda omnis tempore, nemo ipsum repellendus quaerat nostrum cumque nisi iusto pariatur earum harum expedita!',
-    img: images.cards.inter
+    title: 'Aumente sua produção apícola',
+    description: 'Monitorando suas informações através do CheckAppis, e com a ajuda de um técnico em apicultura, você pode evitar disperdícios, mortes de abelhas, entre outros problemas. Assim, sua produção tem mais chances de alavancar! ', 
+    img: images.onboarding.increase
+  },
+  {
+    title: 'Pronto(a) para dar um check no seu apiário?',
+    
+    img: images.onboarding.check
   },
 ];
 
@@ -92,9 +98,10 @@ class Onboarding extends Component {
   
   renderDots = () => {
     const dotPosition = Animated.divide(this.state.scrollX, SCREEN_WIDTH);
-
+    
     return (
       <View style={styles.dotsContainer}>
+        <StatusBar backgroundColor={colors.theme_default} />
         { onboardingPagesData.map((page, index) => {
           const opacity = dotPosition.interpolate({
             inputRange: [index - 1, index, index + 1],
@@ -122,12 +129,18 @@ class Onboarding extends Component {
 
   renderNextButton = () => (
     <TouchableOpacity
-      style={styles.nextButton}
+      style={this.state.completed ? styles.getInButton : styles.nextButton}
       onPress={() => { this.goToLogin() }}
     >
-      <Text style={styles.nextButtonText}>
-        { this.state.completed ? 'Entrar' : 'Pular' }
-      </Text>
+      { this.state.completed ?
+        <Text style={styles.getInButtonText}>
+          VAMOS LÁ!
+        </Text>
+        :
+        <Text style={styles.nextButtonText}>
+          PULAR
+        </Text>
+      }
     </TouchableOpacity>
   );
 

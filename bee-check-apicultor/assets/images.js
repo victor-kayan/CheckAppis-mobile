@@ -59,6 +59,14 @@ export default images = {
     inter: require ("../images/cards/interventions.png"),
   },
 
+  onboarding: {
+    welcome: require ("../images/onboarding/welcome.png"),
+    security: require ("../images/onboarding/security.png"),
+    increase: require ("../images/onboarding/increase.png"),
+    go: require ("../images/onboarding/go.png"),
+    check: require ("../images/onboarding/check.png"),
+  },
+
   headers: {
     hive: require ("../images/headerimage.jpg"),
   },

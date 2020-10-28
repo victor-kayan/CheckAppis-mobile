@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 import { constants, colors } from '../../../../assets';
 const { SCREEN_WIDTH, SCREEN_HEIGHT } = constants;
@@ -7,7 +8,7 @@ const defaultPadding = SCREEN_WIDTH*0.05;
 const defaultBottomPosition = SCREEN_HEIGHT*0.06;
 const smallScreenBottomPosition = SCREEN_HEIGHT*0.04;
 const defaultRadius = 12;
-const nextButtonHeight = 60;
+const nextButtonHeight = 50;
 
 const styles = StyleSheet.create({
   container: {
@@ -31,16 +32,21 @@ const styles = StyleSheet.create({
   },
   pageImage: {
     width: SCREEN_WIDTH * 0.9,
-    height: SCREEN_WIDTH * 0.9
+    height: SCREEN_HEIGHT * 0.35
   },
   textContainer: {
-    marginTop: SCREEN_HEIGHT * 0.1
+    marginTop: SCREEN_HEIGHT * 0.04,
+    marginHorizontal: 8,
   },
   title: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Montserrat-Bold',
+    fontSize: wp('5%'),
+    marginBottom: 5,
   },
   description: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Montserrat-Regular'
   },
 
   // Pontos de paginação
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
   nextButton: {
     position: 'absolute',
     right: 0,
-    bottom: SCREEN_HEIGHT > 700 
+    top: SCREEN_HEIGHT > 700 
       ? defaultBottomPosition - nextButtonHeight/4
       : smallScreenBottomPosition - nextButtonHeight/4,
     height: nextButtonHeight,
@@ -73,11 +79,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,
-    backgroundColor: colors.theme_second
   },
   nextButtonText: {
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 18,
+    fontFamily: 'Montserrat Regular',
+    fontSize: 15,
+    color: colors.theme_second
+  },
+  getInButton: {
+    position: 'absolute',
+    bottom: SCREEN_HEIGHT > 700 
+      ? defaultBottomPosition - nextButtonHeight/6
+      : smallScreenBottomPosition - nextButtonHeight/6,
+    height: nextButtonHeight,
+    paddingLeft: defaultPadding,
+    paddingRight: defaultPadding,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 30,
+    backgroundColor: colors.theme_second
+  },
+  getInButtonText: {
+    fontFamily: 'Montserrat Regular',
+    fontSize: 15,
     color: colors.white
   }
 });

@@ -92,7 +92,6 @@ const ViewLogin = ({
       </TouchableOpacity>
     </View>
     <View style = {styles.content}>
-      <Text style = {styles.forgotText}>Esqueci minha senha</Text>
       <Text style = {styles.notText}>{`Não está cadastrado?\nEntre em contato com um técnico.`}</Text>
       <TouchableOpacity onPress={goToOnboarding}>
         <Text style = {styles.notText}>Ver apresentação do CheckAppis novamente.</Text>
