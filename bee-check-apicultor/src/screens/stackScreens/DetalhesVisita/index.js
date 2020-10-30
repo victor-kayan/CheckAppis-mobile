@@ -48,10 +48,7 @@ class DetalhesVisita extends React.Component {
 
   // deletar visita
   deleteVisit = () => {
-    this.props.deleteVisita({
-      visita_id: this.state.visit.id,
-      apiario_id: this.state.apiary.id,
-    });
+    this.props.deleteVisita(this.state.visit.id, this.state.apiary.id);
   };
 
   render() {

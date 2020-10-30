@@ -52,18 +52,18 @@ export const getVisitasByApiario = (id, showToast = false) => {
 };
 
 // TODO: Tornar função de deletar visita offline-first
-export const deleteVisita = ({ visita_id, apiario_id }) => {
+export const deleteVisita = (visita_id, apiario_id) => {
   return dispatch => {
     Api.instance
       .delete(
-        URLS.formattedURL(URLS.DELETE_VISITA_URL, { visita_id: visita_id })
+        URLS.formattedURL(URLS.DELETE_VISITA_URL, { visita_id })
       )
       .then(response => {
         dispatch(getVisitasByApiario(apiario_id));
         Toast.show({
           text: "Visita deletada com sucesso",
-          buttonText: "",
-          type: "success"
+          type: "success",
+          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
         });
         dispatch({
           type: VISITA_APIARIO_DELETE_SUCCESS,

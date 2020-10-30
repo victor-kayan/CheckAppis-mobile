@@ -1,5 +1,5 @@
 export const BASE_URL = "https://bee-check.herokuapp.com/api/";
-// export const BASE_URL = 'http://192.168.1.6/api/';
+// export const BASE_URL = 'http://192.168.1.7/api/';
 
 export const LOGIN_URL = "/auth/login/apicultor";
 export const LOGOUT_URL = "/auth/logout";
@@ -14,7 +14,7 @@ export const UPDATE_COLMEIA_URL = "/colmeia/{colmeia_id}";
 
 export const GET_VISITAS_BY_APIARIO_URL = "/apiario/{apiario_id}/visitas";
 export const CREATE_VISITA_URL = "/visita";
-export const DELETE_VISITA_URL = "/visita/{visita_id}";
+export const DELETE_VISITA_URL = "/apiario/visitas/{visita_id}";
 
 export const GET_INTERVENCOES_BY_APICULTOR_URL = "/apicultor/apiarios/intervencoes";
 export const CONCLUIR_INTERVENCAO_APIARIO_URL = "/intervencao/{intervencao_id}/concluir";
