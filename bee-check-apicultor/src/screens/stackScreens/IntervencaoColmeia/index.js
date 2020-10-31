@@ -66,7 +66,7 @@ class IntervencaoColmeia extends Component {
               <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>
               <View style = {styles.containerContent}>
                 <View style = {[styles.triangle,styles.arrowUp]}/>
-                <ScrollView contentContainerStyle={{ width: '100%'}}>
+                <ScrollView contentContainerStyle={{ width: '100%'}} showsVerticalScrollIndicator = {false}>
                   {
                     apiarios.map (apiary =>
                     <Apiary 

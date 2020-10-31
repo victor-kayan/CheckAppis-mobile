@@ -72,7 +72,7 @@ class DetalhesVisita extends React.Component {
 
           {/* nome do apiário e status de sincronização */}
           <TouchableOpacity onPress = {() => this.openModalSync()} style = {styles.viewTitle}>
-            <Text style = {styles.apiaryName}>Visita ao {apiaryName}</Text>
+            <Text style = {styles.apiaryName} numberOfLines={1}>Visita ao {apiaryName}</Text>
             {
               visita.isSynced
               ? (<Icon type="AntDesign" name="checkcircleo" style={styles.statusIcon} iconSize={5} active/>) // visita.isSynced -> TRUE; visita.permanentlyFailed -> FALSE
