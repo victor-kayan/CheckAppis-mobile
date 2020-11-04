@@ -78,9 +78,10 @@ export const ColmeiaReducer = (state = initialState, action) => {
 
     case UPDATE_ALL_COLMEIAS:
       let allFailedHives = [];
-
-      Object.entries(state.colmeias)[0].forEach(apiaryId =>
-        allFailedHives.push(...getFailedHivesByApiary(apiaryId))
+      
+      // Preencher array com as colmeias que falharam permanentemente ao serem criadas
+      Object.entries(state.colmeias).forEach(apiaryId =>
+        allFailedHives.push(...getFailedHivesByApiary(apiaryId[0]))
       );
 
       const allHives = [...payload.allColmeias, ...allFailedHives];

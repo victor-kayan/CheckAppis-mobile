@@ -1,9 +1,15 @@
-import { RESET_STATE } from "@redux-offline/redux-offline/lib/constants";
+import { AsyncStorage, Alert } from "react-native";
+import { RESET_STATE as RESET_STATE_OFFLINE } from "@redux-offline/redux-offline/lib/constants";
 
-import { LOGIN, LOGOUT, LOADING_LOGIN, GET_INFORMATIONS_USER } from "./actionsType";
+import {
+  LOGIN, 
+  LOGOUT, 
+  LOADING_LOGIN, 
+  GET_INFORMATIONS_USER, 
+  RESET_STATE_ON_LOGOUT
+} from "./actionsType";
 import { Api } from "../../../../services";
 import { URLS, constants } from "../../../../assets";
-import { AsyncStorage, Alert } from "react-native";
 
 export const login = ({ email, password }) => {
   return dispatch => {
@@ -41,17 +47,6 @@ export const login = ({ email, password }) => {
   };
 };
 
-function cleanPersistedStore() {
-  AsyncStorage.removeItem(`@checkAppisApp:${constants.ACCESS_TOKEN}`);
-  
-  // Remover (manualmente) todos os estados salvos no AsyncStorage pelo reduxPersist
-  AsyncStorage.removeItem('reduxPersist:intervencaoState');
-  AsyncStorage.removeItem('reduxPersist:apiarioState');
-  AsyncStorage.removeItem('reduxPersist:colmeiaState');
-  AsyncStorage.removeItem('reduxPersist:visitaState');
-  AsyncStorage.removeItem('reduxPersist:userState');
-}
-
 export const logout = user => {
   return dispatch => {
     dispatch({
@@ -63,18 +58,10 @@ export const logout = user => {
 
     Api.instance.post(URLS.LOGOUT_URL, { user })
       .then(response => {
-        cleanPersistedStore();
+        AsyncStorage.removeItem(`@checkAppisApp:${constants.ACCESS_TOKEN}`);
 
-        dispatch({ type: RESET_STATE });
-        dispatch({
-          type: LOGOUT,
-          payload: {
-            user: {},
-            loading: false,
-            logged: false,
-            token: ""
-          }
-        });
+        dispatch({ type: RESET_STATE_ON_LOGOUT });
+        dispatch({ type: RESET_STATE_OFFLINE });
       })
       .catch(error => {
         Alert.alert(

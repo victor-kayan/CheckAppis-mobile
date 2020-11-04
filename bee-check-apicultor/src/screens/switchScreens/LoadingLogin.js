@@ -6,12 +6,10 @@ import { Spinner, Text } from "native-base";
 import { colors, constants, routes } from "../../../assets";
 import { Api } from "../../../services";
 
-import tron from '../../config/reactotronConfig'
-
 class LoadingLogin extends React.Component {
   async componentDidMount() {
     const token = await AsyncStorage.getItem(
-      `@checkAppisApp:${constants.ACCCESS_TOKEN}`
+      `@checkAppisApp:${constants.ACCESS_TOKEN}`
     );
     const hasAccessedBefore = JSON.parse(await AsyncStorage.getItem(
       `@checkAppisApp:${constants.HAS_ACCESSED_BEFORE}`

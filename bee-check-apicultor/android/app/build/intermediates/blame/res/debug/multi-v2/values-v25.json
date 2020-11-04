@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\checkappis\\bee-check-mobile\\bee-check-apicultor\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
+            "outputFile": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v25/values-v25.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sadra\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f6082604fb49a07f111a43bd00669d11\\res\\values-v25\\values-v25.xml",
+                    "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/values-v25/values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",
