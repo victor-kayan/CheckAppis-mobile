@@ -10,7 +10,7 @@ import {
   StatusBar
 } from 'react-native';
 
-import { routes, constants, images, colors } from '../../../../assets';
+import { routes, constants, images } from '../../../../assets';
 import styles from './styles';
 
 const { SCREEN_WIDTH } = constants;
@@ -47,8 +47,10 @@ class Onboarding extends Component {
     const { scrollX } = this.state;
 
     scrollX.addListener(({ value }) => {
-      if (Math.floor(value / SCREEN_WIDTH) === onboardingPagesData.length - 2) {
-        this.setState({ completed: true })   
+      if (value / SCREEN_WIDTH === onboardingPagesData.length - 1) {
+        this.setState({ completed: true });
+      } else {
+        this.setState({ completed: false });
       }
     });
 
@@ -101,7 +103,6 @@ class Onboarding extends Component {
     
     return (
       <View style={styles.dotsContainer}>
-        <StatusBar backgroundColor={colors.theme_default} />
         { onboardingPagesData.map((page, index) => {
           const opacity = dotPosition.interpolate({
             inputRange: [index - 1, index, index + 1],
@@ -147,6 +148,8 @@ class Onboarding extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor='transparent' barStyle='dark-content' />
+
         <>
           { this.renderContent() }
         </>

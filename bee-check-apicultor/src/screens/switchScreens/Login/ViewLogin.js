@@ -32,7 +32,7 @@ const ViewLogin = ({
   ...rest
 }) => (
   <Container style = {{flex: 1, height: '100%'}}>
-    <StatusBar backgroundColor={colors.theme_default} />
+    <StatusBar backgroundColor={colors.theme_default} barStyle='light-content' />
     <View style = {styles.contentImage}>
         <LinearGradient
           colors={[colors.theme_default, colors.theme_second]}
@@ -41,11 +41,13 @@ const ViewLogin = ({
         <ImageBackground source={images.home.cover} style={styles.coverImage}/>
         <Image source={images.login.logo} style = {styles.logo}/>
         <Text style = {styles.welcome}>Bem-vindo(a)!</Text>
-        <Text style = {styles.welcomeText}>{`O CheckAppis é a forma mais fácil e\nrápida de gerenciar seu apiário.`}</Text>
+        <Text style = {styles.welcomeText}>{`O CheckAppis é a forma mais fácil\ne rápida de gerenciar seu apiário.`}</Text>
       </LinearGradient>
     </View>
     <View style = {styles.loginView}>
       <Text style = {styles.accessText}>ACESSE SUA CONTA</Text>
+
+      { message ? <Text style={styles.errorMessage}>{message}</Text> : null }
 
       <View style = {styles.viewInput}>
         <Icon type="FontAwesome5" name="user-alt" style = {styles.iconInputi}/>
@@ -84,10 +86,11 @@ const ViewLogin = ({
           colors={[colors.theme_default, colors.theme_second]}
           style={{ height: '100%', borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
         >
-          <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: wp('3.6%') }}>E N T R A R</Text>
           {loading ? (
             <Spinner color="white" style={styles.spinnerButton} />
-          ) : null}
+          ) : (
+            <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: wp('3.6%') }}>E N T R A R</Text>
+          )}
         </LinearGradient>
       </TouchableOpacity>
     </View>

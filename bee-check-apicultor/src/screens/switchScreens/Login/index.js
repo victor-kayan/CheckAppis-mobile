@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { login } from "../../../redux/actions/userActions";
 
+import { Toast } from "native-base";
 import { constants, routes } from "../../../../assets";
 import ViewLogin from "./ViewLogin";
 
@@ -73,6 +74,11 @@ class Login extends React.Component {
       this.state.email != ""
     ) {
       this.setState({ error: true, message: "Email ou senha inválidos." });
+      Toast.show({
+        text: "Verifique seu email e senha",
+        textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+        type: "danger"
+      });
     }
   };
 

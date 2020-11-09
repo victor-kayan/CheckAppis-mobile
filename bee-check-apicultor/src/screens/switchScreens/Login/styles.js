@@ -1,4 +1,4 @@
-import { colors, constants } from "../../../../assets";
+import { colors } from "../../../../assets";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default {
@@ -119,6 +119,13 @@ export default {
     marginBottom: 20,
     marginTop: 10,
   },
+  errorMessage: {
+    fontSize: wp('3.5%'),
+    fontFamily: 'Montserrat-Bold',
+    color: colors.erorr,
+    textAlign: 'center',
+    marginTop: -10,
+  },
   view: {
     flex: 1,
     justifyContent: "center",
@@ -170,8 +177,8 @@ export default {
     color: colors.black
   },
   spinnerButton: {
-    marginLeft: 8,
+    // marginLeft: 8,
     alignSelf: 'center',
-    marginBottom: 18,
+    // marginBottom: 18,
   }
 };
