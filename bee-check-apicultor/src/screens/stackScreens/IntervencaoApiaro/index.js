@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Image, ScrollView } from "react-native";
+import { Image, ScrollView, RefreshControl } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fecthIntervencoesByApicultor } from "../../../redux/actions/intervencaoActions";
 
 import { Container, Text, View} from "native-base";
-import { routes } from "../../../../assets";
+import { routes, colors } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import Intervention from "../../../componentes/Intervention";
 import styles from "./styles";
@@ -14,7 +14,9 @@ import styles from "./styles";
 class IntervencaoApiario extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      refreshing: false
+    };
   }
 
   componentDidMount() {
@@ -56,7 +58,17 @@ class IntervencaoApiario extends Component {
           ) : (
             <View style = {styles.container}>
               <Text style = {styles.text}>Aqui estão todas as intervenções dos seus apiários</Text>
-              <ScrollView contentContainerStyle={{width: '90%', paddingHorizontal: 20}} showsVerticalScrollIndicator = {false}>
+              <ScrollView
+                contentContainerStyle={{width: '90%', paddingHorizontal: 20}}
+                showsVerticalScrollIndicator = {false}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh={() => this.handleRefresh()}
+                    colors={[colors.theme_primary]}
+                  />
+                }
+              >
                 {
                   intervencoes && intervencoes.map ((intervention, index) =>
                     <Intervention 

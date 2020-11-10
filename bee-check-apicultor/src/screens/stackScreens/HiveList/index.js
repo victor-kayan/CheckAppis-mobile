@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Image, ScrollView, StatusBar, TouchableHighlight } from "react-native";
+import {
+  Image, 
+  ScrollView, 
+  StatusBar, 
+  TouchableHighlight, 
+  RefreshControl
+} from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -19,6 +25,7 @@ class HiveList extends Component {
       colmeia: {},
       selectedApiary: this.props.navigation.getParam('selectedApiary'),
       selectedPickerApiario: true,
+      refreshing: false
     };
   }
 
@@ -74,7 +81,17 @@ class HiveList extends Component {
           <Text style = {styles.title}>Aqui estão todas as colmeias do apiário {this.state.selectedApiary.nome}</Text>
           <View style = {styles.contentHive}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
-            <ScrollView contentContainerStyle={{ width: '100%'}} showsVerticalScrollIndicator = {false}>
+            <ScrollView
+              contentContainerStyle={{ width: '100%'}}
+              showsVerticalScrollIndicator = {false}
+              refreshControl={
+                <RefreshControl
+                  refreshing={this.state.refreshing}
+                  onRefresh={() => this.handleRefresh()}
+                  colors={[colors.theme_primary]}
+                />
+              }
+            >
               { !colmeias || colmeias == '' ?
                 (
                   <>

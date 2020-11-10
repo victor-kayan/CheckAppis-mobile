@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, ScrollView, StatusBar } from "react-native";
+import { Image, ScrollView, StatusBar, RefreshControl } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -14,7 +14,9 @@ import styles from "./styles";
 class Colmeia extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      refreshing: false
+    };
   }
 
   componentDidMount() {
@@ -55,7 +57,17 @@ class Colmeia extends Component {
           <Text style = {styles.description}>Selecione um apiário para ver suas colmeias</Text>
           <View style = {styles.contentApiary}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
-              <ScrollView contentContainerStyle={{ width: '100%'}} showsVerticalScrollIndicator = {false}>
+              <ScrollView
+                contentContainerStyle={{ width: '100%'}}
+                showsVerticalScrollIndicator = {false}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh={() => this.handleRefresh()}
+                    colors={[colors.theme_primary]}
+                  />
+                }
+              >
                 { !apiarios || apiarios == '' ?
                   (
                     <View style = {styles.container}>

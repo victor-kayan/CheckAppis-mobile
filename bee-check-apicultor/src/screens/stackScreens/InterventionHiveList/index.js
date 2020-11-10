@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Image, ScrollView } from "react-native";
+import { Image, ScrollView, RefreshControl } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchIntervencoesColmeiasByApiario } from "../../../redux/actions/intervencaoActions";
 
 import { Text, Container, View } from "native-base";
-import { routes } from "../../../../assets";
+import { routes, colors } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import InterventionHive from "../../../componentes/InterventionHive";
 import styles from "./styles";
@@ -17,6 +17,7 @@ class InterventionHiveList extends Component {
     this.state = {
       apiaryId: this.props.navigation.getParam("apiaryId"),
       apiaryName: this.props.navigation.getParam("name"),
+      refreshing: false
     };
   }
 
@@ -56,7 +57,17 @@ class InterventionHiveList extends Component {
         
         <View style = {styles.container}>
           <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
-          <ScrollView contentContainerStyle={{ width: '90%', paddingHorizontal: 20}} showsVerticalScrollIndicator = {false}>
+          <ScrollView
+            contentContainerStyle={{ width: '90%', paddingHorizontal: 20}}
+            showsVerticalScrollIndicator = {false}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.refreshing}
+                onRefresh={() => this.handleRefresh()}
+                colors={[colors.theme_primary]}
+              />
+            }
+          >
             { intervencoesByApiario &&
               intervencoesByApiario.length > 0
               ? intervencoesByApiario.map (hiveIntervention =>

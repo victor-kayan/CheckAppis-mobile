@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StatusBar, ScrollView } from "react-native";
+import { StatusBar, ScrollView, RefreshControl } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -13,7 +13,9 @@ import styles from './styles';
 class Visita extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      refreshing: false
+    };
   }
 
   componentDidMount() {
@@ -52,7 +54,17 @@ class Visita extends Component {
           <Text style = {styles.description}>Selecione um apiário para ver o histórico de visitas correspondente a ele</Text>
           <View style = {styles.contentVisits}>
             <View style = {[styles.triangle,styles.arrowUp]}/>
-              <ScrollView contentContainerStyle={{ width: '100%'}} showsVerticalScrollIndicator = {false}>
+              <ScrollView
+                contentContainerStyle={{ width: '100%'}}
+                showsVerticalScrollIndicator = {false}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh={() => this.handleRefresh()}
+                    colors={[colors.theme_primary]}
+                  />
+                }
+              >
                 {
                   apiarios.map(apiary =>
                     <Apiary 

@@ -20,11 +20,6 @@ class NewVisitaApiario extends Component {
     };
   }
 
-  // recarregar as informações da tela
-  handleRefresh = () => {
-    this.props.fetchApiariosByUser();
-  };
-
   onAddVisitaApiario = values => {
     this.props.navigation.navigate(routes.NewVisitaColmeia, {
       apiario_id: this.state.selectedPickerApiario.id,

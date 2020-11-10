@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Image, ScrollView } from "react-native";
+import { Image, ScrollView, RefreshControl } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchApiariosByUser } from "../../../redux/actions/apiarioActions";
 
 import { Text, Container, View } from "native-base";
-import { routes } from "../../../../assets";
+import { routes, colors } from "../../../../assets";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import Apiary from "../../../componentes/Apiary";
 import styles from "./styles";
@@ -14,7 +14,9 @@ import styles from "./styles";
 class IntervencaoColmeia extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      refreshing: false
+    };
   }
 
   componentDidMount() {
@@ -66,7 +68,17 @@ class IntervencaoColmeia extends Component {
               <Text style = {styles.title}>Selecione o apiário do qual deseja ver as intervenções das colmeias</Text>
               <View style = {styles.containerContent}>
                 <View style = {[styles.triangle,styles.arrowUp]}/>
-                <ScrollView contentContainerStyle={{ width: '100%'}} showsVerticalScrollIndicator = {false}>
+                <ScrollView
+                  contentContainerStyle={{ width: '100%'}}
+                  showsVerticalScrollIndicator = {false}
+                  refreshControl={
+                    <RefreshControl
+                      refreshing={this.state.refreshing}
+                      onRefresh={() => this.handleRefresh()}
+                      colors={[colors.theme_primary]}
+                    />
+                  }
+                >
                   {
                     apiarios.map (apiary =>
                     <Apiary 

@@ -47,7 +47,7 @@ class Onboarding extends Component {
     const { scrollX } = this.state;
 
     scrollX.addListener(({ value }) => {
-      if (value / SCREEN_WIDTH === onboardingPagesData.length - 1) {
+      if (Math.round(value / SCREEN_WIDTH) === onboardingPagesData.length - 1) {
         this.setState({ completed: true });
       } else {
         this.setState({ completed: false });

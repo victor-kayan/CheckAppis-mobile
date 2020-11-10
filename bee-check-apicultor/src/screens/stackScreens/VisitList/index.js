@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { ScrollView, StatusBar, TouchableHighlight, Image } from "react-native";
+import {
+  ScrollView, 
+  StatusBar, 
+  TouchableHighlight, 
+  Image, 
+  RefreshControl
+} from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -7,7 +13,6 @@ import { getVisitasByApiario } from "../../../redux/actions/visitaActions";
 
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
 import LinearGradient from "react-native-linear-gradient";
-import { SpinnerCustom } from "../../../componentes";
 import { colors, routes } from "../../../../assets";
 import { Icon, Container, Text, View } from "native-base";
 import Visit from "../../../componentes/Visit";
@@ -19,6 +24,7 @@ class VisitList extends Component {
     this.state = {
       visita: {},
       selectedApiary: this.props.navigation.getParam('selectedApiary'),
+      refreshing: false
     };
   }
 
@@ -66,7 +72,17 @@ class VisitList extends Component {
           <View style = {styles.containerContentVisits}>
             <Text style = {styles.title}>Aqui estão todas as visitas realizadas no apiário {this.state.selectedApiary.nome}</Text>
             <View style = {styles.contentVisit}>
-              <ScrollView contentContainerStyle={{ width: '100%', padding: 10, }} showsVerticalScrollIndicator = {false}>
+              <ScrollView
+                contentContainerStyle={{ width: '100%', padding: 10, }}
+                showsVerticalScrollIndicator = {false}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh={() => this.handleRefresh()}
+                    colors={[colors.theme_primary]}
+                  />
+                }
+              >
                 { !visitas || visitas == '' ? 
                   (
                     <>
