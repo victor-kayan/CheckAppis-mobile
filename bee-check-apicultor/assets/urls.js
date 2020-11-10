@@ -24,6 +24,10 @@ export const CONCLUIR_INTERVENCAO_COLMEIA_URL = "/intervencao/colmeia/{intervenc
 
 export const GET_DADOS_SINCRONIZACAO_OFFLINE_URL = '/dados-sincronizacao-offline/mobile';
 
+// Outros links, além das rotas da API
+export const POLITICA_DE_PRIVACIDADE_URL = 'http://bee-check.herokuapp.com/politica-de-privacidade';
+export const MANUAL_DO_APLICATIVO_URL = 'https://drive.google.com/file/d/1KCmY5BcnN3CT_FXJUzpTeGu5Mu_G9zGr/view?usp=sharing';
+
 export const formattedURL = (url, params = {}) => {
   if (url) {
     if (params) {

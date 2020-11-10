@@ -152,6 +152,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-inappbrowser-reborn')
     compile project(':react-native-get-random-values')
     // compile project(':react-native-maps')
     compile project(':react-native-linear-gradient')

@@ -36,6 +36,10 @@
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/af3a7dd8d5287415a4eaba4fb89c5019/res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_arrow_back_white.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-mdpi-v4/ic_arrow_back_white.png"
+    },
+    {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/anim_catalyst_slide_down.xml.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/6062ea4c040f1967cc1df4d8edf31f5c/res/anim/catalyst_slide_down.xml"
     },
@@ -186,6 +190,10 @@
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/layout_amu_webview.xml.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/f19c70df80c7b527f2fd468b30f90b98/res/layout/amu_webview.xml"
+    },
+    {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_arrow_back_black.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-xxhdpi-v4/ic_arrow_back_black.png"
     },
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -644,6 +652,10 @@
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_arrow_back_white.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_arrow_back_white.png"
+    },
+    {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/anim_abc_popup_enter.xml.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/anim/abc_popup_enter.xml"
     },
@@ -916,6 +928,10 @@
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4063910053330ee6d779e6cc63ce6c20/res/layout/design_navigation_item_header.xml"
     },
     {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_arrow_back_black.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_arrow_back_black.png"
+    },
+    {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/layout_design_layout_snackbar.xml.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4063910053330ee6d779e6cc63ce6c20/res/layout/design_layout_snackbar.xml"
     },
@@ -1024,6 +1040,10 @@
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable-xxxhdpi-v4/abc_ic_star_black_48dp.png"
     },
     {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/layout_browser_actions_context_menu_row.xml.flat",
+        "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/3c236748cfd10ddd5705360a8519d593/res/layout/browser_actions_context_menu_row.xml"
+    },
+    {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/layout_design_navigation_item_subheader.xml.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4063910053330ee6d779e6cc63ce6c20/res/layout/design_navigation_item_subheader.xml"
     },
@@ -1058,6 +1078,10 @@
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_arrow_back_white.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ic_arrow_back_white.png"
     },
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/xml_provider_paths.xml.flat",
@@ -1162,6 +1186,10 @@
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_arrow_back_black.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ic_arrow_back_black.png"
     },
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/layout_abc_action_mode_close_item_material.xml.flat",
@@ -1516,6 +1544,10 @@
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_arrow_back_black.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-mdpi-v4/ic_arrow_back_black.png"
+    },
+    {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/layout_design_layout_tab_text.xml.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4063910053330ee6d779e6cc63ce6c20/res/layout/design_layout_tab_text.xml"
     },
@@ -1724,6 +1756,10 @@
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/57807a45c8d026c851a76b074bef817a/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
     },
     {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_arrow_back_white.png.flat",
+        "source": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/packaged_res/debug/drawable-xxhdpi-v4/ic_arrow_back_white.png"
+    },
+    {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable-mdpi-v4/abc_ic_star_half_black_48dp.png"
     },
@@ -1830,6 +1866,10 @@
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable_abc_edit_text_material.xml.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/layout_browser_actions_context_menu_page.xml.flat",
+        "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/3c236748cfd10ddd5705360a8519d593/res/layout/browser_actions_context_menu_page.xml"
     },
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -1988,12 +2028,12 @@
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/6062ea4c040f1967cc1df4d8edf31f5c/res/anim/catalyst_slide_up.xml"
     },
     {
-        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/anim_abc_popup_exit.xml.flat",
-        "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/anim/abc_popup_exit.xml"
-    },
-    {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/drawable-hdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/anim_abc_popup_exit.xml.flat",
+        "source": "/home/victor/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8d952357d5191a7d9d6a5d8a4236230d/res/anim/abc_popup_exit.xml"
     },
     {
         "merged": "/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",

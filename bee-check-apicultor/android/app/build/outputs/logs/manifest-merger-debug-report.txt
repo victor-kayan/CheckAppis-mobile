@@ -8,6 +8,7 @@ MERGED from [:react-native-get-random-values] /home/victor/Documents/BeeCheck/be
 MERGED from [:react-native-linear-gradient] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-vector-icons] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-18:12
 MERGED from [:react-native-maps] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-12:12
 MERGED from [com.facebook.react:react-native:0.57.4] /home/victor/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/6062ea4c040f1967cc1df4d8edf31f5c/AndroidManifest.xml:2:1-15:12
 MERGED from [com.android.support:design:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4063910053330ee6d779e6cc63ce6c20/AndroidManifest.xml:17:1-22:12
@@ -21,6 +22,7 @@ MERGED from [com.google.android.gms:play-services-base:16.1.0] /home/victor/.gra
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/victor/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/94f13c23f8a00c8c965a5e90f371cc30/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] /home/victor/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/09bd2d0139d183071ba50c095cab528b/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/2bfbdfff2f42a46610e4a46aef8bbcbc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customtabs:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/3c236748cfd10ddd5705360a8519d593/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/ea3d339a92523f298d9c896136afbebf/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/d6564ba3d7f2c3d54a8271718a1b5b6b/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/510f3743c862aafc307d0731f312d653/AndroidManifest.xml:17:1-22:12
@@ -65,6 +67,8 @@ INJECTED from /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicult
 		ADDED from /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-67
+MERGED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-67
 MERGED from [:react-native-maps] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
 MERGED from [:react-native-maps] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] /home/victor/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/ebb218f9c92a7ae2b45814ff0ce0c880/AndroidManifest.xml:24:5-67
@@ -95,6 +99,8 @@ application
 ADDED from /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/src/main/AndroidManifest.xml:9:5-32:19
 MERGED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:5-16:19
+MERGED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:5-16:19
 MERGED from [com.facebook.react:react-native:0.57.4] /home/victor/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/6062ea4c040f1967cc1df4d8edf31f5c/AndroidManifest.xml:13:5-20
 MERGED from [com.facebook.react:react-native:0.57.4] /home/victor/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/6062ea4c040f1967cc1df4d8edf31f5c/AndroidManifest.xml:13:5-20
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] /home/victor/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/ebb218f9c92a7ae2b45814ff0ce0c880/AndroidManifest.xml:30:5-36:19
@@ -163,6 +169,8 @@ MERGED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-che
 MERGED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-maps] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.57.4] /home/victor/.gradle/caches/transforms-1/files-1.1/react-native-0.57.4.aar/6062ea4c040f1967cc1df4d8edf31f5c/AndroidManifest.xml:7:5-9:41
@@ -189,6 +197,8 @@ MERGED from [com.google.android.gms:play-services-basement:16.2.0] /home/victor/
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] /home/victor/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/09bd2d0139d183071ba50c095cab528b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/2bfbdfff2f42a46610e4a46aef8bbcbc/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/2bfbdfff2f42a46610e4a46aef8bbcbc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/3c236748cfd10ddd5705360a8519d593/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/3c236748cfd10ddd5705360a8519d593/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/ea3d339a92523f298d9c896136afbebf/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/ea3d339a92523f298d9c896136afbebf/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/victor/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/d6564ba3d7f2c3d54a8271718a1b5b6b/AndroidManifest.xml:20:5-44
@@ -263,6 +273,10 @@ ADDED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-chec
 		ADDED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:19:17-55
 	android:name
 		ADDED from [:react-native-image-picker] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:17-67
+activity#com.proyecto26.inappbrowser.ChromeTabsManagerActivity
+ADDED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:9-15:20
+	android:name
+		ADDED from [:react-native-inappbrowser-reborn] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:19-87
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from [:react-native-maps] /home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:10:5-81
 	android:name

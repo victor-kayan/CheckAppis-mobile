@@ -132,6 +132,7 @@
 		CA1FD6001D4D4D14909B18E8 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D88BC1AA868E4EFD9AEE1EB4 /* Roboto-Regular.ttf */; };
 		6B561446E9A94C3286AB29C0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A975820D29C471FBE92CEEC /* Roboto-Thin.ttf */; };
 		917835DDDADE483CAAE15B6E /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1864A746A0074FDDB93F4CA4 /* Roboto-ThinItalic.ttf */; };
+		4CD43A1CC7254F479FFE05E8 /* libRNInAppBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA50C9AC042A471EA3E206B4 /* libRNInAppBrowser.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -540,6 +541,8 @@
 		D88BC1AA868E4EFD9AEE1EB4 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3A975820D29C471FBE92CEEC /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		1864A746A0074FDDB93F4CA4 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AB848DFA3F8B4B6A8C946B08 /* RNInAppBrowser.xcodeproj */ = {isa = PBXFileReference; name = "RNInAppBrowser.xcodeproj"; path = "../node_modules/react-native-inappbrowser-reborn/ios/RNInAppBrowser.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		EA50C9AC042A471EA3E206B4 /* libRNInAppBrowser.a */ = {isa = PBXFileReference; name = "libRNInAppBrowser.a"; path = "libRNInAppBrowser.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -575,6 +578,7 @@
 				D096FE82B1424500B3CA0A58 /* libBVLinearGradient.a in Frameworks */,
 				6369B30FCA2D49E2833EDE3C /* libRNGetRandomValues.a in Frameworks */,
 				763994F9A13E4062AC098EED /* libAirMaps.a in Frameworks */,
+				4CD43A1CC7254F479FFE05E8 /* libRNInAppBrowser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +776,7 @@
 				631725B1B74948D1954EAA13 /* BVLinearGradient.xcodeproj */,
 				23AC2C1052064A08ADA3C389 /* RNGetRandomValues.xcodeproj */,
 				AD5BF42DB23646B3A714EC05 /* AirMaps.xcodeproj */,
+				AB848DFA3F8B4B6A8C946B08 /* RNInAppBrowser.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1580,6 +1585,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bee_Check.app/Bee_Check";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1591,6 +1597,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Debug;
@@ -1612,6 +1619,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bee_Check.app/Bee_Check";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1623,6 +1631,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Release;
@@ -1653,6 +1662,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Debug;
@@ -1682,6 +1692,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Release;
@@ -1711,6 +1722,7 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1722,6 +1734,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Debug;
@@ -1751,6 +1764,7 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1762,6 +1776,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Release;
@@ -1790,6 +1805,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1801,6 +1817,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Debug;
@@ -1829,6 +1846,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1840,6 +1858,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-get-random-values/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-inappbrowser-reborn/ios",
 				);
 			};
 			name = Release;

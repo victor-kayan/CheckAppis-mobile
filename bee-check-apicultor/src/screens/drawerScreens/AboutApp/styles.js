@@ -34,10 +34,10 @@ export default {
   },
   logo: {
     width: wp('61.3%'),
-    height: hp('10.5%'),
+    height: hp('10.8%'),
     margin: 20,
   },
-  buttonPolitics: {
+  openLinkButton: {
     width: '70%',
     height: 50,
     flexDirection: 'row',
@@ -54,6 +54,5 @@ export default {
     fontSize: 13,
     fontFamily: 'Montserrat-Medium',
     textAlign: 'center',
-    marginRight: 20,
   },
 };

@@ -3,6 +3,7 @@ package com.bee_check;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 
 import org.linusu.RNGetRandomValuesPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new RNGetRandomValuesPackage(),
           new MainReactPackage(),
+            new RNInAppBrowserPackage(),
           new MapsPackage(),
           new LinearGradientPackage(),
           new ImagePickerPackage(),
