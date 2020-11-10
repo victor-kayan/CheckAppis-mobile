@@ -14,7 +14,7 @@ export default class MarkerCallOut extends Component {
         <View style = {styles.container}>
           <View style = {styles.header}>
             <Text style={styles.title}>{nome}</Text>
-            <Text style={styles.description}>{descricao}</Text>
+            <Text style={styles.description} numberOfLines={2}>{descricao}</Text>
           </View>
           <View style={styles.addressContainer}>
             <Text style={{...styles.address, marginBottom: 3}}>{logradouro}</Text>

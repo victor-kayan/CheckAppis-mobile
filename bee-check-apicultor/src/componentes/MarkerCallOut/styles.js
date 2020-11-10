@@ -15,16 +15,18 @@ export default {
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   title: {
     color: '#FFF',
     fontFamily: 'Montserrat-Bold',
+    textAlign: 'center',
   },
   description: {
     color: '#FFF',
     fontFamily: 'Montserrat Regular',
-    fontSize: 12
+    fontSize: 12,
+    textAlign: 'center',
   },
   addressContainer: {
     padding: 8,
@@ -32,5 +34,6 @@ export default {
   },
   address: {
     fontFamily: 'Montserrat Regular',
+    textAlign: 'center',
   }
 }

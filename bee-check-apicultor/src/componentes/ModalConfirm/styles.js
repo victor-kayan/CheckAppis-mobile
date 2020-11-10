@@ -10,7 +10,7 @@ export default {
 
     container: {
         width: '85%',
-        height: 200,
+        paddingVertical: 20,
         alignItems: 'center',
         backgroundColor: colors.white,
         borderRadius: 25,
