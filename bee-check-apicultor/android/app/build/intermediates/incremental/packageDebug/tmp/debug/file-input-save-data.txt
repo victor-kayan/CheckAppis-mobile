@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Nov 09 22:17:05 BRT 2020
+#Mon Nov 09 22:51:49 BRT 2020
 60.set=NATIVE_RESOURCE
 52.set=NATIVE_RESOURCE
 53.base=/home/victor/Documents/BeeCheck/bee-check-mobile/bee-check-apicultor/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

@@ -3,7 +3,7 @@ import { offline } from '@redux-offline/redux-offline';
 import defaultOfflineConfig from '@redux-offline/redux-offline/lib/defaults';
 import thunk from 'redux-thunk';
 
-import { Reducers } from '../reducers';
+import Reducers from '../reducers';
 import Middlewares from "./middlewares";
 import Reactotron from '../../config/reactotronConfig';
 import customReduxOfflineConfig from '../../config/reduxOfflineConfig';

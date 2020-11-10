@@ -74,7 +74,7 @@ class VisitList extends Component {
                         style = {styles.image}
                         source={require ('../../../../images/empty.png')}
                       />
-                      <Text style = {styles.textNull}>{`Nenhuma visita foi encontrada. Recarregue a página ou realize uma visita :)`}</Text>
+                      <Text style = {styles.textNull}>{`Nenhuma visita foi encontrada. Recarregue os dados ou realize uma visita :)`}</Text>
                     </>
                   ) 
                   : (

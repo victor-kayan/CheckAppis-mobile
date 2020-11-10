@@ -2,12 +2,10 @@ import { Dimensions } from "react-native";
 const { height, width } = Dimensions.get("window");
 
 const constants = {
-    USER_LOGGED: 'user',
+    // AsyncStorage keys
     ACCESS_TOKEN: 'token',
-    USER_EMAIL: 'email',
-    USER_PASSWORD: 'password',
-    USER_NAME: 'name',
-    USER_TELL: 'tell',
+    HAS_ACCESSED_BEFORE: 'hasAccessedBefore',
+    
     SCREEN_HEIGHT: height,
     SCREEN_WIDTH: width,
 }

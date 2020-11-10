@@ -1,5 +1,5 @@
 import { colors, constants } from "../../../../assets";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp, heightPercentageToDP} from 'react-native-responsive-screen';
 
 export default {
   cardItem: {
@@ -19,7 +19,7 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
+    width: '70%',
     margin: 30,
   },
   labelQuadros: {
@@ -82,7 +82,7 @@ export default {
   },
   apiaryName: {
     color: colors.theme_second,
-    fontSize: 18,
+    fontSize: hp('2.3%'),
     fontFamily: 'Montserrat-Bold',
     marginRight: 20,
     alignSelf: 'center',

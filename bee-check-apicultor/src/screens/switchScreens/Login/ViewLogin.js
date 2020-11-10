@@ -2,27 +2,22 @@ import React from "react";
 import { 
   ImageBackground, 
   TextInput, 
-  Dimensions, 
   TouchableOpacity, 
   StatusBar,
   Image
 } from "react-native";
+
 import {
-  Input,
   Icon,
   Container,
   Text,
   View,
   Spinner
 } from "native-base";
-import { Alert, HeaderCustom } from "../../../componentes";
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import LinearGradient from "react-native-linear-gradient";
 import { colors, images } from "../../../../assets";
 import styles from "./styles";
-import LinearGradient from "react-native-linear-gradient";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
-
-let { height } = Dimensions.get("window");
 
 const ViewLogin = ({
   error,
@@ -33,10 +28,11 @@ const ViewLogin = ({
   handlePassword,
   handleLogin,
   loading,
+  goToOnboarding,
   ...rest
 }) => (
   <Container style = {{flex: 1, height: '100%'}}>
-    <StatusBar backgroundColor={colors.theme_default} />
+    <StatusBar backgroundColor={colors.theme_default} barStyle='light-content' />
     <View style = {styles.contentImage}>
         <LinearGradient
           colors={[colors.theme_default, colors.theme_second]}
@@ -45,11 +41,13 @@ const ViewLogin = ({
         <ImageBackground source={images.home.cover} style={styles.coverImage}/>
         <Image source={images.login.logo} style = {styles.logo}/>
         <Text style = {styles.welcome}>Bem-vindo(a)!</Text>
-        <Text style = {styles.welcomeText}>{`O CheckAppis é a forma mais fácil e\nrápida de gerenciar seu apiário.`}</Text>
+        <Text style = {styles.welcomeText}>{`O CheckAppis é a forma mais fácil\ne rápida de gerenciar seu apiário.`}</Text>
       </LinearGradient>
     </View>
     <View style = {styles.loginView}>
       <Text style = {styles.accessText}>ACESSE SUA CONTA</Text>
+
+      { message ? <Text style={styles.errorMessage}>{message}</Text> : null }
 
       <View style = {styles.viewInput}>
         <Icon type="FontAwesome5" name="user-alt" style = {styles.iconInputi}/>
@@ -88,16 +86,19 @@ const ViewLogin = ({
           colors={[colors.theme_default, colors.theme_second]}
           style={{ height: '100%', borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}
         >
-          <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: wp('3.6%') }}>E N T R A R</Text>
           {loading ? (
             <Spinner color="white" style={styles.spinnerButton} />
-          ) : null}
+          ) : (
+            <Text style={{ color: colors.white, fontFamily: 'Montserrat-Bold', fontSize: wp('3.6%') }}>E N T R A R</Text>
+          )}
         </LinearGradient>
       </TouchableOpacity>
     </View>
     <View style = {styles.content}>
-      <Text style = {styles.forgotText}>Esqueci minha senha</Text>
       <Text style = {styles.notText}>{`Não está cadastrado?\nEntre em contato com um técnico.`}</Text>
+      <TouchableOpacity onPress={goToOnboarding}>
+        <Text style = {styles.notText}>Ver apresentação do CheckAppis novamente.</Text>
+      </TouchableOpacity>
     </View>
   </Container>
 );

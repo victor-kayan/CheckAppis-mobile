@@ -1,7 +1,15 @@
-import { LOGIN, LOGOUT, LOADING_LOGIN, GET_INFORMATIONS_USER } from "./actionsType";
+import { AsyncStorage, Alert } from "react-native";
+import { RESET_STATE as RESET_STATE_OFFLINE } from "@redux-offline/redux-offline/lib/constants";
+
+import {
+  LOGIN, 
+  LOGOUT, 
+  LOADING_LOGIN, 
+  GET_INFORMATIONS_USER, 
+  RESET_STATE_ON_LOGOUT
+} from "./actionsType";
 import { Api } from "../../../../services";
 import { URLS, constants } from "../../../../assets";
-import { AsyncStorage } from "react-native";
 
 export const login = ({ email, password }) => {
   return dispatch => {
@@ -39,8 +47,7 @@ export const login = ({ email, password }) => {
   };
 };
 
-export const logout = () => {
-
+export const logout = user => {
   return dispatch => {
     dispatch({
       type: LOADING_LOGIN,
@@ -49,20 +56,19 @@ export const logout = () => {
       }
     });
 
-    Api.instance.post(URLS.LOGOUT_URL)
+    Api.instance.post(URLS.LOGOUT_URL, { user })
       .then(response => {
-        AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
-        dispatch({
-          type: LOGOUT,
-          payload: {
-            user: {},
-            loading: false,
-            logged: false,
-            token: ""
-          }
-        });
+        AsyncStorage.removeItem(`@checkAppisApp:${constants.ACCESS_TOKEN}`);
+
+        dispatch({ type: RESET_STATE_ON_LOGOUT });
+        dispatch({ type: RESET_STATE_OFFLINE });
       })
       .catch(error => {
+        Alert.alert(
+          'Erro ao sair da conta',
+          'Você precisa de internet para concluir essa ação. Por favor, verifique sua conexão e tente novamente.'
+        );
+
         dispatch({
           type: LOADING_LOGIN,
           payload: {

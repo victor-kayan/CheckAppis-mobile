@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { login } from "../../../redux/actions/userActions";
 
+import { Toast } from "native-base";
 import { constants, routes } from "../../../../assets";
 import ViewLogin from "./ViewLogin";
 
@@ -49,8 +50,6 @@ class Login extends React.Component {
       } else if (!email.includes("@")) {
         this.setState({ error: true, message: "Email inválido." });
       } else {
-        await AsyncStorage.setItem(`@beecheckApp:${constants.USER_EMAIL}`, email);
-        await AsyncStorage.setItem(`@beecheckApp:${constants.USER_PASSWORD}`, password);
         await login({ email, password });
       }
     } else {
@@ -62,7 +61,7 @@ class Login extends React.Component {
     if (nextProps.logged == true) {
       try {
         await AsyncStorage.setItem(
-          `@beecheckApp:${constants.ACCESS_TOKEN}`,
+          `@checkAppisApp:${constants.ACCESS_TOKEN}`,
           nextProps.token
         );
       } catch (error) {
@@ -75,8 +74,18 @@ class Login extends React.Component {
       this.state.email != ""
     ) {
       this.setState({ error: true, message: "Email ou senha inválidos." });
+      Toast.show({
+        text: "Verifique seu email e senha",
+        textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
+        type: "danger"
+      });
     }
   };
+
+  navigateToOnboarding = () => {
+    AsyncStorage.removeItem(`@checkAppisApp:${constants.HAS_ACCESSED_BEFORE}`);
+    this.props.navigation.navigate(routes.Onboarding);
+  }
 
   render() {
     const { loading } = this.props;
@@ -94,6 +103,7 @@ class Login extends React.Component {
           handlePassword={password => this.setState({ password })}
           handleLogin={this.login}
           loading={loading}
+          goToOnboarding={this.navigateToOnboarding}
         />
       </>
     );

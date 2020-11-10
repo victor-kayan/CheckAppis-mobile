@@ -1,17 +1,23 @@
 import React from "react";
-import { View, AsyncStorage, StyleSheet, Image, Alert, StatusBar } from "react-native";
-import { Spinner, Text } from "native-base";
-import { colors, constants, routes, images } from "../../../assets";
-import { Api } from "../../../services";
+import { View, AsyncStorage, StyleSheet, Alert, StatusBar } from "react-native";
+
 import LinearGradient from "react-native-linear-gradient";
+import { Spinner, Text } from "native-base";
+import { colors, constants, routes } from "../../../assets";
+import { Api } from "../../../services";
 
 class LoadingLogin extends React.Component {
   async componentDidMount() {
-    var token = await AsyncStorage.getItem(
-      `@beecheckApp:${constants.ACCESS_TOKEN}`
+    const token = await AsyncStorage.getItem(
+      `@checkAppisApp:${constants.ACCESS_TOKEN}`
     );
-
-    if (token) {
+    const hasAccessedBefore = JSON.parse(await AsyncStorage.getItem(
+      `@checkAppisApp:${constants.HAS_ACCESSED_BEFORE}`
+    ));
+    
+    if (!hasAccessedBefore) {
+      this.props.navigation.navigate(routes.Onboarding);
+    } else if (token) {
       Api.instance.defaults.headers.Authorization = `Bearer ${token}`;
       Api.instance.interceptors.response.use(
         function(response) {
@@ -23,7 +29,7 @@ class LoadingLogin extends React.Component {
             error.response.status &&
             error.response.status === 401
           ) {
-            AsyncStorage.removeItem(`@beecheckApp:${constants.ACCESS_TOKEN}`);
+            AsyncStorage.removeItem(`@checkAppisApp:${constants.ACCESS_TOKEN}`);
             Alert.alert(
               "Erro na autenticação",
               "Efetue login novamente."

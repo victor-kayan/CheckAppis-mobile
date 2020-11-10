@@ -33,7 +33,7 @@ export default {
     },
 
     date: {
-        fontSize: 13,
+        fontSize: 12,
         fontFamily: 'Montserrat Regular',
         color: colors.black,
     },

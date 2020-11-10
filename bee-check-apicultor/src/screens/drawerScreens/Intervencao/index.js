@@ -30,7 +30,7 @@ class Intervencao extends Component {
               </View>
               <View style = {styles.contentText}>
                 <Text style = {styles.name}>Nos apiários</Text>
-                <Text style = {styles.description} numberOfLines={2} ellipsizeMode="middle">Intervenções propostas para seus apiários</Text>
+                <Text style = {styles.description}>Intervenções propostas para seus apiários</Text>
               </View>
               <View style = {styles.contentArrow}>
                 <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>
@@ -45,7 +45,7 @@ class Intervencao extends Component {
               </View>
               <View style = {styles.contentText}>
                 <Text style = {styles.name}>Nas colmeias</Text>
-                <Text style = {styles.description} numberOfLines={2} ellipsizeMode="middle">Intervenções propostas para suas colmeias</Text>
+                <Text style = {styles.description}>Intervenções propostas para suas colmeias</Text>
               </View>
               <View style = {styles.contentArrow}>
                 <Icon type="Entypo" name="chevron-right" style={styles.arrow} iconSize={5} active/>
