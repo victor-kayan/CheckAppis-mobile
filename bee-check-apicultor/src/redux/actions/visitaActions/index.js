@@ -60,11 +60,6 @@ export const deleteVisita = (visita_id, apiario_id) => {
       )
       .then(response => {
         dispatch(getVisitasByApiario(apiario_id));
-        Toast.show({
-          text: "Visita deletada com sucesso",
-          type: "success",
-          textStyle: { textAlign: 'center', fontFamily: 'Montserrat Regular' },
-        });
         dispatch({
           type: VISITA_APIARIO_DELETE_SUCCESS,
           payload: {

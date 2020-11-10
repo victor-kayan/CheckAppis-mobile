@@ -1,17 +1,21 @@
 import React from "react";
-import { TouchableOpacity, ScrollView, Alert, TouchableHighlight } from "react-native";
-import { Container, View, Text, Icon } from "native-base";
-import { colors, routes } from "../../../../assets";
-import styles from "./styles";
+import { TouchableOpacity, ScrollView, TouchableHighlight } from "react-native";
+
 import moment from "moment";
 import "moment/locale/pt-br";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteVisita } from "../../../redux/actions/visitaActions";
 import HeaderCustomStack from "../../../componentes/HeaderCustomStack";
+
+import { Container, View, Text, Icon } from "native-base";
+import { colors, routes, images } from "../../../../assets";
 import LinearGradient from "react-native-linear-gradient";
 import ModalSync from "../../../componentes/ModalFeedback";
 import ModalConfirm from "../../../componentes/ModalConfirm";
+import ModalFeedback from "../../../componentes/ModalFeedback";
+import styles from "./styles";
 
 class DetalhesVisita extends React.Component {
 
@@ -22,6 +26,7 @@ class DetalhesVisita extends React.Component {
       apiary: this.props.navigation.getParam("apiary", ""),
       modalVisibleSync: false,
       modalVisibleConfirm: false,
+      modalVisibleTrash: false,
     };
   }
 
@@ -35,20 +40,34 @@ class DetalhesVisita extends React.Component {
     this.setState({modalVisibleSync: false});
   };
 
-  // abrir modal de feedback de exlcusão 
+  // abrir modal de feedback de exclusão 
   openModalConfirm = () => {
     this.setState({modalVisibleConfirm: true});
   };
 
-  // fechar modal de feedback de exlcusão
+  // fechar modal de feedback de exclusão
   closeModalConfirm = () => {
     this.setState({modalVisibleConfirm: false});
     //this.props.navigation.navigate(routes.VisitList);
   };
 
+  // abrir modal de feedback de exclusão 
+  openModalTrash = () => {
+    this.setState({modalVisibleTrash: true});
+  };
+
+  // fechar modal de feedback de exclusão
+  closeModalTrash = () => {
+    this.setState({modalVisibleTrash: false});
+    this.props.navigation.goBack();
+  };
+
   // deletar visita
   deleteVisit = () => {
     this.props.deleteVisita(this.state.visit.id, this.state.apiary.id);
+
+    this.closeModalConfirm();
+    this.openModalTrash();
   };
 
   render() {
@@ -279,6 +298,14 @@ class DetalhesVisita extends React.Component {
             title = 'Excluir Visita'
             text = 'Tem certeza que deseja excluir esta visita permanentemente?'
             button = 'Excluir'
+          />
+
+          <ModalFeedback
+            modalVisible = {this.state.modalVisibleTrash}
+            onCancel = {this.closeModalTrash}
+            gif = {images.gif.trash}
+            title = 'Visita excluída com sucesso'
+            text = 'A visita selecionada foi excluída com sucesso e, por isso, não poderá mais ser acessada.'
           />
       </Container>
     );

@@ -5,7 +5,6 @@ import styles from "./styles";
 import moment from "moment";
 import "moment/locale/pt-br";
 
-
 export default class Visit extends React.Component {
     render () {
         return (
