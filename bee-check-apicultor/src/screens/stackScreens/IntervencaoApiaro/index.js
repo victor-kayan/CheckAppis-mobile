@@ -58,8 +58,9 @@ class IntervencaoApiario extends Component {
           ) : (
             <View style = {styles.container}>
               <Text style = {styles.text}>Aqui estão todas as intervenções dos seus apiários</Text>
+              <View style = {styles.contentList}>
               <ScrollView
-                contentContainerStyle={{width: '90%', paddingHorizontal: 20}}
+                contentContainerStyle={{width: '100%', paddingHorizontal: 10}}
                 showsVerticalScrollIndicator = {false}
                 refreshControl={
                   <RefreshControl
@@ -85,6 +86,7 @@ class IntervencaoApiario extends Component {
                 }
                 <View style = {{height: 100}}/>
               </ScrollView>
+              </View>
             </View>
           )
         

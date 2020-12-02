@@ -19,10 +19,20 @@ export default {
     flex: 1,
     backgroundColor: 'white',
     marginTop: -35,
+    padding: 5,
     alignItems: 'center',
+    justifyContent: 'center',
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35, 
     width: '100%',
+  },
+  contentList: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: 'white',
+    width: '100%',
+    height: '100%'
   },
   title: {
     color: colors.black,

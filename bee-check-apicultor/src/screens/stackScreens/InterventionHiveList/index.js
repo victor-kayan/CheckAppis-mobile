@@ -57,8 +57,9 @@ class InterventionHiveList extends Component {
         
         <View style = {styles.container}>
           <Text style = {styles.title}>Aqui estão as intervenções das colmeias do apiário {this.state.apiaryName}</Text>
+          <View style = {styles.contentList}>
           <ScrollView
-            contentContainerStyle={{ width: '90%', paddingHorizontal: 20}}
+            contentContainerStyle={{ width: '100%', paddingHorizontal: 10}}
             showsVerticalScrollIndicator = {false}
             refreshControl={
               <RefreshControl
@@ -93,6 +94,7 @@ class InterventionHiveList extends Component {
             }
             <View style = {{height: 100}}/>
           </ScrollView>
+          </View>
         </View>
 
       </Container>

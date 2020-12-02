@@ -39,14 +39,12 @@ export default {
     },
 
     button: {
-        width: '67%',
+        width: 100,
         height: '40%',
         backgroundColor: colors.white,
-        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
-        alignSelf: 'flex-end',
         borderWidth: 1,
         borderColor: colors.theme_second,    
     },
@@ -60,6 +58,5 @@ export default {
     statusIcon: {
         fontSize: 25,
         color: colors.theme_second,
-        marginLeft: '12%',
     },
 };

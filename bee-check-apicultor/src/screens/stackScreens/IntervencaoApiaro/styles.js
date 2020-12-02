@@ -15,6 +15,14 @@ export default {
   button: {
     marginBottom: 10,
   },
+  contentList: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: 'white',
+    width: '100%',
+    height: '100%'
+  },
   container: {
     flex: 1,
     backgroundColor: 'white',

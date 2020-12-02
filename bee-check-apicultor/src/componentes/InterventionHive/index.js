@@ -18,11 +18,6 @@ export default class InterventionHive extends React.Component {
     render () {
         return (
           <View style = {styles.intervention}>
-            <View style = {styles.viewTexts}>
-                <Text style = {styles.apiaryName} numberOfLines={1}>{this.props.name}</Text>
-                <Text style = {styles.date}>{this.formatDateToString(this.props.creationDate)}</Text>
-            </View>
-
             { 
                 this.props.isConcluded && this.props.isConclusionSynced ? (
                     <Icon type="AntDesign" name="checkcircleo" style={styles.statusIcon} iconSize={5} active/>
@@ -32,6 +27,11 @@ export default class InterventionHive extends React.Component {
                     <View style = {{height: 25, width: 25, marginLeft: '12%'}}/>
                 )
             }
+            
+            <View style = {styles.viewTexts}>
+                <Text style = {styles.apiaryName} numberOfLines={1}>{this.props.name}</Text>
+                <Text style = {styles.date}>{this.formatDateToString(this.props.creationDate)}</Text>
+            </View>
 
             <TouchableOpacity onPress={() => this.props.openInterventionHive(this.props.interventionHive)}>
                 <View style = {styles.button}>
